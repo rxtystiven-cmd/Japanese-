@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verbos</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+header {
+    background: #d71920;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+nav {
+    background: #b51218;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover { background: rgba(255,255,255,.15); }
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px 45px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.intro h2 {
+    color: #d71920;
+    margin-bottom: 8px;
+}
+
+.search {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.search:focus { border-color: #d71920; }
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    border: none;
+    background: #eee;
+    color: #333;
+    padding: 9px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter.active,
+.filter:hover {
+    background: #d71920;
+    color: white;
+}
+
+.counter {
+    text-align: center;
+    margin: 10px 0 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 18px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,.06);
+}
+
+.word {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d71920;
+}
+
+.reading {
+    color: #666;
+    margin-top: 3px;
+}
+
+.meaning {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.example {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.example-jp {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.example-reading {
+    color: #777;
+    margin-top: 4px;
+}
+
+.example-es {
+    margin-top: 5px;
+}
+
+.category {
+    display: inline-block;
+    margin-top: 12px;
+    background: #ffe5e6;
+    color: #b51218;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    header h1 { font-size: 1.7rem; }
+    main { padding: 20px 10px 35px; }
+    .grid { grid-template-columns: 1fr; }
+    nav a { font-size: 13px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 Verbos</h1>
+    <p>126 verbos japoneses para ampliar tu vocabulario</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion2.html">Sección 2</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="verbos.html">Verbos</a>
+    <a href="gramatica-n4.html">Gramática</a>
+    <a href="kanji-n4.html">Kanji</a>
+</nav>
+
+<main>
+    <section class="intro">
+        <h2>📚 Aprende verbos en japonés</h2>
+        <p>Busca un verbo o filtra por categoría. Cada tarjeta incluye ejemplos.</p>
+    </section>
+
+    <input
+        id="search"
+        class="search"
+        type="text"
+        placeholder="🔎 Buscar verbo, lectura o significado..."
+    >
+
+    <div id="filters" class="filters"></div>
+    <div id="counter" class="counter"></div>
+    <div id="verbs" class="grid"></div>
+</main>
+
+<footer>
+    <div>Verbos 🇯🇵</div>
+    <div>Japanese Fácil</div>
+</footer>
+
+<script>
+const verbs = [["Básicos", "する", "する", "hacer", "勉強します", "べんきょうします", "Estudio"], ["Básicos", "行く", "いく", "ir", "学校へ行きます", "がっこうへいきます", "Voy a la escuela"], ["Básicos", "来る", "くる", "venir", "友達が来ます", "ともだちがきます", "Viene mi amigo"], ["Básicos", "帰る", "かえる", "regresar", "家に帰ります", "いえにかえります", "Regreso a casa"], ["Percepción", "見る", "みる", "ver / mirar", "映画を見ます", "えいがをみます", "Veo una película"], ["Percepción", "聞く", "きく", "escuchar / preguntar", "音楽を聞きます", "おんがくをききます", "Escucho música"], ["Comunicación", "読む", "よむ", "leer", "本を読みます", "ほんをよみます", "Leo un libro"], ["Comunicación", "書く", "かく", "escribir", "名前を書きます", "なまえをかきます", "Escribo mi nombre"], ["Comunicación", "話す", "はなす", "hablar", "日本語を話します", "にほんごをはなします", "Hablo japonés"], ["Comunicación", "言う", "いう", "decir", "先生に言います", "せんせいにいいます", "Se lo digo al profesor"], ["Comida", "食べる", "たべる", "comer", "ご飯を食べます", "ごはんをたべます", "Como"], ["Comida", "飲む", "のむ", "beber", "水を飲みます", "みずをのみます", "Bebo agua"], ["Compras", "買う", "かう", "comprar", "本を買います", "ほんをかいます", "Compro un libro"], ["Compras", "売る", "うる", "vender", "店で売ります", "みせでうります", "Lo vendo en la tienda"], ["Cotidiano", "使う", "つかう", "usar", "ペンを使います", "ペンをつかいます", "Uso un bolígrafo"], ["Cotidiano", "作る", "つくる", "hacer / fabricar", "料理を作ります", "りょうりをつくります", "Cocino"], ["Cotidiano", "待つ", "まつ", "esperar", "駅で待ちます", "えきでまちます", "Espero en la estación"], ["Personas", "会う", "あう", "encontrarse", "友達に会います", "ともだちにあいます", "Me encuentro con un amigo"], ["Vida", "住む", "すむ", "vivir / residir", "日本に住みたいです", "にほんにすみたいです", "Quiero vivir en Japón"], ["Trabajo", "働く", "はたらく", "trabajar", "毎日働きます", "まいにちはたらきます", "Trabajo todos los días"], ["Vida", "休む", "やすむ", "descansar / faltar", "今日は休みます", "きょうはやすみます", "Hoy descanso"], ["Rutina", "寝る", "ねる", "dormir", "十時に寝ます", "じゅうじにねます", "Duermo a las diez"], ["Rutina", "起きる", "おきる", "levantarse", "七時に起きます", "しちじにおきます", "Me levanto a las siete"], ["Movimiento", "歩く", "あるく", "caminar", "駅まで歩きます", "えきまであるきます", "Camino hasta la estación"], ["Movimiento", "走る", "はしる", "correr", "毎朝走ります", "まいあさはしります", "Corro cada mañana"], ["Movimiento", "泳ぐ", "およぐ", "nadar", "海で泳ぎます", "うみでおよぎます", "Nado en el mar"], ["Ocio", "遊ぶ", "あそぶ", "jugar / divertirse", "公園で遊びます", "こうえんであそびます", "Juego en el parque"], ["Movimiento", "入る", "はいる", "entrar", "部屋に入ります", "へやにはいります", "Entro a la habitación"], ["Movimiento", "出る", "でる", "salir", "家を出ます", "いえをでます", "Salgo de casa"], ["Casa", "入れる", "いれる", "meter / poner dentro", "かばんに入れます", "かばんにいれます", "Lo meto en la bolsa"], ["Casa", "出す", "だす", "sacar", "財布を出します", "さいふをだします", "Saco la cartera"], ["Casa", "開ける", "あける", "abrir", "窓を開けます", "まどをあけます", "Abro la ventana"], ["Casa", "閉める", "しめる", "cerrar", "ドアを閉めます", "ドアをしめます", "Cierro la puerta"], ["Casa", "つける", "つける", "encender", "電気をつけます", "でんきをつけます", "Enciendo la luz"], ["Casa", "消す", "けす", "apagar / borrar", "電気を消します", "でんきをけします", "Apago la luz"], ["Casa", "洗う", "あらう", "lavar", "手を洗います", "てをあらいます", "Me lavo las manos"], ["Casa", "掃除する", "そうじする", "limpiar", "部屋を掃除します", "へやをそうじします", "Limpio la habitación"], ["Comida", "料理する", "りょうりする", "cocinar", "毎日料理します", "まいにちりょうりします", "Cocino todos los días"], ["Estudio", "勉強する", "べんきょうする", "estudiar", "日本語を勉強します", "にほんごをべんきょうします", "Estudio japonés"], ["Estudio", "練習する", "れんしゅうする", "practicar", "毎日練習します", "まいにちれんしゅうします", "Practico todos los días"], ["Estudio", "質問する", "しつもんする", "preguntar", "先生に質問します", "せんせいにしつもんします", "Le pregunto al profesor"], ["Comunicación", "答える", "こたえる", "responder", "質問に答えます", "しつもんにこたえます", "Respondo la pregunta"], ["Estudio", "教える", "おしえる", "enseñar / decir", "日本語を教えます", "にほんごをおしえます", "Enseño japonés"], ["Estudio", "習う", "ならう", "aprender", "先生に習います", "せんせいにならいます", "Aprendo del profesor"], ["Estudio", "覚える", "おぼえる", "memorizar", "漢字を覚えます", "かんじをおぼえます", "Memorizo kanji"], ["Estudio", "忘れる", "わすれる", "olvidar", "宿題を忘れました", "しゅくだいをわすれました", "Olvidé la tarea"], ["Pensamiento", "考える", "かんがえる", "pensar", "よく考えます", "よくかんがえます", "Pienso bien"], ["Conocimiento", "知る", "しる", "saber / conocer", "その人を知っています", "そのひとをしっています", "Conozco a esa persona"], ["Conocimiento", "分かる", "わかる", "entender", "意味が分かります", "いみがわかります", "Entiendo el significado"], ["Pensamiento", "思う", "おもう", "pensar / creer", "そう思います", "そうおもいます", "Pienso eso"], ["Tiempo", "始まる", "はじまる", "comenzar", "授業が始まります", "じゅぎょうがはじまります", "Comienza la clase"], ["Tiempo", "始める", "はじめる", "comenzar algo", "勉強を始めます", "べんきょうをはじめます", "Comienzo a estudiar"], ["Tiempo", "終わる", "おわる", "terminar", "授業が終わります", "じゅぎょうがおわります", "Termina la clase"], ["Tiempo", "続ける", "つづける", "continuar", "勉強を続けます", "べんきょうをつづけます", "Continúo estudiando"], ["Movimiento", "止まる", "とまる", "detenerse", "電車が止まりました", "でんしゃがとまりました", "El tren se detuvo"], ["Movimiento", "動く", "うごく", "moverse / funcionar", "時計が動きます", "とけいがうごきます", "El reloj funciona"], ["Cotidiano", "持つ", "もつ", "tener / llevar", "傘を持ちます", "かさをもちます", "Llevo un paraguas"], ["Cotidiano", "置く", "おく", "poner", "ここに置きます", "ここにおきます", "Lo pongo aquí"], ["Cotidiano", "取る", "とる", "tomar / coger", "本を取ります", "ほんをとります", "Cojo el libro"], ["Cotidiano", "撮る", "とる", "tomar (foto)", "写真を撮ります", "しゃしんをとります", "Tomo una foto"], ["Cotidiano", "借りる", "かりる", "pedir prestado", "本を借ります", "ほんをかります", "Pido prestado un libro"], ["Cotidiano", "貸す", "かす", "prestar", "友達に貸します", "ともだちにかします", "Se lo presto a un amigo"], ["Cotidiano", "返す", "かえす", "devolver", "本を返します", "ほんをかえします", "Devuelvo el libro"], ["Comunicación", "送る", "おくる", "enviar", "メールを送ります", "メールをおくります", "Envío un correo"], ["Personas", "もらう", "もらう", "recibir", "プレゼントをもらいました", "プレゼントをもらいました", "Recibí un regalo"], ["Personas", "あげる", "あげる", "dar", "友達にプレゼントをあげます", "ともだちにプレゼントをあげます", "Doy un regalo a un amigo"], ["Personas", "くれる", "くれる", "darme / darnos", "友達が本をくれました", "ともだちがほんをくれました", "Un amigo me dio un libro"], ["Estudio", "受ける", "うける", "recibir / rendir", "試験を受けます", "しけんをうけます", "Rindo un examen"], ["Decisiones", "選ぶ", "えらぶ", "elegir", "好きな物を選びます", "すきなものをえらびます", "Elijo lo que me gusta"], ["Decisiones", "決める", "きめる", "decidir", "予定を決めます", "よていをきめます", "Decido el plan"], ["Decisiones", "変える", "かえる", "cambiar", "予定を変えます", "よていをかえます", "Cambio el plan"], ["Trabajo", "直す", "なおす", "arreglar / corregir", "自転車を直します", "じてんしゃをなおします", "Arreglo la bicicleta"], ["Estudio", "調べる", "しらべる", "investigar / buscar", "辞書で調べます", "じしょでしらべます", "Lo busco en el diccionario"], ["Pensamiento", "比べる", "くらべる", "comparar", "二つを比べます", "ふたつをくらべます", "Comparo los dos"], ["Colección", "集める", "あつめる", "reunir / coleccionar", "切手を集めます", "きってをあつめます", "Colecciono sellos"], ["Movimiento", "運ぶ", "はこぶ", "transportar", "荷物を運びます", "にもつをはこびます", "Transporto el equipaje"], ["Transporte", "乗る", "のる", "subir / montar", "電車に乗ります", "でんしゃにのります", "Subo al tren"], ["Transporte", "降りる", "おりる", "bajar", "電車を降ります", "でんしゃをおります", "Bajo del tren"], ["Transporte", "曲がる", "まがる", "girar", "右に曲がります", "みぎにまがります", "Giro a la derecha"], ["Transporte", "渡る", "わたる", "cruzar", "道を渡ります", "みちをわたります", "Cruzo la calle"], ["Transporte", "着く", "つく", "llegar", "駅に着きました", "えきにつきました", "Llegué a la estación"], ["Ocio", "出かける", "でかける", "salir / ir a algún lugar", "午後出かけます", "ごごでかけます", "Salgo por la tarde"], ["Viajes", "泊まる", "とまる", "alojarse", "ホテルに泊まります", "ホテルにとまります", "Me hospedo en un hotel"], ["Viajes", "旅行する", "りょこうする", "viajar", "日本を旅行します", "にほんをりょこうします", "Viajo por Japón"], ["Viajes", "予約する", "よやくする", "reservar", "ホテルを予約します", "ホテルをよやくします", "Reservo un hotel"], ["Compras", "払う", "はらう", "pagar", "料金を払います", "りょうきんをはらいます", "Pago la tarifa"], ["Familia", "結婚する", "けっこんする", "casarse", "来年結婚します", "らいねんけっこんします", "Me casaré el próximo año"], ["Vida", "生まれる", "うまれる", "nacer", "日本で生まれました", "にほんでうまれました", "Nací en Japón"], ["Vida", "死ぬ", "しぬ", "morir", "魚が死にました", "さかながしにました", "El pez murió"], ["Emociones", "泣く", "なく", "llorar", "子どもが泣いています", "こどもがないています", "El niño está llorando"], ["Emociones", "笑う", "わらう", "reír", "みんなで笑います", "みんなでわらいます", "Todos reímos"], ["Ocio", "歌う", "うたう", "cantar", "歌を歌います", "うたをうたいます", "Canto una canción"], ["Ocio", "弾く", "ひく", "tocar (instrumento)", "ピアノを弾きます", "ピアノをひきます", "Toco el piano"], ["Transporte", "持って行く", "もっていく", "llevar", "本を持って行きます", "ほんをもっていきます", "Llevo el libro"], ["Transporte", "持って来る", "もってくる", "traer", "水を持って来ます", "みずをもってきます", "Traigo agua"], ["Personas", "迎える", "むかえる", "recibir / ir a buscar", "駅へ迎えに行きます", "えきへむかえにいきます", "Voy a buscarlo a la estación"], ["Trabajo", "やめる", "やめる", "dejar / abandonar", "仕事をやめます", "しごとをやめます", "Dejo el trabajo"], ["Tiempo", "続く", "つづく", "continuar", "雨が続きます", "あめがつづきます", "La lluvia continúa"], ["Cambio", "変わる", "かわる", "cambiar", "天気が変わりました", "てんきがかわりました", "El clima cambió"], ["Cambio", "増える", "ふえる", "aumentar", "人が増えました", "ひとがふえました", "Aumentó la cantidad de personas"], ["Cambio", "減る", "へる", "disminuir", "仕事が減りました", "しごとがへりました", "Disminuyó el trabajo"], ["Tiempo", "急ぐ", "いそぐ", "apresurarse", "学校へ急ぎます", "がっこうへいそぎます", "Me apresuro a ir a la escuela"], ["Tiempo", "遅れる", "おくれる", "llegar tarde", "学校に遅れました", "がっこうにおくれました", "Llegué tarde a la escuela"], ["Tiempo", "間に合う", "まにあう", "llegar a tiempo", "電車に間に合います", "でんしゃにまにあいます", "Llego a tiempo al tren"], ["Problemas", "困る", "こまる", "tener problemas", "お金がなくて困ります", "おかねがなくてこまります", "Tengo problemas porque no tengo dinero"], ["Ayuda", "助ける", "たすける", "ayudar / salvar", "友達を助けます", "ともだちをたすけます", "Ayudo a mi amigo"], ["Ayuda", "助かる", "たすかる", "ser ayudado / salvarse", "助かりました", "たすかりました", "Me ayudaste mucho"], ["Seguridad", "注意する", "ちゅういする", "tener cuidado / advertir", "車に注意します", "くるまにちゅういします", "Tengo cuidado con los autos"], ["Comunicación", "連絡する", "れんらくする", "contactar", "後で連絡します", "あとでれんらくします", "Me pondré en contacto después"], ["Comunicación", "説明する", "せつめいする", "explicar", "先生が説明します", "せんせいがせつめいします", "El profesor explica"], ["Comunicación", "紹介する", "しょうかいする", "presentar", "友達を紹介します", "ともだちをしょうかいします", "Presento a mi amigo"], ["Cotidiano", "利用する", "りようする", "utilizar", "図書館を利用します", "としょかんをりようします", "Utilizo la biblioteca"], ["Trabajo", "準備する", "じゅんびする", "preparar", "旅行の準備をします", "りょこうのじゅんびをします", "Preparo el viaje"], ["Estudio", "研究する", "けんきゅうする", "investigar", "日本語を研究します", "にほんごをけんきゅうします", "Investigo japonés"], ["Sociedad", "参加する", "さんかする", "participar", "イベントに参加します", "イベントにさんかします", "Participo en el evento"], ["Resultados", "成功する", "せいこうする", "tener éxito", "計画が成功しました", "けいかくがせいこうしました", "El plan tuvo éxito"], ["Resultados", "失敗する", "しっぱいする", "fracasar / equivocarse", "試験に失敗しました", "しけんにしっぱいしました", "Me fue mal en el examen"], ["Estudio", "確認する", "かくにんする", "confirmar / comprobar", "予定を確認します", "よていをかくにんします", "Compruebo el horario"], ["Transporte", "運転する", "うんてんする", "conducir", "車を運転します", "くるまをうんてんします", "Conduzco un auto"], ["Trabajo", "修理する", "しゅうりする", "reparar", "車を修理します", "くるまをしゅうりします", "Reparo un auto"], ["Casa", "洗濯する", "せんたくする", "lavar la ropa", "服を洗濯します", "ふくをせんたくします", "Lavo la ropa"], ["Comunicación", "電話する", "でんわする", "llamar por teléfono", "母に電話します", "ははにでんわします", "Llamo a mi madre"], ["Comida", "注文する", "ちゅうもんする", "pedir / ordenar", "料理を注文します", "りょうりをちゅうもんします", "Pido un plato"], ["Compras", "買い物する", "かいものする", "hacer compras", "週末に買い物します", "しゅうまつにかいものします", "Hago compras el fin de semana"], ["Cotidiano", "触る", "さわる", "tocar", "ここを触ります", "ここをさわります", "Toco aquí"], ["Cotidiano", "使える", "つかえる", "poder usar / ser utilizable", "この道具は使えます", "このどうぐはつかえます", "Esta herramienta se puede usar"], ["Acciones", "浴びる", "あびる", "ducharse / bañarse", "シャワーを浴びます", "シャワーをあびます", "Me ducho"], ["Acciones", "着る", "きる", "ponerse ropa (parte superior)", "シャツを着ます", "シャツをきます", "Me pongo una camisa"], ["Acciones", "履く", "はく", "ponerse (zapatos/pantalón)", "靴を履きます", "くつをはきます", "Me pongo los zapatos"], ["Acciones", "脱ぐ", "ぬぐ", "quitarse", "靴を脱ぎます", "くつをぬぎます", "Me quito los zapatos"], ["Acciones", "磨く", "みがく", "cepillar / pulir", "歯を磨きます", "はをみがきます", "Me cepillo los dientes"], ["Acciones", "剃る", "そる", "afeitar", "ひげを剃ります", "ひげをそります", "Me afeito"], ["Acciones", "乾く", "かわく", "secarse", "服が乾きました", "ふくがかわきました", "La ropa se secó"], ["Acciones", "乾かす", "かわかす", "secar algo", "髪を乾かします", "かみをかわかします", "Me seco el cabello"], ["Acciones", "焼く", "やく", "asar / hornear", "魚を焼きます", "さかなをやきます", "Aso pescado"], ["Acciones", "煮る", "にる", "hervir / cocinar a fuego lento", "野菜を煮ます", "やさいをにます", "Cocino verduras a fuego lento"], ["Acciones", "切る", "きる", "cortar", "野菜を切ります", "やさいをきります", "Corto verduras"], ["Acciones", "混ぜる", "まぜる", "mezclar", "材料を混ぜます", "ざいりょうをまぜます", "Mezclo los ingredientes"], ["Acciones", "並べる", "ならべる", "alinear / colocar", "本を並べます", "ほんをならべます", "Alineo los libros"], ["Acciones", "片付ける", "かたづける", "ordenar / recoger", "部屋を片付けます", "へやをかたづけます", "Ordeno la habitación"], ["Acciones", "捨てる", "すてる", "tirar / desechar", "ごみを捨てます", "ごみをすてます", "Tiro la basura"], ["Acciones", "拾う", "ひろう", "recoger del suelo", "ごみを拾います", "ごみをひろいます", "Recojo la basura"], ["Acciones", "折る", "おる", "doblar / romper", "紙を折ります", "かみをおります", "Doblo el papel"], ["Acciones", "折れる", "おれる", "romperse / doblarse", "枝が折れました", "えだがおれました", "La rama se rompió"], ["Acciones", "壊す", "こわす", "romper / destruir", "時計を壊しました", "とけいをこわしました", "Rompí el reloj"], ["Acciones", "壊れる", "こわれる", "romperse / averiarse", "パソコンが壊れました", "パソコンがこわれました", "La computadora se averió"], ["Acciones", "汚す", "よごす", "ensuciar", "服を汚しました", "ふくをよごしました", "Ensucié la ropa"], ["Acciones", "汚れる", "よごれる", "ensuciarse", "靴が汚れました", "くつがよごれました", "Los zapatos se ensuciaron"], ["Acciones", "飾る", "かざる", "decorar", "部屋を飾ります", "へやをかざります", "Decoro la habitación"], ["Acciones", "包む", "つつむ", "envolver", "プレゼントを包みます", "プレゼントをつつみます", "Envuelvo el regalo"], ["Acciones", "貼る", "はる", "pegar", "写真を貼ります", "しゃしんをはります", "Pego una foto"], ["Acciones", "塗る", "ぬる", "pintar / aplicar", "壁を塗ります", "かべをぬります", "Pinto la pared"], ["Acciones", "押す", "おす", "empujar / pulsar", "ボタンを押します", "ボタンをおします", "Pulso el botón"], ["Acciones", "引く", "ひく", "tirar / jalar", "ドアを引きます", "ドアをひきます", "Tiro de la puerta"], ["Acciones", "持ち上げる", "もちあげる", "levantar", "箱を持ち上げます", "はこをもちあげます", "Levanto la caja"], ["Acciones", "下げる", "さげる", "bajar", "音を下げます", "おとをさげます", "Bajo el volumen"], ["Acciones", "上げる", "あげる", "subir / elevar", "音を上げます", "おとをあげます", "Subo el volumen"], ["Movimiento", "飛ぶ", "とぶ", "volar", "鳥が空を飛びます", "とりがそらをとびます", "El pájaro vuela por el cielo"], ["Movimiento", "落ちる", "おちる", "caer", "りんごが落ちました", "りんごがおちました", "La manzana cayó"], ["Movimiento", "落とす", "おとす", "dejar caer", "鍵を落としました", "かぎをおとしました", "Se me cayó la llave"], ["Movimiento", "上がる", "あがる", "subir", "温度が上がります", "おんどがあがります", "Sube la temperatura"], ["Movimiento", "下がる", "さがる", "bajar", "温度が下がります", "おんどがさがります", "Baja la temperatura"], ["Movimiento", "進む", "すすむ", "avanzar", "前に進みます", "まえにすすみます", "Avanzo hacia adelante"], ["Movimiento", "戻る", "もどる", "regresar", "家に戻ります", "いえにもどります", "Regreso a casa"], ["Movimiento", "戻す", "もどす", "devolver / regresar algo", "本を元に戻します", "ほんをもとにもどします", "Devuelvo el libro a su lugar"], ["Movimiento", "逃げる", "にげる", "escapar / huir", "猫が逃げました", "ねこがにげました", "El gato escapó"], ["Movimiento", "追う", "おう", "perseguir", "犬が猫を追います", "いぬがねこをおいます", "El perro persigue al gato"], ["Movimiento", "集まる", "あつまる", "reunirse", "学生が集まります", "がくせいがあつまります", "Los estudiantes se reúnen"], ["Movimiento", "離れる", "はなれる", "alejarse / separarse", "駅から離れます", "えきからはなれます", "Me alejo de la estación"], ["Movimiento", "近づく", "ちかづく", "acercarse", "駅に近づきます", "えきにちかづきます", "Me acerco a la estación"], ["Movimiento", "動かす", "うごかす", "mover algo", "机を動かします", "つくえをうごかします", "Muevo el escritorio"], ["Movimiento", "回る", "まわる", "girar / dar vueltas", "時計の針が回ります", "とけいのはりがまわります", "Las manecillas giran"], ["Movimiento", "回す", "まわす", "girar algo", "ドアノブを回します", "ドアノブをまわします", "Giro el pomo"], ["Movimiento", "渡す", "わたす", "entregar", "先生に紙を渡します", "せんせいにかみをわたします", "Entrego el papel al profesor"], ["Movimiento", "通る", "とおる", "pasar por", "公園を通ります", "こうえんをとおります", "Paso por el parque"], ["Movimiento", "通う", "かよう", "ir regularmente / asistir", "学校に通います", "がっこうにかよいます", "Asisto a la escuela"], ["Movimiento", "寄る", "よる", "pasar por / acercarse", "店に寄ります", "みせによります", "Paso por la tienda"], ["Movimiento", "乗せる", "のせる", "subir / llevar a alguien", "友達を車に乗せます", "ともだちをくるまにのせます", "Llevo a mi amigo en auto"], ["Movimiento", "降ろす", "おろす", "bajar / dejar bajar", "荷物を降ろします", "にもつをおろします", "Bajo el equipaje"], ["Movimiento", "迎えに行く", "むかえにいく", "ir a recoger", "母を迎えに行きます", "ははをむかえにいきます", "Voy a recoger a mi madre"], ["Comunicación", "伝わる", "つたわる", "transmitirse / entenderse", "気持ちが伝わります", "きもちがつたわります", "El sentimiento se transmite"], ["Comunicación", "聞こえる", "きこえる", "poder oírse", "音が聞こえます", "おとがきこえます", "Se oye un sonido"], ["Comunicación", "見える", "みえる", "poder verse", "山が見えます", "やまがみえます", "Se ve la montaña"], ["Comunicación", "呼ぶ", "よぶ", "llamar", "友達を呼びます", "ともだちをよびます", "Llamo a un amigo"], ["Comunicación", "知らせる", "しらせる", "avisar / informar", "友達に知らせます", "ともだちにしらせます", "Aviso a mi amigo"], ["Comunicación", "頼む", "たのむ", "pedir / encargar", "先生に頼みます", "せんせいにたのみます", "Se lo pido al profesor"], ["Comunicación", "約束する", "やくそくする", "prometer / acordar", "友達と約束します", "ともだちとやくそくします", "Hago un acuerdo con mi amigo"], ["Comunicación", "相談する", "そうだんする", "consultar", "先生に相談します", "せんせいにそうだんします", "Consulto al profesor"], ["Comunicación", "挨拶する", "あいさつする", "saludar", "先生に挨拶します", "せんせいにあいさつします", "Saludo al profesor"], ["Comunicación", "案内する", "あんないする", "guiar / orientar", "駅を案内します", "えきをあんないします", "Guío hasta la estación"], ["Comunicación", "翻訳する", "ほんやくする", "traducir", "文章を翻訳します", "ぶんしょうをほんやくします", "Traduzco un texto"], ["Comunicación", "発音する", "はつおんする", "pronunciar", "言葉を発音します", "ことばをはつおんします", "Pronuncio una palabra"], ["Comunicación", "発表する", "はっぴょうする", "presentar / exponer", "学校で発表します", "がっこうではっぴょうします", "Hago una presentación en la escuela"], ["Comunicación", "返事する", "へんじする", "responder", "メールに返事します", "メールにへんじします", "Respondo el correo"], ["Estudio", "合格する", "ごうかくする", "aprobar", "試験に合格しました", "しけんにごうかくしました", "Aprobé el examen"], ["Estudio", "卒業する", "そつぎょうする", "graduarse", "学校を卒業します", "がっこうをそつぎょうします", "Me gradúo de la escuela"], ["Estudio", "入学する", "にゅうがくする", "ingresar a una escuela", "大学に入学します", "だいがくににゅうがくします", "Ingreso a la universidad"], ["Estudio", "暗記する", "あんきする", "memorizar", "単語を暗記します", "たんごをあんきします", "Memorizo vocabulario"], ["Estudio", "復習する", "ふくしゅうする", "repasar", "授業を復習します", "じゅぎょうをふくしゅうします", "Repaso la clase"], ["Estudio", "予習する", "よしゅうする", "preparar una lección", "明日の授業を予習します", "あしたのじゅぎょうをよしゅうします", "Preparo la clase de mañana"], ["Estudio", "計算する", "けいさんする", "calcular", "答えを計算します", "こたえをけいさんします", "Calculo la respuesta"], ["Estudio", "調査する", "ちょうさする", "investigar / encuestar", "原因を調査します", "げんいんをちょうさします", "Investigo la causa"], ["Estudio", "記録する", "きろくする", "registrar / grabar", "結果を記録します", "けっかをきろくします", "Registro el resultado"], ["Estudio", "提出する", "ていしゅつする", "entregar", "宿題を提出します", "しゅくだいをていしゅつします", "Entrego la tarea"], ["Estudio", "印刷する", "いんさつする", "imprimir", "資料を印刷します", "しりょうをいんさつします", "Imprimo los materiales"], ["Estudio", "コピーする", "コピーする", "copiar", "書類をコピーします", "しょるいをコピーします", "Copio el documento"], ["Trabajo", "勤める", "つとめる", "trabajar en / estar empleado", "会社に勤めています", "かいしゃにつとめています", "Trabajo en una empresa"], ["Trabajo", "辞める", "やめる", "renunciar / dejar", "会社を辞めます", "かいしゃをやめます", "Dejo la empresa"], ["Trabajo", "終える", "おえる", "terminar", "仕事を終えます", "しごとをおえます", "Termino el trabajo"], ["Trabajo", "決まる", "きまる", "decidirse / quedar decidido", "予定が決まりました", "よていがきまりました", "El plan quedó decidido"], ["Trabajo", "申し込む", "もうしこむ", "solicitar / inscribirse", "コースに申し込みます", "コースにもうしこみます", "Me inscribo en el curso"], ["Trabajo", "受け取る", "うけとる", "recibir / recoger", "荷物を受け取ります", "にもつをうけとります", "Recibo el paquete"], ["Trabajo", "届ける", "とどける", "entregar / llevar", "荷物を届けます", "にもつをとどけます", "Entrego el paquete"], ["Trabajo", "届け出る", "とどけでる", "notificar", "住所を届け出ます", "じゅうしょをとどけでます", "Notifico la dirección"], ["Trabajo", "管理する", "かんりする", "gestionar / administrar", "データを管理します", "データをかんりします", "Gestiono los datos"], ["Trabajo", "販売する", "はんばいする", "vender / comercializar", "商品を販売します", "しょうひんをはんばいします", "Vendo productos"], ["Compras", "値切る", "ねぎる", "regatear", "店で値切ります", "みせでねぎります", "Regateo en la tienda"], ["Compras", "届く", "とどく", "llegar / entregarse", "荷物が届きました", "にもつがとどきました", "Llegó el paquete"], ["Compras", "買い換える", "かいかえる", "reemplazar comprando uno nuevo", "携帯を買い換えます", "けいたいをかいかえます", "Cambio de celular"], ["Comida", "味わう", "あじわう", "saborear", "料理を味わいます", "りょうりをあじわいます", "Saboreo la comida"], ["Comida", "冷やす", "ひやす", "enfriar", "水を冷やします", "みずをひやします", "Enfrío el agua"], ["Comida", "冷える", "ひえる", "enfriarse", "水が冷えました", "みずがひえました", "El agua se enfrió"], ["Comida", "温める", "あたためる", "calentar", "ご飯を温めます", "ごはんをあたためます", "Caliento la comida"], ["Comida", "温まる", "あたたまる", "calentarse", "スープが温まりました", "スープがあたたまりました", "La sopa se calentó"], ["Comida", "焼ける", "やける", "estar cocido / asado", "パンが焼けました", "パンがやけました", "El pan está horneado"], ["Comida", "煮える", "にえる", "estar cocido", "野菜が煮えました", "やさいがにえました", "Las verduras están cocidas"], ["Comida", "飲み物を作る", "のみものをつくる", "preparar una bebida", "お茶を作ります", "おちゃをつくります", "Preparo té"], ["Casa", "建てる", "たてる", "construir", "家を建てます", "いえをたてます", "Construyo una casa"], ["Casa", "建つ", "たつ", "estar construido", "新しい家が建ちました", "あたらしいいえがたちました", "Se construyó una casa nueva"], ["Casa", "引っ越す", "ひっこす", "mudarse", "来月引っ越します", "らいげつひっこします", "Me mudo el próximo mes"], ["Casa", "泊める", "とめる", "alojar a alguien", "友達を家に泊めます", "ともだちをいえにとめます", "Alojo a un amigo"], ["Casa", "片付く", "かたづく", "quedar ordenado", "部屋が片付きました", "へやがかたづきました", "La habitación quedó ordenada"], ["Casa", "電気を消す", "でんきをけす", "apagar la luz", "寝る前に電気を消します", "ねるまえにでんきをけします", "Apago la luz antes de dormir"], ["Casa", "鍵をかける", "かぎをかける", "cerrar con llave", "ドアに鍵をかけます", "ドアにかぎをかけます", "Cierro la puerta con llave"], ["Casa", "鍵を開ける", "かぎをあける", "abrir con llave", "ドアの鍵を開けます", "ドアのかぎをあけます", "Abro la puerta con llave"], ["Viajes", "観光する", "かんこうする", "hacer turismo", "京都を観光します", "きょうとをかんこうします", "Hago turismo en Kioto"], ["Viajes", "出発する", "しゅっぱつする", "partir / salir", "八時に出発します", "はちじにしゅっぱつします", "Parto a las ocho"], ["Viajes", "到着する", "とうちゃくする", "llegar", "空港に到着します", "くうこうにとうちゃくします", "Llego al aeropuerto"], ["Viajes", "乗り換える", "のりかえる", "hacer transbordo", "駅で電車を乗り換えます", "えきででんしゃをのりかえます", "Cambio de tren en la estación"], ["Viajes", "迷う", "まよう", "perderse / dudar", "道に迷いました", "みちにまよいました", "Me perdí"], ["Viajes", "見送る", "みおくる", "despedir / acompañar hasta la salida", "友達を見送ります", "ともだちをみおくります", "Despido a mi amigo"], ["Viajes", "迎えに来る", "むかえにくる", "venir a recoger", "父が迎えに来ます", "ちちがむかえにきます", "Mi padre viene a recogerme"], ["Emociones", "喜ぶ", "よろこぶ", "alegrarse", "母が喜びました", "ははがよろこびました", "Mi madre se alegró"], ["Emociones", "悲しむ", "かなしむ", "entristecerse", "みんなが悲しみました", "みんながかなしみました", "Todos se entristecieron"], ["Emociones", "怖がる", "こわがる", "tener miedo", "犬が怖がっています", "いぬがこわがっています", "El perro tiene miedo"], ["Emociones", "楽しむ", "たのしむ", "disfrutar", "旅行を楽しみます", "りょこうをたのしみます", "Disfruto del viaje"], ["Emociones", "感じる", "かんじる", "sentir", "春を感じます", "はるをかんじます", "Siento la primavera"], ["Emociones", "心配する", "しんぱいする", "preocuparse", "母を心配します", "ははをしんぱいします", "Me preocupo por mi madre"], ["Emociones", "安心する", "あんしんする", "tranquilizarse", "無事で安心しました", "ぶじであんしんしました", "Me tranquilicé al saber que está bien"], ["Emociones", "緊張する", "きんちょうする", "ponerse nervioso", "試験で緊張します", "しけんできんちょうします", "Me pongo nervioso en el examen"], ["Emociones", "慣れる", "なれる", "acostumbrarse", "新しい生活に慣れました", "あたらしいせいかつになれました", "Me acostumbré a la nueva vida"], ["Cambio", "増やす", "ふやす", "aumentar algo", "時間を増やします", "じかんをふやします", "Aumento el tiempo"], ["Cambio", "減らす", "へらす", "reducir algo", "荷物を減らします", "にもつをへらします", "Reduzco el equipaje"], ["Cambio", "止める", "とめる", "detener / parar algo", "車を止めます", "くるまをとめます", "Detengo el auto"], ["Cambio", "止む", "やむ", "parar (lluvia, etc.)", "雨が止みました", "あめがやみました", "Dejó de llover"], ["Pensamiento", "信じる", "しんじる", "creer / confiar", "友達を信じます", "ともだちをしんじます", "Confío en mi amigo"], ["Pensamiento", "考え直す", "かんがえなおす", "reconsiderar", "計画を考え直します", "けいかくをかんがえなおします", "Reconsidero el plan"], ["Pensamiento", "思い出す", "おもいだす", "recordar", "昔のことを思い出します", "むかしのことをおもいだします", "Recuerdo cosas del pasado"], ["Pensamiento", "気づく", "きづく", "darse cuenta", "間違いに気づきました", "まちがいにきづきました", "Me di cuenta del error"], ["Pensamiento", "決心する", "けっしんする", "decidirse / tomar una decisión", "日本へ行くと決心しました", "にほんへいくとけっしんしました", "Decidí ir a Japón"], ["Sociedad", "協力する", "きょうりょくする", "cooperar", "みんなで協力します", "みんなできょうりょくします", "Todos cooperamos"], ["Sociedad", "賛成する", "さんせいする", "estar de acuerdo", "その意見に賛成します", "そのいけんにさんせいします", "Estoy de acuerdo con esa opinión"], ["Sociedad", "反対する", "はんたいする", "oponerse / estar en contra", "その計画に反対します", "そのけいかくにはんたいします", "Me opongo a ese plan"], ["Sociedad", "守る", "まもる", "proteger / cumplir", "ルールを守ります", "ルールをまもります", "Cumplo las reglas"], ["Sociedad", "助け合う", "たすけあう", "ayudarse mutuamente", "みんなで助け合います", "みんなでたすけあいます", "Todos nos ayudamos"], ["Seguridad", "気をつける", "きをつける", "tener cuidado", "車に気をつけます", "くるまにきをつけます", "Tengo cuidado con los autos"], ["Seguridad", "避ける", "さける", "evitar", "危険を避けます", "きけんをさけます", "Evito el peligro"], ["Naturaleza", "咲く", "さく", "florecer", "桜が咲きます", "さくらがさきます", "Florecen los cerezos"], ["Naturaleza", "枯れる", "かれる", "marchitarse", "花が枯れました", "はながかれました", "La flor se marchitó"], ["Naturaleza", "育つ", "そだつ", "crecer", "木が大きく育ちます", "きがおおきくそだちます", "El árbol crece mucho"], ["Naturaleza", "植える", "うえる", "plantar", "木を植えます", "きをうえます", "Planto un árbol"], ["Naturaleza", "光る", "ひかる", "brillar", "星が光っています", "ほしがひかっています", "Las estrellas brillan"], ["Naturaleza", "流れる", "ながれる", "fluir", "川が流れています", "かわがながれています", "El río fluye"], ["Naturaleza", "燃える", "もえる", "arder / quemarse", "火が燃えています", "ひがもえています", "El fuego está ardiendo"], ["Naturaleza", "燃やす", "もやす", "quemar", "木を燃やします", "きをもやします", "Quemo madera"], ["Ocio", "踊る", "おどる", "bailar", "音楽に合わせて踊ります", "おんがくにあわせておどります", "Bailo al ritmo de la música"], ["Ocio", "描く", "えがく", "dibujar / representar", "絵を描きます", "えをえがきます", "Dibujo una imagen"], ["Ocio", "撮影する", "さつえいする", "filmar / fotografiar", "動画を撮影します", "どうがをさつえいします", "Grabo un video"], ["Ocio", "録音する", "ろくおんする", "grabar audio", "声を録音します", "こえをろくおんします", "Grabo mi voz"], ["Tecnología", "保存する", "ほぞんする", "guardar", "ファイルを保存します", "ファイルをほぞんします", "Guardo el archivo"], ["Tecnología", "削除する", "さくじょする", "eliminar", "写真を削除します", "しゃしんをさくじょします", "Elimino la foto"], ["Tecnología", "検索する", "けんさくする", "buscar", "情報を検索します", "じょうほうをけんさくします", "Busco información"], ["Tecnología", "入力する", "にゅうりょくする", "introducir / ingresar datos", "名前を入力します", "なまえをにゅうりょくします", "Introduzco mi nombre"], ["Tecnología", "操作する", "そうさする", "operar / manejar", "機械を操作します", "きかいをそうさします", "Manejo la máquina"], ["Tecnología", "接続する", "せつぞくする", "conectar", "Wi-Fiに接続します", "ワイファイにせつぞくします", "Me conecto al Wi-Fi"], ["Tecnología", "充電する", "じゅうでんする", "cargar (batería)", "携帯を充電します", "けいたいをじゅうでんします", "Cargo el celular"], ["Tecnología", "起動する", "きどうする", "iniciar / arrancar", "パソコンを起動します", "パソコンをきどうします", "Inicio la computadora"], ["Tecnología", "終了する", "しゅうりょうする", "finalizar / cerrar", "アプリを終了します", "アプリをしゅうりょうします", "Cierro la aplicación"], ["Salud", "治る", "なおる", "curarse / mejorar", "風邪が治りました", "かぜがなおりました", "Me recuperé del resfriado"], ["Salud", "治す", "なおす", "curar / arreglar", "風邪を治します", "かぜをなおします", "Me curo del resfriado"], ["Salud", "痛む", "いたむ", "doler", "足が痛みます", "あしがいたみます", "Me duele la pierna"], ["Salud", "疲れる", "つかれる", "cansarse", "今日は疲れました", "きょうはつかれました", "Hoy me cansé"], ["Salud", "運動する", "うんどうする", "hacer ejercicio", "毎日運動します", "まいにちうんどうします", "Hago ejercicio todos los días"], ["Salud", "診察する", "しんさつする", "examinar médicamente", "医者が患者を診察します", "いしゃがかんじゃをしんさつします", "El médico examina al paciente"], ["Salud", "入院する", "にゅういんする", "hospitalizarse", "病院に入院します", "びょういんににゅういんします", "Ingreso al hospital"], ["Salud", "退院する", "たいいんする", "salir del hospital", "明日退院します", "あしたたいいんします", "Mañana salgo del hospital"], ["Cotidiano", "開く", "ひらく", "abrir / inaugurar", "店を開きます", "みせをひらきます", "Abro una tienda"], ["Cotidiano", "閉じる", "とじる", "cerrar", "本を閉じます", "ほんをとじます", "Cierro el libro"], ["Comunicación", "返答する", "へんとうする", "responder", "質問に返答します", "しつもんにへんとうします", "Respondo a la pregunta"]];
+
+const search = document.getElementById("search");
+const filters = document.getElementById("filters");
+const counter = document.getElementById("counter");
+const container = document.getElementById("verbs");
+
+let currentCategory = "Todas";
+
+const categories = ["Todas", ...new Set(verbs.map(v => v[0]))];
+
+categories.forEach(category => {
+    const button = document.createElement("button");
+    button.className = "filter" + (category === "Todas" ? " active" : "");
+    button.textContent = category;
+
+    button.addEventListener("click", () => {
+        currentCategory = category;
+
+        document.querySelectorAll(".filter").forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+        render();
+    });
+
+    filters.appendChild(button);
+});
+
+function render() {
+    const query = search.value.toLowerCase().trim();
+
+    const filtered = verbs.filter(v => {
+        const matchesCategory =
+            currentCategory === "Todas" || v[0] === currentCategory;
+
+        const text = v.join(" ").toLowerCase();
+
+        return matchesCategory && text.includes(query);
+    });
+
+    counter.textContent =
+        `Mostrando ${filtered.length} de ${verbs.length} verbos`;
+
+    container.innerHTML = "";
+
+    if (filtered.length === 0) {
+        container.innerHTML =
+            '<div class="empty">No se encontraron verbos.</div>';
+        return;
+    }
+
+    filtered.forEach(v => {
+        const [category, japanese, reading, meaning, example, exampleReading, exampleSpanish] = v;
+
+        const card = document.createElement("article");
+        card.className = "card";
+
+        card.innerHTML = `
+            <div class="word">${japanese}</div>
+            <div class="reading">${reading}</div>
+            <div class="meaning">${meaning}</div>
+
+            <div class="example">
+                <div class="example-jp">${example}</div>
+                <div class="example-reading">${exampleReading}</div>
+                <div class="example-es">${exampleSpanish}</div>
+            </div>
+
+            <div class="category">${category}</div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+search.addEventListener("input", render);
+render();
+</script>
+
+</body>
+</html>
