@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JLPT N4 - Japanese Fácil</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#222;
+}
+
+header{
+    background:#d71920;
+    color:white;
+    text-align:center;
+    padding:28px 15px;
+}
+
+header h1{
+    margin:0;
+    font-size:2rem;
+}
+
+header p{
+    margin:8px 0 0;
+}
+
+nav{
+    background:#b51218;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+    padding:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:9px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+nav a:hover,
+nav a.active{
+    background:#d71920;
+}
+
+main{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 15px 45px;
+}
+
+.intro{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.intro h2{
+    color:#d71920;
+    margin-bottom:8px;
+}
+
+/* CATEGORÍAS */
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.category-btn{
+    border:none;
+    background:#eee;
+    color:#222;
+    padding:10px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:#d71920;
+    color:white;
+}
+
+/* PROGRESO */
+
+.progress{
+    max-width:800px;
+    margin:0 auto 20px;
+    text-align:center;
+    color:#777;
+    font-weight:bold;
+}
+
+.progress-bar{
+    height:10px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:8px;
+}
+
+.progress-fill{
+    height:100%;
+    width:0;
+    background:#d71920;
+    transition:.3s;
+}
+
+/* EJERCICIO */
+
+.exercise{
+    max-width:800px;
+    margin:auto;
+    border:1px solid #ddd;
+    border-top:5px solid #d71920;
+    border-radius:12px;
+    padding:24px;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+
+.badge{
+    display:inline-block;
+    background:#ffe5e6;
+    color:#b51218;
+    padding:5px 9px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.number{
+    float:right;
+    color:#777;
+    font-size:13px;
+}
+
+.title{
+    color:#d71920;
+    font-size:1.4rem;
+    font-weight:bold;
+    margin:20px 0 8px;
+}
+
+.instruction{
+    color:#666;
+    margin-bottom:18px;
+}
+
+.question{
+    background:#f8f8f8;
+    padding:18px;
+    border-radius:10px;
+    font-size:1.15rem;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+/* INPUT */
+
+.answer{
+    width:100%;
+    padding:13px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:17px;
+    outline:none;
+}
+
+.answer:focus{
+    border-color:#d71920;
+}
+
+textarea.answer{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* OPCIONES */
+
+.options{
+    display:grid;
+    gap:10px;
+}
+
+.option{
+    border:2px solid #ddd;
+    background:white;
+    padding:13px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    text-align:left;
+    font-weight:bold;
+}
+
+.option:hover{
+    border-color:#d71920;
+}
+
+.option.correct{
+    background:#e7f7e7;
+    border-color:#35a035;
+}
+
+.option.wrong{
+    background:#ffe5e5;
+    border-color:#d71920;
+}
+
+/* AUDIO */
+
+.audio-button{
+    display:block;
+    margin:15px auto;
+    width:75px;
+    height:75px;
+    border:none;
+    border-radius:50%;
+    background:#d71920;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.audio-button:hover{
+    background:#b51218;
+}
+
+/* KANJI */
+
+.kanji{
+    font-size:4rem;
+    text-align:center;
+    color:#d71920;
+    font-weight:bold;
+    margin:15px;
+}
+
+.kanji-fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+/* BOTONES */
+
+.buttons{
+    text-align:center;
+    margin-top:18px;
+}
+
+button.action{
+    border:none;
+    padding:11px 17px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:4px;
+}
+
+.check{
+    background:#d71920;
+    color:white;
+}
+
+.next{
+    background:#b51218;
+    color:white;
+}
+
+.show{
+    background:#eee;
+    color:#222;
+}
+
+.feedback{
+    text-align:center;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.solution{
+    display:none;
+    background:#f8f8f8;
+    border-radius:9px;
+    padding:14px;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+.solution strong{
+    color:#d71920;
+}
+
+/* RESULTADO */
+
+.result{
+    display:none;
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+    border:1px solid #ddd;
+    border-top:5px solid #d71920;
+    border-radius:12px;
+    padding:30px;
+}
+
+.result h2{
+    color:#d71920;
+}
+
+.big-score{
+    font-size:2rem;
+    font-weight:bold;
+}
+
+/* PERFIL */
+
+.profile{
+    display:none;
+    max-width:800px;
+    margin:25px auto;
+    border:1px solid #ddd;
+    border-top:5px solid #d71920;
+    border-radius:12px;
+    padding:24px;
+}
+
+.profile h2{
+    color:#d71920;
+}
+
+.char-count{
+    text-align:right;
+    color:#777;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.correction{
+    margin-top:15px;
+    background:#f8f8f8;
+    padding:15px;
+    border-radius:10px;
+    line-height:1.7;
+}
+
+footer{
+    background:#b51218;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:1.7rem;
+    }
+
+    main{
+        padding:20px 10px 35px;
+    }
+
+    .exercise{
+        padding:18px;
+    }
+
+    .kanji-fields{
+        grid-template-columns:1fr;
+    }
+
+    .kanji{
+        font-size:3.5rem;
+    }
+
+    nav a{
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇯🇵 JLPT N4</h1>
+    <p>Prueba completa de japonés N4</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="hiragana.html">Hiragana</a>
+    <a href="katakana.html">Katakana</a>
+    <a href="kanji.html">Kanji</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="particulas.html">Partículas</a>
+    <a href="frases.html">Frases</a>
+    <a href="ejercicios.html">Ejercicios</a>
+    <a href="n5.html">JLPT N5</a>
+    <a href="verbos.html">Verbos</a>
+    <a href="audio.html">Audio</a>
+    <a href="lecturas.html">Lecturas</a>
+    <a href="n4.html" class="active">JLPT N4</a>
+</nav>
+
+<main>
+
+<section class="intro">
+    <h2>🎓 Examen de práctica N4</h2>
+    <p>
+        Completa las diferentes áreas del examen y comprueba cuánto japonés puedes reconocer.
+    </p>
+</section>
+
+<div class="categories">
+
+    <button class="category-btn active" onclick="changeSection('grammar',this)">
+        📝 Gramática 50
+    </button>
+
+    <button class="category-btn" onclick="changeSection('audio',this)">
+        🎧 Audio 30
+    </button>
+
+    <button class="category-btn" onclick="changeSection('reading',this)">
+        📖 Lectura 25
+    </button>
+
+    <button class="category-btn" onclick="changeSection('choice',this)">
+        🎯 Selección 25
+    </button>
+
+    <button class="category-btn" onclick="changeSection('kanji',this)">
+        漢 Kanjis 50
+    </button>
+
+</div>
+
+<div class="progress">
+
+    <div id="progressText">
+        Ejercicio 1
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+</div>
+
+<section id="exerciseArea">
+
+    <div class="exercise">
+
+        <span class="badge" id="badge">
+            Gramática
+        </span>
+
+        <span class="number" id="number">
+            1 / 50
+        </span>
+
+        <div class="title" id="title"></div>
+
+        <div class="instruction" id="instruction"></div>
+
+        <div id="questionArea"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="solution" id="solution"></div>
+
+        <div class="buttons">
+
+            <button class="action check" onclick="checkAnswer()">
+                Comprobar
+            </button>
+
+            <button class="action show" onclick="showAnswer()">
+                Ver respuesta
+            </button>
+
+            <button class="action next" onclick="nextQuestion()">
+                Siguiente →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="result" id="result">
+
+    <h2>🎉 Sección terminada</h2>
+
+    <p>
+        Has terminado todos los ejercicios de esta sección.
+    </p>
+
+    <div class="big-score" id="score"></div>
+
+    <button class="action next" onclick="restartSection()">
+        🔄 Repetir
+    </button>
+
+</section>
+
+
+<!-- DESCRIPCIÓN OPCIONAL -->
+
+<section class="profile">
+
+    <h2>👤 Pregunta opcional</h2>
+
+    <p>
+        Escribe una pequeña descripción sobre ti en japonés.
+        Puedes hablar de tu nombre, edad, estudios, gustos,
+        hobbies, familia o cualquier otra cosa.
+    </p>
+
+    <p>
+        <strong>Máximo: 120 caracteres.</strong>
+    </p>
+
+    <textarea
+        id="selfDescription"
+        class="answer"
+        maxlength="120"
+        placeholder="例：私は学生です。日本語と音楽が好きです。"
+        oninput="updateCharacterCount()"
+    ></textarea>
+
+    <div class="char-count" id="charCount">
+        0 / 120
+    </div>
+
+    <div class="buttons">
+
+        <button
+            class="action check"
+            onclick="checkDescription()"
+        >
+            🔎 Revisar descripción
+        </button>
+
+    </div>
+
+    <div
+        class="correction"
+        id="descriptionCorrection"
+        style="display:none;"
+    ></div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>🇯🇵 Japanese Fácil · Aprende japonés paso a paso</p>
+</footer>
+
+
+<script>
+
+/* =====================================================
+   DATOS
+===================================================== */
+
+/*
+    Estructura:
+
+    [pregunta, respuesta, explicación]
+*/
+
+
+/* =====================================================
+   50 GRAMÁTICA
+===================================================== */
+
+const grammar = [
+
+["日本語を勉強している＿＿、毎日練習します。","ので","ので expresa una razón."],
+["明日は試験がある＿＿、早く寝ます。","ので","La segunda parte es consecuencia de la primera."],
+["日本へ行った＿＿があります。","こと","～たことがあります expresa experiencia."],
+["来年日本へ行く＿＿です。","予定","予定です expresa un plan previsto."],
+["毎日運動する＿＿にしました。","こと","～ことにしました expresa una decisión."],
+["もっと日本語を話した＿＿がいいです。","ほう","～たほうがいい expresa consejo."],
+["ここで写真を撮って＿＿いいですか。","も","～てもいいですか pide permiso."],
+["ここで食べて＿＿いけません。","は","～てはいけません expresa prohibición."],
+["宿題をし＿＿ばなりません。","なけれ","～なければなりません expresa obligación."],
+["時間があれ＿＿、一緒に行きましょう。","ば","Forma condicional ～ば."],
+
+["明日は雨が降るかも＿＿ません。","しれ","かもしれません expresa posibilidad."],
+["私は三年間日本語を勉強し＿＿います。","て","～ています indica una acción en progreso."],
+["ご飯を食べ＿＿から学校へ行きます。","て","～てから significa después de hacer algo."],
+["寝る＿＿に本を読みます。","前","～前に significa antes de."],
+["日本語が話せる＿＿になりました。","よう","～ようになる expresa un cambio."],
+["電車の＿＿がバスより速いです。","ほう","～ほうが se utiliza en comparaciones."],
+["日本語は英語＿＿難しいです。","より","より marca el elemento de comparación."],
+["この本＿＿読みやすいです。","は","読みやすい significa fácil de leer."],
+["田中さんは来ない＿＿しれません。","かも","Expresa una posibilidad."],
+["どうして遅れた＿＿ですか。","ん","～んです pide o explica una razón."],
+
+["明日まで＿＿この仕事を終わらせます。","に","Indica límite de tiempo."],
+["旅行＿＿前にホテルを予約しました。","の","Forma: sustantivo + の + 前."],
+["学校へ行く＿＿朝ご飯を食べます。","前に","Significa antes de ir."],
+["日本へ行っ＿＿ことがあります。","た","～たことがあります."],
+["忙しかっ＿＿ので、行けませんでした。","た","Forma pasada + ので."],
+["安けれ＿＿買います。","ば","Condicional ～ば."],
+["勉強すれ＿＿するほど上手になります。","ば","～ば～ほど indica relación proporcional."],
+["食べすぎ＿＿、お腹が痛くなりました。","て","～すぎる indica exceso."],
+["この本は読＿＿すぎません。","み","No es demasiado difícil de leer."],
+["彼は日本語が話せ＿＿ようになりました。","る","Nueva capacidad."],
+
+["忘れない＿＿にメモします。","よう","～ように expresa propósito o prevención."],
+["日本語を話す＿＿にしています。","よう","～ようにする expresa esfuerzo habitual."],
+["先生に聞い＿＿みます。","て","～てみる significa intentar."],
+["明日学校へ行か＿＿なりません。","なければ","Obligación."],
+["宿題をし＿＿くてもいいです。","なくて","～なくてもいい significa no tener que."],
+["もう帰っ＿＿いいです。","ても","Permiso."],
+["窓を開け＿＿ましょうか。","ましょう","Propuesta."],
+["一緒に映画を見＿＿ませんか。","ません","Invitación."],
+["日本へ行く＿＿にお金を貯めています。","ため","～ために expresa propósito."],
+["健康＿＿運動しています。","のために","Para la salud."],
+
+["雨＿＿降ったら、家にいます。","が","Condicional ～たら."],
+["時間が＿＿たら電話してください。","あっ","Forma condicional ～たら."],
+["駅に着い＿＿、連絡してください。","たら","Cuando llegues."],
+["宿題が終わっ＿＿から遊びます。","て","Después de terminar."],
+["日本語を勉強し＿＿、少し話せるようになりました。","て","Resultado/cambio."],
+["この町は静か＿＿住みやすいです。","で","Conecta adjetivos nominales."],
+["この料理は簡単＿＿おいしいです。","で","Conecta características."],
+["昨日より今日のほう＿＿忙しいです。","が","Estructura comparativa."],
+["日本に行った＿＿、富士山を見たいです。","ら","Condicional ～たら."],
+["忘れ＿＿ようにしてください。","ない","Expresa prevención."],
+
+];
+
+
+/* =====================================================
+   30 AUDIO
+===================================================== */
+
+const audio = [
+
+["明日は学校へ行きます。","Mañana iré a la escuela."],
+["毎朝七時に起きます。","Me levanto a las siete cada mañana."],
+["昨日は雨でした。","Ayer llovió / Ayer estuvo lluvioso."],
+["日本語を三年間勉強しています。","Llevo tres años estudiando japonés."],
+["週末に友達と映画を見ました。","El fin de semana vi una película con un amigo."],
+["来月京都へ行く予定です。","Tengo previsto ir a Kioto el próximo mes."],
+["この本はとても読みやすいです。","Este libro es muy fácil de leer."],
+["明日は早く起きなければなりません。","Mañana tengo que levantarme temprano."],
+["駅まで歩いて行きましょう。","Vamos caminando hasta la estación."],
+["ここで写真を撮ってもいいですか。","¿Puedo tomar fotos aquí?"],
+
+["この店では食べてはいけません。","No se puede comer en esta tienda."],
+["日本料理を作ったことがあります。","He cocinado comida japonesa."],
+["時間があれば一緒に行きましょう。","Si tienes tiempo, vamos juntos."],
+["もっと日本語を話したほうがいいです。","Deberías hablar más japonés."],
+["明日は雨が降るかもしれません。","Puede que mañana llueva."],
+["仕事が終わってから電話します。","Te llamaré después de terminar el trabajo."],
+["寝る前に本を読みます。","Leo un libro antes de dormir."],
+["電車のほうがバスより速いです。","El tren es más rápido que el autobús."],
+["日本へ行くためにお金を貯めています。","Estoy ahorrando dinero para ir a Japón."],
+["忘れないようにメモしてください。","Anótalo para no olvidarlo."],
+
+["昨日は忙しかったので、家にいました。","Como ayer estuve ocupado, me quedé en casa."],
+["この町は静かで住みやすいです。","Esta ciudad es tranquila y fácil para vivir."],
+["日本語が少し話せるようになりました。","He llegado a poder hablar un poco de japonés."],
+["宿題が終わったらゲームをします。","Cuando termine la tarea, jugaré."],
+["試験のために毎日勉強しています。","Estudio todos los días para el examen."],
+["来年大学で日本語を勉強するつもりです。","Tengo intención de estudiar japonés en la universidad el próximo año."],
+["もし分からなかったら先生に聞いてください。","Si no entiendes, pregunta al profesor."],
+["朝ご飯を食べてから学校へ行きます。","Voy a la escuela después de desayunar."],
+["日本の文化についてもっと知りたいです。","Quiero saber más sobre la cultura japonesa."],
+["旅行の前にホテルを予約しました。","Reservé el hotel antes del viaje."]
+
+];
+
+
+/* =====================================================
+   25 LECTURAS
+===================================================== */
+
+const reading = [
+
+["私は毎朝六時に起きます。朝ご飯を食べてから学校へ行きます。","Me levanto a las seis cada mañana. Después de desayunar voy a la escuela."],
+["私の家族は四人です。父と母と弟と私です。","Mi familia tiene cuatro personas: mi padre, mi madre, mi hermano menor y yo."],
+["昨日は雨だったので、家で本を読みました。","Como ayer llovió, leí un libro en casa."],
+["私は日本語を三年間勉強しています。","Llevo tres años estudiando japonés."],
+["来月友達と京都へ行く予定です。","Tengo previsto ir a Kioto con un amigo el próximo mes."],
+["日本料理を作ったことがあります。でも寿司はまだ作ったことがありません。","He cocinado comida japonesa. Pero todavía nunca he hecho sushi."],
+["毎晩寝る前に少し本を読みます。","Cada noche leo un poco antes de dormir."],
+["私の町は静かで、駅も近いです。","Mi ciudad es tranquila y la estación también está cerca."],
+["明日は試験があるので、今日は勉強します。","Como mañana hay un examen, hoy estudiaré."],
+["電車のほうがバスより速いですが、バスのほうが安いです。","El tren es más rápido que el autobús, pero el autobús es más barato."],
+
+["私は健康のために毎日運動しています。","Hago ejercicio todos los días por mi salud."],
+["日曜日に友達と公園へ行ってサッカーをしました。","El domingo fui al parque con un amigo y jugamos al fútbol."],
+["日本へ行ったら富士山を見たいです。","Si voy a Japón, quiero ver el monte Fuji."],
+["宿題が終わってからゲームをしました。","Jugué después de terminar la tarea."],
+["日本語が少し話せるようになったので嬉しいです。","Estoy feliz porque he llegado a poder hablar un poco de japonés."],
+["旅行の前にホテルと電車のチケットを予約しました。","Antes del viaje reservé el hotel y el billete de tren."],
+["明日は雨が降るかもしれないので、傘を持って行きます。","Puede que mañana llueva, así que llevaré un paraguas."],
+["日本語を上手に話すために、毎日練習しています。","Practico todos los días para hablar japonés bien."],
+["忙しかったので、友達との約束に行けませんでした。","Como estaba ocupado, no pude ir a la cita con mi amigo."],
+["この本は漢字が多いですが、とても面白いです。","Este libro tiene muchos kanjis, pero es muy interesante."],
+
+["私は将来日本で働いてみたいと思っています。","En el futuro me gustaría intentar trabajar en Japón."],
+["時間があれば日本の映画を見たいです。","Si tengo tiempo, quiero ver una película japonesa."],
+["先生に聞いたら、問題の答えが分かりました。","Cuando le pregunté al profesor, entendí la respuesta del problema."],
+["毎日少しずつ勉強するようにしています。","Procuro estudiar un poco cada día."],
+["健康のために夜遅くまでゲームをしないようにしています。","Por mi salud procuro no jugar hasta muy tarde por la noche."]
+
+];
+
+
+/* =====================================================
+   25 SELECCIÓN
+=====================================================
+
+   [pregunta, opciones, correcta]
+===================================================== */
+
+const choice = [
+
+["「私は毎日日本語を勉強しています。」の意味は？",
+["Estudio japonés todos los días.","Estudié japonés ayer.","No estudio japonés.","Voy a enseñar japonés."],0],
+
+["「雨が降ったので、家にいました。」なぜ家にいましたか。",
+["Porque llovió.","Porque hacía calor.","Porque tenía examen.","Porque fui a Japón."],0],
+
+["「日本へ行ったことがあります。」の意味は？",
+["He ido a Japón.","Quiero ir a Japón.","No conozco Japón.","Vivo en Japón."],0],
+
+["「～たほうがいい」の función es:",
+["Dar un consejo.","Expresar pasado.","Negar algo.","Preguntar la hora."],0],
+
+["「～かもしれません」 expresa:",
+["Posibilidad.","Obligación.","Prohibición.","Experiencia."],0],
+
+["¿Qué significa 予定です?",
+["Está previsto / planeado.","Está prohibido.","Es imposible.","Es obligatorio."],0],
+
+["¿Qué significa 前に?",
+["Antes de.","Después de.","Mientras.","Porque."],0],
+
+["¿Qué expresa ことにしました?",
+["Una decisión.","Una experiencia.","Una prohibición.","Una comparación."],0],
+
+["¿Qué significa 住みやすい?",
+["Fácil/cómodo para vivir.","Difícil de leer.","Caro.","Muy lejos."],0],
+
+["¿Qué significa ～なければなりません?",
+["Tener que hacer algo.","Poder hacer algo.","No necesitar hacer algo.","Querer hacer algo."],0],
+
+["¿Cuál significa 'si tengo tiempo'?",
+["時間があれば","時間がありません","時間をください","時間がありますか"],0],
+
+["¿Cuál significa 'antes de dormir'?",
+["寝る前に","寝た後に","寝ながら","寝ないで"],0],
+
+["¿Qué significa 一緒に?",
+["Juntos.","Solo.","Rápido.","Mañana."],0],
+
+["¿Qué significa 忘れないように?",
+["Para no olvidar.","Porque olvidé.","Después de olvidar.","Olvidé hacerlo."],0],
+
+["¿Cuál es una forma de decir 'puede que llueva'?",
+["雨が降るかもしれません","雨を降ります","雨が降りたいです","雨を降りました"],0],
+
+["¿Qué significa 終わってから?",
+["Después de terminar.","Antes de terminar.","Sin terminar.","Mientras termina."],0],
+
+["¿Cuál expresa experiencia?",
+["日本へ行ったことがあります","日本へ行くつもりです","日本へ行かなければなりません","日本へ行ってはいけません"],0],
+
+["¿Qué significa ために?",
+["Para / con el propósito de.","Aunque.","Después de.","Quizás."],0],
+
+["¿Qué significa ようになりました?",
+["Llegar a poder / cambio de estado.","Tener que.","Prohibición.","Comparación."],0],
+
+["¿Cuál significa 'deberías estudiar más'?",
+["もっと勉強したほうがいいです","もっと勉強してはいけません","もっと勉強しませんでした","もっと勉強することがありません"],0],
+
+["¿Qué significa より en una comparación?",
+["Que / que en comparación con.","Porque.","Antes.","Después."],0],
+
+["¿Qué significa かもしれない?",
+["Puede que.","Seguro que.","Nunca.","Siempre."],0],
+
+["¿Qué significa 予約しました?",
+["Reservé.","Compré.","Perdí.","Olvidé."],0],
+
+["¿Qué significa 健康のために?",
+["Por la salud / para la salud.","Después de la salud.","Sin salud.","Antes de la salud."],0],
+
+["¿Cuál expresa una prohibición?",
+["食べてはいけません","食べてもいいです","食べたいです","食べたことがあります"],0]
+
+];
+
+
+/* =====================================================
+   50 KANJIS N5 + N4
+=====================================================
+
+   [kanji, hiragana, significado]
+===================================================== */
+
+const kanji = [
+
+["日","ひ","día / sol"],
+["月","つき","luna / mes"],
+["火","ひ","fuego"],
+["水","みず","agua"],
+["木","き","árbol"],
+["金","かね","dinero / oro"],
+["土","つち","tierra"],
+["人","ひと","persona"],
+["子","こ","niño"],
+["女","おんな","mujer"],
+
+["男","おとこ","hombre"],
+["山","やま","montaña"],
+["川","かわ","río"],
+["田","た","campo de arroz"],
+["天","てん","cielo"],
+["気","き","espíritu / energía"],
+["雨","あめ","lluvia"],
+["電","でん","electricidad"],
+["車","くるま","coche"],
+["駅","えき","estación"],
+
+["学","がく","estudio"],
+["校","こう","escuela"],
+["先","さき","anterior / adelante"],
+["生","せい","vida / nacimiento"],
+["名","な","nombre"],
+["年","とし","año"],
+["時","とき","tiempo / hora"],
+["間","あいだ","intervalo / entre"],
+["今","いま","ahora"],
+["午","ご","mediodía"],
+
+["前","まえ","antes / delante"],
+["後","あと","después / detrás"],
+["上","うえ","arriba"],
+["下","した","abajo"],
+["中","なか","dentro / medio"],
+["外","そと","fuera"],
+["左","ひだり","izquierda"],
+["右","みぎ","derecha"],
+["東","ひがし","este"],
+["西","にし","oeste"],
+
+["北","きた","norte"],
+["南","みなみ","sur"],
+["食","た","comer / comida"],
+["飲","の","beber"],
+["見","み","ver"],
+["聞","き","escuchar / preguntar"],
+["読","よ","leer"],
+["書","か","escribir"],
+["話","はな","hablar"],
+["買","か","comprar"]
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let section = "grammar";
+let current = 0;
+let score = 0;
+let answered = false;
+
+const sections = {
+    grammar: grammar,
+    audio: audio,
+    reading: reading,
+    choice: choice,
+    kanji: kanji
+};
+
+
+/* =====================================================
+   CAMBIAR SECCIÓN
+===================================================== */
+
+function changeSection(newSection,button){
+
+    section = newSection;
+    current = 0;
+    score = 0;
+    answered = false;
+
+    document.querySelectorAll(".category-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.getElementById("exerciseArea").style.display="block";
+    document.getElementById("result").style.display="none";
+
+    showQuestion();
+}
+
+
+/* =====================================================
+   MOSTRAR PREGUNTA
+===================================================== */
+
+function showQuestion(){
+
+    const data = sections[section];
+
+    if(current >= data.length){
+        finish();
+        return;
+    }
+
+    answered=false;
+
+    const item=data[current];
+
+    const labels={
+        grammar:"📝 Gramática",
+        audio:"🎧 Audio",
+        reading:"📖 Lectura",
+        choice:"🎯 Selección",
+        kanji:"漢 Kanjis"
+    };
+
+    document.getElementById("badge").textContent=labels[section];
+
+    document.getElementById("number").textContent=
+        `${current+1} / ${data.length}`;
+
+    document.getElementById("progressText").textContent=
+        `Ejercicio ${current+1} de ${data.length}`;
+
+    document.getElementById("progressFill").style.width=
+        `${(current/data.length)*100}%`;
+
+    document.getElementById("feedback").textContent="";
+    document.getElementById("solution").style.display="none";
+    document.getElementById("solution").innerHTML="";
+
+
+    /* GRAMÁTICA */
+
+    if(section==="grammar"){
+
+        document.getElementById("title").textContent=
+            "Completa la oración";
+
+        document.getElementById("instruction").textContent=
+            "Escribe la palabra o expresión que falta.";
+
+        document.getElementById("questionArea").innerHTML=`
+
+            <div class="question">
+                ${item[0]}
+            </div>
+
+            <input
+                id="answerInput"
+                class="answer"
+                placeholder="Escribe la respuesta..."
+                autocomplete="off"
+            >
+        `;
+    }
+
+
+    /* AUDIO */
+
+    if(section==="audio"){
+
+        document.getElementById("title").textContent=
+            "Escucha y escribe el significado";
+
+        document.getElementById("instruction").textContent=
+            "Pulsa el botón, escucha la oración japonesa y escribe su significado en español.";
+
+        document.getElementById("questionArea").innerHTML=`
+
+            <div class="question">
+                🔊 Escucha la oración.
+            </div>
+
+            <button
+                class="audio-button"
+                onclick="playAudio()"
+            >
+                🔊
+            </button>
+
+            <textarea
+                id="answerInput"
+                class="answer"
+                placeholder="Escribe el significado en español..."
+            ></textarea>
+        `;
+
+        setTimeout(playAudio,400);
+    }
+
+
+    /* LECTURA */
+
+    if(section==="reading"){
+
+        document.getElementById("title").textContent=
+            "Comprensión lectora";
+
+        document.getElementById("instruction").textContent=
+            "Lee el texto y escribe su significado en español.";
+
+        document.getElementById("questionArea").innerHTML=`
+
+            <div class="question">
+                ${item[0]}
+            </div>
+
+            <textarea
+                id="answerInput"
+                class="answer"
+                placeholder="Escribe el significado del texto..."
+            ></textarea>
+        `;
+    }
+
+
+    /* SELECCIÓN */
+
+    if(section==="choice"){
+
+        document.getElementById("title").textContent=
+            "Selecciona la respuesta correcta";
+
+        document.getElementById("instruction").textContent=
+            "Lee la pregunta y selecciona una sola respuesta.";
+
+        let html=`
+            <div class="question">
+                ${item[0]}
+            </div>
+
+            <div class="options">
+        `;
+
+        item[1].forEach((option,index)=>{
+
+            html+=`
+                <button
+                    class="option"
+                    onclick="selectOption(this,${index})"
+                >
+                    ${option}
+                </button>
+            `;
+
+        });
+
+        html+="</div>";
+
+        document.getElementById("questionArea").innerHTML=html;
+    }
+
+
+    /* KANJI */
+
+    if(section==="kanji"){
+
+        document.getElementById("title").textContent=
+            "Adivina el kanji";
+
+        document.getElementById("instruction").textContent=
+            "Escribe cómo se lee en hiragana y qué significa.";
+
+        document.getElementById("questionArea").innerHTML=`
+
+            <div class="kanji">
+                ${item[0]}
+            </div>
+
+            <div class="kanji-fields">
+
+                <div>
+                    <p><strong>Lectura en hiragana:</strong></p>
+
+                    <input
+                        id="readingInput"
+                        class="answer"
+                        placeholder="例: ひと"
+                    >
+                </div>
+
+                <div>
+                    <p><strong>Significado:</strong></p>
+
+                    <input
+                        id="meaningInput"
+                        class="answer"
+                        placeholder="Ej: persona"
+                    >
+                </div>
+
+            </div>
+        `;
+    }
+}
+
+
+/* =====================================================
+   AUDIO
+===================================================== */
+
+function speak(text){
+
+    if(!("speechSynthesis" in window)){
+        alert("Tu navegador no soporta audio.");
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    const u=new SpeechSynthesisUtterance(text);
+
+    u.lang="ja-JP";
+    u.rate=.82;
+    u.pitch=1;
+
+    const voices=speechSynthesis.getVoices();
+
+    const jp=voices.find(
+        voice=>voice.lang &&
+        voice.lang.toLowerCase().startsWith("ja")
+    );
+
+    if(jp) u.voice=jp;
+
+    speechSynthesis.speak(u);
+}
+
+
+function playAudio(){
+
+    if(section==="audio"){
+        speak(audio[current][0]);
+    }
+}
+
+
+/* =====================================================
+   NORMALIZAR
+===================================================== */
+
+function normalize(text){
+
+    return text
+        .toLowerCase()
+        .trim()
+        .replace(/[.,!?¿¡。、！？]/g,"")
+        .replace(/\s+/g," ");
+}
+
+
+/* =====================================================
+   COMPROBAR
+===================================================== */
+
+function checkAnswer(){
+
+    if(answered) return;
+
+    const item=sections[section];
+
+    let correct=false;
+
+    /* GRAMÁTICA */
+
+    if(section==="grammar"){
+
+        const input=normalize(
+            document.getElementById("answerInput").value
+        );
+
+        correct=input===normalize(item[current][1]);
+
+    }
+
+
+    /* AUDIO */
+
+    else if(section==="audio"){
+
+        const input=normalize(
+            document.getElementById("answerInput").value
+        );
+
+        const expected=normalize(item[current][1]);
+
+        const words=expected
+            .split(" ")
+            .filter(w=>w.length>3);
+
+        const matches=words.filter(
+            w=>input.includes(w)
+        );
+
+        correct=
+            matches.length>=
+            Math.max(1,Math.ceil(words.length*.4));
+    }
+
+
+    /* LECTURA */
+
+    else if(section==="reading"){
+
+        const input=normalize(
+            document.getElementById("answerInput").value
+        );
+
+        const expected=normalize(item[current][1]);
+
+        const words=expected
+            .split(" ")
+            .filter(w=>w.length>3);
+
+        const matches=words.filter(
+            w=>input.includes(w)
+        );
+
+        correct=
+            matches.length>=
+            Math.max(1,Math.ceil(words.length*.4));
+    }
+
+
+    /* KANJI */
+
+    else if(section==="kanji"){
+
+        const readingInput=normalize(
+            document.getElementById("readingInput").value
+        );
+
+        const meaningInput=normalize(
+            document.getElementById("meaningInput").value
+        );
+
+        const correctReading=
+            normalize(item[current][1]);
+
+        const correctMeaning=
+            normalize(item[current][2]);
+
+        correct=
+            readingInput===correctReading &&
+            meaningInput===correctMeaning;
+    }
+
+
+    if(correct){
+
+        score++;
+
+        document.getElementById("feedback").textContent=
+            "✅ ¡Correcto!";
+
+    }else{
+
+        document.getElementById("feedback").textContent=
+            "❌ Incorrecto. Puedes ver la respuesta.";
+    }
+
+    answered=true;
+
+    document.getElementById("progressFill").style.width=
+        `${((current+1)/item.length)*100}%`;
+}
+
+
+/* =====================================================
+   SELECCIÓN
+===================================================== */
+
+function selectOption(button,index){
+
+    if(answered) return;
+
+    const item=choice[current];
+
+    document
+        .querySelectorAll(".option")
+        .forEach(btn=>btn.disabled=true);
+
+    if(index===item[2]){
+
+        button.classList.add("correct");
+
+        score++;
+
+        document.getElementById("feedback").textContent=
+            "✅ ¡Correcto!";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        document.querySelectorAll(".option")[item[2]]
+            .classList.add("correct");
+
+        document.getElementById("feedback").textContent=
+            "❌ Incorrecto.";
+    }
+
+    answered=true;
+
+    document.getElementById("progressFill").style.width=
+        `${((current+1)/item.length)*100}%`;
+}
+
+
+/* =====================================================
+   MOSTRAR RESPUESTA
+===================================================== */
+
+function showAnswer(){
+
+    const item=sections[section];
+
+    let html="";
+
+    if(section==="grammar"){
+
+        html=`
+            <strong>Respuesta:</strong>
+            ${item[current][1]}
+            <br><br>
+            ${item[current][2]}
+        `;
+    }
+
+    else if(section==="audio"){
+
+        html=`
+            <strong>Respuesta:</strong>
+            ${item[current][1]}
+        `;
+    }
+
+    else if(section==="reading"){
+
+        html=`
+            <strong>Significado:</strong>
+            ${item[current][1]}
+        `;
+    }
+
+    else if(section==="choice"){
+
+        html=`
+            <strong>Respuesta correcta:</strong>
+            ${item[current][1][item[current][2]]}
+        `;
+    }
+
+    else if(section==="kanji"){
+
+        html=`
+            <strong>Hiragana:</strong>
+            ${item[current][1]}
+            <br><br>
+            <strong>Significado:</strong>
+            ${item[current][2]}
+        `;
+    }
+
+    document.getElementById("solution").innerHTML=html;
+    document.getElementById("solution").style.display="block";
+}
+
+
+/* =====================================================
+   SIGUIENTE
+===================================================== */
+
+function nextQuestion(){
+
+    current++;
+
+    showQuestion();
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+function finish(){
+
+    document.getElementById("exerciseArea").style.display="none";
+
+    document.getElementById("result").style.display="block";
+
+    const total=sections[section].length;
+
+    document.getElementById("score").textContent=
+        `${score} / ${total}`;
+
+    document.getElementById("progressText").textContent=
+        "Sección terminada";
+
+    document.getElementById("progressFill").style.width="100%";
+
+    /* Mostrar descripción solamente al terminar la última sección */
+
+    if(section==="kanji"){
+        document.querySelector(".profile").style.display="block";
+    }
+}
+
+
+/* =====================================================
+   REINICIAR
+===================================================== */
+
+function restartSection(){
+
+    current=0;
+    score=0;
+    answered=false;
+
+    document.getElementById("result").style.display="none";
+    document.getElementById("exerciseArea").style.display="block";
+
+    showQuestion();
+}
+
+
+/* =====================================================
+   DESCRIPCIÓN PERSONAL
+===================================================== */
+
+function updateCharacterCount(){
+
+    const input=document.getElementById("selfDescription");
+
+    document.getElementById("charCount").textContent=
+        `${input.value.length} / 120`;
+}
+
+
+/*
+    Esta revisión es intencionalmente básica:
+    detecta caracteres fuera del japonés/español esperado,
+    algunas partículas comunes mal separadas y errores
+    frecuentes de escritura.
+*/
+
+function checkDescription(){
+
+    const input=document
+        .getElementById("selfDescription")
+        .value
+        .trim();
+
+    const result=document
+        .getElementById("descriptionCorrection");
+
+    if(!input){
+
+        result.style.display="block";
+
+        result.innerHTML=
+            "⚠️ Escribe una descripción primero.";
+
+        return;
+    }
+
+    let errors=[];
+
+    /* LONGITUD */
+
+    if(input.length>120){
+
+        errors.push(
+            "La descripción supera el límite de 120 caracteres."
+        );
+    }
+
+
+    /* PUNTUACIÓN */
+
+    if(/[,.!?]/.test(input)){
+
+        errors.push(
+            "Usa preferentemente la puntuación japonesa 「。」「、」 cuando escribas en japonés."
+        );
+    }
+
+
+    /* ERRORES MUY COMUNES */
+
+    const corrections={
+
+        "わたしは学生ですです":
+            "わたしは学生です",
+
+        "私は学生ですです":
+            "私は学生です",
+
+        "日本語が好きですです":
+            "日本語が好きです",
+
+        "私は日本語を好きです":
+            "私は日本語が好きです",
+
+        "日本へ行きたいですか":
+            "Si estás afirmando que quieres ir: 日本へ行きたいです",
+
+        "私は学生でしたです":
+            "Usa 私は学生です si quieres decir 'soy estudiante'."
+
+    };
+
+
+    for(const wrong in corrections){
+
+        if(input.includes(wrong)){
+
+            errors.push(
+                `Posible corrección: 「${corrections[wrong]}」`
+            );
+        }
+    }
+
+
+    /* PARTICULAS FRECUENTES */
+
+    if(
+        input.includes("日本語は好き") ||
+        input.includes("日本語は大好き")
+    ){
+
+        errors.push(
+            "Para expresar 'me gusta el japonés', también puedes usar 日本語が好きです."
+        );
+    }
+
+
+    /* SI NO ENCONTRÓ NADA */
+
+    if(errors.length===0){
+
+        result.style.display="block";
+
+        result.innerHTML=`
+            <strong>✅ No encontré errores básicos.</strong>
+            <br><br>
+            Eso no garantiza que toda la gramática sea perfecta,
+            pero tu descripción no presenta problemas evidentes
+            en esta revisión automática.
+        `;
+
+    }else{
+
+        result.style.display="block";
+
+        result.innerHTML=`
+            <strong>🔎 Revisión:</strong>
+            <br><br>
+            ${errors.map(e=>"• "+e).join("<br>")}
+        `;
+    }
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+showQuestion();
+
+</script>
+
+</body>
+</html>
