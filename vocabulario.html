@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulario - Japanese Fácil</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222;line-height:1.55}
+header{background:#d71920;color:#fff;text-align:center;padding:28px 15px}
+header h1{margin:0;font-size:32px} header p{margin:5px 0 0}
+nav{background:#b51218;text-align:center;padding:10px}
+nav a{color:white;text-decoration:none;margin:4px 7px;display:inline-block}
+main{max-width:1100px;margin:auto;padding:18px}
+.intro{background:#fff5f5;border-left:5px solid #d71920;padding:15px;border-radius:8px;margin-bottom:18px}
+.controls{position:sticky;top:0;background:#fff;padding:10px 0;z-index:5}
+input{width:100%;padding:13px;border:1px solid #ccc;border-radius:8px;font-size:16px;margin-bottom:10px}
+.filters{display:flex;flex-wrap:wrap;gap:7px}
+button{border:0;background:#d71920;color:white;padding:9px 12px;border-radius:7px;cursor:pointer}
+button.active{background:#222}
+#count{margin:12px 0;color:#666;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px}
+.card{border:1px solid #ddd;border-radius:10px;padding:15px;background:white;box-shadow:0 2px 7px #00000010}
+.jp{font-size:31px;font-weight:bold;color:#d71920}
+.reading{color:#555;font-style:italic}
+.meaning{font-size:18px;font-weight:bold;margin:5px 0 10px}
+.example{background:#fff5f5;padding:9px;border-radius:7px;font-size:14px}
+.example strong{font-size:16px}
+footer{background:#b51218;color:#fff;text-align:center;padding:20px;margin-top:30px}
+.hidden{display:none!important}
+@media(max-width:600px){main{padding:12px}header h1{font-size:27px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:11px}.jp{font-size:27px}.meaning{font-size:16px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Vocabulario Japonés</h1><p>Palabras esenciales para aprender japonés</p></header>
+<nav>
+<a href="index.html">Inicio</a><a href="hiragana.html">Hiragana</a><a href="katakana.html">Katakana</a>
+<a href="kanji.html">Kanji</a><a href="vocabulario.html">Vocabulario</a><a href="particulas.html">Partículas</a>
+<a href="frases.html">Frases</a><a href="ejercicios.html">Ejercicios</a><a href="jlpt-n5.html">JLPT N5</a>
+</nav>
+<main>
+<div class="intro">
+<h2 style="margin-top:0;color:#d71920">🗣️ Vocabulario para aprender japonés</h2>
+<p>Ahora tienes una colección mucho más grande para practicar palabras de uso diario. Busca por palabra, lectura o significado y filtra por categoría.</p>
+<p><strong>Consejo:</strong> intenta leer primero el japonés y recordar el significado antes de mirar la traducción.</p>
+</div>
+<div class="controls">
+<input id="search" placeholder="🔎 Buscar palabra, lectura o significado...">
+<div class="filters">
+<button class="active" data-cat="Todas">Todas</button>
+<button data-cat="Adjetivos">Adjetivos</button><button data-cat="Animales">Animales</button><button data-cat="Casa">Casa</button><button data-cat="Colores">Colores</button><button data-cat="Comida">Comida</button><button data-cat="Compras">Compras</button><button data-cat="Cortesía">Cortesía</button><button data-cat="Cotidiano">Cotidiano</button><button data-cat="Escuela">Escuela</button><button data-cat="Familia">Familia</button><button data-cat="Lugares">Lugares</button><button data-cat="Naturaleza">Naturaleza</button><button data-cat="Números">Números</button><button data-cat="Preguntas">Preguntas</button><button data-cat="Saludos">Saludos</button><button data-cat="Tiempo">Tiempo</button><button data-cat="Transporte">Transporte</button><button data-cat="Verbos">Verbos</button>
+</div>
+</div>
+<div id="count"></div>
+<div id="grid" class="grid">
+<article class="card" data-cat="Saludos">
+<div class="jp">こんにちは</div>
+<div class="reading">konnichiwa</div>
+<div class="meaning">hola</div>
+<div class="example"><strong>こんにちは、元気ですか。</strong><br><span>Hola, ¿estás bien?</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">おはよう</div>
+<div class="reading">ohayou</div>
+<div class="meaning">buenos días</div>
+<div class="example"><strong>おはよう、田中さん。</strong><br><span>Buenos días, Tanaka.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">おはようございます</div>
+<div class="reading">ohayou gozaimasu</div>
+<div class="meaning">buenos días (formal)</div>
+<div class="example"><strong>おはようございます。</strong><br><span>Buenos días.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">こんばんは</div>
+<div class="reading">konbanwa</div>
+<div class="meaning">buenas noches (saludo)</div>
+<div class="example"><strong>こんばんは、先生。</strong><br><span>Buenas noches, profesor.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">おやすみ</div>
+<div class="reading">oyasumi</div>
+<div class="meaning">buenas noches</div>
+<div class="example"><strong>おやすみ、また明日。</strong><br><span>Buenas noches, hasta mañana.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">おやすみなさい</div>
+<div class="reading">oyasuminasai</div>
+<div class="meaning">buenas noches (formal)</div>
+<div class="example"><strong>おやすみなさい。</strong><br><span>Buenas noches.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">またね</div>
+<div class="reading">mata ne</div>
+<div class="meaning">hasta luego</div>
+<div class="example"><strong>またね、明日。</strong><br><span>Hasta luego, mañana.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">じゃあね</div>
+<div class="reading">jaa ne</div>
+<div class="meaning">nos vemos</div>
+<div class="example"><strong>じゃあね、バイバイ。</strong><br><span>Nos vemos, chao.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">さようなら</div>
+<div class="reading">sayounara</div>
+<div class="meaning">adiós</div>
+<div class="example"><strong>さようなら、先生。</strong><br><span>Adiós, profesor.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">ただいま</div>
+<div class="reading">tadaima</div>
+<div class="meaning">ya llegué</div>
+<div class="example"><strong>ただいま。</strong><br><span>Ya llegué.</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">おかえり</div>
+<div class="reading">okaeri</div>
+<div class="meaning">bienvenido de vuelta</div>
+<div class="example"><strong>おかえり！</strong><br><span>¡Bienvenido de vuelta!</span></div>
+</article><article class="card" data-cat="Saludos">
+<div class="jp">はじめまして</div>
+<div class="reading">hajimemashite</div>
+<div class="meaning">encantado de conocerte</div>
+<div class="example"><strong>はじめまして、よろしくお願いします。</strong><br><span>Encantado de conocerte.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">ありがとう</div>
+<div class="reading">arigatou</div>
+<div class="meaning">gracias</div>
+<div class="example"><strong>ありがとう、友達。</strong><br><span>Gracias, amigo.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">ありがとうございます</div>
+<div class="reading">arigatou gozaimasu</div>
+<div class="meaning">muchas gracias / formal</div>
+<div class="example"><strong>ありがとうございます。</strong><br><span>Muchas gracias.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">どういたしまして</div>
+<div class="reading">douitashimashite</div>
+<div class="meaning">de nada</div>
+<div class="example"><strong>どういたしまして。</strong><br><span>De nada.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">すみません</div>
+<div class="reading">sumimasen</div>
+<div class="meaning">perdón / disculpe</div>
+<div class="example"><strong>すみません、駅はどこですか。</strong><br><span>Disculpe, ¿dónde está la estación?</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">ごめんなさい</div>
+<div class="reading">gomennasai</div>
+<div class="meaning">lo siento</div>
+<div class="example"><strong>ごめんなさい。</strong><br><span>Lo siento.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">お願いします</div>
+<div class="reading">onegaishimasu</div>
+<div class="meaning">por favor</div>
+<div class="example"><strong>水をお願いします。</strong><br><span>Agua, por favor.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">どうぞ</div>
+<div class="reading">douzo</div>
+<div class="meaning">adelante / aquí tiene</div>
+<div class="example"><strong>どうぞ、座ってください。</strong><br><span>Adelante, siéntate.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">失礼します</div>
+<div class="reading">shitsurei shimasu</div>
+<div class="meaning">con permiso</div>
+<div class="example"><strong>失礼します。</strong><br><span>Con permiso.</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">いただきます</div>
+<div class="reading">itadakimasu</div>
+<div class="meaning">expresión antes de comer</div>
+<div class="example"><strong>いただきます。</strong><br><span>(Antes de comer.)</span></div>
+</article><article class="card" data-cat="Cortesía">
+<div class="jp">ごちそうさまでした</div>
+<div class="reading">gochisousama deshita</div>
+<div class="meaning">gracias por la comida</div>
+<div class="example"><strong>ごちそうさまでした。</strong><br><span>Gracias por la comida.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">家族</div>
+<div class="reading">kazoku</div>
+<div class="meaning">familia</div>
+<div class="example"><strong>家族は四人です。</strong><br><span>Mi familia es de cuatro personas.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">父</div>
+<div class="reading">chichi</div>
+<div class="meaning">mi padre</div>
+<div class="example"><strong>父は会社員です。</strong><br><span>Mi padre es empleado.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">母</div>
+<div class="reading">haha</div>
+<div class="meaning">mi madre</div>
+<div class="example"><strong>母は料理が好きです。</strong><br><span>A mi madre le gusta cocinar.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">お父さん</div>
+<div class="reading">otousan</div>
+<div class="meaning">padre</div>
+<div class="example"><strong>お父さんはどこですか。</strong><br><span>¿Dónde está tu padre?</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">お母さん</div>
+<div class="reading">okaasan</div>
+<div class="meaning">madre</div>
+<div class="example"><strong>お母さんは元気です。</strong><br><span>Tu madre está bien.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">兄</div>
+<div class="reading">ani</div>
+<div class="meaning">hermano mayor</div>
+<div class="example"><strong>兄は学生です。</strong><br><span>Mi hermano mayor es estudiante.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">姉</div>
+<div class="reading">ane</div>
+<div class="meaning">hermana mayor</div>
+<div class="example"><strong>姉は東京にいます。</strong><br><span>Mi hermana mayor está en Tokio.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">弟</div>
+<div class="reading">otouto</div>
+<div class="meaning">hermano menor</div>
+<div class="example"><strong>弟は十歳です。</strong><br><span>Mi hermano menor tiene diez años.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">妹</div>
+<div class="reading">imouto</div>
+<div class="meaning">hermana menor</div>
+<div class="example"><strong>妹は小学生です。</strong><br><span>Mi hermana menor es estudiante de primaria.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">お兄さん</div>
+<div class="reading">oniisan</div>
+<div class="meaning">hermano mayor (de otra persona)</div>
+<div class="example"><strong>お兄さんは何歳ですか。</strong><br><span>¿Cuántos años tiene tu hermano?</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">お姉さん</div>
+<div class="reading">oneesan</div>
+<div class="meaning">hermana mayor (de otra persona)</div>
+<div class="example"><strong>お姉さんは先生ですか。</strong><br><span>¿Tu hermana es profesora?</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">子ども</div>
+<div class="reading">kodomo</div>
+<div class="meaning">niño / hijo</div>
+<div class="example"><strong>子どもが二人います。</strong><br><span>Tengo dos niños.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">男の子</div>
+<div class="reading">otoko no ko</div>
+<div class="meaning">niño</div>
+<div class="example"><strong>男の子が走っています。</strong><br><span>El niño está corriendo.</span></div>
+</article><article class="card" data-cat="Familia">
+<div class="jp">女の子</div>
+<div class="reading">onna no ko</div>
+<div class="meaning">niña</div>
+<div class="example"><strong>女の子が笑っています。</strong><br><span>La niña está sonriendo.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">学校</div>
+<div class="reading">gakkou</div>
+<div class="meaning">escuela</div>
+<div class="example"><strong>毎日学校へ行きます。</strong><br><span>Voy a la escuela todos los días.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">学生</div>
+<div class="reading">gakusei</div>
+<div class="meaning">estudiante</div>
+<div class="example"><strong>私は学生です。</strong><br><span>Soy estudiante.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">先生</div>
+<div class="reading">sensei</div>
+<div class="meaning">profesor</div>
+<div class="example"><strong>先生に聞きます。</strong><br><span>Le pregunto al profesor.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">教室</div>
+<div class="reading">kyoushitsu</div>
+<div class="meaning">aula</div>
+<div class="example"><strong>教室に学生がいます。</strong><br><span>Hay estudiantes en el aula.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">大学</div>
+<div class="reading">daigaku</div>
+<div class="meaning">universidad</div>
+<div class="example"><strong>大学で勉強します。</strong><br><span>Estudio en la universidad.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">高校</div>
+<div class="reading">koukou</div>
+<div class="meaning">bachillerato / secundaria superior</div>
+<div class="example"><strong>高校の学生です。</strong><br><span>Soy estudiante de secundaria.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">中学校</div>
+<div class="reading">chuugakkou</div>
+<div class="meaning">secundaria</div>
+<div class="example"><strong>中学校へ行きます。</strong><br><span>Voy a secundaria.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">小学校</div>
+<div class="reading">shougakkou</div>
+<div class="meaning">escuela primaria</div>
+<div class="example"><strong>弟は小学校です。</strong><br><span>Mi hermano menor está en primaria.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">本</div>
+<div class="reading">hon</div>
+<div class="meaning">libro</div>
+<div class="example"><strong>本を読みます。</strong><br><span>Leo un libro.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">ノート</div>
+<div class="reading">nooto</div>
+<div class="meaning">cuaderno</div>
+<div class="example"><strong>ノートに書きます。</strong><br><span>Escribo en el cuaderno.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">ペン</div>
+<div class="reading">pen</div>
+<div class="meaning">bolígrafo</div>
+<div class="example"><strong>ペンを使います。</strong><br><span>Uso un bolígrafo.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">鉛筆</div>
+<div class="reading">enpitsu</div>
+<div class="meaning">lápiz</div>
+<div class="example"><strong>鉛筆があります。</strong><br><span>Hay un lápiz.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">机</div>
+<div class="reading">tsukue</div>
+<div class="meaning">escritorio</div>
+<div class="example"><strong>机の上に本があります。</strong><br><span>Hay un libro sobre el escritorio.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">椅子</div>
+<div class="reading">isu</div>
+<div class="meaning">silla</div>
+<div class="example"><strong>椅子に座ります。</strong><br><span>Me siento en la silla.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">宿題</div>
+<div class="reading">shukudai</div>
+<div class="meaning">tarea</div>
+<div class="example"><strong>宿題をします。</strong><br><span>Hago la tarea.</span></div>
+</article><article class="card" data-cat="Escuela">
+<div class="jp">勉強</div>
+<div class="reading">benkyou</div>
+<div class="meaning">estudio</div>
+<div class="example"><strong>日本語を勉強します。</strong><br><span>Estudio japonés.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">家</div>
+<div class="reading">ie</div>
+<div class="meaning">casa</div>
+<div class="example"><strong>家に帰ります。</strong><br><span>Regreso a casa.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">部屋</div>
+<div class="reading">heya</div>
+<div class="meaning">habitación</div>
+<div class="example"><strong>部屋は大きいです。</strong><br><span>La habitación es grande.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">台所</div>
+<div class="reading">daidokoro</div>
+<div class="meaning">cocina</div>
+<div class="example"><strong>母は台所にいます。</strong><br><span>Mamá está en la cocina.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">お風呂</div>
+<div class="reading">ofuro</div>
+<div class="meaning">baño / bañera</div>
+<div class="example"><strong>お風呂に入ります。</strong><br><span>Me baño.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">トイレ</div>
+<div class="reading">toire</div>
+<div class="meaning">baño / inodoro</div>
+<div class="example"><strong>トイレはどこですか。</strong><br><span>¿Dónde está el baño?</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">窓</div>
+<div class="reading">mado</div>
+<div class="meaning">ventana</div>
+<div class="example"><strong>窓を開けます。</strong><br><span>Abro la ventana.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">ドア</div>
+<div class="reading">doa</div>
+<div class="meaning">puerta</div>
+<div class="example"><strong>ドアを閉めます。</strong><br><span>Cierro la puerta.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">ベッド</div>
+<div class="reading">beddo</div>
+<div class="meaning">cama</div>
+<div class="example"><strong>ベッドで寝ます。</strong><br><span>Duermo en la cama.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">テレビ</div>
+<div class="reading">terebi</div>
+<div class="meaning">televisión</div>
+<div class="example"><strong>テレビを見ます。</strong><br><span>Veo televisión.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">冷蔵庫</div>
+<div class="reading">reizouko</div>
+<div class="meaning">refrigerador</div>
+<div class="example"><strong>冷蔵庫に水があります。</strong><br><span>Hay agua en el refrigerador.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">電話</div>
+<div class="reading">denwa</div>
+<div class="meaning">teléfono</div>
+<div class="example"><strong>電話をします。</strong><br><span>Hago una llamada.</span></div>
+</article><article class="card" data-cat="Casa">
+<div class="jp">時計</div>
+<div class="reading">tokei</div>
+<div class="meaning">reloj</div>
+<div class="example"><strong>時計を見ます。</strong><br><span>Miro el reloj.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">食べ物</div>
+<div class="reading">tabemono</div>
+<div class="meaning">comida</div>
+<div class="example"><strong>好きな食べ物は何ですか。</strong><br><span>¿Cuál es tu comida favorita?</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">飲み物</div>
+<div class="reading">nomimono</div>
+<div class="meaning">bebida</div>
+<div class="example"><strong>飲み物をください。</strong><br><span>Una bebida, por favor.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">ご飯</div>
+<div class="reading">gohan</div>
+<div class="meaning">arroz / comida</div>
+<div class="example"><strong>ご飯を食べます。</strong><br><span>Como arroz / como.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">パン</div>
+<div class="reading">pan</div>
+<div class="meaning">pan</div>
+<div class="example"><strong>パンを食べます。</strong><br><span>Como pan.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">肉</div>
+<div class="reading">niku</div>
+<div class="meaning">carne</div>
+<div class="example"><strong>肉を食べます。</strong><br><span>Como carne.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">魚</div>
+<div class="reading">sakana</div>
+<div class="meaning">pez / pescado</div>
+<div class="example"><strong>魚が好きです。</strong><br><span>Me gusta el pescado.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">野菜</div>
+<div class="reading">yasai</div>
+<div class="meaning">verduras</div>
+<div class="example"><strong>野菜を食べます。</strong><br><span>Como verduras.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">果物</div>
+<div class="reading">kudamono</div>
+<div class="meaning">fruta</div>
+<div class="example"><strong>果物を買います。</strong><br><span>Compro fruta.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">りんご</div>
+<div class="reading">ringo</div>
+<div class="meaning">manzana</div>
+<div class="example"><strong>りんごを一つ食べます。</strong><br><span>Como una manzana.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">バナナ</div>
+<div class="reading">banana</div>
+<div class="meaning">banana</div>
+<div class="example"><strong>バナナが好きです。</strong><br><span>Me gustan las bananas.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">水</div>
+<div class="reading">mizu</div>
+<div class="meaning">agua</div>
+<div class="example"><strong>水を飲みます。</strong><br><span>Bebo agua.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">お茶</div>
+<div class="reading">ocha</div>
+<div class="meaning">té</div>
+<div class="example"><strong>お茶を飲みます。</strong><br><span>Bebo té.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">牛乳</div>
+<div class="reading">gyuunyuu</div>
+<div class="meaning">leche</div>
+<div class="example"><strong>毎朝牛乳を飲みます。</strong><br><span>Bebo leche cada mañana.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">コーヒー</div>
+<div class="reading">koohii</div>
+<div class="meaning">café</div>
+<div class="example"><strong>コーヒーを飲みます。</strong><br><span>Bebo café.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">卵</div>
+<div class="reading">tamago</div>
+<div class="meaning">huevo</div>
+<div class="example"><strong>卵を食べます。</strong><br><span>Como huevo.</span></div>
+</article><article class="card" data-cat="Comida">
+<div class="jp">店</div>
+<div class="reading">mise</div>
+<div class="meaning">tienda</div>
+<div class="example"><strong>店で買います。</strong><br><span>Compro en la tienda.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">犬</div>
+<div class="reading">inu</div>
+<div class="meaning">perro</div>
+<div class="example"><strong>犬がいます。</strong><br><span>Hay un perro.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">猫</div>
+<div class="reading">neko</div>
+<div class="meaning">gato</div>
+<div class="example"><strong>猫が好きです。</strong><br><span>Me gustan los gatos.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">鳥</div>
+<div class="reading">tori</div>
+<div class="meaning">pájaro</div>
+<div class="example"><strong>鳥が飛んでいます。</strong><br><span>El pájaro está volando.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">魚</div>
+<div class="reading">sakana</div>
+<div class="meaning">pez</div>
+<div class="example"><strong>魚が泳いでいます。</strong><br><span>El pez está nadando.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">馬</div>
+<div class="reading">uma</div>
+<div class="meaning">caballo</div>
+<div class="example"><strong>馬がいます。</strong><br><span>Hay un caballo.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">牛</div>
+<div class="reading">ushi</div>
+<div class="meaning">vaca</div>
+<div class="example"><strong>牛を見ました。</strong><br><span>Vi una vaca.</span></div>
+</article><article class="card" data-cat="Animales">
+<div class="jp">虫</div>
+<div class="reading">mushi</div>
+<div class="meaning">insecto</div>
+<div class="example"><strong>虫がいます。</strong><br><span>Hay un insecto.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">山</div>
+<div class="reading">yama</div>
+<div class="meaning">montaña</div>
+<div class="example"><strong>山が見えます。</strong><br><span>Se puede ver la montaña.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">川</div>
+<div class="reading">kawa</div>
+<div class="meaning">río</div>
+<div class="example"><strong>川の水はきれいです。</strong><br><span>El agua del río está limpia.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">海</div>
+<div class="reading">umi</div>
+<div class="meaning">mar</div>
+<div class="example"><strong>海へ行きます。</strong><br><span>Voy al mar.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">空</div>
+<div class="reading">sora</div>
+<div class="meaning">cielo</div>
+<div class="example"><strong>空が青いです。</strong><br><span>El cielo es azul.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">雨</div>
+<div class="reading">ame</div>
+<div class="meaning">lluvia</div>
+<div class="example"><strong>雨が降っています。</strong><br><span>Está lloviendo.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">雪</div>
+<div class="reading">yuki</div>
+<div class="meaning">nieve</div>
+<div class="example"><strong>雪が降っています。</strong><br><span>Está nevando.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">天気</div>
+<div class="reading">tenki</div>
+<div class="meaning">clima</div>
+<div class="example"><strong>今日の天気はいいです。</strong><br><span>El clima de hoy es bueno.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">晴れ</div>
+<div class="reading">hare</div>
+<div class="meaning">despejado</div>
+<div class="example"><strong>今日は晴れです。</strong><br><span>Hoy está despejado.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">曇り</div>
+<div class="reading">kumori</div>
+<div class="meaning">nublado</div>
+<div class="example"><strong>今日は曇りです。</strong><br><span>Hoy está nublado.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">風</div>
+<div class="reading">kaze</div>
+<div class="meaning">viento</div>
+<div class="example"><strong>風が強いです。</strong><br><span>El viento es fuerte.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">花</div>
+<div class="reading">hana</div>
+<div class="meaning">flor</div>
+<div class="example"><strong>花がきれいです。</strong><br><span>La flor es bonita.</span></div>
+</article><article class="card" data-cat="Naturaleza">
+<div class="jp">木</div>
+<div class="reading">ki</div>
+<div class="meaning">árbol</div>
+<div class="example"><strong>大きい木があります。</strong><br><span>Hay un árbol grande.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">電車</div>
+<div class="reading">densha</div>
+<div class="meaning">tren</div>
+<div class="example"><strong>電車に乗ります。</strong><br><span>Subo al tren.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">駅</div>
+<div class="reading">eki</div>
+<div class="meaning">estación</div>
+<div class="example"><strong>駅はどこですか。</strong><br><span>¿Dónde está la estación?</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">車</div>
+<div class="reading">kuruma</div>
+<div class="meaning">auto</div>
+<div class="example"><strong>車があります。</strong><br><span>Hay un auto.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">バス</div>
+<div class="reading">basu</div>
+<div class="meaning">autobús</div>
+<div class="example"><strong>バスで学校へ行きます。</strong><br><span>Voy a la escuela en autobús.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">自転車</div>
+<div class="reading">jitensha</div>
+<div class="meaning">bicicleta</div>
+<div class="example"><strong>自転車に乗ります。</strong><br><span>Monto bicicleta.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">飛行機</div>
+<div class="reading">hikouki</div>
+<div class="meaning">avión</div>
+<div class="example"><strong>飛行機で行きます。</strong><br><span>Voy en avión.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">タクシー</div>
+<div class="reading">takushii</div>
+<div class="meaning">taxi</div>
+<div class="example"><strong>タクシーを呼びます。</strong><br><span>Llamo un taxi.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">切符</div>
+<div class="reading">kippu</div>
+<div class="meaning">boleto</div>
+<div class="example"><strong>切符を買います。</strong><br><span>Compro un boleto.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">入口</div>
+<div class="reading">iriguchi</div>
+<div class="meaning">entrada</div>
+<div class="example"><strong>入口は右です。</strong><br><span>La entrada está a la derecha.</span></div>
+</article><article class="card" data-cat="Transporte">
+<div class="jp">出口</div>
+<div class="reading">deguchi</div>
+<div class="meaning">salida</div>
+<div class="example"><strong>出口はどこですか。</strong><br><span>¿Dónde está la salida?</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">今日</div>
+<div class="reading">kyou</div>
+<div class="meaning">hoy</div>
+<div class="example"><strong>今日は土曜日です。</strong><br><span>Hoy es sábado.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">昨日</div>
+<div class="reading">kinou</div>
+<div class="meaning">ayer</div>
+<div class="example"><strong>昨日学校へ行きました。</strong><br><span>Ayer fui a la escuela.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">明日</div>
+<div class="reading">ashita</div>
+<div class="meaning">mañana</div>
+<div class="example"><strong>明日勉強します。</strong><br><span>Mañana estudiaré.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">朝</div>
+<div class="reading">asa</div>
+<div class="meaning">mañana / por la mañana</div>
+<div class="example"><strong>朝六時に起きます。</strong><br><span>Me levanto a las seis de la mañana.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">昼</div>
+<div class="reading">hiru</div>
+<div class="meaning">mediodía / tarde</div>
+<div class="example"><strong>昼ご飯を食べます。</strong><br><span>Almuerzo.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">夜</div>
+<div class="reading">yoru</div>
+<div class="meaning">noche</div>
+<div class="example"><strong>夜に勉強します。</strong><br><span>Estudio por la noche.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">今</div>
+<div class="reading">ima</div>
+<div class="meaning">ahora</div>
+<div class="example"><strong>今何時ですか。</strong><br><span>¿Qué hora es ahora?</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">毎日</div>
+<div class="reading">mainichi</div>
+<div class="meaning">todos los días</div>
+<div class="example"><strong>毎日日本語を勉強します。</strong><br><span>Estudio japonés todos los días.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">毎週</div>
+<div class="reading">maishuu</div>
+<div class="meaning">cada semana</div>
+<div class="example"><strong>毎週学校へ行きます。</strong><br><span>Voy a la escuela cada semana.</span></div>
+</article><article class="card" data-cat="Tiempo">
+<div class="jp">週末</div>
+<div class="reading">shuumatsu</div>
+<div class="meaning">fin de semana</div>
+<div class="example"><strong>週末は休みます。</strong><br><span>Descanso el fin de semana.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">一</div>
+<div class="reading">ichi</div>
+<div class="meaning">uno</div>
+<div class="example"><strong>一つください。</strong><br><span>Uno, por favor.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">二</div>
+<div class="reading">ni</div>
+<div class="meaning">dos</div>
+<div class="example"><strong>二人います。</strong><br><span>Hay dos personas.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">三</div>
+<div class="reading">san</div>
+<div class="meaning">tres</div>
+<div class="example"><strong>三時です。</strong><br><span>Son las tres.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">四</div>
+<div class="reading">yon</div>
+<div class="meaning">cuatro</div>
+<div class="example"><strong>四人です。</strong><br><span>Somos cuatro personas.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">五</div>
+<div class="reading">go</div>
+<div class="meaning">cinco</div>
+<div class="example"><strong>五分待ってください。</strong><br><span>Espera cinco minutos.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">六</div>
+<div class="reading">roku</div>
+<div class="meaning">seis</div>
+<div class="example"><strong>六時に起きます。</strong><br><span>Me levanto a las seis.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">七</div>
+<div class="reading">nana</div>
+<div class="meaning">siete</div>
+<div class="example"><strong>七時です。</strong><br><span>Son las siete.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">八</div>
+<div class="reading">hachi</div>
+<div class="meaning">ocho</div>
+<div class="example"><strong>八月です。</strong><br><span>Es agosto.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">九</div>
+<div class="reading">kyuu</div>
+<div class="meaning">nueve</div>
+<div class="example"><strong>九時です。</strong><br><span>Son las nueve.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">十</div>
+<div class="reading">juu</div>
+<div class="meaning">diez</div>
+<div class="example"><strong>十人います。</strong><br><span>Hay diez personas.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">百</div>
+<div class="reading">hyaku</div>
+<div class="meaning">cien</div>
+<div class="example"><strong>百円です。</strong><br><span>Son 100 yenes.</span></div>
+</article><article class="card" data-cat="Números">
+<div class="jp">千</div>
+<div class="reading">sen</div>
+<div class="meaning">mil</div>
+<div class="example"><strong>千円あります。</strong><br><span>Tengo 1000 yenes.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">赤</div>
+<div class="reading">aka</div>
+<div class="meaning">rojo</div>
+<div class="example"><strong>赤い車です。</strong><br><span>Es un auto rojo.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">青</div>
+<div class="reading">ao</div>
+<div class="meaning">azul</div>
+<div class="example"><strong>青い空です。</strong><br><span>Es un cielo azul.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">白</div>
+<div class="reading">shiro</div>
+<div class="meaning">blanco</div>
+<div class="example"><strong>白い猫です。</strong><br><span>Es un gato blanco.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">黒</div>
+<div class="reading">kuro</div>
+<div class="meaning">negro</div>
+<div class="example"><strong>黒いペンです。</strong><br><span>Es un bolígrafo negro.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">黄色</div>
+<div class="reading">kiiro</div>
+<div class="meaning">amarillo</div>
+<div class="example"><strong>黄色い花です。</strong><br><span>Es una flor amarilla.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">緑</div>
+<div class="reading">midori</div>
+<div class="meaning">verde</div>
+<div class="example"><strong>緑の木です。</strong><br><span>Es un árbol verde.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">茶色</div>
+<div class="reading">chairo</div>
+<div class="meaning">marrón</div>
+<div class="example"><strong>茶色の犬です。</strong><br><span>Es un perro marrón.</span></div>
+</article><article class="card" data-cat="Colores">
+<div class="jp">色</div>
+<div class="reading">iro</div>
+<div class="meaning">color</div>
+<div class="example"><strong>何色ですか。</strong><br><span>¿De qué color es?</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">行く</div>
+<div class="reading">iku</div>
+<div class="meaning">ir</div>
+<div class="example"><strong>学校へ行きます。</strong><br><span>Voy a la escuela.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">来る</div>
+<div class="reading">kuru</div>
+<div class="meaning">venir</div>
+<div class="example"><strong>友達が来ます。</strong><br><span>Viene un amigo.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">帰る</div>
+<div class="reading">kaeru</div>
+<div class="meaning">regresar</div>
+<div class="example"><strong>家へ帰ります。</strong><br><span>Regreso a casa.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">見る</div>
+<div class="reading">miru</div>
+<div class="meaning">ver</div>
+<div class="example"><strong>テレビを見ます。</strong><br><span>Veo televisión.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">聞く</div>
+<div class="reading">kiku</div>
+<div class="meaning">escuchar / preguntar</div>
+<div class="example"><strong>音楽を聞きます。</strong><br><span>Escucho música.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">読む</div>
+<div class="reading">yomu</div>
+<div class="meaning">leer</div>
+<div class="example"><strong>本を読みます。</strong><br><span>Leo un libro.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">書く</div>
+<div class="reading">kaku</div>
+<div class="meaning">escribir</div>
+<div class="example"><strong>名前を書きます。</strong><br><span>Escribo mi nombre.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">話す</div>
+<div class="reading">hanasu</div>
+<div class="meaning">hablar</div>
+<div class="example"><strong>日本語を話します。</strong><br><span>Hablo japonés.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">言う</div>
+<div class="reading">iu</div>
+<div class="meaning">decir</div>
+<div class="example"><strong>名前を言います。</strong><br><span>Digo mi nombre.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">食べる</div>
+<div class="reading">taberu</div>
+<div class="meaning">comer</div>
+<div class="example"><strong>ご飯を食べます。</strong><br><span>Como.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">飲む</div>
+<div class="reading">nomu</div>
+<div class="meaning">beber</div>
+<div class="example"><strong>水を飲みます。</strong><br><span>Bebo agua.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">買う</div>
+<div class="reading">kau</div>
+<div class="meaning">comprar</div>
+<div class="example"><strong>本を買います。</strong><br><span>Compro un libro.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">使う</div>
+<div class="reading">tsukau</div>
+<div class="meaning">usar</div>
+<div class="example"><strong>ペンを使います。</strong><br><span>Uso un bolígrafo.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">作る</div>
+<div class="reading">tsukuru</div>
+<div class="meaning">hacer / crear</div>
+<div class="example"><strong>料理を作ります。</strong><br><span>Cocino.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">する</div>
+<div class="reading">suru</div>
+<div class="meaning">hacer</div>
+<div class="example"><strong>宿題をします。</strong><br><span>Hago la tarea.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">寝る</div>
+<div class="reading">neru</div>
+<div class="meaning">dormir</div>
+<div class="example"><strong>十一時に寝ます。</strong><br><span>Me duermo a las once.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">起きる</div>
+<div class="reading">okiru</div>
+<div class="meaning">levantarse</div>
+<div class="example"><strong>七時に起きます。</strong><br><span>Me levanto a las siete.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">休む</div>
+<div class="reading">yasumu</div>
+<div class="meaning">descansar</div>
+<div class="example"><strong>日曜日に休みます。</strong><br><span>Descanso el domingo.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">入る</div>
+<div class="reading">hairu</div>
+<div class="meaning">entrar</div>
+<div class="example"><strong>部屋に入ります。</strong><br><span>Entro en la habitación.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">出る</div>
+<div class="reading">deru</div>
+<div class="meaning">salir</div>
+<div class="example"><strong>家を出ます。</strong><br><span>Salgo de casa.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">立つ</div>
+<div class="reading">tatsu</div>
+<div class="meaning">ponerse de pie</div>
+<div class="example"><strong>ここに立ちます。</strong><br><span>Me pongo de pie aquí.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">座る</div>
+<div class="reading">suwaru</div>
+<div class="meaning">sentarse</div>
+<div class="example"><strong>椅子に座ります。</strong><br><span>Me siento en la silla.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">歩く</div>
+<div class="reading">aruku</div>
+<div class="meaning">caminar</div>
+<div class="example"><strong>学校まで歩きます。</strong><br><span>Camino hasta la escuela.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">走る</div>
+<div class="reading">hashiru</div>
+<div class="meaning">correr</div>
+<div class="example"><strong>公園で走ります。</strong><br><span>Corro en el parque.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">分かる</div>
+<div class="reading">wakaru</div>
+<div class="meaning">entender</div>
+<div class="example"><strong>日本語が分かります。</strong><br><span>Entiendo japonés.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">ある</div>
+<div class="reading">aru</div>
+<div class="meaning">haber / estar (cosas)</div>
+<div class="example"><strong>本があります。</strong><br><span>Hay un libro.</span></div>
+</article><article class="card" data-cat="Verbos">
+<div class="jp">いる</div>
+<div class="reading">iru</div>
+<div class="meaning">haber / estar (seres vivos)</div>
+<div class="example"><strong>猫がいます。</strong><br><span>Hay un gato.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">大きい</div>
+<div class="reading">ookii</div>
+<div class="meaning">grande</div>
+<div class="example"><strong>大きい家です。</strong><br><span>Es una casa grande.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">小さい</div>
+<div class="reading">chiisai</div>
+<div class="meaning">pequeño</div>
+<div class="example"><strong>小さい犬です。</strong><br><span>Es un perro pequeño.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">新しい</div>
+<div class="reading">atarashii</div>
+<div class="meaning">nuevo</div>
+<div class="example"><strong>新しい本です。</strong><br><span>Es un libro nuevo.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">古い</div>
+<div class="reading">furui</div>
+<div class="meaning">viejo</div>
+<div class="example"><strong>古い車です。</strong><br><span>Es un auto viejo.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">高い</div>
+<div class="reading">takai</div>
+<div class="meaning">alto / caro</div>
+<div class="example"><strong>この店は高いです。</strong><br><span>Esta tienda es cara.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">安い</div>
+<div class="reading">yasui</div>
+<div class="meaning">barato</div>
+<div class="example"><strong>この本は安いです。</strong><br><span>Este libro es barato.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">長い</div>
+<div class="reading">nagai</div>
+<div class="meaning">largo</div>
+<div class="example"><strong>長い道です。</strong><br><span>Es un camino largo.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">短い</div>
+<div class="reading">mijikai</div>
+<div class="meaning">corto</div>
+<div class="example"><strong>短い時間です。</strong><br><span>Es poco tiempo.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">暑い</div>
+<div class="reading">atsui</div>
+<div class="meaning">caluroso</div>
+<div class="example"><strong>今日は暑いです。</strong><br><span>Hoy hace calor.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">寒い</div>
+<div class="reading">samui</div>
+<div class="meaning">frío (clima)</div>
+<div class="example"><strong>今日は寒いです。</strong><br><span>Hoy hace frío.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">熱い</div>
+<div class="reading">atsui</div>
+<div class="meaning">caliente (al tacto/comida)</div>
+<div class="example"><strong>お茶が熱いです。</strong><br><span>El té está caliente.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">冷たい</div>
+<div class="reading">tsumetai</div>
+<div class="meaning">frío (al tacto)</div>
+<div class="example"><strong>水が冷たいです。</strong><br><span>El agua está fría.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">新鮮</div>
+<div class="reading">shinsen</div>
+<div class="meaning">fresco</div>
+<div class="example"><strong>魚は新鮮です。</strong><br><span>El pescado está fresco.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">おいしい</div>
+<div class="reading">oishii</div>
+<div class="meaning">delicioso</div>
+<div class="example"><strong>この料理はおいしいです。</strong><br><span>Esta comida está deliciosa.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">まずい</div>
+<div class="reading">mazui</div>
+<div class="meaning">malo de sabor</div>
+<div class="example"><strong>この食べ物はまずいです。</strong><br><span>Esta comida sabe mal.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">楽しい</div>
+<div class="reading">tanoshii</div>
+<div class="meaning">divertido</div>
+<div class="example"><strong>日本語は楽しいです。</strong><br><span>El japonés es divertido.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">忙しい</div>
+<div class="reading">isogashii</div>
+<div class="meaning">ocupado</div>
+<div class="example"><strong>今日は忙しいです。</strong><br><span>Hoy estoy ocupado.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">新しい</div>
+<div class="reading">atarashii</div>
+<div class="meaning">nuevo</div>
+<div class="example"><strong>新しい学校です。</strong><br><span>Es una escuela nueva.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">いい</div>
+<div class="reading">ii</div>
+<div class="meaning">bueno</div>
+<div class="example"><strong>いい天気です。</strong><br><span>Hace buen tiempo.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">悪い</div>
+<div class="reading">warui</div>
+<div class="meaning">malo</div>
+<div class="example"><strong>天気が悪いです。</strong><br><span>Hace mal tiempo.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">好き</div>
+<div class="reading">suki</div>
+<div class="meaning">gustar</div>
+<div class="example"><strong>猫が好きです。</strong><br><span>Me gustan los gatos.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">嫌い</div>
+<div class="reading">kirai</div>
+<div class="meaning">no gustar</div>
+<div class="example"><strong>魚が嫌いです。</strong><br><span>No me gusta el pescado.</span></div>
+</article><article class="card" data-cat="Adjetivos">
+<div class="jp">元気</div>
+<div class="reading">genki</div>
+<div class="meaning">saludable / animado</div>
+<div class="example"><strong>元気ですか。</strong><br><span>¿Estás bien?</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">日本</div>
+<div class="reading">nihon</div>
+<div class="meaning">Japón</div>
+<div class="example"><strong>日本へ行きたいです。</strong><br><span>Quiero ir a Japón.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">東京</div>
+<div class="reading">toukyou</div>
+<div class="meaning">Tokio</div>
+<div class="example"><strong>東京に住んでいます。</strong><br><span>Vivo en Tokio.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">駅</div>
+<div class="reading">eki</div>
+<div class="meaning">estación</div>
+<div class="example"><strong>駅で会います。</strong><br><span>Nos encontramos en la estación.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">学校</div>
+<div class="reading">gakkou</div>
+<div class="meaning">escuela</div>
+<div class="example"><strong>学校は近いです。</strong><br><span>La escuela está cerca.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">家</div>
+<div class="reading">ie</div>
+<div class="meaning">casa</div>
+<div class="example"><strong>家にいます。</strong><br><span>Estoy en casa.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">店</div>
+<div class="reading">mise</div>
+<div class="meaning">tienda</div>
+<div class="example"><strong>店へ行きます。</strong><br><span>Voy a la tienda.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">公園</div>
+<div class="reading">kouen</div>
+<div class="meaning">parque</div>
+<div class="example"><strong>公園で遊びます。</strong><br><span>Juego en el parque.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">銀行</div>
+<div class="reading">ginkou</div>
+<div class="meaning">banco</div>
+<div class="example"><strong>銀行はどこですか。</strong><br><span>¿Dónde está el banco?</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">病院</div>
+<div class="reading">byouin</div>
+<div class="meaning">hospital</div>
+<div class="example"><strong>病院へ行きます。</strong><br><span>Voy al hospital.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">会社</div>
+<div class="reading">kaisha</div>
+<div class="meaning">empresa / compañía</div>
+<div class="example"><strong>会社へ行きます。</strong><br><span>Voy a la empresa.</span></div>
+</article><article class="card" data-cat="Lugares">
+<div class="jp">国</div>
+<div class="reading">kuni</div>
+<div class="meaning">país</div>
+<div class="example"><strong>私の国はエクアドルです。</strong><br><span>Mi país es Ecuador.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">名前</div>
+<div class="reading">namae</div>
+<div class="meaning">nombre</div>
+<div class="example"><strong>名前は何ですか。</strong><br><span>¿Cuál es tu nombre?</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">言葉</div>
+<div class="reading">kotoba</div>
+<div class="meaning">palabra / idioma</div>
+<div class="example"><strong>日本語の言葉です。</strong><br><span>Es una palabra japonesa.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">問題</div>
+<div class="reading">mondai</div>
+<div class="meaning">problema / pregunta</div>
+<div class="example"><strong>問題を読みます。</strong><br><span>Leo la pregunta.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">質問</div>
+<div class="reading">shitsumon</div>
+<div class="meaning">pregunta</div>
+<div class="example"><strong>質問があります。</strong><br><span>Tengo una pregunta.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">答え</div>
+<div class="reading">kotae</div>
+<div class="meaning">respuesta</div>
+<div class="example"><strong>答えを書きます。</strong><br><span>Escribo la respuesta.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">時間</div>
+<div class="reading">jikan</div>
+<div class="meaning">tiempo / hora</div>
+<div class="example"><strong>時間があります。</strong><br><span>Tengo tiempo.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">お金</div>
+<div class="reading">okane</div>
+<div class="meaning">dinero</div>
+<div class="example"><strong>お金があります。</strong><br><span>Tengo dinero.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">写真</div>
+<div class="reading">shashin</div>
+<div class="meaning">foto</div>
+<div class="example"><strong>写真を撮ります。</strong><br><span>Tomo una foto.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">音楽</div>
+<div class="reading">ongaku</div>
+<div class="meaning">música</div>
+<div class="example"><strong>音楽を聞きます。</strong><br><span>Escucho música.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">映画</div>
+<div class="reading">eiga</div>
+<div class="meaning">película</div>
+<div class="example"><strong>映画を見ます。</strong><br><span>Veo una película.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">ゲーム</div>
+<div class="reading">geemu</div>
+<div class="meaning">juego</div>
+<div class="example"><strong>ゲームをします。</strong><br><span>Juego videojuegos.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">友達</div>
+<div class="reading">tomodachi</div>
+<div class="meaning">amigo</div>
+<div class="example"><strong>友達と遊びます。</strong><br><span>Juego con un amigo.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">名前</div>
+<div class="reading">namae</div>
+<div class="meaning">nombre</div>
+<div class="example"><strong>名前を書いてください。</strong><br><span>Escribe tu nombre, por favor.</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">電話番号</div>
+<div class="reading">denwa bangou</div>
+<div class="meaning">número de teléfono</div>
+<div class="example"><strong>電話番号は何ですか。</strong><br><span>¿Cuál es tu número de teléfono?</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">誕生日</div>
+<div class="reading">tanjoubi</div>
+<div class="meaning">cumpleaños</div>
+<div class="example"><strong>誕生日はいつですか。</strong><br><span>¿Cuándo es tu cumpleaños?</span></div>
+</article><article class="card" data-cat="Cotidiano">
+<div class="jp">天気</div>
+<div class="reading">tenki</div>
+<div class="meaning">clima</div>
+<div class="example"><strong>天気を見ます。</strong><br><span>Miro el clima.</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">買い物</div>
+<div class="reading">kaimono</div>
+<div class="meaning">compras</div>
+<div class="example"><strong>買い物に行きます。</strong><br><span>Voy de compras.</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">これ</div>
+<div class="reading">kore</div>
+<div class="meaning">esto</div>
+<div class="example"><strong>これは何ですか。</strong><br><span>¿Qué es esto?</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">それ</div>
+<div class="reading">sore</div>
+<div class="meaning">eso</div>
+<div class="example"><strong>それはいくらですか。</strong><br><span>¿Cuánto cuesta eso?</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">あれ</div>
+<div class="reading">are</div>
+<div class="meaning">aquello</div>
+<div class="example"><strong>あれは私のです。</strong><br><span>Aquello es mío.</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">いくら</div>
+<div class="reading">ikura</div>
+<div class="meaning">cuánto cuesta</div>
+<div class="example"><strong>これはいくらですか。</strong><br><span>¿Cuánto cuesta esto?</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">店員</div>
+<div class="reading">ten'in</div>
+<div class="meaning">dependiente de tienda</div>
+<div class="example"><strong>店員に聞きます。</strong><br><span>Pregunto al dependiente.</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">円</div>
+<div class="reading">en</div>
+<div class="meaning">yen</div>
+<div class="example"><strong>千円です。</strong><br><span>Son 1000 yenes.</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">高い</div>
+<div class="reading">takai</div>
+<div class="meaning">caro</div>
+<div class="example"><strong>これは高いです。</strong><br><span>Esto es caro.</span></div>
+</article><article class="card" data-cat="Compras">
+<div class="jp">安い</div>
+<div class="reading">yasui</div>
+<div class="meaning">barato</div>
+<div class="example"><strong>これは安いです。</strong><br><span>Esto es barato.</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">何</div>
+<div class="reading">nani</div>
+<div class="meaning">qué</div>
+<div class="example"><strong>これは何ですか。</strong><br><span>¿Qué es esto?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">誰</div>
+<div class="reading">dare</div>
+<div class="meaning">quién</div>
+<div class="example"><strong>あの人は誰ですか。</strong><br><span>¿Quién es esa persona?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">どこ</div>
+<div class="reading">doko</div>
+<div class="meaning">dónde</div>
+<div class="example"><strong>駅はどこですか。</strong><br><span>¿Dónde está la estación?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">いつ</div>
+<div class="reading">itsu</div>
+<div class="meaning">cuándo</div>
+<div class="example"><strong>いつ日本へ行きますか。</strong><br><span>¿Cuándo vas a Japón?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">どう</div>
+<div class="reading">dou</div>
+<div class="meaning">cómo</div>
+<div class="example"><strong>これはどうですか。</strong><br><span>¿Qué tal esto?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">どうして</div>
+<div class="reading">doushite</div>
+<div class="meaning">por qué</div>
+<div class="example"><strong>どうしてですか。</strong><br><span>¿Por qué?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">どれ</div>
+<div class="reading">dore</div>
+<div class="meaning">cuál</div>
+<div class="example"><strong>どれですか。</strong><br><span>¿Cuál es?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">どの</div>
+<div class="reading">dono</div>
+<div class="meaning">qué/cuál + sustantivo</div>
+<div class="example"><strong>どの本ですか。</strong><br><span>¿Qué libro es?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">いくつ</div>
+<div class="reading">ikutsu</div>
+<div class="meaning">cuántos / cuántos años</div>
+<div class="example"><strong>りんごはいくつですか。</strong><br><span>¿Cuántas manzanas hay?</span></div>
+</article><article class="card" data-cat="Preguntas">
+<div class="jp">いくら</div>
+<div class="reading">ikura</div>
+<div class="meaning">cuánto cuesta</div>
+<div class="example"><strong>いくらですか。</strong><br><span>¿Cuánto cuesta?</span></div>
+</article>
+</div>
+</main>
+<footer>Japanese Fácil 🇯🇵<br>Vocabulario japonés</footer>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const search=document.getElementById('search');
+const count=document.getElementById('count');
+let cat='Todas';
+function render(){
+ const q=search.value.toLowerCase().trim(); let n=0;
+ cards.forEach(card=>{
+   const text=card.innerText.toLowerCase();
+   const ok=(cat==='Todas'||card.dataset.cat===cat)&&text.includes(q);
+   card.classList.toggle('hidden',!ok); if(ok)n++;
+ });
+ count.textContent=`Mostrando ${n} palabras`;
+}
+document.querySelectorAll('button[data-cat]').forEach(btn=>btn.onclick=()=>{
+ document.querySelectorAll('button[data-cat]').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active'); cat=btn.dataset.cat; render();
+});
+search.oninput=render; render();
+</script>
+</body>
+</html>
