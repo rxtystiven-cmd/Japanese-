@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frases </title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+header {
+    background: #d71920;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+nav {
+    background: #b51218;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,.15);
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px 45px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.intro h2 {
+    color: #d71920;
+    margin-bottom: 8px;
+}
+
+.search {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.search:focus {
+    border-color: #d71920;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    border: none;
+    background: #eee;
+    color: #333;
+    padding: 9px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter.active,
+.filter:hover {
+    background: #d71920;
+    color: white;
+}
+
+.counter {
+    text-align: center;
+    margin: 10px 0 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 18px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,.06);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0,0,0,.09);
+}
+
+.jp {
+    font-size: 1.45rem;
+    font-weight: bold;
+    color: #d71920;
+    line-height: 1.5;
+}
+
+.reading {
+    color: #666;
+    margin-top: 5px;
+    font-size: .95rem;
+}
+
+.meaning {
+    font-size: 1.08rem;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.category {
+    display: inline-block;
+    margin-top: 12px;
+    background: #ffe5e6;
+    color: #b51218;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 20px 10px 35px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .jp {
+        font-size: 1.3rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💬 Frases N4</h1>
+    <p>250 frases japonesas para practicar el nivel JLPT N4</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion2.html">Sección 2</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="verbos.html">Verbos</a>
+    <a href="frases.html">Frases</a>
+    <a href="gramatica-n4.html">Gramática</a>
+    <a href="kanji-n4.html">Kanji</a>
+</nav>
+
+<main>
+
+<section class="intro">
+    <h2>📚 Aprende japonés con frases</h2>
+    <p>
+        Practica frases de nivel N4 con japonés, lectura,
+        significado en español y categorías.
+    </p>
+</section>
+
+<input
+    id="search"
+    class="search"
+    type="text"
+    placeholder="🔎 Buscar frase, lectura o significado..."
+>
+
+<div id="filters" class="filters"></div>
+
+<div id="counter" class="counter"></div>
+
+<div id="phrases" class="grid"></div>
+
+</main>
+
+<footer>
+    <div>Frases N4 🇯🇵</div>
+    <div>Japanese Fácil</div>
+</footer>
+
+<script>
+
+const frasesTexto = `Vida diaria|毎朝、七時に起きるようにしています。|Maiasa, shichi-ji ni okiru you ni shiteimasu.|Intento levantarme a las siete cada mañana.
+Vida diaria|健康のために、毎日歩くようになりました。|Kenkou no tame ni, mainichi aruku you ni narimashita.|Empecé a caminar todos los días por mi salud.
+Vida diaria|寝る前に、スマホを見ないようにしています。|Neru mae ni, sumaho o minai you ni shiteimasu.|Intento no mirar el celular antes de dormir.
+Vida diaria|朝ご飯を食べてから学校へ行きます。|Asagohan o tabete kara gakkou e ikimasu.|Voy a la escuela después de desayunar.
+Vida diaria|家に帰ったあとで、宿題をします。|Ie ni kaetta ato de, shukudai o shimasu.|Después de volver a casa hago la tarea.
+Vida diaria|忘れないように、メモしておきました。|Wasurenai you ni, memo shite okimashita.|Lo anoté para no olvidarlo.
+Vida diaria|明日は早く起きなければなりません。|Ashita wa hayaku okinakereba narimasen.|Mañana tengo que levantarme temprano.
+Vida diaria|今日は疲れたので、早く寝るつもりです。|Kyou wa tsukareta node, hayaku neru tsumori desu.|Hoy estoy cansado, así que pienso dormir temprano.
+Vida diaria|週末は部屋を掃除することにしています。|Shuumatsu wa heya o souji suru koto ni shiteimasu.|Los fines de semana acostumbro limpiar mi habitación.
+Vida diaria|最近、日本語を勉強する時間が増えました。|Saikin, nihongo o benkyou suru jikan ga fuemashita.|Últimamente aumentó el tiempo que estudio japonés.
+Vida diaria|学校へ行く前にシャワーを浴びます。|Gakkou e iku mae ni shawaa o abimasu.|Me ducho antes de ir a la escuela.
+Vida diaria|電気を消すのを忘れないでください。|Denki o kesu no o wasurenaide kudasai.|Por favor, no olvides apagar la luz.
+Vida diaria|母は料理を作っているところです。|Haha wa ryouri o tsukutte iru tokoro desu.|Mi madre está preparando comida.
+Vida diaria|今、弟がテレビを見ています。|Ima, otouto ga terebi o miteimasu.|Ahora mi hermano menor está viendo televisión.
+Vida diaria|学校が終わったら、一緒に帰りませんか。|Gakkou ga owattara, issho ni kaerimasen ka.|Cuando termine la escuela, ¿volvemos juntos?
+Vida diaria|雨が降ったら、傘を持って行きます。|Ame ga futtara, kasa o motte ikimasu.|Si llueve, llevaré un paraguas.
+Vida diaria|時間があれば、映画を見たいです。|Jikan ga areba, eiga o mitai desu.|Si tengo tiempo, quiero ver una película.
+Vida diaria|忙しくても、毎日少し勉強します。|Isogashikute mo, mainichi sukoshi benkyou shimasu.|Aunque esté ocupado, estudio un poco todos los días.
+Vida diaria|この部屋は前よりきれいになりました。|Kono heya wa mae yori kirei ni narimashita.|Esta habitación quedó más limpia que antes.
+Vida diaria|日本語が少し話せるようになりました。|Nihongo ga sukoshi hanaseru you ni narimashita.|He llegado a poder hablar un poco de japonés.
+Vida diaria|毎日練習すれば、上手になるでしょう。|Mainichi renshuu sureba, jouzu ni naru deshou.|Si practicas todos los días, probablemente mejorarás.
+Vida diaria|この漢字は前に見たことがあります。|Kono kanji wa mae ni mita koto ga arimasu.|He visto este kanji antes.
+Vida diaria|日本へ行ったことがありますか。|Nihon e itta koto ga arimasu ka.|¿Has ido alguna vez a Japón?
+Vida diaria|まだ富士山を見たことがありません。|Mada Fujisan o mita koto ga arimasen.|Todavía nunca he visto el monte Fuji.
+Vida diaria|今日は昨日ほど暑くありません。|Kyou wa kinou hodo atsuku arimasen.|Hoy no hace tanto calor como ayer.
+Escuela|先生に質問してもいいですか。|Sensei ni shitsumon shite mo ii desu ka.|¿Puedo hacerle una pregunta al profesor?
+Escuela|宿題を忘れてしまいました。|Shukudai o wasurete shimaimashita.|Olvidé la tarea.
+Escuela|試験の前にもっと勉強しなければなりません。|Shiken no mae ni motto benkyou shinakereba narimasen.|Tengo que estudiar más antes del examen.
+Escuela|この問題は難しすぎます。|Kono mondai wa muzukashisugimasu.|Este problema es demasiado difícil.
+Escuela|この本は読みやすいです。|Kono hon wa yomiyasui desu.|Este libro es fácil de leer.
+Escuela|この漢字は覚えにくいです。|Kono kanji wa oboenikui desu.|Este kanji es difícil de memorizar.
+Escuela|授業中に寝てはいけません。|Jugyou-chuu ni nete wa ikemasen.|No debes dormir durante la clase.
+Escuela|ここで写真を撮ってもいいですか。|Koko de shashin o totte mo ii desu ka.|¿Puedo tomar fotos aquí?
+Escuela|辞書を使ってもいいですよ。|Jisho o tsukatte mo ii desu yo.|Puedes usar el diccionario.
+Escuela|この言葉の意味が分かりません。|Kono kotoba no imi ga wakarimasen.|No entiendo el significado de esta palabra.
+Escuela|先生が説明してくれました。|Sensei ga setsumei shite kuremashita.|El profesor me lo explicó.
+Escuela|友達に宿題を手伝ってもらいました。|Tomodachi ni shukudai o tetsudatte moraimashita.|Un amigo me ayudó con la tarea.
+Escuela|明日のテストについて聞きました。|Ashita no tesuto ni tsuite kikimashita.|Pregunté sobre el examen de mañana.
+Escuela|日本語を話す練習をしています。|Nihongo o hanasu renshuu o shiteimasu.|Estoy practicando hablar japonés.
+Escuela|漢字を十個覚えることができました。|Kanji o jukko oboeru koto ga dekimashita.|Pude memorizar diez kanji.
+Escuela|もっときれいな字を書けるようになりたいです。|Motto kirei na ji o kakeru you ni naritai desu.|Quiero llegar a escribir con una letra más bonita.
+Escuela|分からない言葉を辞書で調べました。|Wakaranai kotoba o jisho de shirabemashita.|Busqué en el diccionario las palabras que no entendía.
+Escuela|授業が始まる前に教室へ入りました。|Jugyou ga hajimaru mae ni kyoushitsu e hairimashita.|Entré al aula antes de que empezara la clase.
+Escuela|先生は学生に宿題を出しました。|Sensei wa gakusei ni shukudai o dashimashita.|El profesor les dejó tarea a los estudiantes.
+Escuela|私は数学より日本語のほうが好きです。|Watashi wa suugaku yori nihongo no hou ga suki desu.|Me gusta más el japonés que las matemáticas.
+Escuela|この問題なら一人でできます。|Kono mondai nara hitori de dekimasu.|Si es este problema, puedo hacerlo solo.
+Escuela|答えを黒板に書いてください。|Kotae o kokuban ni kaite kudasai.|Escribe la respuesta en la pizarra, por favor.
+Escuela|試験が終わったら遊びに行きたいです。|Shiken ga owattara asobi ni ikitai desu.|Cuando termine el examen quiero salir a divertirme.
+Escuela|毎日勉強するようにしています。|Mainichi benkyou suru you ni shiteimasu.|Intento estudiar todos los días.
+Escuela|分からないところを先生に聞きました。|Wakaranai tokoro o sensei ni kikimashita.|Le pregunté al profesor las partes que no entendía.
+Personas|友達と一緒に映画を見に行きました。|Tomodachi to issho ni eiga o mi ni ikimashita.|Fui a ver una película con un amigo.
+Personas|友達が私の誕生日を覚えていてくれました。|Tomodachi ga watashi no tanjoubi o oboete ite kuremashita.|Mi amigo recordó mi cumpleaños.
+Personas|弟に部屋を掃除させました。|Otouto ni heya o souji sasemashita.|Hice que mi hermano menor limpiara la habitación.
+Personas|母に料理を作ってもらいました。|Haha ni ryouri o tsukutte moraimashita.|Mi madre me preparó comida.
+Personas|友達に日本語を教えてあげました。|Tomodachi ni nihongo o oshiete agemashita.|Le enseñé japonés a mi amigo.
+Personas|兄は私より三歳年上です。|Ani wa watashi yori san-sai toshiue desu.|Mi hermano mayor es tres años mayor que yo.
+Personas|妹は私に写真を見せてくれました。|Imouto wa watashi ni shashin o misete kuremashita.|Mi hermana menor me mostró una foto.
+Personas|父に駅まで送ってもらいました。|Chichi ni eki made okutte moraimashita.|Mi padre me llevó hasta la estación.
+Personas|友達が宿題を手伝ってくれました。|Tomodachi ga shukudai o tetsudatte kuremashita.|Un amigo me ayudó con la tarea.
+Personas|困ったときは先生に相談します。|Komatta toki wa sensei ni soudan shimasu.|Cuando tengo problemas, consulto al profesor.
+Personas|彼は日本語を勉強しながら働いています。|Kare wa nihongo o benkyou shinagara hataraiteimasu.|Él trabaja mientras estudia japonés.
+Personas|母が帰ってくるまで待ちます。|Haha ga kaette kuru made machimasu.|Esperaré hasta que mamá regrese.
+Personas|友達なら何でも話せます。|Tomodachi nara nandemo hanasemasu.|Si es un amigo, puedo hablar de cualquier cosa.
+Personas|その人は来るかもしれません。|Sono hito wa kuru kamo shiremasen.|Puede que esa persona venga.
+Personas|彼は学生でしょう。|Kare wa gakusei deshou.|Probablemente él sea estudiante.
+Personas|みんなで力を合わせて頑張りましょう。|Minna de chikara o awasete ganbarimashou.|Esforcémonos todos juntos.
+Comida|日本料理を食べたことがあります。|Nihon ryouri o tabeta koto ga arimasu.|He comido comida japonesa.
+Comida|この料理は辛そうです。|Kono ryouri wa karasou desu.|Este plato parece picante.
+Comida|お腹がいっぱいなので、もう食べられません。|Onaka ga ippai na node, mou taberaremasen.|Estoy lleno, así que ya no puedo comer.
+Comida|食べすぎないようにしてください。|Tabesuginai you ni shite kudasai.|Por favor, intenta no comer demasiado.
+Comida|この店は駅より少し遠いです。|Kono mise wa eki yori sukoshi tooi desu.|Esta tienda está un poco más lejos que la estación.
+Comida|注文した料理がまだ来ていません。|Chuumon shita ryouri ga mada kiteimasen.|El plato que pedí todavía no ha llegado.
+Comida|料理が冷めてしまいました。|Ryouri ga samete shimaimashita.|La comida se enfrió.
+Comida|家で食べるほうが安いです。|Ie de taberu hou ga yasui desu.|Es más barato comer en casa.
+Comida|野菜をもっと食べるようにしています。|Yasai o motto taberu you ni shiteimasu.|Intento comer más verduras.
+Comida|このケーキは甘すぎます。|Kono keeki wa amasugimasu.|Este pastel es demasiado dulce.
+Compras|この服を試着してもいいですか。|Kono fuku o shichaku shite mo ii desu ka.|¿Puedo probarme esta ropa?
+Compras|この靴は少し大きすぎます。|Kono kutsu wa sukoshi ookisugimasu.|Estos zapatos son un poco demasiado grandes.
+Compras|もう少し安ければ買います。|Mou sukoshi yasukereba kaimasu.|Si fuera un poco más barato, lo compraría.
+Compras|財布を家に忘れてしまいました。|Saifu o ie ni wasurete shimaimashita.|Olvidé la cartera en casa.
+Compras|この商品は人気があるそうです。|Kono shouhin wa ninki ga aru sou desu.|Dicen que este producto es popular.
+Compras|ネットで注文する予定です。|Netto de chuumon suru yotei desu.|Tengo previsto pedirlo por internet.
+Compras|必要な物だけ買うようにしています。|Hitsuyou na mono dake kau you ni shiteimasu.|Intento comprar solo lo que necesito.
+Compras|この店では現金しか使えません。|Kono mise de wa genkin shika tsukaemasen.|En esta tienda solo se puede usar efectivo.
+Compras|買う前に値段を確認しました。|Kau mae ni nedan o kakunin shimashita.|Comprobé el precio antes de comprar.
+Compras|この二つなら、こちらのほうが便利です。|Kono futatsu nara, kochira no hou ga benri desu.|Entre estos dos, este es más práctico.
+Viajes|来年、日本へ旅行するつもりです。|Rainen, Nihon e ryokou suru tsumori desu.|Tengo pensado viajar a Japón el próximo año.
+Viajes|旅行の前にホテルを予約しておきます。|Ryokou no mae ni hoteru o yoyaku shite okimasu.|Reservaré el hotel antes del viaje.
+Viajes|駅に着いたら電話してください。|Eki ni tsuitara denwa shite kudasai.|Cuando llegues a la estación, llámame.
+Viajes|電車に乗り遅れてしまいました。|Densha ni noriokurete shimaimashita.|Perdí el tren.
+Viajes|道が分からなかったので、駅員に聞きました。|Michi ga wakaranakatta node, ekiin ni kikimashita.|Como no sabía el camino, le pregunté a un empleado de la estación.
+Viajes|京都へ行ったことがありますか。|Kyouto e itta koto ga arimasu ka.|¿Has ido alguna vez a Kioto?
+Viajes|雨でも旅行に行く予定です。|Ame demo ryokou ni iku yotei desu.|Tengo previsto viajar aunque llueva.
+Viajes|この電車は東京へ行くでしょう。|Kono densha wa Toukyou e iku deshou.|Probablemente este tren vaya a Tokio.
+Viajes|ホテルに荷物を置いてから観光します。|Hoteru ni nimotsu o oite kara kankou shimasu.|Haré turismo después de dejar el equipaje en el hotel.
+Viajes|飛行機より電車のほうが好きです。|Hikouki yori densha no hou ga suki desu.|Me gustan más los trenes que los aviones.
+Transporte|駅まで歩いて行くことにしました。|Eki made aruite iku koto ni shimashita.|Decidí ir caminando hasta la estación.
+Transporte|バスが来るまでここで待ちます。|Basu ga kuru made koko de machimasu.|Esperaré aquí hasta que llegue el autobús.
+Transporte|次の駅で電車を降ります。|Tsugi no eki de densha o orimasu.|Bajaré del tren en la próxima estación.
+Transporte|この道をまっすぐ行けば、駅があります。|Kono michi o massugu ikeba, eki ga arimasu.|Si sigues recto por este camino, encontrarás la estación.
+Transporte|右に曲がったほうがいいです。|Migi ni magatta hou ga ii desu.|Será mejor que gires a la derecha.
+Transporte|急がないと、バスに間に合いません。|Isoganai to, basu ni maniaimasen.|Si no te apresuras, no llegarás a tiempo al autobús.
+Transporte|駅で別の電車に乗り換えます。|Eki de betsu no densha ni norikaemasu.|Cambio a otro tren en la estación.
+Transporte|ここでは車を止めてはいけません。|Koko de wa kuruma o tomete wa ikemasen.|No debes estacionar aquí.
+Transporte|雨が降っているので、タクシーに乗ります。|Ame ga futte iru node, takushii ni norimasu.|Como está lloviendo, tomaré un taxi.
+Transporte|駅から学校まで十分ぐらいかかります。|Eki kara gakkou made juppun gurai kakarimasu.|Se tarda unos diez minutos desde la estación hasta la escuela.
+Casa|部屋をきれいにしておきました。|Heya o kirei ni shite okimashita.|Dejé la habitación limpia de antemano.
+Casa|窓を開けたまま寝てしまいました。|Mado o aketa mama nete shimaimashita.|Me quedé dormido con la ventana abierta.
+Casa|出かける前にドアに鍵をかけます。|Dekakeru mae ni doa ni kagi o kakemasu.|Cierro la puerta con llave antes de salir.
+Casa|母が帰るまで料理を作っておきます。|Haha ga kaeru made ryouri o tsukutte okimasu.|Prepararé la comida antes de que mamá regrese.
+Casa|この部屋は前より明るくなりました。|Kono heya wa mae yori akaruku narimashita.|Esta habitación se volvió más luminosa que antes.
+Casa|古い机を新しいものに変えました。|Furui tsukue o atarashii mono ni kaemashita.|Cambié el escritorio viejo por uno nuevo.
+Casa|洗濯物がまだ乾いていません。|Sentakumono ga mada kawaiteimasen.|La ropa lavada todavía no se ha secado.
+Casa|料理をしている間、弟はテレビを見ていました。|Ryouri o shite iru aida, otouto wa terebi o miteimashita.|Mientras cocinaba, mi hermano veía televisión.
+Casa|部屋が狭すぎるので、家具を減らします。|Heya ga semasugiru node, kagu o herashimasu.|La habitación es demasiado pequeña, así que reduciré los muebles.
+Casa|家に帰ると、犬が走ってきました。|Ie ni kaeru to, inu ga hashitte kimashita.|Cuando volví a casa, el perro vino corriendo.
+Tecnología|スマホを使いすぎないようにしています。|Sumaho o tsukaisuginai you ni shiteimasu.|Intento no usar demasiado el celular.
+Tecnología|電池がなくなりそうです。|Denchi ga nakunarisou desu.|Parece que la batería está a punto de agotarse.
+Tecnología|このアプリは簡単に使えます。|Kono apuri wa kantan ni tsukaemasu.|Esta aplicación se puede usar fácilmente.
+Tecnología|写真を間違えて消してしまいました。|Shashin o machigaete keshite shimaimashita.|Borré una foto por error.
+Tecnología|大切なファイルは保存しておいてください。|Taisetsu na fairu wa hozon shite oite kudasai.|Por favor, guarda los archivos importantes.
+Tecnología|パソコンが急に動かなくなりました。|Pasokon ga kyuu ni ugokanaku narimashita.|La computadora dejó de funcionar de repente.
+Tecnología|新しいスマホを買う予定はありません。|Atarashii sumaho o kau yotei wa arimasen.|No tengo previsto comprar un celular nuevo.
+Tecnología|分からないことはネットで調べられます。|Wakaranai koto wa netto de shiraberaremasu.|Puedes buscar en internet lo que no entiendas.
+Tecnología|このサイトはスマホでも見やすいです。|Kono saito wa sumaho demo miyasui desu.|Este sitio también es fácil de ver en el celular.
+Tecnología|充電しながらゲームをしないほうがいいです。|Juuden shinagara geemu o shinai hou ga ii desu.|Es mejor no jugar mientras cargas el celular.
+Trabajo|来年からアルバイトを始めるつもりです。|Rainen kara arubaito o hajimeru tsumori desu.|Tengo pensado empezar un trabajo de medio tiempo el próximo año.
+Trabajo|仕事が終わったら連絡します。|Shigoto ga owattara renraku shimasu.|Te contactaré cuando termine el trabajo.
+Trabajo|忙しいので、今日は残業するかもしれません。|Isogashii node, kyou wa zangyou suru kamo shiremasen.|Como estoy ocupado, quizá hoy haga horas extra.
+Trabajo|仕事を忘れないようにメモしました。|Shigoto o wasurenai you ni memo shimashita.|Lo anoté para no olvidar el trabajo.
+Trabajo|新しい仕事に少しずつ慣れてきました。|Atarashii shigoto ni sukoshi zutsu narete kimashita.|Poco a poco me estoy acostumbrando al nuevo trabajo.
+Trabajo|この仕事は思ったより大変です。|Kono shigoto wa omotta yori taihen desu.|Este trabajo es más difícil de lo que pensaba.
+Trabajo|明日の予定について話し合いました。|Ashita no yotei ni tsuite hanashiaimashita.|Hablamos sobre el plan de mañana.
+Trabajo|必要な資料を準備しておきました。|Hitsuyou na shiryou o junbi shite okimashita.|Preparé de antemano los documentos necesarios.
+Trabajo|時間があれば、手伝ってください。|Jikan ga areba, tetsudatte kudasai.|Si tienes tiempo, ayúdame por favor.
+Trabajo|仕事より家族との時間を大切にしています。|Shigoto yori kazoku to no jikan o taisetsu ni shiteimasu.|Valoro más el tiempo con mi familia que el trabajo.
+Salud|少し休んだほうがいいですよ。|Sukoshi yasunda hou ga ii desu yo.|Deberías descansar un poco.
+Salud|昨日から頭が痛いです。|Kinou kara atama ga itai desu.|Me duele la cabeza desde ayer.
+Salud|薬を飲んでから寝ました。|Kusuri o nonde kara nemashita.|Me acosté después de tomar el medicamento.
+Salud|具合が悪ければ、学校を休んでください。|Guai ga warukereba, gakkou o yasunde kudasai.|Si te sientes mal, descansa de la escuela.
+Salud|毎日運動するようにしています。|Mainichi undou suru you ni shiteimasu.|Intento hacer ejercicio todos los días.
+Salud|最近、前より元気になりました。|Saikin, mae yori genki ni narimashita.|Últimamente me siento con más energía que antes.
+Salud|夜更かししないようにしてください。|Yofukashi shinai you ni shite kudasai.|Intenta no quedarte despierto hasta tarde.
+Salud|水をたくさん飲むようになりました。|Mizu o takusan nomu you ni narimashita.|Empecé a beber mucha agua.
+Salud|疲れすぎたので、今日は運動しません。|Tsukaresugita node, kyou wa undou shimasen.|Estoy demasiado cansado, así que hoy no haré ejercicio.
+Salud|病院へ行ったほうがいいかもしれません。|Byouin e itta hou ga ii kamo shiremasen.|Quizá sería mejor ir al hospital.
+Tiempo|天気予報によると、明日は雨だそうです。|Tenki yohou ni yoru to, ashita wa ame da sou desu.|Según el pronóstico, dicen que mañana lloverá.
+Tiempo|雨が降りそうな空ですね。|Ame ga furisou na sora desu ne.|Parece que va a llover, ¿verdad?
+Tiempo|春になると、桜が咲きます。|Haru ni naru to, sakura ga sakimasu.|Cuando llega la primavera, florecen los cerezos.
+Tiempo|冬は夏より日が短いです。|Fuyu wa natsu yori hi ga mijikai desu.|En invierno los días son más cortos que en verano.
+Tiempo|暑くても窓を開けないでください。|Atsukutemo mado o akenaide kudasai.|Aunque haga calor, no abras la ventana.
+Tiempo|明日は今日ほど寒くないでしょう。|Ashita wa kyou hodo samukunai deshou.|Probablemente mañana no haga tanto frío como hoy.
+Tiempo|雨が止むまで待ちましょう。|Ame ga yamu made machimashou.|Esperemos hasta que deje de llover.
+Tiempo|夏休みに旅行する予定です。|Natsuyasumi ni ryokou suru yotei desu.|Tengo previsto viajar durante las vacaciones de verano.
+Tiempo|朝より午後のほうが暖かいです。|Asa yori gogo no hou ga atatakai desu.|La tarde es más cálida que la mañana.
+Tiempo|最近、日が長くなってきました。|Saikin, hi ga nagaku natte kimashita.|Últimamente los días se han ido alargando.
+Naturaleza|山の上から町が見えます。|Yama no ue kara machi ga miemasu.|Se puede ver la ciudad desde la montaña.
+Naturaleza|川の水がとてもきれいです。|Kawa no mizu ga totemo kirei desu.|El agua del río está muy limpia.
+Naturaleza|春になると花がたくさん咲きます。|Haru ni naru to hana ga takusan sakimasu.|Cuando llega la primavera, florecen muchas flores.
+Naturaleza|風が強くなってきました。|Kaze ga tsuyoku natte kimashita.|El viento se ha vuelto más fuerte.
+Naturaleza|空が暗くなってきました。|Sora ga kuraku natte kimashita.|El cielo se ha ido oscureciendo.
+Naturaleza|星がきれいに見えます。|Hoshi ga kirei ni miemasu.|Las estrellas se ven hermosas.
+Naturaleza|雨が降ったので、川の水が増えました。|Ame ga futta node, kawa no mizu ga fuemashita.|Como llovió, aumentó el agua del río.
+Naturaleza|この木は百年以上生きているそうです。|Kono ki wa hyaku-nen ijou ikite iru sou desu.|Dicen que este árbol tiene más de cien años.
+Naturaleza|山へ行くなら、暖かい服を持って行ってください。|Yama e iku nara, atatakai fuku o motte itte kudasai.|Si vas a la montaña, lleva ropa abrigada.
+Naturaleza|自然の中で過ごすのが好きです。|Shizen no naka de sugosu no ga suki desu.|Me gusta pasar tiempo en la naturaleza.
+Hobbies|暇なときはゲームをしています。|Hima na toki wa geemu o shiteimasu.|Cuando tengo tiempo libre, juego videojuegos.
+Hobbies|音楽を聞きながら勉強します。|Ongaku o kikinagara benkyou shimasu.|Estudio mientras escucho música.
+Hobbies|週末に友達とサッカーをする予定です。|Shuumatsu ni tomodachi to sakkaa o suru yotei desu.|Tengo previsto jugar fútbol con mis amigos el fin de semana.
+Hobbies|この映画を見たことがありますか。|Kono eiga o mita koto ga arimasu ka.|¿Has visto esta película alguna vez?
+Hobbies|面白そうな本を見つけました。|Omoshirosou na hon o mitsukemashita.|Encontré un libro que parece interesante.
+Hobbies|日本のアニメを見るのが好きです。|Nihon no anime o miru no ga suki desu.|Me gusta ver anime japonés.
+Hobbies|新しい趣味を始めてみたいです。|Atarashii shumi o hajimete mitai desu.|Quiero probar a empezar un nuevo hobby.
+Hobbies|ゲームをしすぎないようにしています。|Geemu o shisuginai you ni shiteimasu.|Intento no jugar demasiado.
+Hobbies|暇なら一緒に映画を見ませんか。|Hima nara issho ni eiga o mimasen ka.|Si estás libre, ¿vemos una película juntos?
+Hobbies|旅行の写真を集めています。|Ryokou no shashin o atsumeteimasu.|Estoy coleccionando fotos de viajes.
+Comunicación|もう一度説明してもらえませんか。|Mou ichido setsumei shite moraemasen ka.|¿Podría explicármelo una vez más?
+Comunicación|分からないことがあったら聞いてください。|Wakaranai koto ga attara kiite kudasai.|Si hay algo que no entiendas, pregunta.
+Comunicación|明日の予定を教えてくれませんか。|Ashita no yotei o oshiete kuremasen ka.|¿Podrías decirme el plan de mañana?
+Comunicación|彼は来ないと言っていました。|Kare wa konai to itteimashita.|Él dijo que no vendría.
+Comunicación|先生によると、試験は来週だそうです。|Sensei ni yoru to, shiken wa raishuu da sou desu.|Según el profesor, dicen que el examen es la próxima semana.
+Comunicación|電話しようと思っています。|Denwa shiyou to omotteimasu.|Estoy pensando en llamar.
+Comunicación|忘れたら、メールで知らせてください。|Wasuretara, meeru de shirasete kudasai.|Si lo olvidas, avísame por correo.
+Comunicación|友達に明日の予定を伝えました。|Tomodachi ni ashita no yotei o tsutaemashita.|Le comuniqué a mi amigo el plan de mañana.
+Comunicación|日本語で自分の意見を言えるようになりたいです。|Nihongo de jibun no iken o ieru you ni naritai desu.|Quiero llegar a poder expresar mi opinión en japonés.
+Comunicación|簡単な日本語なら分かります。|Kantan na nihongo nara wakarimasu.|Si es japonés sencillo, lo entiendo.
+Gramática N4|忘れないように、スマホに予定を入れました。|Wasurenai you ni, sumaho ni yotei o iremashita.|Puse el horario en el celular para no olvidarlo.
+Gramática N4|日本語を話せるようになりたいです。|Nihongo o hanaseru you ni naritai desu.|Quiero llegar a poder hablar japonés.
+Gramática N4|宿題をしてからゲームをします。|Shukudai o shite kara geemu o shimasu.|Juego después de hacer la tarea.
+Gramática N4|雨なのに、彼は出かけました。|Ame na noni, kare wa dekakemashita.|Aunque estaba lloviendo, él salió.
+Gramática N4|忙しいのに、手伝ってくれました。|Isogashii noni, tetsudatte kuremashita.|Aunque estaba ocupado, me ayudó.
+Gramática N4|明日は晴れるかもしれません。|Ashita wa hareru kamo shiremasen.|Puede que mañana esté soleado.
+Gramática N4|この店は駅の近くなので便利です。|Kono mise wa eki no chikaku na node benri desu.|Esta tienda es práctica porque está cerca de la estación.
+Gramática N4|日本へ行くために、お金を貯めています。|Nihon e iku tame ni, okane o tameteimasu.|Estoy ahorrando dinero para ir a Japón.
+Gramática N4|忘れないために、毎日復習します。|Wasurenai tame ni, mainichi fukushuu shimasu.|Repaso todos los días para no olvidarlo.
+Gramática N4|健康になるために運動しています。|Kenkou ni naru tame ni undou shiteimasu.|Hago ejercicio para estar saludable.
+Gramática N4|もっと練習すれば、上手に話せます。|Motto renshuu sureba, jouzu ni hanasemasu.|Si practicas más, podrás hablar mejor.
+Gramática N4|高くても、このカメラが欲しいです。|Takakute mo, kono kamera ga hoshii desu.|Aunque sea cara, quiero esta cámara.
+Gramática N4|時間がなくても、少し勉強します。|Jikan ga nakute mo, sukoshi benkyou shimasu.|Aunque no tenga tiempo, estudiaré un poco.
+Gramática N4|日本に住んだことはありません。|Nihon ni sunda koto wa arimasen.|Nunca he vivido en Japón.
+Gramática N4|宿題をやってしまってから遊びました。|Shukudai o yatte shimatte kara asobimashita.|Después de terminar la tarea, fui a divertirme.
+Gramática N4|旅行の前に切符を買っておきました。|Ryokou no mae ni kippu o katte okimashita.|Compré el boleto de antemano antes del viaje.
+Gramática N4|新しい料理を作ってみました。|Atarashii ryouri o tsukutte mimashita.|Probé a preparar un plato nuevo.
+Gramática N4|毎日漢字を三つ覚えることにしました。|Mainichi kanji o mittsu oboeru koto ni shimashita.|Decidí memorizar tres kanji cada día.
+Gramática N4|来月から早く寝ることにします。|Raigetsu kara hayaku neru koto ni shimasu.|A partir del próximo mes decidiré acostarme temprano.
+Gramática N4|ここでは写真を撮らないほうがいいです。|Koko de wa shashin o toranai hou ga ii desu.|Es mejor no tomar fotos aquí.
+Vida diaria|朝起きたら、まず水を飲みます。|Asa okitara, mazu mizu o nomimasu.|Cuando me levanto por la mañana, primero bebo agua.
+Vida diaria|学校から帰ると、すぐ宿題を始めます。|Gakkou kara kaeru to, sugu shukudai o hajimemasu.|Cuando vuelvo de la escuela, empiezo la tarea enseguida.
+Vida diaria|寝る前に歯を磨いておきます。|Neru mae ni ha o migaite okimasu.|Me cepillo los dientes antes de dormir.
+Vida diaria|忘れ物をしないように、毎晩かばんを準備します。|Wasuremono o shinai you ni, maiban kaban o junbi shimasu.|Preparo la mochila cada noche para no olvidar nada.
+Vida diaria|今日はいつもより早く帰りました。|Kyou wa itsumo yori hayaku kaerimashita.|Hoy regresé más temprano de lo habitual.
+Vida diaria|休日は家でゆっくり過ごすつもりです。|Kyuujitsu wa ie de yukkuri sugosu tsumori desu.|Pienso pasar tranquilamente el día libre en casa.
+Vida diaria|忙しいときでも、朝ご飯を食べます。|Isogashii toki demo, asagohan o tabemasu.|Incluso cuando estoy ocupado, desayuno.
+Vida diaria|部屋を片付けてから友達を呼びました。|Heya o katazukete kara tomodachi o yobimashita.|Llamé a un amigo después de ordenar la habitación.
+Vida diaria|最近、早く起きられるようになりました。|Saikin, hayaku okirareru you ni narimashita.|Últimamente he conseguido levantarme temprano.
+Vida diaria|明日は学校がないので、少し遅く寝ます。|Ashita wa gakkou ga nai node, sukoshi osoku nemasu.|Como mañana no hay escuela, dormiré un poco más tarde.
+Escuela|授業が始まるまでここで待ちましょう。|Jugyou ga hajimaru made koko de machimashou.|Esperemos aquí hasta que empiece la clase.
+Escuela|試験に合格するために毎日勉強しています。|Shiken ni goukaku suru tame ni mainichi benkyou shiteimasu.|Estudio todos los días para aprobar el examen.
+Escuela|分からない問題があれば先生に聞きます。|Wakaranai mondai ga areba sensei ni kikimasu.|Si hay un problema que no entiendo, le pregunto al profesor.
+Escuela|この問題は前の問題より簡単です。|Kono mondai wa mae no mondai yori kantan desu.|Este problema es más fácil que el anterior.
+Escuela|授業を聞きながらノートを取ります。|Jugyou o kikinagara nooto o torimasu.|Tomo apuntes mientras escucho la clase.
+Escuela|明日のテストは難しいかもしれません。|Ashita no tesuto wa muzukashii kamo shiremasen.|El examen de mañana puede ser difícil.
+Escuela|宿題を提出するのを忘れました。|Shukudai o teishutsu suru no o wasuremashita.|Olvidé entregar la tarea.
+Escuela|日本語を勉強するのが楽しくなりました。|Nihongo o benkyou suru no ga tanoshiku narimashita.|Estudiar japonés se volvió divertido.
+Escuela|この漢字は何と読みますか。|Kono kanji wa nan to yomimasu ka.|¿Cómo se lee este kanji?
+Escuela|先生が来る前に教科書を開いておきます。|Sensei ga kuru mae ni kyoukasho o hiraite okimasu.|Abriré el libro de texto antes de que llegue el profesor.
+Personas|友達と話していると、時間が早く過ぎます。|Tomodachi to hanashite iru to, jikan ga hayaku sugimasu.|Cuando hablo con mis amigos, el tiempo pasa rápido.
+Personas|母が帰ってきたら、一緒に夕飯を食べます。|Haha ga kaette kitara, issho ni yuuhan o tabemasu.|Cuando mamá vuelva, cenaremos juntos.
+Personas|弟は私より背が高くなりました。|Otouto wa watashi yori se ga takaku narimashita.|Mi hermano menor se volvió más alto que yo.
+Personas|友達に日本語の本を貸してあげました。|Tomodachi ni nihongo no hon o kashite agemashita.|Le presté un libro japonés a mi amigo.
+Personas|友達が駅まで迎えに来てくれました。|Tomodachi ga eki made mukae ni kite kuremashita.|Mi amigo vino a recogerme a la estación.
+Personas|彼女は日本語が上手になったそうです。|Kanojo wa nihongo ga jouzu ni natta sou desu.|Dicen que ella mejoró en japonés.
+Personas|困ったとき、家族に相談することにしています。|Komatta toki, kazoku ni soudan suru koto ni shiteimasu.|Cuando tengo problemas, acostumbro consultar a mi familia.
+Personas|みんなが来るまで、ここで待っていてください。|Minna ga kuru made, koko de matte ite kudasai.|Espera aquí hasta que todos lleguen.
+Personas|父は私に車の運転を教えてくれました。|Chichi wa watashi ni kuruma no unten o oshiete kuremashita.|Mi padre me enseñó a conducir.
+Personas|友達と約束したので、行かなければなりません。|Tomodachi to yakusoku shita node, ikanakereba narimasen.|Como hice una promesa con mi amigo, tengo que ir.
+Compras|この店は安いだけでなく、品物も多いです。|Kono mise wa yasui dake de naku, shinamono mo ooi desu.|Esta tienda no solo es barata, también tiene muchos productos.
+Compras|サイズが合わなければ、交換できますか。|Saizu ga awanakereba, koukan dekimasu ka.|Si la talla no queda bien, ¿se puede cambiar?
+Compras|買う前にレビューを読んでみました。|Kau mae ni rebyuu o yonde mimashita.|Probé leer las reseñas antes de comprar.
+Compras|この商品は売り切れているかもしれません。|Kono shouhin wa urikirete iru kamo shiremasen.|Puede que este producto esté agotado.
+Compras|送料が高すぎるので、買うのをやめました。|Souryou ga takasugiru node, kau no o yamemashita.|Como el envío era demasiado caro, decidí no comprarlo.
+Compras|お金が足りないので、来月買うつもりです。|Okane ga tarinai node, raigetsu kau tsumori desu.|Como no tengo suficiente dinero, pienso comprarlo el próximo mes.
+Viajes|空港へ行く前にチケットを確認してください。|Kuukou e iku mae ni chiketto o kakunin shite kudasai.|Comprueba el boleto antes de ir al aeropuerto.
+Viajes|日本へ行ったら、京都も見てみたいです。|Nihon e ittara, Kyouto mo mite mitai desu.|Si voy a Japón, también quiero visitar Kioto.
+Viajes|ホテルに着いたら、連絡してください。|Hoteru ni tsuitara, renraku shite kudasai.|Cuando llegues al hotel, avísame.
+Viajes|旅行中にたくさん写真を撮りました。|Ryokouchuu ni takusan shashin o torimashita.|Tomé muchas fotos durante el viaje.
+Viajes|荷物が多すぎて、一人では運べません。|Nimotsu ga oosugite, hitori de wa hakobemasen.|Tengo demasiado equipaje y no puedo llevarlo solo.
+Viajes|この場所は写真で見るよりきれいです。|Kono basho wa shashin de miru yori kirei desu.|Este lugar es más bonito de lo que parece en las fotos.
+Viajes|旅行するなら、春がおすすめです。|Ryokou suru nara, haru ga osusume desu.|Si vas a viajar, recomiendo la primavera.
+Viajes|帰る前にお土産を買っておきました。|Kaeru mae ni omiyage o katte okimashita.|Compré recuerdos antes de regresar.
+Viajes|電車が遅れたので、予定を変えました。|Densha ga okureta node, yotei o kaemashita.|Como el tren se retrasó, cambié el plan.
+Viajes|初めて一人で旅行する予定です。|Hajimete hitori de ryokou suru yotei desu.|Tengo previsto viajar solo por primera vez.`;
+
+const frases = frasesTexto
+    .split("\n")
+    .map(linea => linea.split("|"));
+
+const search = document.getElementById("search");
+const filters = document.getElementById("filters");
+const counter = document.getElementById("counter");
+const container = document.getElementById("phrases");
+
+let currentCategory = "Todas";
+
+const categories = [
+    "Todas",
+    ...new Set(frases.map(f => f[0]))
+];
+
+categories.forEach(category => {
+
+    const button = document.createElement("button");
+
+    button.className =
+        "filter" +
+        (category === "Todas" ? " active" : "");
+
+    button.textContent = category;
+
+    button.addEventListener("click", () => {
+
+        currentCategory = category;
+
+        document
+            .querySelectorAll(".filter")
+            .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        render();
+    });
+
+    filters.appendChild(button);
+});
+
+function render() {
+
+    const query = search.value
+        .toLowerCase()
+        .trim();
+
+    const filtered = frases.filter(f => {
+
+        const matchesCategory =
+            currentCategory === "Todas" ||
+            f[0] === currentCategory;
+
+        const text =
+            f.join(" ").toLowerCase();
+
+        return matchesCategory &&
+               text.includes(query);
+    });
+
+    counter.textContent =
+        `Mostrando ${filtered.length} de ${frases.length} frases`;
+
+    container.innerHTML = "";
+
+    if (filtered.length === 0) {
+
+        container.innerHTML =
+            '<div class="empty">No se encontraron frases.</div>';
+
+        return;
+    }
+
+    filtered.forEach(f => {
+
+        const [
+            category,
+            japanese,
+            reading,
+            spanish
+        ] = f;
+
+        const card =
+            document.createElement("article");
+
+        card.className = "card";
+
+        card.innerHTML = `
+
+            <div class="jp">
+                ${japanese}
+            </div>
+
+            <div class="reading">
+                ${reading}
+            </div>
+
+            <div class="meaning">
+                ${spanish}
+            </div>
+
+            <div class="category">
+                ${category}
+            </div>
+
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+search.addEventListener("input", render);
+
+render();
+
+</script>
+
+</body>
+</html>
