@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecturas - Japanese Fácil</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+/* HEADER */
+header {
+    background: #d71920;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+/* NAV */
+nav {
+    background: #b51218;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    background: #d71920;
+}
+
+/* MAIN */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px 45px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.intro h2 {
+    color: #d71920;
+    margin-bottom: 8px;
+}
+
+/* MODOS */
+.modes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    border: none;
+    background: #eee;
+    color: #222;
+    padding: 11px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mode-btn:hover,
+.mode-btn.active {
+    background: #d71920;
+    color: white;
+}
+
+/* FILTROS */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    border: none;
+    background: #eee;
+    color: #222;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter:hover,
+.filter.active {
+    background: #d71920;
+    color: white;
+}
+
+/* PROGRESO */
+.progress {
+    max-width: 750px;
+    margin: 0 auto 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #d71920;
+    transition: width .3s;
+}
+
+/* EJERCICIO */
+.exercise {
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+}
+
+.level {
+    display: inline-block;
+    background: #ffe5e6;
+    color: #b51218;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.exercise-number {
+    float: right;
+    color: #777;
+    font-size: 13px;
+}
+
+.title {
+    color: #d71920;
+    font-size: 1.35rem;
+    font-weight: bold;
+    margin: 18px 0 10px;
+}
+
+.instruction {
+    color: #666;
+    margin-bottom: 18px;
+}
+
+/* TEXTO */
+.reading-text {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 18px;
+    line-height: 1.9;
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+}
+
+.reading-text strong {
+    color: #d71920;
+}
+
+/* RESPUESTA */
+.answer-input {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    padding: 13px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.answer-input:focus {
+    border-color: #d71920;
+}
+
+/* OPCIONES */
+.options {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.option {
+    width: 100%;
+    border: 2px solid #ddd;
+    background: white;
+    padding: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.option:hover {
+    border-color: #d71920;
+}
+
+.option.correct {
+    background: #e8f7e8;
+    border-color: #35a035;
+}
+
+.option.wrong {
+    background: #ffe5e5;
+    border-color: #d71920;
+}
+
+/* BOTONES */
+.buttons {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.check-btn,
+.next-btn,
+.show-btn {
+    border: none;
+    padding: 11px 17px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.check-btn {
+    background: #d71920;
+    color: white;
+}
+
+.next-btn {
+    background: #b51218;
+    color: white;
+}
+
+.show-btn {
+    background: #eee;
+    color: #222;
+}
+
+.check-btn:hover,
+.next-btn:hover {
+    background: #b51218;
+}
+
+.feedback {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.solution {
+    display: none;
+    background: #f8f8f8;
+    border-radius: 9px;
+    padding: 14px;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.solution-title {
+    color: #d71920;
+    font-weight: bold;
+}
+
+/* RESULTADO */
+.result {
+    display: none;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.result h2 {
+    color: #d71920;
+}
+
+.big-score {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 20px 10px 35px;
+    }
+
+    .exercise {
+        padding: 18px;
+    }
+
+    .reading-text {
+        font-size: 1.05rem;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📖 Lecturas</h1>
+    <p>Practica la comprensión de textos en japonés</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="hiragana.html">Hiragana</a>
+    <a href="katakana.html">Katakana</a>
+    <a href="kanji.html">Kanji</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="particulas.html">Partículas</a>
+    <a href="frases.html">Frases</a>
+    <a href="ejercicios.html">Ejercicios</a>
+    <a href="n5.html">JLPT N5</a>
+    <a href="verbos.html">Verbos</a>
+    <a href="audio.html">Audio</a>
+    <a href="lecturas.html" class="active">Lecturas</a>
+</nav>
+
+<main>
+
+<section class="intro">
+    <h2>📖 Comprensión lectora</h2>
+    <p>
+        Lee el texto, comprende su significado y completa las partes que faltan.
+    </p>
+</section>
+
+<div class="modes">
+
+    <button class="mode-btn active" onclick="setMode('meaning', this)">
+        🇪🇸 Escribir significado
+    </button>
+
+    <button class="mode-btn" onclick="setMode('complete', this)">
+        🧩 Completar texto
+    </button>
+
+</div>
+
+<div class="filters">
+
+    <button class="filter active" onclick="setLevel('TODOS', this)">
+        Todos
+    </button>
+
+    <button class="filter" onclick="setLevel('N5', this)">
+        N5
+    </button>
+
+    <button class="filter" onclick="setLevel('N4', this)">
+        N4
+    </button>
+
+</div>
+
+<div class="progress">
+    <div id="progressText">
+        Ejercicio 1 de 50
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+</div>
+
+
+<section id="exerciseArea">
+
+    <div class="exercise">
+
+        <span class="level" id="level">
+            N5
+        </span>
+
+        <span class="exercise-number" id="exerciseNumber">
+            1 / 50
+        </span>
+
+        <div class="title" id="exerciseTitle">
+            Escribe el significado
+        </div>
+
+        <div class="instruction" id="instruction">
+            Lee el texto y escribe su significado en español.
+        </div>
+
+        <div class="reading-text" id="readingText"></div>
+
+        <div id="answerArea"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="solution" id="solution"></div>
+
+        <div class="buttons">
+
+            <button class="check-btn" onclick="checkAnswer()">
+                Comprobar
+            </button>
+
+            <button class="show-btn" onclick="showSolution()">
+                Ver respuesta
+            </button>
+
+            <button class="next-btn" onclick="nextExercise()">
+                Siguiente →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="result" id="result">
+
+    <h2>🎉 ¡Terminaste!</h2>
+
+    <p>
+        Has completado los 50 ejercicios de lectura.
+    </p>
+
+    <div class="big-score" id="finalScore">
+        0 / 50
+    </div>
+
+    <button class="next-btn" onclick="restart()">
+        🔄 Volver a empezar
+    </button>
+
+</section>
+
+</main>
+
+<footer>
+    <p>🇯🇵 Japanese Fácil · Aprende japonés paso a paso</p>
+</footer>
+
+
+<script>
+
+/* =====================================================
+   50 EJERCICIOS
+=====================================================
+
+   Tipo:
+   meaning  = escribir significado
+   complete = completar texto
+
+   Estructura:
+   [nivel, tipo, título, texto, respuesta, explicación]
+===================================================== */
+
+const exercises = [
+
+/* =========================
+   N5 - SIGNIFICADO
+========================= */
+
+[
+"N5",
+"meaning",
+"Mi mañana",
+"私は毎朝六時に起きます。顔を洗って、朝ご飯を食べます。それから学校へ行きます。",
+"Cada mañana me levanto a las seis. Me lavo la cara y desayuno. Después voy a la escuela.",
+"El texto describe una rutina de mañana."
+],
+
+[
+"N5",
+"meaning",
+"Mi familia",
+"私の家族は四人です。父と母と弟と私です。父は会社員です。",
+"Mi familia tiene cuatro personas: mi padre, mi madre, mi hermano menor y yo. Mi padre es oficinista.",
+"家族 significa familia y 弟 significa hermano menor."
+],
+
+[
+"N5",
+"meaning",
+"En la escuela",
+"私は毎日学校へ行きます。日本語と英語を勉強します。日本語の先生はとても親切です。",
+"Voy a la escuela todos los días. Estudio japonés e inglés. El profesor de japonés es muy amable.",
+"親切 significa amable o bondadoso."
+],
+
+[
+"N5",
+"meaning",
+"El clima",
+"今日は雨です。少し寒いです。私は家で本を読みます。",
+"Hoy está lloviendo. Hace un poco de frío. Leo un libro en casa.",
+"雨 significa lluvia y 寒い significa frío."
+],
+
+[
+"N5",
+"meaning",
+"Mi habitación",
+"私の部屋には机とベッドがあります。机の上に本とペンがあります。",
+"En mi habitación hay un escritorio y una cama. Sobre el escritorio hay libros y un bolígrafo.",
+"上 significa encima o arriba."
+],
+
+[
+"N5",
+"meaning",
+"El desayuno",
+"朝ご飯にパンと卵を食べます。そして牛乳を飲みます。朝ご飯はおいしいです。",
+"En el desayuno como pan y huevo. Después bebo leche. El desayuno está delicioso.",
+"そして significa y/después."
+],
+
+[
+"N5",
+"meaning",
+"El domingo",
+"日曜日に友達と公園へ行きました。公園でサッカーをしました。",
+"El domingo fui al parque con un amigo. Jugamos al fútbol en el parque.",
+"行きました es el pasado de 行きます."
+],
+
+[
+"N5",
+"meaning",
+"En la tienda",
+"スーパーでりんごを三つ買いました。それから牛乳も買いました。",
+"Compré tres manzanas en el supermercado. Después también compré leche.",
+"三つ es el contador general para tres objetos."
+],
+
+[
+"N5",
+"meaning",
+"Mi gato",
+"私は猫が好きです。家に白い猫がいます。名前はミミです。",
+"Me gustan los gatos. Tengo un gato blanco en casa. Se llama Mimi.",
+"白い significa blanco."
+],
+
+[
+"N5",
+"meaning",
+"Por la noche",
+"夜十一時に寝ます。寝る前に少し本を読みます。",
+"Me acuesto a las once de la noche. Antes de dormir leo un poco un libro.",
+"寝る前に significa antes de dormir."
+],
+
+[
+"N5",
+"meaning",
+"El tren",
+"毎朝電車で学校へ行きます。駅は家から近いです。",
+"Cada mañana voy a la escuela en tren. La estación está cerca de mi casa.",
+"近い significa cerca."
+],
+
+[
+"N5",
+"meaning",
+"Mi amigo",
+"田中さんは私の友達です。毎週土曜日に一緒に勉強します。",
+"El señor Tanaka es mi amigo. Cada sábado estudiamos juntos.",
+"一緒に significa juntos."
+],
+
+[
+"N5",
+"meaning",
+"El fin de semana",
+"土曜日は買い物をします。日曜日は家で映画を見ます。",
+"El sábado hago compras. El domingo veo películas en casa.",
+"買い物 significa compras."
+],
+
+/* =========================
+   N5 - COMPLETAR
+========================= */
+
+[
+"N5",
+"complete",
+"Rutina",
+"私は毎朝六時に（　　　）。",
+"起きます",
+"El verbo 起きます significa levantarse."
+],
+
+[
+"N5",
+"complete",
+"Comida",
+"私は毎朝パンを（　　　）。",
+"食べます",
+"食べます significa comer."
+],
+
+[
+"N5",
+"complete",
+"Transporte",
+"学校へ（　　　）で行きます。",
+"電車",
+"電車 significa tren."
+],
+
+[
+"N5",
+"complete",
+"Familia",
+"私の（　　　）は会社員です。",
+"父",
+"父 significa padre."
+],
+
+[
+"N5",
+"complete",
+"Ubicación",
+"机の（　　　）に本があります。",
+"上",
+"上 significa encima o arriba."
+],
+
+[
+"N5",
+"complete",
+"Clima",
+"今日は（　　　）が降っています。",
+"雨",
+"雨 significa lluvia."
+],
+
+[
+"N5",
+"complete",
+"Compras",
+"りんごを三（　　　）買いました。",
+"つ",
+"つ es un contador general de objetos."
+],
+
+[
+"N5",
+"complete",
+"Tiempo",
+"毎晩十一時（　　　）寝ます。",
+"に",
+"に marca el momento específico."
+],
+
+[
+"N5",
+"complete",
+"Invitación",
+"一緒に映画を（　　　）ませんか。",
+"見",
+"見ませんか forma una invitación: ¿quieres ver?"
+],
+
+[
+"N5",
+"complete",
+"Permiso",
+"ここで写真を撮って（　　　）ですか。",
+"もいい",
+"～てもいいですか pregunta si algo está permitido."
+],
+
+[
+"N5",
+"complete",
+"Prohibición",
+"ここで食べて（　　　）いけません。",
+"は",
+"食べてはいけません significa que no está permitido comer."
+],
+
+[
+"N5",
+"complete",
+"Deseo",
+"私は日本へ（　　　）たいです。",
+"行き",
+"行きたい significa querer ir."
+],
+
+[
+"N5",
+"complete",
+"Dirección",
+"右へ（　　　）ください。",
+"曲がって",
+"曲がってください significa gire, por favor."
+],
+
+/* =========================
+   N4 - SIGNIFICADO
+========================= */
+
+[
+"N4",
+"meaning",
+"Mi estudio",
+"私は三年前から日本語を勉強しています。毎日一時間ぐらい勉強します。",
+"Estudio japonés desde hace tres años. Estudio aproximadamente una hora todos los días.",
+"～から indica desde un momento determinado."
+],
+
+[
+"N4",
+"meaning",
+"El viaje",
+"来月、友達と京都へ行く予定です。新幹線で行くつもりです。",
+"El próximo mes tengo previsto ir a Kioto con un amigo. Tengo intención de ir en Shinkansen.",
+"予定 significa plan o programación."
+],
+
+[
+"N4",
+"meaning",
+"El examen",
+"来週、日本語の試験があります。難しいと思うので、毎日勉強しています。",
+"La próxima semana tengo un examen de japonés. Como creo que será difícil, estudio todos los días.",
+"難しい significa difícil."
+],
+
+[
+"N4",
+"meaning",
+"Un día ocupado",
+"昨日は仕事が忙しかったので、友達と会うことができませんでした。",
+"Ayer estuve ocupado con el trabajo, así que no pude reunirme con mi amigo.",
+"～ので expresa una razón."
+],
+
+[
+"N4",
+"meaning",
+"Un consejo",
+"日本語が上手になりたいなら、毎日日本語を話したほうがいいです。",
+"Si quieres mejorar en japonés, deberías hablar japonés todos los días.",
+"～たほうがいい se utiliza para dar consejos."
+],
+
+[
+"N4",
+"meaning",
+"Una experiencia",
+"私は日本料理を作ったことがあります。でも、寿司を作ったことはありません。",
+"He cocinado comida japonesa. Pero nunca he hecho sushi.",
+"～たことがあります expresa experiencia."
+],
+
+[
+"N4",
+"meaning",
+"El clima de mañana",
+"明日は雨が降るかもしれません。傘を持って行ったほうがいいですよ。",
+"Puede que mañana llueva. Sería mejor llevar un paraguas.",
+"かもしれません expresa posibilidad."
+],
+
+[
+"N4",
+"meaning",
+"Mi decisión",
+"今年は毎日運動することにしました。健康のためです。",
+"Este año decidí hacer ejercicio todos los días. Es por mi salud.",
+"～ことにしました expresa una decisión."
+],
+
+[
+"N4",
+"meaning",
+"Una ciudad tranquila",
+"私の町は静かで、駅も近いです。とても住みやすい町だと思います。",
+"Mi ciudad es tranquila y la estación también está cerca. Creo que es una ciudad muy fácil para vivir.",
+"住みやすい significa fácil/cómodo para vivir."
+],
+
+[
+"N4",
+"meaning",
+"Después de estudiar",
+"宿題が終わってから、友達と電話で話しました。",
+"Después de terminar la tarea, hablé con mi amigo por teléfono.",
+"～てから significa después de hacer algo."
+],
+
+[
+"N4",
+"meaning",
+"Antes de dormir",
+"寝る前に、明日の予定を確認します。それから本を少し読みます。",
+"Antes de dormir reviso los planes de mañana. Después leo un poco un libro.",
+"前に significa antes."
+],
+
+[
+"N4",
+"meaning",
+"Una posibilidad",
+"田中さんはまだ学校にいるかもしれません。",
+"Puede que el señor Tanaka todavía esté en la escuela.",
+"まだ significa todavía."
+],
+
+[
+"N4",
+"meaning",
+"Comparación",
+"電車のほうがバスより速いですが、バスのほうが安いです。",
+"El tren es más rápido que el autobús, pero el autobús es más barato.",
+"ほうが...より se utiliza para comparar."
+],
+
+/* =========================
+   N4 - COMPLETAR
+========================= */
+
+[
+"N4",
+"complete",
+"Obligación",
+"明日は早く（　　　）なければなりません。",
+"起き",
+"起きなければなりません significa tener que levantarse."
+],
+
+[
+"N4",
+"complete",
+"Consejo",
+"もっと日本語を話した（　　　）がいいです。",
+"ほう",
+"～たほうがいい expresa un consejo."
+],
+
+[
+"N4",
+"complete",
+"Experiencia",
+"日本へ行った（　　　）があります。",
+"こと",
+"～たことがあります expresa una experiencia."
+],
+
+[
+"N4",
+"complete",
+"Razón",
+"雨が降った（　　　）、家にいました。",
+"ので",
+"ので conecta una razón con su resultado."
+],
+
+[
+"N4",
+"complete",
+"Posibilidad",
+"明日は雪が降る（　　　）しれません。",
+"かも",
+"かもしれません significa puede que."
+],
+
+[
+"N4",
+"complete",
+"Decisión",
+"日本語を勉強する（　　　）にしました。",
+"こと",
+"～ことにしました significa decidí hacer algo."
+],
+
+[
+"N4",
+"complete",
+"Plan",
+"来年、日本へ行く（　　　）です。",
+"予定",
+"予定です significa estar previsto/tener planeado."
+],
+
+[
+"N4",
+"complete",
+"Condición",
+"時間が（　　　）ば、一緒に行きましょう。",
+"あれ",
+"あれば significa si hay/tienes."
+],
+
+[
+"N4",
+"complete",
+"Preparación",
+"旅行の前にホテルを（　　　）しました。",
+"予約",
+"予約する significa reservar."
+],
+
+[
+"N4",
+"complete",
+"Después",
+"ご飯を食べて（　　　）学校へ行きます。",
+"から",
+"～てから significa después de hacer algo."
+],
+
+[
+"N4",
+"complete",
+"Antes",
+"寝る（　　　）に本を読みます。",
+"前",
+"寝る前に significa antes de dormir."
+],
+
+[
+"N4",
+"complete",
+"Comparación",
+"電車の（　　　）がバスより速いです。",
+"ほう",
+"～のほうが expresa el elemento que destaca en una comparación."
+],
+
+[
+"N4",
+"complete",
+"Explicación",
+"どうして遅れた（　　　）ですか。",
+"ん",
+"～んです se utiliza para pedir o dar una explicación."
+],
+
+[
+"N4",
+"complete",
+"Capacidad",
+"日本語が話せる（　　　）になりました。",
+"よう",
+"～ようになる expresa un cambio o una nueva capacidad."
+],
+
+[
+"N4",
+"complete",
+"Prohibición",
+"ここでは靴を脱が（　　　）なりません。",
+"なければ",
+"～なければなりません significa tener que hacer algo."
+]
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let mode = "meaning";
+let level = "TODOS";
+let currentExercise = 0;
+
+let filteredExercises = [];
+let score = 0;
+let answered = false;
+
+
+/* =====================================================
+   CAMBIAR MODO
+===================================================== */
+
+function setMode(newMode, button) {
+
+    mode = newMode;
+
+    document.querySelectorAll(".mode-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    currentExercise = 0;
+    score = 0;
+    answered = false;
+
+    prepareExercises();
+}
+
+
+/* =====================================================
+   FILTRO
+===================================================== */
+
+function setLevel(newLevel, button) {
+
+    level = newLevel;
+
+    document.querySelectorAll(".filter")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    currentExercise = 0;
+    score = 0;
+    answered = false;
+
+    prepareExercises();
+}
+
+
+/* =====================================================
+   PREPARAR EJERCICIOS
+===================================================== */
+
+function prepareExercises() {
+
+    filteredExercises = exercises.filter(item => {
+
+        const correctMode = item[1] === mode;
+
+        const correctLevel =
+            level === "TODOS" || item[0] === level;
+
+        return correctMode && correctLevel;
+    });
+
+    /*
+       Los ejercicios se mezclan para que no aparezcan
+       siempre en el mismo orden.
+    */
+
+    filteredExercises.sort(() => Math.random() - 0.5);
+
+    document.getElementById("exerciseArea").style.display = "block";
+    document.getElementById("result").style.display = "none";
+
+    showExercise();
+}
+
+
+/* =====================================================
+   MOSTRAR EJERCICIO
+===================================================== */
+
+function showExercise() {
+
+    if (currentExercise >= filteredExercises.length) {
+        finishExercises();
+        return;
+    }
+
+    answered = false;
+
+    const item = filteredExercises[currentExercise];
+
+    const levelText = item[0];
+    const type = item[1];
+    const title = item[2];
+    const text = item[3];
+    const answer = item[4];
+    const explanation = item[5];
+
+    document.getElementById("level").textContent =
+        levelText;
+
+    document.getElementById("exerciseNumber").textContent =
+        `${currentExercise + 1} / ${filteredExercises.length}`;
+
+    document.getElementById("progressText").textContent =
+        `Ejercicio ${currentExercise + 1} de ${filteredExercises.length}`;
+
+    document.getElementById("progressFill").style.width =
+        `${(currentExercise / filteredExercises.length) * 100}%`;
+
+    document.getElementById("exerciseTitle").textContent =
+        type === "meaning"
+        ? "🇪🇸 Escribe el significado"
+        : "🧩 Completa el texto";
+
+    document.getElementById("instruction").textContent =
+        type === "meaning"
+        ? "Lee el texto y escribe su significado en español."
+        : "Escribe la palabra que falta para completar correctamente la oración.";
+
+    document.getElementById("readingText").innerHTML =
+        type === "meaning"
+        ? `<strong>${title}</strong><br><br>${text}`
+        : `<strong>${title}</strong><br><br>${text.replace("（　　　）", "<span style='color:#d71920;font-weight:bold;'>（　　　）</span>")}`;
+
+    if (type === "meaning") {
+
+        document.getElementById("answerArea").innerHTML = `
+            <textarea
+                id="answerInput"
+                class="answer-input"
+                placeholder="Escribe aquí el significado en español..."
+            ></textarea>
+        `;
+
+    } else {
+
+        document.getElementById("answerArea").innerHTML = `
+            <input
+                type="text"
+                id="answerInput"
+                class="answer-input"
+                style="min-height:0;height:55px;"
+                placeholder="Escribe la palabra que falta..."
+                autocomplete="off"
+            >
+        `;
+    }
+
+    document.getElementById("feedback").textContent = "";
+
+    document.getElementById("solution").style.display = "none";
+
+    document.getElementById("solution").innerHTML = "";
+
+    /* Enter para comprobar */
+    setTimeout(() => {
+
+        const input = document.getElementById("answerInput");
+
+        if (input) {
+
+            input.addEventListener("keydown", event => {
+
+                if (
+                    event.key === "Enter" &&
+                    type === "complete"
+                ) {
+                    event.preventDefault();
+                    checkAnswer();
+                }
+
+            });
+
+        }
+
+    }, 50);
+}
+
+
+/* =====================================================
+   NORMALIZAR TEXTO
+===================================================== */
+
+function normalize(text) {
+
+    return text
+        .toLowerCase()
+        .trim()
+        .replace(/[.,!?¿¡。、「」『』]/g, "")
+        .replace(/\s+/g, " ");
+}
+
+
+/* =====================================================
+   COMPROBAR
+===================================================== */
+
+function checkAnswer() {
+
+    if (answered) return;
+
+    const item = filteredExercises[currentExercise];
+
+    const userInput =
+        document.getElementById("answerInput").value;
+
+    if (!userInput.trim()) {
+
+        document.getElementById("feedback").textContent =
+            "⚠️ Escribe una respuesta primero.";
+
+        return;
+    }
+
+    const correct = normalize(item[4]);
+    const user = normalize(userInput);
+
+    let isCorrect = false;
+
+    if (item[1] === "complete") {
+
+        /*
+           En completar se exige la palabra correcta.
+        */
+
+        isCorrect = user === correct;
+
+    } else {
+
+        /*
+           En significado no se exige que el usuario
+           escriba exactamente la misma traducción.
+           Se comprueba mediante palabras clave.
+        */
+
+        const keywords = correct
+            .split(" ")
+            .filter(word => word.length > 3);
+
+        const matches = keywords.filter(
+            word => user.includes(word)
+        );
+
+        isCorrect =
+            matches.length >=
+            Math.max(1, Math.ceil(keywords.length * 0.45));
+    }
+
+    answered = true;
+
+    if (isCorrect) {
+
+        score++;
+
+        document.getElementById("feedback").textContent =
+            "✅ ¡Correcto!";
+
+    } else {
+
+        document.getElementById("feedback").textContent =
+            "❌ No es correcto. Puedes ver la respuesta.";
+
+    }
+
+    document.getElementById("progressFill").style.width =
+        `${((currentExercise + 1) / filteredExercises.length) * 100}%`;
+}
+
+
+/* =====================================================
+   MOSTRAR RESPUESTA
+===================================================== */
+
+function showSolution() {
+
+    const item = filteredExercises[currentExercise];
+
+    const solution =
+        document.getElementById("solution");
+
+    solution.style.display = "block";
+
+    if (item[1] === "meaning") {
+
+        solution.innerHTML = `
+            <div class="solution-title">
+                🇪🇸 Significado:
+            </div>
+
+            ${item[4]}
+
+            <br><br>
+
+            <div class="solution-title">
+                💡 Explicación:
+            </div>
+
+            ${item[5]}
+        `;
+
+    } else {
+
+        solution.innerHTML = `
+            <div class="solution-title">
+                🧩 Respuesta:
+            </div>
+
+            <strong style="font-size:1.2rem;color:#d71920;">
+                ${item[4]}
+            </strong>
+
+            <br><br>
+
+            <div class="solution-title">
+                💡 Explicación:
+            </div>
+
+            ${item[5]}
+        `;
+    }
+}
+
+
+/* =====================================================
+   SIGUIENTE
+===================================================== */
+
+function nextExercise() {
+
+    currentExercise++;
+
+    showExercise();
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+function finishExercises() {
+
+    document.getElementById("exerciseArea").style.display =
+        "none";
+
+    document.getElementById("result").style.display =
+        "block";
+
+    document.getElementById("finalScore").textContent =
+        `${score} / ${filteredExercises.length}`;
+
+    document.getElementById("progressText").textContent =
+        "¡Ejercicios completados!";
+
+    document.getElementById("progressFill").style.width =
+        "100%";
+}
+
+
+/* =====================================================
+   REINICIAR
+===================================================== */
+
+function restart() {
+
+    currentExercise = 0;
+    score = 0;
+    answered = false;
+
+    prepareExercises();
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+prepareExercises();
+
+</script>
+
+</body>
+  </html>
