@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio - Japanese Fácil</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+/* HEADER */
+header {
+    background: #d71920;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+/* NAV */
+nav {
+    background: #b51218;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    background: #d71920;
+}
+
+/* MAIN */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px 45px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.intro h2 {
+    color: #d71920;
+    margin-bottom: 8px;
+}
+
+/* MODOS */
+.modes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    border: none;
+    background: #eee;
+    color: #222;
+    padding: 11px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mode-btn:hover,
+.mode-btn.active {
+    background: #d71920;
+    color: white;
+}
+
+/* BUSCADOR */
+.search {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #d71920;
+}
+
+/* FILTROS */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    border: none;
+    background: #eee;
+    color: #222;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter:hover,
+.filter.active {
+    background: #d71920;
+    color: white;
+}
+
+/* CONTADOR */
+.counter {
+    text-align: center;
+    color: #777;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+/* TARJETAS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 18px;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+}
+
+.level {
+    display: inline-block;
+    background: #ffe5e6;
+    color: #b51218;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.number {
+    color: #777;
+    font-size: 13px;
+    float: right;
+}
+
+.jp {
+    font-size: 1.45rem;
+    font-weight: bold;
+    color: #d71920;
+    margin-bottom: 5px;
+}
+
+.reading {
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.meaning {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.category {
+    display: inline-block;
+    margin-top: 12px;
+    background: #ffe5e6;
+    color: #b51218;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* BOTÓN AUDIO */
+.audio-btn {
+    border: none;
+    background: #d71920;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 13px;
+}
+
+.audio-btn:hover {
+    background: #b51218;
+}
+
+/* QUIZ */
+.quiz {
+    max-width: 700px;
+    margin: auto;
+}
+
+.quiz-card {
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+}
+
+.quiz-title {
+    color: #d71920;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.quiz-question {
+    color: #666;
+    margin-bottom: 18px;
+}
+
+.big-audio {
+    font-size: 2.5rem;
+    border: none;
+    background: #d71920;
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.big-audio:hover {
+    background: #b51218;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    border: 2px solid #ddd;
+    background: white;
+    padding: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.option:hover {
+    border-color: #d71920;
+}
+
+.option.correct {
+    background: #e8f7e8;
+    border-color: #35a035;
+}
+
+.option.wrong {
+    background: #ffe5e5;
+    border-color: #d71920;
+}
+
+.feedback {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.next-btn {
+    border: none;
+    background: #b51218;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.next-btn:hover {
+    background: #d71920;
+}
+
+/* ESCRIBIR */
+.dictation-input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 15px;
+    outline: none;
+}
+
+.dictation-input:focus {
+    border-color: #d71920;
+}
+
+.check-btn,
+.show-btn {
+    border: none;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px 4px 0;
+}
+
+.check-btn {
+    background: #d71920;
+    color: white;
+}
+
+.show-btn {
+    background: #eee;
+    color: #222;
+}
+
+.answer {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    display: none;
+}
+
+.score {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* FOOTER */
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 20px 10px 35px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .quiz-card {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎧 Audio</h1>
+    <p>Practica tu comprensión auditiva en japonés</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="hiragana.html">Hiragana</a>
+    <a href="katakana.html">Katakana</a>
+    <a href="kanji.html">Kanji</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="particulas.html">Partículas</a>
+    <a href="frases.html">Frases</a>
+    <a href="ejercicios.html">Ejercicios</a>
+    <a href="n5.html">JLPT N5</a>
+    <a href="verbos.html">Verbos</a>
+    <a href="audio.html" class="active">Audio</a>
+</nav>
+
+<main>
+
+<section class="intro">
+    <h2>🎧 Entrenamiento auditivo</h2>
+    <p>
+        Escucha japonés, reconoce el significado y practica escribiendo
+        exactamente lo que escuchas.
+    </p>
+</section>
+
+<div class="modes">
+    <button class="mode-btn active" onclick="setMode('practice')">
+        📚 Practicar
+    </button>
+
+    <button class="mode-btn" onclick="setMode('quiz')">
+        🎯 Seleccionar respuesta
+    </button>
+
+    <button class="mode-btn" onclick="setMode('dictation')">
+        ✍️ Escribir lo que escuchas
+    </button>
+</div>
+
+<!-- =========================
+     MODO PRACTICAR
+========================= -->
+
+<section id="practiceMode">
+
+<input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="🔎 Buscar frase, palabra o significado..."
+    oninput="renderPractice()"
+>
+
+<div class="filters">
+    <button class="filter active" onclick="setLevel('TODOS', this)">
+        Todos
+    </button>
+
+    <button class="filter" onclick="setLevel('N5', this)">
+        N5
+    </button>
+
+    <button class="filter" onclick="setLevel('N4', this)">
+        N4
+    </button>
+</div>
+
+<div class="counter" id="practiceCounter"></div>
+
+<div class="grid" id="audioGrid"></div>
+
+</section>
+
+
+<!-- =========================
+     MODO QUIZ
+========================= -->
+
+<section id="quizMode" class="quiz" style="display:none;">
+
+<div class="score" id="quizScore">
+    Puntuación: 0 / 0
+</div>
+
+<div class="quiz-card">
+
+    <div class="quiz-title">
+        🎯 Escucha y selecciona
+    </div>
+
+    <div class="quiz-question">
+        Escucha la oración y selecciona su significado.
+    </div>
+
+    <button class="big-audio" onclick="playQuizAudio()">
+        🔊
+    </button>
+
+    <div class="options" id="quizOptions"></div>
+
+    <div class="feedback" id="quizFeedback"></div>
+
+    <button class="next-btn" onclick="nextQuiz()">
+        Siguiente →
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MODO DICTADO
+========================= -->
+
+<section id="dictationMode" class="quiz" style="display:none;">
+
+<div class="score" id="dictationScore">
+    Puntuación: 0 / 0
+</div>
+
+<div class="quiz-card">
+
+    <div class="quiz-title">
+        ✍️ Escribe lo que escuchas
+    </div>
+
+    <div class="quiz-question">
+        Escucha el audio y escribe exactamente lo que dice en japonés.
+    </div>
+
+    <button class="big-audio" onclick="playDictationAudio()">
+        🔊
+    </button>
+
+    <input
+        type="text"
+        id="dictationInput"
+        class="dictation-input"
+        placeholder="Escribe aquí la oración en japonés..."
+        autocomplete="off"
+    >
+
+    <br>
+
+    <button class="check-btn" onclick="checkDictation()">
+        Comprobar
+    </button>
+
+    <button class="show-btn" onclick="showDictationAnswer()">
+        Ver respuesta
+    </button>
+
+    <div class="feedback" id="dictationFeedback"></div>
+
+    <div class="answer" id="dictationAnswer"></div>
+
+    <button class="next-btn" onclick="nextDictation()">
+        Siguiente →
+    </button>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>🇯🇵 Japanese Fácil · Aprende japonés paso a paso</p>
+</footer>
+
+
+<script>
+
+/* =====================================================
+   100 AUDIOS
+   50 N5 + 50 N4
+===================================================== */
+
+const audios = [
+
+/* =========================
+   N5 - 50
+========================= */
+
+["N5","Saludos","おはようございます","Ohayou gozaimasu","Buenos días."],
+["N5","Saludos","こんにちは","Konnichiwa","Hola / Buenas tardes."],
+["N5","Saludos","こんばんは","Konbanwa","Buenas noches."],
+["N5","Saludos","おやすみなさい","Oyasumi nasai","Buenas noches / Que descanses."],
+["N5","Saludos","ありがとうございます","Arigatou gozaimasu","Muchas gracias."],
+["N5","Saludos","すみません","Sumimasen","Disculpe / Perdón."],
+["N5","Presentación","わたしは学生です","Watashi wa gakusei desu","Soy estudiante."],
+["N5","Presentación","わたしは日本人ではありません","Watashi wa nihonjin dewa arimasen","No soy japonés."],
+["N5","Presentación","はじめまして","Hajimemashite","Mucho gusto."],
+["N5","Presentación","よろしくお願いします","Yoroshiku onegaishimasu","Mucho gusto / Espero llevarme bien contigo."],
+
+["N5","Familia","これは私の母です","Kore wa watashi no haha desu","Esta es mi madre."],
+["N5","Familia","私の父は会社員です","Watashi no chichi wa kaishain desu","Mi padre es oficinista."],
+["N5","Familia","兄は大学生です","Ani wa daigakusei desu","Mi hermano mayor es universitario."],
+["N5","Familia","妹は高校生です","Imouto wa koukousei desu","Mi hermana menor es estudiante de secundaria."],
+["N5","Casa","これは私の部屋です","Kore wa watashi no heya desu","Esta es mi habitación."],
+["N5","Casa","机の上に本があります","Tsukue no ue ni hon ga arimasu","Hay un libro sobre el escritorio."],
+["N5","Casa","猫が部屋にいます","Neko ga heya ni imasu","Hay un gato en la habitación."],
+["N5","Objetos","これは何ですか","Kore wa nan desu ka","¿Qué es esto?"],
+["N5","Objetos","それはペンです","Sore wa pen desu","Eso es un bolígrafo."],
+["N5","Objetos","かばんはどこですか","Kaban wa doko desu ka","¿Dónde está la mochila?"],
+
+["N5","Comida","私はパンを食べます","Watashi wa pan o tabemasu","Como pan."],
+["N5","Comida","水を飲みます","Mizu o nomimasu","Bebo agua."],
+["N5","Comida","りんごが好きです","Ringo ga suki desu","Me gustan las manzanas."],
+["N5","Comida","これはおいしいです","Kore wa oishii desu","Esto está delicioso."],
+["N5","Escuela","毎日学校へ行きます","Mainichi gakkou e ikimasu","Voy a la escuela todos los días."],
+["N5","Escuela","日本語を勉強します","Nihongo o benkyou shimasu","Estudio japonés."],
+["N5","Escuela","先生はどこですか","Sensei wa doko desu ka","¿Dónde está el profesor?"],
+["N5","Tiempo","今何時ですか","Ima nanji desu ka","¿Qué hora es ahora?"],
+["N5","Tiempo","七時に起きます","Shichiji ni okimasu","Me levanto a las siete."],
+["N5","Tiempo","毎朝六時に起きます","Maiasa rokuji ni okimasu","Me levanto a las seis cada mañana."],
+
+["N5","Clima","今日は暑いです","Kyou wa atsui desu","Hoy hace calor."],
+["N5","Clima","今日は寒いです","Kyou wa samui desu","Hoy hace frío."],
+["N5","Clima","雨が降っています","Ame ga futte imasu","Está lloviendo."],
+["N5","Compras","これはいくらですか","Kore wa ikura desu ka","¿Cuánto cuesta esto?"],
+["N5","Compras","これをください","Kore o kudasai","Quiero esto, por favor."],
+["N5","Compras","りんごを三つください","Ringo o mittsu kudasai","Tres manzanas, por favor."],
+["N5","Lugares","駅はどこですか","Eki wa doko desu ka","¿Dónde está la estación?"],
+["N5","Lugares","学校の前にコンビニがあります","Gakkou no mae ni konbini ga arimasu","Hay una tienda frente a la escuela."],
+["N5","Transporte","電車で学校へ行きます","Densha de gakkou e ikimasu","Voy a la escuela en tren."],
+["N5","Transporte","バスに乗ります","Basu ni norimasu","Subo al autobús."],
+
+["N5","Rutina","毎朝顔を洗います","Maiasa kao o araimasu","Me lavo la cara cada mañana."],
+["N5","Rutina","夜十一時に寝ます","Yoru juuichiji ni nemasu","Me acuesto a las once de la noche."],
+["N5","Animales","犬が好きです","Inu ga suki desu","Me gustan los perros."],
+["N5","Hobbies","音楽を聞きます","Ongaku o kikimasu","Escucho música."],
+["N5","Hobbies","テレビを見ます","Terebi o mimasu","Veo televisión."],
+["N5","Acciones","ここで写真を撮ってもいいですか","Koko de shashin o totte mo ii desu ka","¿Puedo tomar fotos aquí?"],
+["N5","Acciones","ここで食べてはいけません","Koko de tabete wa ikemasen","No se puede comer aquí."],
+["N5","Deseos","日本へ行きたいです","Nihon e ikitai desu","Quiero ir a Japón."],
+["N5","Invitaciones","一緒に行きませんか","Issho ni ikimasen ka","¿Quieres ir conmigo?"],
+["N5","Direcciones","右へ曲がってください","Migi e magatte kudasai","Gire a la derecha, por favor."],
+
+/* =========================
+   N4 - 50
+========================= */
+
+["N4","Experiencias","日本へ行ったことがあります","Nihon e itta koto ga arimasu","He ido a Japón."],
+["N4","Experiencias","この映画を見たことがあります","Kono eiga o mita koto ga arimasu","He visto esta película."],
+["N4","Planes","来年日本へ行くつもりです","Rainen Nihon e iku tsumori desu","Tengo la intención de ir a Japón el próximo año."],
+["N4","Planes","週末に友達と遊ぶ予定です","Shuumatsu ni tomodachi to asobu yotei desu","Tengo previsto salir con mis amigos el fin de semana."],
+["N4","Razones","雨が降ったので、家にいました","Ame ga futta node, ie ni imashita","Como llovió, me quedé en casa."],
+["N4","Razones","忙しかったので、行けませんでした","Isogashikatta node, ikemasen deshita","Como estaba ocupado, no pude ir."],
+["N4","Comparaciones","電車のほうがバスより速いです","Densha no hou ga basu yori hayai desu","El tren es más rápido que el autobús."],
+["N4","Comparaciones","日本語は英語より難しいです","Nihongo wa eigo yori muzukashii desu","El japonés es más difícil que el inglés."],
+["N4","Obligaciones","宿題をしなければなりません","Shukudai o shinakereba narimasen","Tengo que hacer la tarea."],
+["N4","Obligaciones","明日早く起きなければなりません","Ashita hayaku okinakereba narimasen","Mañana tengo que levantarme temprano."],
+
+["N4","Permisos","ここで写真を撮ってもいいです","Koko de shashin o totte mo ii desu","Se pueden tomar fotos aquí."],
+["N4","Prohibiciones","ここでタバコを吸ってはいけません","Koko de tabako o sutte wa ikemasen","No se puede fumar aquí."],
+["N4","Consejos","もっと日本語を話したほうがいいです","Motto nihongo o hanashita hou ga ii desu","Deberías hablar más japonés."],
+["N4","Consejos","早く寝たほうがいいですよ","Hayaku neta hou ga ii desu yo","Deberías dormir temprano."],
+["N4","Decisiones","大学で日本語を勉強することにしました","Daigaku de nihongo o benkyou suru koto ni shimashita","Decidí estudiar japonés en la universidad."],
+["N4","Decisiones","毎日運動することにしました","Mainichi undou suru koto ni shimashita","Decidí hacer ejercicio todos los días."],
+["N4","Cambios","日本語が少し話せるようになりました","Nihongo ga sukoshi hanaseru you ni narimashita","He llegado a poder hablar un poco de japonés."],
+["N4","Cambios","早く起きられるようになりました","Hayaku okirareru you ni narimashita","He conseguido levantarme temprano."],
+["N4","Condicional","時間があれば、一緒に行きましょう","Jikan ga areba, issho ni ikimashou","Si tienes tiempo, vamos juntos."],
+["N4","Condicional","安ければ買います","Yasukereba kaimasu","Si es barato, lo compraré."],
+
+["N4","Trabajo","会社で働いています","Kaisha de hataraite imasu","Trabajo en una empresa."],
+["N4","Trabajo","仕事が終わったら電話します","Shigoto ga owattara denwa shimasu","Te llamaré cuando termine el trabajo."],
+["N4","Estudios","日本語を三年間勉強しています","Nihongo o san nenkan benkyou shite imasu","Llevo tres años estudiando japonés."],
+["N4","Estudios","試験のために勉強しています","Shiken no tame ni benkyou shite imasu","Estoy estudiando para el examen."],
+["N4","Opiniones","この映画は面白いと思います","Kono eiga wa omoshiroi to omoimasu","Creo que esta película es interesante."],
+["N4","Opiniones","日本の文化は面白いと思います","Nihon no bunka wa omoshiroi to omoimasu","Creo que la cultura japonesa es interesante."],
+["N4","Descripción","この町は静かで住みやすいです","Kono machi wa shizuka de sumiyasui desu","Esta ciudad es tranquila y fácil para vivir."],
+["N4","Descripción","この本は読みやすいです","Kono hon wa yomiyasui desu","Este libro es fácil de leer."],
+["N4","Vida diaria","朝ご飯を食べてから学校へ行きます","Asagohan o tabete kara gakkou e ikimasu","Voy a la escuela después de desayunar."],
+["N4","Vida diaria","家に帰ってから宿題をします","Ie ni kaette kara shukudai o shimasu","Hago la tarea después de regresar a casa."],
+
+["N4","Conversación","どうして遅れたんですか","Doushite okureta n desu ka","¿Por qué llegaste tarde?"],
+["N4","Conversación","電車が遅れたんです","Densha ga okureta n desu","Es que el tren se retrasó."],
+["N4","Conversación","何をしているんですか","Nani o shite iru n desu ka","¿Qué estás haciendo?"],
+["N4","Conversación","日本語を勉強しているんです","Nihongo o benkyou shite iru n desu","Estoy estudiando japonés."],
+["N4","Necesidades","水を持ってきてください","Mizu o motte kite kudasai","Trae agua, por favor."],
+["N4","Necesidades","明日までにこの仕事を終わらせます","Ashita made ni kono shigoto o owarasemasu","Terminaré este trabajo para mañana."],
+["N4","Posibilidad","明日は雨が降るかもしれません","Ashita wa ame ga furu kamo shiremasen","Puede que mañana llueva."],
+["N4","Posibilidad","彼は来ないかもしれません","Kare wa konai kamo shiremasen","Puede que él no venga."],
+["N4","Preparación","旅行の前にホテルを予約しました","Ryokou no mae ni hoteru o yoyaku shimashita","Reservé un hotel antes del viaje."],
+["N4","Preparación","明日の試験の準備をしています","Ashita no shiken no junbi o shite imasu","Estoy preparándome para el examen de mañana."],
+
+["N4","Reglas","ここでは靴を脱がなければなりません","Koko de wa kutsu o nuganakereba narimasen","Aquí tienes que quitarte los zapatos."],
+["N4","Explicaciones","電気がついているので、誰かいると思います","Denki ga tsuite iru node, dareka iru to omoimasu","Como la luz está encendida, creo que hay alguien."],
+["N4","Planes","夏休みに北海道へ行こうと思っています","Natsuyasumi ni Hokkaidou e ikou to omotte imasu","Estoy pensando en ir a Hokkaido durante las vacaciones de verano."],
+["N4","Experiencias","日本料理を作ったことがあります","Nihon ryouri o tsukutta koto ga arimasu","He cocinado comida japonesa."],
+["N4","Comparaciones","去年より今年のほうが忙しいです","Kyonen yori kotoshi no hou ga isogashii desu","Este año estoy más ocupado que el año pasado."],
+["N4","Opiniones","この方法が一番簡単だと思います","Kono houhou ga ichiban kantan da to omoimasu","Creo que este método es el más sencillo."],
+["N4","Conversación","もし分からなかったら、聞いてください","Moshi wakaranakattara, kiite kudasai","Si no entiendes, pregunta."],
+["N4","Vida diaria","学校へ行く前に朝ご飯を食べます","Gakkou e iku mae ni asagohan o tabemasu","Desayuno antes de ir a la escuela."],
+["N4","Rutina","寝る前に本を読みます","Neru mae ni hon o yomimasu","Leo un libro antes de dormir."],
+["N4","Direcciones","この道をまっすぐ行けば駅があります","Kono michi o massugu ikeba eki ga arimasu","Si sigues recto por este camino, encontrarás la estación."]
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentMode = "practice";
+let currentLevel = "TODOS";
+
+let quizItem = null;
+let quizScore = 0;
+let quizTotal = 0;
+
+let dictationItem = null;
+let dictationScore = 0;
+let dictationTotal = 0;
+
+
+/* =====================================================
+   VOZ JAPONESA
+===================================================== */
+
+function speak(text) {
+
+    if (!("speechSynthesis" in window)) {
+        alert("Tu navegador no soporta reproducción de voz.");
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "ja-JP";
+    utterance.rate = 0.82;
+    utterance.pitch = 1;
+
+    const voices = speechSynthesis.getVoices();
+
+    const japaneseVoice = voices.find(
+        voice => voice.lang &&
+        voice.lang.toLowerCase().startsWith("ja")
+    );
+
+    if (japaneseVoice) {
+        utterance.voice = japaneseVoice;
+    }
+
+    speechSynthesis.speak(utterance);
+}
+
+
+/* =====================================================
+   CAMBIAR MODO
+===================================================== */
+
+function setMode(mode) {
+
+    currentMode = mode;
+
+    document.getElementById("practiceMode").style.display =
+        mode === "practice" ? "block" : "none";
+
+    document.getElementById("quizMode").style.display =
+        mode === "quiz" ? "block" : "none";
+
+    document.getElementById("dictationMode").style.display =
+        mode === "dictation" ? "block" : "none";
+
+    document.querySelectorAll(".mode-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    if (mode === "practice") {
+        document.querySelectorAll(".mode-btn")[0].classList.add("active");
+        renderPractice();
+    }
+
+    if (mode === "quiz") {
+        document.querySelectorAll(".mode-btn")[1].classList.add("active");
+        startQuiz();
+    }
+
+    if (mode === "dictation") {
+        document.querySelectorAll(".mode-btn")[2].classList.add("active");
+        startDictation();
+    }
+}
+
+
+/* =====================================================
+   FILTRO DE NIVEL
+===================================================== */
+
+function setLevel(level, button) {
+
+    currentLevel = level;
+
+    document.querySelectorAll(".filter").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    renderPractice();
+}
+
+
+/* =====================================================
+   PRACTICAR
+===================================================== */
+
+function renderPractice() {
+
+    const grid = document.getElementById("audioGrid");
+    const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    let filtered = audios.filter(item => {
+
+        const matchesLevel =
+            currentLevel === "TODOS" ||
+            item[0] === currentLevel;
+
+        const text = item.join(" ").toLowerCase();
+
+        const matchesSearch =
+            !search || text.includes(search);
+
+        return matchesLevel && matchesSearch;
+    });
+
+    document.getElementById("practiceCounter").textContent =
+        `Mostrando ${filtered.length} de ${audios.length} audios`;
+
+    if (filtered.length === 0) {
+        grid.innerHTML =
+            `<div class="empty">No se encontraron audios.</div>`;
+        return;
+    }
+
+    grid.innerHTML = filtered.map((item, index) => {
+
+        const level = item[0];
+        const category = item[1];
+        const japanese = item[2];
+        const reading = item[3];
+        const spanish = item[4];
+
+        return `
+        <article class="card">
+
+            <span class="level">${level}</span>
+            <span class="number">Audio ${audios.indexOf(item) + 1}</span>
+
+            <div class="jp">${japanese}</div>
+
+            <div class="reading">
+                ${reading}
+            </div>
+
+            <div class="meaning">
+                ${spanish}
+            </div>
+
+            <button
+                class="audio-btn"
+                onclick='speak(${JSON.stringify(japanese)})'
+            >
+                🔊 Escuchar
+            </button>
+
+            <div class="category">
+                ${category}
+            </div>
+
+        </article>
+        `;
+
+    }).join("");
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function startQuiz() {
+
+    quizScore = 0;
+    quizTotal = 0;
+
+    updateQuizScore();
+
+    nextQuiz();
+}
+
+
+function nextQuiz() {
+
+    quizItem =
+        audios[Math.floor(Math.random() * audios.length)];
+
+    quizTotal++;
+
+    const correct = quizItem[4];
+
+    let options = [correct];
+
+    while (options.length < 4) {
+
+        const random =
+            audios[Math.floor(Math.random() * audios.length)][4];
+
+        if (!options.includes(random)) {
+            options.push(random);
+        }
+    }
+
+    options.sort(() => Math.random() - 0.5);
+
+    document.getElementById("quizFeedback").textContent = "";
+
+    document.getElementById("quizOptions").innerHTML =
+        options.map(option => `
+            <button
+                class="option"
+                onclick='answerQuiz(this, ${JSON.stringify(option)})'
+            >
+                ${option}
+            </button>
+        `).join("");
+
+    updateQuizScore();
+
+    setTimeout(() => {
+        playQuizAudio();
+    }, 300);
+}
+
+
+function playQuizAudio() {
+
+    if (quizItem) {
+        speak(quizItem[2]);
+    }
+}
+
+
+function answerQuiz(button, answer) {
+
+    document
+        .querySelectorAll("#quizOptions .option")
+        .forEach(btn => btn.disabled = true);
+
+    if (answer === quizItem[4]) {
+
+        button.classList.add("correct");
+
+        quizScore++;
+
+        document.getElementById("quizFeedback").textContent =
+            "✅ ¡Correcto!";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        document.getElementById("quizFeedback").textContent =
+            `❌ Incorrecto. Era: ${quizItem[4]}`;
+    }
+
+    updateQuizScore();
+}
+
+
+function updateQuizScore() {
+
+    document.getElementById("quizScore").textContent =
+        `Puntuación: ${quizScore} / ${Math.max(0, quizTotal - 1)}`;
+}
+
+
+/* =====================================================
+   DICTADO
+===================================================== */
+
+function startDictation() {
+
+    dictationScore = 0;
+    dictationTotal = 0;
+
+    nextDictation();
+}
+
+
+function nextDictation() {
+
+    dictationItem =
+        audios[Math.floor(Math.random() * audios.length)];
+
+    dictationTotal++;
+
+    document.getElementById("dictationInput").value = "";
+
+    document.getElementById("dictationFeedback").textContent = "";
+
+    document.getElementById("dictationAnswer").style.display = "none";
+
+    document.getElementById("dictationAnswer").innerHTML = "";
+
+    updateDictationScore();
+
+    setTimeout(() => {
+        playDictationAudio();
+    }, 300);
+}
+
+
+function playDictationAudio() {
+
+    if (dictationItem) {
+        speak(dictationItem[2]);
+    }
+}
+
+
+/* =====================================================
+   COMPROBAR DICTADO
+===================================================== */
+
+function normalizeJapanese(text) {
+
+    return text
+        .trim()
+        .replace(/\s+/g, "");
+}
+
+
+function checkDictation() {
+
+    const input =
+        document.getElementById("dictationInput").value;
+
+    if (!input.trim()) {
+
+        document.getElementById("dictationFeedback").textContent =
+            "⚠️ Escribe algo primero.";
+
+        return;
+    }
+
+    const userAnswer = normalizeJapanese(input);
+    const correctAnswer = normalizeJapanese(dictationItem[2]);
+
+    if (userAnswer === correctAnswer) {
+
+        dictationScore++;
+
+        document.getElementById("dictationFeedback").textContent =
+            "✅ ¡Correcto! Escribiste exactamente la oración.";
+
+    } else {
+
+        document.getElementById("dictationFeedback").textContent =
+            "❌ No coincide exactamente. Inténtalo otra vez o mira la respuesta.";
+    }
+
+    updateDictationScore();
+}
+
+
+function showDictationAnswer() {
+
+    const box =
+        document.getElementById("dictationAnswer");
+
+    box.style.display = "block";
+
+    box.innerHTML = `
+        <strong>Respuesta:</strong><br>
+        <span style="font-size:1.3rem;color:#d71920;">
+            ${dictationItem[2]}
+        </span>
+        <br>
+        <span style="color:#777;">
+            ${dictationItem[3]}
+        </span>
+        <br><br>
+        ${dictationItem[4]}
+    `;
+}
+
+
+function updateDictationScore() {
+
+    document.getElementById("dictationScore").textContent =
+        `Puntuación: ${dictationScore} / ${Math.max(0, dictationTotal - 1)}`;
+}
+
+
+/* =====================================================
+   CARGAR
+===================================================== */
+
+renderPractice();
+
+</script>
+
+</body>
+</html>
