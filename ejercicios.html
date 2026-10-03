@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ejercicios | Japanese Fácil</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+header {
+    background: #c9152b;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+nav {
+    background: white;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    color: #c9152b;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 7px;
+    display: inline-block;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.intro {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    color: #c9152b;
+    margin-top: 0;
+}
+
+.exercise {
+    background: white;
+    padding: 20px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #c9152b;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.exercise h3 {
+    margin-top: 0;
+    color: #c9152b;
+}
+
+.question {
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.option:hover {
+    background: #f3f3f3;
+}
+
+.option.selected {
+    border-color: #c9152b;
+    background: #fff0f2;
+}
+
+.option.correct {
+    border-color: #1b8a3a;
+    background: #e9f8ee;
+}
+
+.option.incorrect {
+    border-color: #c9152b;
+    background: #ffe8eb;
+}
+
+.feedback {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.result {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.result h2 {
+    color: #c9152b;
+}
+
+button#check {
+    display: block;
+    margin: 25px auto;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #c9152b;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button#check:hover {
+    background: #a90f23;
+}
+
+.reset {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 30px;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .exercise {
+        padding: 15px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>📝 Ejercicios de japonés</h1>
+
+<p>Pon a prueba lo que has aprendido</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Inicio</a>
+<a href="hiragana.html">Hiragana</a>
+<a href="katakana.html">Katakana</a>
+<a href="kanji.html">Kanji</a>
+<a href="vocabulario.html">Vocabulario</a>
+<a href="particulas.html">Partículas</a>
+<a href="frases.html">Frases</a>
+<a href="ejercicios.html">Ejercicios</a>
+<a href="jlpt-n5.html">JLPT N5</a>
+
+</nav>
+
+
+<div class="container">
+
+
+<div class="intro">
+
+<h2>🎯 ¿Cómo funcionan?</h2>
+
+<p>
+Selecciona una respuesta en cada pregunta y después pulsa
+<strong>Comprobar respuestas</strong>.
+</p>
+
+<p>
+Las preguntas mezclan hiragana, vocabulario, kanji y partículas.
+</p>
+
+</div>
+
+
+<!-- PREGUNTA 1 -->
+
+<div class="exercise" data-answer="B">
+
+<h3>Pregunta 1</h3>
+
+<div class="question">
+¿Qué significa <strong>こんにちは</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Gracias
+</button>
+
+<button class="option" data-value="B">
+B) Hola
+</button>
+
+<button class="option" data-value="C">
+C) Adiós
+</button>
+
+<button class="option" data-value="D">
+D) Perdón
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 2 -->
+
+<div class="exercise" data-answer="C">
+
+<h3>Pregunta 2</h3>
+
+<div class="question">
+¿Cuál es el significado de <strong>猫</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Perro
+</button>
+
+<button class="option" data-value="B">
+B) Pájaro
+</button>
+
+<button class="option" data-value="C">
+C) Gato
+</button>
+
+<button class="option" data-value="D">
+D) Pez
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 3 -->
+
+<div class="exercise" data-answer="A">
+
+<h3>Pregunta 3</h3>
+
+<div class="question">
+¿Qué significa <strong>水</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Agua
+</button>
+
+<button class="option" data-value="B">
+B) Fuego
+</button>
+
+<button class="option" data-value="C">
+C) Árbol
+</button>
+
+<button class="option" data-value="D">
+D) Montaña
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 4 -->
+
+<div class="exercise" data-answer="D">
+
+<h3>Pregunta 4</h3>
+
+<div class="question">
+¿Cuál es la lectura de <strong>日本</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Nihon
+</button>
+
+<button class="option" data-value="B">
+B) Nihongo
+</button>
+
+<button class="option" data-value="C">
+C) Nippon-go
+</button>
+
+<button class="option" data-value="D">
+D) Nihon / Nippon
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 5 -->
+
+<div class="exercise" data-answer="B">
+
+<h3>Pregunta 5</h3>
+
+<div class="question">
+¿Qué significa <strong>学生</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Profesor
+</button>
+
+<button class="option" data-value="B">
+B) Estudiante
+</button>
+
+<button class="option" data-value="C">
+C) Escuela
+</button>
+
+<button class="option" data-value="D">
+D) Amigo
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 6 -->
+
+<div class="exercise" data-answer="C">
+
+<h3>Pregunta 6</h3>
+
+<div class="question">
+¿Cuál de estas palabras significa "comer"?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) 飲む
+</button>
+
+<button class="option" data-value="B">
+B) 見る
+</button>
+
+<button class="option" data-value="C">
+C) 食べる
+</button>
+
+<button class="option" data-value="D">
+D) 行く
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 7 -->
+
+<div class="exercise" data-answer="A">
+
+<h3>Pregunta 7</h3>
+
+<div class="question">
+Completa la oración:
+<br><br>
+私は ___ 学生です。
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) は
+</button>
+
+<button class="option" data-value="B">
+B) を
+</button>
+
+<button class="option" data-value="C">
+C) に
+</button>
+
+<button class="option" data-value="D">
+D) で
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 8 -->
+
+<div class="exercise" data-answer="D">
+
+<h3>Pregunta 8</h3>
+
+<div class="question">
+¿Qué partícula marca normalmente el objeto directo?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) は
+</button>
+
+<button class="option" data-value="B">
+B) に
+</button>
+
+<button class="option" data-value="C">
+C) で
+</button>
+
+<button class="option" data-value="D">
+D) を
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 9 -->
+
+<div class="exercise" data-answer="B">
+
+<h3>Pregunta 9</h3>
+
+<div class="question">
+¿Qué significa <strong>大きい</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Pequeño
+</button>
+
+<button class="option" data-value="B">
+B) Grande
+</button>
+
+<button class="option" data-value="C">
+C) Nuevo
+</button>
+
+<button class="option" data-value="D">
+D) Viejo
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 10 -->
+
+<div class="exercise" data-answer="C">
+
+<h3>Pregunta 10</h3>
+
+<div class="question">
+¿Cómo se dice "agua" en japonés?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) 火
+</button>
+
+<button class="option" data-value="B">
+B) 木
+</button>
+
+<button class="option" data-value="C">
+C) 水
+</button>
+
+<button class="option" data-value="D">
+D) 土
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 11 -->
+
+<div class="exercise" data-answer="A">
+
+<h3>Pregunta 11</h3>
+
+<div class="question">
+¿Qué significa <strong>学校</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Escuela
+</button>
+
+<button class="option" data-value="B">
+B) Hospital
+</button>
+
+<button class="option" data-value="C">
+C) Biblioteca
+</button>
+
+<button class="option" data-value="D">
+D) Casa
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 12 -->
+
+<div class="exercise" data-answer="B">
+
+<h3>Pregunta 12</h3>
+
+<div class="question">
+¿Cuál es la lectura de <strong>山</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Kawa
+</button>
+
+<button class="option" data-value="B">
+B) Yama
+</button>
+
+<button class="option" data-value="C">
+C) Umi
+</button>
+
+<button class="option" data-value="D">
+D) Sora
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 13 -->
+
+<div class="exercise" data-answer="C">
+
+<h3>Pregunta 13</h3>
+
+<div class="question">
+¿Qué significa <strong>ありがとう</strong>?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) Hola
+</button>
+
+<button class="option" data-value="B">
+B) Perdón
+</button>
+
+<button class="option" data-value="C">
+C) Gracias
+</button>
+
+<button class="option" data-value="D">
+D) Adiós
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 14 -->
+
+<div class="exercise" data-answer="D">
+
+<h3>Pregunta 14</h3>
+
+<div class="question">
+¿Cuál significa "ir"?
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) 来る
+</button>
+
+<button class="option" data-value="B">
+B) 食べる
+</button>
+
+<button class="option" data-value="C">
+C) 寝る
+</button>
+
+<button class="option" data-value="D">
+D) 行く
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<!-- PREGUNTA 15 -->
+
+<div class="exercise" data-answer="A">
+
+<h3>Pregunta 15</h3>
+
+<div class="question">
+Completa:
+<br><br>
+水 ___ 飲みます。
+</div>
+
+<div class="options">
+
+<button class="option" data-value="A">
+A) を
+</button>
+
+<button class="option" data-value="B">
+B) は
+</button>
+
+<button class="option" data-value="C">
+C) の
+</button>
+
+<button class="option" data-value="D">
+D) と
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<button id="check">
+✅ Comprobar respuestas
+</button>
+
+
+<div id="result" class="result" style="display:none;">
+
+<h2>🎯 Resultado</h2>
+
+<p id="score"></p>
+
+<p id="message"></p>
+
+<button class="reset" onclick="location.reload()">
+🔄 Intentar nuevamente
+</button>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+<p>Japanese Fácil 🇯🇵</p>
+
+<p>Una guía creada para estudiantes.</p>
+
+</footer>
+
+
+<script>
+
+const exercises =
+document.querySelectorAll(".exercise");
+
+
+/* Seleccionar respuestas */
+
+exercises.forEach(exercise => {
+
+    const options =
+    exercise.querySelectorAll(".option");
+
+    options.forEach(option => {
+
+        option.addEventListener("click", () => {
+
+            options.forEach(o => {
+                o.classList.remove("selected");
+            });
+
+            option.classList.add("selected");
+
+        });
+
+    });
+
+});
+
+
+/* Comprobar */
+
+document.getElementById("check")
+.addEventListener("click", () => {
+
+    let correct = 0;
+
+    exercises.forEach(exercise => {
+
+        const answer =
+        exercise.dataset.answer;
+
+        const selected =
+        exercise.querySelector(".selected");
+
+        const feedback =
+        exercise.querySelector(".feedback");
+
+        const options =
+        exercise.querySelectorAll(".option");
+
+
+        options.forEach(option => {
+
+            option.classList.remove("correct");
+            option.classList.remove("incorrect");
+
+        });
+
+
+        if (!selected) {
+
+            feedback.textContent =
+            "⚠️ No seleccionaste una respuesta.";
+
+            feedback.style.color =
+            "#777";
+
+            return;
+
+        }
+
+
+        if (selected.dataset.value === answer) {
+
+            correct++;
+
+            selected.classList.add("correct");
+
+            feedback.textContent =
+            "✅ ¡Correcto!";
+
+            feedback.style.color =
+            "#1b8a3a";
+
+        } else {
+
+            selected.classList.add("incorrect");
+
+            feedback.textContent =
+            "❌ Incorrecto.";
+
+            feedback.style.color =
+            "#c9152b";
+
+
+            options.forEach(option => {
+
+                if (option.dataset.value === answer) {
+
+                    option.classList.add("correct");
+
+                }
+
+            });
+
+        }
+
+    });
+
+
+    const result =
+    document.getElementById("result");
+
+    const score =
+    document.getElementById("score");
+
+    const message =
+    document.getElementById("message");
+
+
+    result.style.display = "block";
+
+
+    score.textContent =
+    "Obtuviste " +
+    correct +
+    " de " +
+    exercises.length +
+    " respuestas correctas.";
+
+
+    const percentage =
+    (correct / exercises.length) * 100;
+
+
+    if (percentage === 100) {
+
+        message.textContent =
+        "🔥 ¡Perfecto! Te sabes muy bien lo básico.";
+
+    }
+
+    else if (percentage >= 80) {
+
+        message.textContent =
+        "😎 ¡Muy bien! Ya tienes una buena base.";
+
+    }
+
+    else if (percentage >= 60) {
+
+        message.textContent =
+        "📚 Vas bien, pero conviene repasar un poco.";
+
+    }
+
+    else {
+
+        message.textContent =
+        "💪 Sigue practicando. Los errores también sirven para aprender.";
+
+    }
+
+
+    result.scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+</script>
+
+</body>
+  </html>
