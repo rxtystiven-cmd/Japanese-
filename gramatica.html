@@ -100,4 +100,1379 @@ main {
 }
 
 .filters button.active {
-    background: #222
+    background: #222;
+}
+
+#counter {
+    color: #666;
+    margin: 12px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.grammar-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 3px 9px #00000012;
+    background: white;
+}
+
+.grammar-card.hidden {
+    display: none;
+}
+
+.level {
+    display: inline-block;
+    background: #d71920;
+    color: white;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.grammar-card h3 {
+    margin: 5px 0;
+    color: #d71920;
+}
+
+.structure {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 7px;
+    font-family: monospace;
+    margin: 10px 0;
+}
+
+.jp {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.reading {
+    color: #666;
+    font-style: italic;
+}
+
+.translation {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.note {
+    background: #fff5f5;
+    padding: 9px;
+    border-radius: 7px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.section-title {
+    color: #d71920;
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.conjugation {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.conjugation th,
+.conjugation td {
+    border: 1px solid #ddd;
+    padding: 9px;
+    text-align: center;
+}
+
+.conjugation th {
+    background: #d71920;
+    color: white;
+}
+
+.exercise {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.exercise button {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 9px 12px;
+    border-radius: 7px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.exercise button:hover {
+    background: #f5f5f5;
+}
+
+.exercise button.correct {
+    background: #d8f5d8;
+    border-color: green;
+}
+
+.exercise button.wrong {
+    background: #ffdede;
+    border-color: red;
+}
+
+.feedback {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+#score {
+    background: #fff5f5;
+    border: 2px solid #d71920;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jp {
+        font-size: 18px;
+    }
+
+    .conjugation {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇯🇵 Gramática Japonesa N4</h1>
+    <p>Continúa aprendiendo japonés</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion2.html">Sección 2</a>
+    <a href="gramatica-n4.html">Gramática N4</a>
+</nav>
+
+<main>
+
+<div class="intro">
+
+<h2>📚 Gramática N4</h2>
+
+<p>
+En esta sección aprenderás estructuras gramaticales más avanzadas
+que las del nivel básico. Estudia cada estructura con ejemplos
+y trata de crear tus propias oraciones.
+</p>
+
+<p>
+<strong>Consejo:</strong> no memorices solamente la fórmula.
+Aprende cuándo se utiliza y observa varios ejemplos.
+</p>
+
+</div>
+
+<div class="controls">
+
+<input
+type="text"
+id="search"
+placeholder="🔎 Buscar estructura, significado o ejemplo..."
+>
+
+<div class="filters">
+
+<button class="active" data-category="Todas">Todas</button>
+<button data-category="Tiempo">Tiempo</button>
+<button data-category="Razón">Razón</button>
+<button data-category="Experiencia">Experiencia</button>
+<button data-category="Obligación">Obligación</button>
+<button data-category="Probabilidad">Probabilidad</button>
+<button data-category="Comparación">Comparación</button>
+<button data-category="Condición">Condición</button>
+<button data-category="Conjugación">Conjugación</button>
+<button data-category="Otros">Otros</button>
+
+</div>
+
+</div>
+
+<div id="counter"></div>
+
+<div class="grid" id="grammarList">
+
+<!-- 1 -->
+
+<div class="grammar-card" data-category="Tiempo">
+
+<span class="level">Tiempo</span>
+
+<h3>〜ながら</h3>
+
+<div class="structure">
+Verbo en ます sin ます + ながら
+</div>
+
+<div class="jp">
+音楽を聞きながら勉強します。
+</div>
+
+<div class="reading">
+Ongaku o kikinagara benkyou shimasu.
+</div>
+
+<div class="translation">
+Estudio mientras escucho música.
+</div>
+
+<div class="note">
+Se usa para realizar dos acciones al mismo tiempo.
+</div>
+
+</div>
+
+<!-- 2 -->
+
+<div class="grammar-card" data-category="Tiempo">
+
+<span class="level">Tiempo</span>
+
+<h3>〜間に</h3>
+
+<div class="structure">
+Sustantivo + の間に<br>
+Verbo + 間に
+</div>
+
+<div class="jp">
+寝ている間に雨が降りました。
+</div>
+
+<div class="reading">
+Nete iru aida ni ame ga furimashita.
+</div>
+
+<div class="translation">
+Mientras dormía, llovió.
+</div>
+
+</div>
+
+<!-- 3 -->
+
+<div class="grammar-card" data-category="Razón">
+
+<span class="level">Razón</span>
+
+<h3>〜ので</h3>
+
+<div class="structure">
+Forma casual + ので
+</div>
+
+<div class="jp">
+雨なので、出かけません。
+</div>
+
+<div class="reading">
+Ame nanode, dekakemasen.
+</div>
+
+<div class="translation">
+Como está lloviendo, no saldré.
+</div>
+
+<div class="note">
+Expresa una razón o causa de forma relativamente suave.
+</div>
+
+</div>
+
+<!-- 4 -->
+
+<div class="grammar-card" data-category="Razón">
+
+<span class="level">Razón</span>
+
+<h3>〜から</h3>
+
+<div class="structure">
+Razón + から
+</div>
+
+<div class="jp">
+疲れたから、寝ます。
+</div>
+
+<div class="reading">
+Tsukareta kara, nemasu.
+</div>
+
+<div class="translation">
+Como estoy cansado, voy a dormir.
+</div>
+
+</div>
+
+<!-- 5 -->
+
+<div class="grammar-card" data-category="Experiencia">
+
+<span class="level">Experiencia</span>
+
+<h3>〜たことがある</h3>
+
+<div class="structure">
+Verbo en た + ことがある
+</div>
+
+<div class="jp">
+日本へ行ったことがあります。
+</div>
+
+<div class="reading">
+Nihon e itta koto ga arimasu.
+</div>
+
+<div class="translation">
+He ido a Japón alguna vez.
+</div>
+
+<div class="note">
+Habla de experiencias que has tenido.
+</div>
+
+</div>
+
+<!-- 6 -->
+
+<div class="grammar-card" data-category="Experiencia">
+
+<span class="level">Experiencia</span>
+
+<h3>〜たことがない</h3>
+
+<div class="structure">
+Verbo en た + ことがない
+</div>
+
+<div class="jp">
+富士山を見たことがありません。
+</div>
+
+<div class="reading">
+Fujisan o mita koto ga arimasen.
+</div>
+
+<div class="translation">
+Nunca he visto el monte Fuji.
+</div>
+
+</div>
+
+<!-- 7 -->
+
+<div class="grammar-card" data-category="Obligación">
+
+<span class="level">Obligación</span>
+
+<h3>〜なければならない</h3>
+
+<div class="structure">
+Verbo en ない → ない → なければならない
+</div>
+
+<div class="jp">
+勉強しなければなりません。
+</div>
+
+<div class="reading">
+Benkyou shinakereba narimasen.
+</div>
+
+<div class="translation">
+Tengo que estudiar.
+</div>
+
+</div>
+
+<!-- 8 -->
+
+<div class="grammar-card" data-category="Obligación">
+
+<span class="level">Obligación</span>
+
+<h3>〜なくてもいい</h3>
+
+<div class="structure">
+Verbo en ない + なくてもいい
+</div>
+
+<div class="jp">
+明日は学校へ行かなくてもいいです。
+</div>
+
+<div class="reading">
+Ashita wa gakkou e ikanakute mo ii desu.
+</div>
+
+<div class="translation">
+Mañana no es necesario ir a la escuela.
+</div>
+
+</div>
+
+<!-- 9 -->
+
+<div class="grammar-card" data-category="Obligación">
+
+<span class="level">Obligación</span>
+
+<h3>〜てもいい</h3>
+
+<div class="structure">
+Verbo en て + もいい
+</div>
+
+<div class="jp">
+ここに座ってもいいです。
+</div>
+
+<div class="reading">
+Koko ni suwatte mo ii desu.
+</div>
+
+<div class="translation">
+Puedes sentarte aquí.
+</div>
+
+</div>
+
+<!-- 10 -->
+
+<div class="grammar-card" data-category="Probabilidad">
+
+<span class="level">Probabilidad</span>
+
+<h3>〜かもしれない</h3>
+
+<div class="structure">
+Forma casual + かもしれない
+</div>
+
+<div class="jp">
+明日は雨かもしれません。
+</div>
+
+<div class="reading">
+Ashita wa ame kamo shiremasen.
+</div>
+
+<div class="translation">
+Puede que mañana llueva.
+</div>
+
+</div>
+
+<!-- 11 -->
+
+<div class="grammar-card" data-category="Probabilidad">
+
+<span class="level">Probabilidad</span>
+
+<h3>〜でしょう</h3>
+
+<div class="structure">
+Forma simple + でしょう
+</div>
+
+<div class="jp">
+明日は暑いでしょう。
+</div>
+
+<div class="reading">
+Ashita wa atsui deshou.
+</div>
+
+<div class="translation">
+Probablemente mañana hará calor.
+</div>
+
+</div>
+
+<!-- 12 -->
+
+<div class="grammar-card" data-category="Comparación">
+
+<span class="level">Comparación</span>
+
+<h3>〜より</h3>
+
+<div class="structure">
+A は B より + adjetivo
+</div>
+
+<div class="jp">
+東京は大阪より大きいです。
+</div>
+
+<div class="reading">
+Toukyou wa Oosaka yori ookii desu.
+</div>
+
+<div class="translation">
+Tokio es más grande que Osaka.
+</div>
+
+</div>
+
+<!-- 13 -->
+
+<div class="grammar-card" data-category="Comparación">
+
+<span class="level">Comparación</span>
+
+<h3>〜ほど〜ない</h3>
+
+<div class="structure">
+A は B ほど + negativo
+</div>
+
+<div class="jp">
+今日は昨日ほど暑くないです。
+</div>
+
+<div class="reading">
+Kyou wa kinou hodo atsukunai desu.
+</div>
+
+<div class="translation">
+Hoy no hace tanto calor como ayer.
+</div>
+
+</div>
+
+<!-- 14 -->
+
+<div class="grammar-card" data-category="Comparación">
+
+<span class="level">Comparación</span>
+
+<h3>一番〜</h3>
+
+<div class="structure">
+Sustantivo + が + 一番 + adjetivo
+</div>
+
+<div class="jp">
+日本語が一番好きです。
+</div>
+
+<div class="reading">
+Nihongo ga ichiban suki desu.
+</div>
+
+<div class="translation">
+El japonés es lo que más me gusta.
+</div>
+
+</div>
+
+<!-- 15 -->
+
+<div class="grammar-card" data-category="Condición">
+
+<span class="level">Condición</span>
+
+<h3>〜たら</h3>
+
+<div class="structure">
+Forma た + ら
+</div>
+
+<div class="jp">
+時間があったら、映画を見ます。
+</div>
+
+<div class="reading">
+Jikan ga attara, eiga o mimasu.
+</div>
+
+<div class="translation">
+Si tengo tiempo, veré una película.
+</div>
+
+</div>
+
+<!-- 16 -->
+
+<div class="grammar-card" data-category="Condición">
+
+<span class="level">Condición</span>
+
+<h3>〜なら</h3>
+
+<div class="structure">
+Sustantivo / forma simple + なら
+</div>
+
+<div class="jp">
+日本へ行くなら、東京へ行きたいです。
+</div>
+
+<div class="reading">
+Nihon e iku nara, Toukyou e ikitai desu.
+</div>
+
+<div class="translation">
+Si vas a Japón, quiero ir a Tokio.
+</div>
+
+</div>
+
+<!-- 17 -->
+
+<div class="grammar-card" data-category="Condición">
+
+<span class="level">Condición</span>
+
+<h3>〜と</h3>
+
+<div class="structure">
+Condición + と
+</div>
+
+<div class="jp">
+春になると、花が咲きます。
+</div>
+
+<div class="reading">
+Haru ni naru to, hana ga sakimasu.
+</div>
+
+<div class="translation">
+Cuando llega la primavera, florecen las flores.
+</div>
+
+</div>
+
+<!-- 18 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜すぎる</h3>
+
+<div class="structure">
+Raíz de ます + すぎる<br>
+Adjetivo い → い + すぎる
+</div>
+
+<div class="jp">
+食べすぎました。
+</div>
+
+<div class="reading">
+Tabesugimashita.
+</div>
+
+<div class="translation">
+Comí demasiado.
+</div>
+
+</div>
+
+<!-- 19 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜やすい</h3>
+
+<div class="structure">
+Raíz de ます + やすい
+</div>
+
+<div class="jp">
+この本は読みやすいです。
+</div>
+
+<div class="reading">
+Kono hon wa yomiyasui desu.
+</div>
+
+<div class="translation">
+Este libro es fácil de leer.
+</div>
+
+</div>
+
+<!-- 20 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜にくい</h3>
+
+<div class="structure">
+Raíz de ます + にくい
+</div>
+
+<div class="jp">
+この漢字は読みにくいです。
+</div>
+
+<div class="reading">
+Kono kanji wa yominikui desu.
+</div>
+
+<div class="translation">
+Este kanji es difícil de leer.
+</div>
+
+</div>
+
+<!-- 21 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜そう</h3>
+
+<div class="structure">
+Raíz de ます + そう
+</div>
+
+<div class="jp">
+雨が降りそうです。
+</div>
+
+<div class="reading">
+Ame ga furisou desu.
+</div>
+
+<div class="translation">
+Parece que va a llover.
+</div>
+
+</div>
+
+<!-- 22 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜てみる</h3>
+
+<div class="structure">
+Verbo en て + みる
+</div>
+
+<div class="jp">
+日本料理を食べてみます。
+</div>
+
+<div class="reading">
+Nihon ryouri o tabete mimasu.
+</div>
+
+<div class="translation">
+Probaré a comer comida japonesa.
+</div>
+
+</div>
+
+<!-- 23 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜てしまう</h3>
+
+<div class="structure">
+Verbo en て + しまう
+</div>
+
+<div class="jp">
+宿題を忘れてしまいました。
+</div>
+
+<div class="reading">
+Shukudai o wasurete shimaimashita.
+</div>
+
+<div class="translation">
+Olvidé la tarea.
+</div>
+
+<div class="note">
+Puede expresar finalización o pesar por algo ocurrido.
+</div>
+
+</div>
+
+<!-- 24 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜と思う</h3>
+
+<div class="structure">
+Forma simple + と思う
+</div>
+
+<div class="jp">
+明日は雨だと思います。
+</div>
+
+<div class="reading">
+Ashita wa ame da to omoimasu.
+</div>
+
+<div class="translation">
+Creo que mañana lloverá.
+</div>
+
+</div>
+
+<!-- 25 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜と言う</h3>
+
+<div class="structure">
+Frase + と言う
+</div>
+
+<div class="jp">
+田中さんは「行きます」と言いました。
+</div>
+
+<div class="reading">
+Tanaka-san wa "ikimasu" to iimashita.
+</div>
+
+<div class="translation">
+Tanaka dijo: «Iré».
+</div>
+
+</div>
+
+<!-- 26 -->
+
+<div class="grammar-card" data-category="Tiempo">
+
+<span class="level">Tiempo</span>
+
+<h3>〜前に</h3>
+
+<div class="structure">
+Verbo diccionario + 前に
+</div>
+
+<div class="jp">
+寝る前に歯を磨きます。
+</div>
+
+<div class="reading">
+Neru mae ni ha o migakimasu.
+</div>
+
+<div class="translation">
+Me cepillo los dientes antes de dormir.
+</div>
+
+</div>
+
+<!-- 27 -->
+
+<div class="grammar-card" data-category="Tiempo">
+
+<span class="level">Tiempo</span>
+
+<h3>〜後で</h3>
+
+<div class="structure">
+Verbo en た + 後で
+</div>
+
+<div class="jp">
+ご飯を食べた後で勉強します。
+</div>
+
+<div class="reading">
+Gohan o tabeta ato de benkyou shimasu.
+</div>
+
+<div class="translation">
+Estudio después de comer.
+</div>
+
+</div>
+
+<!-- 28 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜ている</h3>
+
+<div class="structure">
+Verbo en て + いる
+</div>
+
+<div class="jp">
+今、日本語を勉強しています。
+</div>
+
+<div class="reading">
+Ima, nihongo o benkyou shite imasu.
+</div>
+
+<div class="translation">
+Ahora estoy estudiando japonés.
+</div>
+
+</div>
+
+<!-- 29 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜ても</h3>
+
+<div class="structure">
+Verbo en て + も
+</div>
+
+<div class="jp">
+雨が降っても行きます。
+</div>
+
+<div class="reading">
+Ame ga futte mo ikimasu.
+</div>
+
+<div class="translation">
+Aunque llueva, iré.
+</div>
+
+</div>
+
+<!-- 30 -->
+
+<div class="grammar-card" data-category="Otros">
+
+<span class="level">Otros</span>
+
+<h3>〜しか〜ない</h3>
+
+<div class="structure">
+Sustantivo + しか + negativo
+</div>
+
+<div class="jp">
+千円しかありません。
+</div>
+
+<div class="reading">
+Sen-en shika arimasen.
+</div>
+
+<div class="translation">
+Solo tengo 1000 yenes.
+</div>
+
+</div>
+
+</div>
+
+<h2 class="section-title">🔄 Formas verbales importantes</h2>
+
+<table class="conjugation">
+
+<tr>
+<th>Forma</th>
+<th>Ejemplo</th>
+<th>Significado</th>
+</tr>
+
+<tr>
+<td>Diccionario</td>
+<td>食べる</td>
+<td>comer</td>
+</tr>
+
+<tr>
+<td>ます</td>
+<td>食べます</td>
+<td>como / comeré</td>
+</tr>
+
+<tr>
+<td>ない</td>
+<td>食べない</td>
+<td>no comer</td>
+</tr>
+
+<tr>
+<td>た</td>
+<td>食べた</td>
+<td>comí</td>
+</tr>
+
+<tr>
+<td>て</td>
+<td>食べて</td>
+<td>forma て</td>
+</tr>
+
+<tr>
+<td>たい</td>
+<td>食べたい</td>
+<td>quiero comer</td>
+</tr>
+
+<tr>
+<td>たら</td>
+<td>食べたら</td>
+<td>si / cuando como</td>
+</tr>
+
+</table>
+
+<h2 class="section-title">🧠 Ejercicios</h2>
+
+<p>
+Selecciona la respuesta correcta.
+</p>
+
+<div class="exercise">
+
+<p>
+<strong>1.</strong>
+「日本へ行ったことが____。」
+</p>
+
+<button onclick="answer(this, true)">あります</button>
+<button onclick="answer(this, false)">ありませんでしたる</button>
+<button onclick="answer(this, false)">します</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>2.</strong>
+「明日は雨____しれません。」
+</p>
+
+<button onclick="answer(this, false)">と思う</button>
+<button onclick="answer(this, true)">かも</button>
+<button onclick="answer(this, false)">ながら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>3.</strong>
+「ここに座って____いいです。」
+</p>
+
+<button onclick="answer(this, true)">も</button>
+<button onclick="answer(this, false)">から</button>
+<button onclick="answer(this, false)">しか</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>4.</strong>
+「勉強し____なりません。」
+</p>
+
+<button onclick="answer(this, false)">ても</button>
+<button onclick="answer(this, true)">なければ</button>
+<button onclick="answer(this, false)">ながら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>5.</strong>
+「音楽を聞き____勉強します。」
+</p>
+
+<button onclick="answer(this, true)">ながら</button>
+<button onclick="answer(this, false)">しか</button>
+<button onclick="answer(this, false)">なら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>6.</strong>
+「この本は読み____です。」
+</p>
+
+<button onclick="answer(this, false)">しか</button>
+<button onclick="answer(this, true)">やすい</button>
+<button onclick="answer(this, false)">なら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>7.</strong>
+「時間があっ____、映画を見ます。」
+</p>
+
+<button onclick="answer(this, true)">たら</button>
+<button onclick="answer(this, false)">そう</button>
+<button onclick="answer(this, false)">ながら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>8.</strong>
+「昨日は今日____暑くないです。」
+</p>
+
+<button onclick="answer(this, false)">より</button>
+<button onclick="answer(this, true)">ほど</button>
+<button onclick="answer(this, false)">しか</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>9.</strong>
+「日本語を話して____ます。」
+</p>
+
+<button onclick="answer(this, false)">しか</button>
+<button onclick="answer(this, true)">み</button>
+<button onclick="answer(this, false)">なら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div class="exercise">
+
+<p>
+<strong>10.</strong>
+「雨なので、出かけ____。」
+</p>
+
+<button onclick="answer(this, true)">ません</button>
+<button onclick="answer(this, false)">ましたら</button>
+<button onclick="answer(this, false)">ながら</button>
+
+<div class="feedback"></div>
+
+</div>
+
+<div id="score">
+Puntuación: <span id="scoreNumber">0</span> / 10
+</div>
+
+</main>
+
+<footer>
+Japanese Fácil 🇯🇵<br>
+Gramática N4
+</footer>
+
+<script>
+
+/* BUSCADOR */
+
+const cards = document.querySelectorAll(".grammar-card");
+const search = document.getElementById("search");
+const counter = document.getElementById("counter");
+
+let currentCategory = "Todas";
+
+function filterCards() {
+
+    const text = search.value.toLowerCase().trim();
+
+    let visible = 0;
+
+    cards.forEach(card => {
+
+        const content = card.innerText.toLowerCase();
+
+        const categoryOK =
+            currentCategory === "Todas" ||
+            card.dataset.category === currentCategory;
+
+        const searchOK =
+            content.includes(text);
+
+        if (categoryOK && searchOK) {
+
+            card.classList.remove("hidden");
+            visible++;
+
+        } else {
+
+            card.classList.add("hidden");
+
+        }
+
+    });
+
+    counter.textContent =
+        "Mostrando " + visible + " estructuras";
+
+}
+
+search.addEventListener("input", filterCards);
+
+
+/* FILTROS */
+
+document.querySelectorAll(".filters button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document
+            .querySelectorAll(".filters button")
+            .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        currentCategory = button.dataset.category;
+
+        filterCards();
+
+    });
+
+});
+
+filterCards();
+
+
+/* EJERCICIOS */
+
+let score = 0;
+
+function answer(button, correct) {
+
+    const exercise = button.parentElement;
+
+    const buttons =
+        exercise.querySelectorAll("button");
+
+    const feedback =
+        exercise.querySelector(".feedback");
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+    if (correct) {
+
+        button.classList.add("correct");
+
+        feedback.textContent =
+            "✅ ¡Correcto!";
+
+        feedback.style.color = "green";
+
+        score++;
+
+    } else {
+
+        button.classList.add("wrong");
+
+        feedback.textContent =
+            "❌ Incorrecto.";
+
+        feedback.style.color = "red";
+
+    }
+
+    document.getElementById("scoreNumber").textContent =
+        score;
+
+}
+
+</script>
+
+</body>
+</html>
