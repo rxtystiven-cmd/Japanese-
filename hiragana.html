@@ -1,225 +1,1258 @@
-<section id="hiragana" class="kana-section">
-  <h2>ひらがな — Hiragana</h2>
-  <p class="section-intro">
-    Aprende los caracteres japoneses paso a paso. Empieza por los básicos
-    y después practica dakuten, handakuten y combinaciones.
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hiragana - Japanese Fácil</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f7f7;
+  color:#222;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:#d60000;
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+}
+
+header h1{
+  margin:0 0 8px;
+  font-size:30px;
+}
+
+header p{
+  margin:0;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+  border-bottom:1px solid #ddd;
+}
+
+nav a{
+  color:#b00000;
+  text-decoration:none;
+  font-weight:bold;
+  padding:7px 9px;
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+  background:white;
+  border-left:5px solid #d60000;
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:18px;
+}
+
+.intro h2{
+  margin-top:0;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section{
+  background:white;
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:20px;
+  border-top:4px solid #d60000;
+  box-shadow:0 2px 7px rgba(0,0,0,.07);
+}
+
+.section h2{
+  margin:0 0 6px;
+  color:#b00000;
+}
+
+.section-description{
+  color:#666;
+  margin-top:0;
+  line-height:1.5;
+}
+
+
+/* =========================
+   TABLA KANA
+========================= */
+
+.kana-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.kana-card{
+  background:#fffafa;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:13px 7px;
+  text-align:center;
+  transition:.15s;
+}
+
+.kana-card:hover{
+  border-color:#d60000;
+  transform:translateY(-2px);
+}
+
+.kana{
+  font-size:38px;
+  font-weight:bold;
+  color:#222;
+  line-height:1.2;
+}
+
+.romaji{
+  color:#b00000;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.example{
+  color:#666;
+  font-size:13px;
+  margin-top:5px;
+}
+
+
+/* =========================
+   FILAS PRINCIPALES
+========================= */
+
+.row-title{
+  margin:22px 0 8px;
+  color:#b00000;
+  font-size:17px;
+  border-bottom:2px solid #ffe5e5;
+  padding-bottom:5px;
+}
+
+
+/* =========================
+   DAKUTEN / HANDAKUTEN
+========================= */
+
+.small-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.small-card{
+  background:#fffafa;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:12px 5px;
+  text-align:center;
+}
+
+.small-card .kana{
+  font-size:32px;
+}
+
+.small-card .romaji{
+  font-size:14px;
+}
+
+
+/* =========================
+   YŌON
+========================= */
+
+.yoon-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.yoon-card{
+  background:#fffafa;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+}
+
+.yoon-kana{
+  font-size:30px;
+  font-weight:bold;
+}
+
+.yoon-romaji{
+  color:#b00000;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+
+/* =========================
+   REGLAS
+========================= */
+
+.rule{
+  background:#fffafa;
+  border-left:4px solid #d60000;
+  padding:13px;
+  margin-top:10px;
+  border-radius:8px;
+}
+
+.rule strong{
+  color:#b00000;
+}
+
+.rule p{
+  margin:6px 0 0;
+  color:#555;
+  line-height:1.5;
+}
+
+
+/* =========================
+   CONSEJO N5
+========================= */
+
+.tip{
+  background:#ffe5e5;
+  border-radius:10px;
+  padding:16px;
+  margin-top:20px;
+}
+
+.tip h3{
+  color:#b00000;
+  margin-top:0;
+}
+
+.tip p{
+  margin-bottom:0;
+  line-height:1.5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  background:#222;
+  color:white;
+  padding:25px;
+  margin-top:30px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px){
+
+  header h1{
+    font-size:25px;
+  }
+
+  .container{
+    padding:12px;
+  }
+
+  .section{
+    padding:14px;
+  }
+
+  .kana-grid{
+    grid-template-columns:repeat(5,1fr);
+    gap:5px;
+  }
+
+  .kana-card{
+    padding:9px 2px;
+  }
+
+  .kana{
+    font-size:28px;
+  }
+
+  .romaji{
+    font-size:11px;
+  }
+
+  .example{
+    display:none;
+  }
+
+  .small-grid{
+    grid-template-columns:repeat(5,1fr);
+    gap:5px;
+  }
+
+  .small-card{
+    padding:9px 2px;
+  }
+
+  .small-card .kana{
+    font-size:25px;
+  }
+
+  .small-card .romaji{
+    font-size:10px;
+  }
+
+  .yoon-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:5px;
+  }
+
+  .yoon-card{
+    padding:9px 3px;
+  }
+
+  .yoon-kana{
+    font-size:23px;
+  }
+
+  .yoon-romaji{
+    font-size:10px;
+  }
+
+}
+
+
+/* =========================
+   CELULARES MUY PEQUEÑOS
+========================= */
+
+@media(max-width:360px){
+
+  .container{
+    padding:9px;
+  }
+
+  .kana-grid{
+    gap:3px;
+  }
+
+  .kana{
+    font-size:25px;
+  }
+
+  .romaji{
+    font-size:10px;
+  }
+
+  .small-grid{
+    gap:3px;
+  }
+
+  .small-card .kana{
+    font-size:23px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <h1>🇯🇵 Hiragana</h1>
+
+  <p>
+    Aprende los caracteres básicos del japonés
   </p>
 
-  <!-- BÁSICOS -->
-  <div class="kana-category">
-    <h3>🌱 Hiragana básicos</h3>
+</header>
 
-    <div class="kana-grid">
 
-      <div class="kana-card"><span>あ</span><b>a</b><small>あさ — asa</small></div>
-      <div class="kana-card"><span>い</span><b>i</b><small>いぬ — inu</small></div>
-      <div class="kana-card"><span>う</span><b>u</b><small>うみ — umi</small></div>
-      <div class="kana-card"><span>え</span><b>e</b><small>えき — eki</small></div>
-      <div class="kana-card"><span>お</span><b>o</b><small>おちゃ — ocha</small></div>
+<!-- =========================
+     NAV
+========================= -->
 
-      <div class="kana-card"><span>か</span><b>ka</b><small>かさ — kasa</small></div>
-      <div class="kana-card"><span>き</span><b>ki</b><small>き — ki</small></div>
-      <div class="kana-card"><span>く</span><b>ku</b><small>くるま — kuruma</small></div>
-      <div class="kana-card"><span>け</span><b>ke</b><small>けさ — kesa</small></div>
-      <div class="kana-card"><span>こ</span><b>ko</b><small>ここ — koko</small></div>
+<nav>
 
-      <div class="kana-card"><span>さ</span><b>sa</b><small>さかな — sakana</small></div>
-      <div class="kana-card"><span>し</span><b>shi</b><small>しお — shio</small></div>
-      <div class="kana-card"><span>す</span><b>su</b><small>すし — sushi</small></div>
-      <div class="kana-card"><span>せ</span><b>se</b><small>せんせい — sensei</small></div>
-      <div class="kana-card"><span>そ</span><b>so</b><small>そら — sora</small></div>
+  <a href="index.html">Inicio</a>
 
-      <div class="kana-card"><span>た</span><b>ta</b><small>たまご — tamago</small></div>
-      <div class="kana-card"><span>ち</span><b>chi</b><small>ちず — chizu</small></div>
-      <div class="kana-card"><span>つ</span><b>tsu</b><small>つき — tsuki</small></div>
-      <div class="kana-card"><span>て</span><b>te</b><small>て — te</small></div>
-      <div class="kana-card"><span>と</span><b>to</b><small>とけい — tokei</small></div>
+  <a href="hiragana.html">Hiragana</a>
 
-      <div class="kana-card"><span>な</span><b>na</b><small>なまえ — namae</small></div>
-      <div class="kana-card"><span>に</span><b>ni</b><small>にほん — nihon</small></div>
-      <div class="kana-card"><span>ぬ</span><b>nu</b><small>いぬ — inu</small></div>
-      <div class="kana-card"><span>ね</span><b>ne</b><small>ねこ — neko</small></div>
-      <div class="kana-card"><span>の</span><b>no</b><small>のむ — nomu</small></div>
+  <a href="katakana.html">Katakana</a>
 
-      <div class="kana-card"><span>は</span><b>ha</b><small>はな — hana</small></div>
-      <div class="kana-card"><span>ひ</span><b>hi</b><small>ひと — hito</small></div>
-      <div class="kana-card"><span>ふ</span><b>fu</b><small>ふゆ — fuyu</small></div>
-      <div class="kana-card"><span>へ</span><b>he</b><small>へや — heya</small></div>
-      <div class="kana-card"><span>ほ</span><b>ho</b><small>ほし — hoshi</small></div>
+  <a href="kanji.html">Kanji</a>
 
-      <div class="kana-card"><span>ま</span><b>ma</b><small>まち — machi</small></div>
-      <div class="kana-card"><span>み</span><b>mi</b><small>みず — mizu</small></div>
-      <div class="kana-card"><span>む</span><b>mu</b><small>むし — mushi</small></div>
-      <div class="kana-card"><span>め</span><b>me</b><small>め — me</small></div>
-      <div class="kana-card"><span>も</span><b>mo</b><small>もり — mori</small></div>
+  <a href="vocabulario.html">Vocabulario</a>
 
-      <div class="kana-card"><span>や</span><b>ya</b><small>やま — yama</small></div>
-      <div class="kana-card"><span>ゆ</span><b>yu</b><small>ゆき — yuki</small></div>
-      <div class="kana-card"><span>よ</span><b>yo</b><small>よる — yoru</small></div>
+  <a href="particulas.html">Partículas</a>
 
-      <div class="kana-card"><span>ら</span><b>ra</b><small>らいねん — rainen</small></div>
-      <div class="kana-card"><span>り</span><b>ri</b><small>りんご — ringo</small></div>
-      <div class="kana-card"><span>る</span><b>ru</b><small>るす — rusu</small></div>
-      <div class="kana-card"><span>れ</span><b>re</b><small>れい — rei</small></div>
-      <div class="kana-card"><span>ろ</span><b>ro</b><small>ろく — roku</small></div>
+  <a href="frases.html">Frases</a>
 
-      <div class="kana-card"><span>わ</span><b>wa</b><small>わたし — watashi</small></div>
-      <div class="kana-card"><span>を</span><b>wo</b><small>を — wo</small></div>
-      <div class="kana-card"><span>ん</span><b>n</b><small>ほん — hon</small></div>
+  <a href="ejercicios.html">Ejercicios</a>
 
+  <a href="jlpt-n5.html">JLPT N5</a>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+  <h2>🈁 Aprende Hiragana desde cero</h2>
+
+  <p>
+    El <strong>hiragana</strong> es uno de los sistemas de escritura
+    japoneses. En esta página puedes aprender los 46 caracteres básicos,
+    dakuten, handakuten y las combinaciones más importantes para el JLPT N5.
+  </p>
+
+</section>
+
+
+
+<!-- =========================
+     01 — BÁSICOS
+========================= -->
+
+<section class="section" id="basicos">
+
+  <h2>01. Hiragana básicos</h2>
+
+  <p class="section-description">
+    Los 46 caracteres fundamentales que debes aprender primero.
+  </p>
+
+
+  <!-- あ行 -->
+
+  <h3 class="row-title">あ行 — A</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">あ</div>
+      <div class="romaji">a</div>
+      <div class="example">あさ</div>
     </div>
+
+    <div class="kana-card">
+      <div class="kana">い</div>
+      <div class="romaji">i</div>
+      <div class="example">いぬ</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">う</div>
+      <div class="romaji">u</div>
+      <div class="example">うみ</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">え</div>
+      <div class="romaji">e</div>
+      <div class="example">えき</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">お</div>
+      <div class="romaji">o</div>
+      <div class="example">おちゃ</div>
+    </div>
+
   </div>
 
-  <!-- DAKUTEN -->
-  <div class="kana-category">
-    <h3>🔊 Dakuten</h3>
 
-    <div class="kana-grid">
-      <div class="kana-card"><span>が</span><b>ga</b><small>がくせい — gakusei</small></div>
-      <div class="kana-card"><span>ぎ</span><b>gi</b><small>ぎんこう — ginkō</small></div>
-      <div class="kana-card"><span>ぐ</span><b>gu</b><small>ぐんたい — guntai</small></div>
-      <div class="kana-card"><span>げ</span><b>ge</b><small>げんき — genki</small></div>
-      <div class="kana-card"><span>ご</span><b>go</b><small>ごはん — gohan</small></div>
+  <!-- か行 -->
 
-      <div class="kana-card"><span>ざ</span><b>za</b><small>ざっし — zasshi</small></div>
-      <div class="kana-card"><span>じ</span><b>ji</b><small>じかん — jikan</small></div>
-      <div class="kana-card"><span>ず</span><b>zu</b><small>みず — mizu</small></div>
-      <div class="kana-card"><span>ぜ</span><b>ze</b><small>ぜんぶ — zenbu</small></div>
-      <div class="kana-card"><span>ぞ</span><b>zo</b><small>ぞう — zō</small></div>
+  <h3 class="row-title">か行 — KA</h3>
 
-      <div class="kana-card"><span>だ</span><b>da</b><small>だいがく — daigaku</small></div>
-      <div class="kana-card"><span>ぢ</span><b>ji</b><small>ぢ — ji</small></div>
-      <div class="kana-card"><span>づ</span><b>zu</b><small>つづく — tsuzuku</small></div>
-      <div class="kana-card"><span>で</span><b>de</b><small>でんわ — denwa</small></div>
-      <div class="kana-card"><span>ど</span><b>do</b><small>どこ — doko</small></div>
+  <div class="kana-grid">
 
-      <div class="kana-card"><span>ば</span><b>ba</b><small>ばんごう — bangō</small></div>
-      <div class="kana-card"><span>び</span><b>bi</b><small>びょういん — byōin</small></div>
-      <div class="kana-card"><span>ぶ</span><b>bu</b><small>ぶた — buta</small></div>
-      <div class="kana-card"><span>べ</span><b>be</b><small>べんきょう — benkyō</small></div>
-      <div class="kana-card"><span>ぼ</span><b>bo</b><small>ぼく — boku</small></div>
+    <div class="kana-card">
+      <div class="kana">か</div>
+      <div class="romaji">ka</div>
+      <div class="example">かさ</div>
     </div>
+
+    <div class="kana-card">
+      <div class="kana">き</div>
+      <div class="romaji">ki</div>
+      <div class="example">き</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">く</div>
+      <div class="romaji">ku</div>
+      <div class="example">くるま</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">け</div>
+      <div class="romaji">ke</div>
+      <div class="example">けさ</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">こ</div>
+      <div class="romaji">ko</div>
+      <div class="example">ここ</div>
+    </div>
+
   </div>
 
-  <!-- HANDAKUTEN -->
-  <div class="kana-category">
-    <h3>⭕ Handakuten</h3>
 
-    <div class="kana-grid">
-      <div class="kana-card"><span>ぱ</span><b>pa</b><small>ぱん — pan</small></div>
-      <div class="kana-card"><span>ぴ</span><b>pi</b><small>ぴんぽん — pinpon</small></div>
-      <div class="kana-card"><span>ぷ</span><b>pu</b><small>ぷりん — purin</small></div>
-      <div class="kana-card"><span>ぺ</span><b>pe</b><small>ぺん — pen</small></div>
-      <div class="kana-card"><span>ぽ</span><b>po</b><small>ぽけっと — poketto</small></div>
+  <!-- さ行 -->
+
+  <h3 class="row-title">さ行 — SA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">さ</div>
+      <div class="romaji">sa</div>
+      <div class="example">さかな</div>
     </div>
+
+    <div class="kana-card">
+      <div class="kana">し</div>
+      <div class="romaji">shi</div>
+      <div class="example">しお</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">す</div>
+      <div class="romaji">su</div>
+      <div class="example">すし</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">せ</div>
+      <div class="romaji">se</div>
+      <div class="example">せんせい</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">そ</div>
+      <div class="romaji">so</div>
+      <div class="example">そら</div>
+    </div>
+
   </div>
 
-  <!-- YOON -->
-  <div class="kana-category">
-    <h3>✨ Combinaciones — Yōon</h3>
 
-    <div class="kana-grid">
-      <div class="kana-card"><span>きゃ</span><b>kya</b></div>
-      <div class="kana-card"><span>きゅ</span><b>kyu</b></div>
-      <div class="kana-card"><span>きょ</span><b>kyo</b></div>
+  <!-- た行 -->
 
-      <div class="kana-card"><span>しゃ</span><b>sha</b></div>
-      <div class="kana-card"><span>しゅ</span><b>shu</b></div>
-      <div class="kana-card"><span>しょ</span><b>sho</b></div>
+  <h3 class="row-title">た行 — TA</h3>
 
-      <div class="kana-card"><span>ちゃ</span><b>cha</b></div>
-      <div class="kana-card"><span>ちゅ</span><b>chu</b></div>
-      <div class="kana-card"><span>ちょ</span><b>cho</b></div>
+  <div class="kana-grid">
 
-      <div class="kana-card"><span>にゃ</span><b>nya</b></div>
-      <div class="kana-card"><span>にゅ</span><b>nyu</b></div>
-      <div class="kana-card"><span>にょ</span><b>nyo</b></div>
-
-      <div class="kana-card"><span>ひゃ</span><b>hya</b></div>
-      <div class="kana-card"><span>ひゅ</span><b>hyu</b></div>
-      <div class="kana-card"><span>ひょ</span><b>hyo</b></div>
-
-      <div class="kana-card"><span>みゃ</span><b>mya</b></div>
-      <div class="kana-card"><span>みゅ</span><b>myu</b></div>
-      <div class="kana-card"><span>みょ</span><b>myo</b></div>
-
-      <div class="kana-card"><span>りゃ</span><b>rya</b></div>
-      <div class="kana-card"><span>りゅ</span><b>ryu</b></div>
-      <div class="kana-card"><span>りょ</span><b>ryo</b></div>
-
-      <div class="kana-card"><span>ぎゃ</span><b>gya</b></div>
-      <div class="kana-card"><span>ぎゅ</span><b>gyu</b></div>
-      <div class="kana-card"><span>ぎょ</span><b>gyo</b></div>
-
-      <div class="kana-card"><span>じゃ</span><b>ja</b></div>
-      <div class="kana-card"><span>じゅ</span><b>ju</b></div>
-      <div class="kana-card"><span>じょ</span><b>jo</b></div>
-
-      <div class="kana-card"><span>びゃ</span><b>bya</b></div>
-      <div class="kana-card"><span>びゅ</span><b>byu</b></div>
-      <div class="kana-card"><span>びょ</span><b>byo</b></div>
-
-      <div class="kana-card"><span>ぴゃ</span><b>pya</b></div>
-      <div class="kana-card"><span>ぴゅ</span><b>pyu</b></div>
-      <div class="kana-card"><span>ぴょ</span><b>pyo</b></div>
+    <div class="kana-card">
+      <div class="kana">た</div>
+      <div class="romaji">ta</div>
+      <div class="example">たまご</div>
     </div>
+
+    <div class="kana-card">
+      <div class="kana">ち</div>
+      <div class="romaji">chi</div>
+      <div class="example">ちず</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">つ</div>
+      <div class="romaji">tsu</div>
+      <div class="example">つき</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">て</div>
+      <div class="romaji">te</div>
+      <div class="example">て</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">と</div>
+      <div class="romaji">to</div>
+      <div class="example">とけい</div>
+    </div>
+
   </div>
 
-  <!-- REGLAS -->
-  <div class="kana-category kana-rules">
-    <h3>📚 Reglas importantes</h3>
 
-    <div class="rule-card">
-      <h4>っ — Sokuon</h4>
-      <p>
-        La っ pequeña duplica la consonante siguiente.
-      </p>
-      <strong>がっこう → gakkō</strong>
+  <!-- な行 -->
+
+  <h3 class="row-title">な行 — NA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">な</div>
+      <div class="romaji">na</div>
+      <div class="example">なまえ</div>
     </div>
 
-    <div class="rule-card">
-      <h4>ゃ・ゅ・ょ pequeños</h4>
-      <p>
-        Se combinan con ciertas sílabas para formar sonidos como kya, shu,
-        cho, ryu, etc.
-      </p>
-      <strong>きょう → kyō</strong>
+    <div class="kana-card">
+      <div class="kana">に</div>
+      <div class="romaji">ni</div>
+      <div class="example">にほん</div>
     </div>
 
-    <div class="rule-card">
-      <h4>は como partícula</h4>
-      <p>
-        Cuando は funciona como partícula gramatical, normalmente se pronuncia
-        "wa".
-      </p>
-      <strong>わたしは → watashi wa</strong>
+    <div class="kana-card">
+      <div class="kana">ぬ</div>
+      <div class="romaji">nu</div>
+      <div class="example">いぬ</div>
     </div>
 
-    <div class="rule-card">
-      <h4>へ como partícula</h4>
-      <p>
-        Cuando へ funciona como partícula de dirección, se pronuncia "e".
-      </p>
-      <strong>がっこうへ → gakkō e</strong>
+    <div class="kana-card">
+      <div class="kana">ね</div>
+      <div class="romaji">ne</div>
+      <div class="example">ねこ</div>
     </div>
 
-    <div class="rule-card">
-      <h4>を como partícula</h4>
-      <p>
-        を normalmente se pronuncia "o" en japonés moderno.
-      </p>
-      <strong>みずを → mizu o</strong>
+    <div class="kana-card">
+      <div class="kana">の</div>
+      <div class="romaji">no</div>
+      <div class="example">のみます</div>
     </div>
+
   </div>
 
-  <!-- CONSEJO N5 -->
-  <div class="kana-tip">
-    <h3>🎯 Para JLPT N5</h3>
-    <p>
-      Primero domina los 46 hiragana básicos. Después aprende dakuten,
-      handakuten, combinaciones y っ. Debes poder reconocerlos sin depender
-      del romaji.
-    </p>
+
+  <!-- は行 -->
+
+  <h3 class="row-title">は行 — HA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">は</div>
+      <div class="romaji">ha</div>
+      <div class="example">はな</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">ひ</div>
+      <div class="romaji">hi</div>
+      <div class="example">ひと</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">ふ</div>
+      <div class="romaji">fu</div>
+      <div class="example">ふゆ</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">へ</div>
+      <div class="romaji">he</div>
+      <div class="example">へや</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">ほ</div>
+      <div class="romaji">ho</div>
+      <div class="example">ほし</div>
+    </div>
+
+  </div>
+
+
+  <!-- ま行 -->
+
+  <h3 class="row-title">ま行 — MA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">ま</div>
+      <div class="romaji">ma</div>
+      <div class="example">まち</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">み</div>
+      <div class="romaji">mi</div>
+      <div class="example">みず</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">む</div>
+      <div class="romaji">mu</div>
+      <div class="example">むし</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">め</div>
+      <div class="romaji">me</div>
+      <div class="example">め</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">も</div>
+      <div class="romaji">mo</div>
+      <div class="example">もり</div>
+    </div>
+
+  </div>
+
+
+  <!-- や行 -->
+
+  <h3 class="row-title">や行 — YA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">や</div>
+      <div class="romaji">ya</div>
+      <div class="example">やま</div>
+    </div>
+
+    <div class="kana-card" style="visibility:hidden;"></div>
+
+    <div class="kana-card">
+      <div class="kana">ゆ</div>
+      <div class="romaji">yu</div>
+      <div class="example">ゆき</div>
+    </div>
+
+    <div class="kana-card" style="visibility:hidden;"></div>
+
+    <div class="kana-card">
+      <div class="kana">よ</div>
+      <div class="romaji">yo</div>
+      <div class="example">よる</div>
+    </div>
+
+  </div>
+
+
+  <!-- ら行 -->
+
+  <h3 class="row-title">ら行 — RA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">ら</div>
+      <div class="romaji">ra</div>
+      <div class="example">らいねん</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">り</div>
+      <div class="romaji">ri</div>
+      <div class="example">りんご</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">る</div>
+      <div class="romaji">ru</div>
+      <div class="example">るす</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">れ</div>
+      <div class="romaji">re</div>
+      <div class="example">れい</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">ろ</div>
+      <div class="romaji">ro</div>
+      <div class="example">ろく</div>
+    </div>
+
+  </div>
+
+
+  <!-- わ行 -->
+
+  <h3 class="row-title">わ行 — WA</h3>
+
+  <div class="kana-grid">
+
+    <div class="kana-card">
+      <div class="kana">わ</div>
+      <div class="romaji">wa</div>
+      <div class="example">わたし</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">を</div>
+      <div class="romaji">wo</div>
+      <div class="example">partícula</div>
+    </div>
+
+    <div class="kana-card">
+      <div class="kana">ん</div>
+      <div class="romaji">n</div>
+      <div class="example">ほん</div>
+    </div>
+
+    <div class="kana-card" style="visibility:hidden;"></div>
+
+    <div class="kana-card" style="visibility:hidden;"></div>
+
   </div>
 
 </section>
+
+
+
+<!-- =========================
+     02 — DAKUTEN
+========================= -->
+
+<section class="section">
+
+  <h2>02. Dakuten</h2>
+
+  <p class="section-description">
+    Los dakuten ゛ modifican algunos sonidos del hiragana.
+  </p>
+
+
+  <div class="small-grid">
+
+    <div class="small-card"><div class="kana">が</div><div class="romaji">ga</div></div>
+    <div class="small-card"><div class="kana">ぎ</div><div class="romaji">gi</div></div>
+    <div class="small-card"><div class="kana">ぐ</div><div class="romaji">gu</div></div>
+    <div class="small-card"><div class="kana">げ</div><div class="romaji">ge</div></div>
+    <div class="small-card"><div class="kana">ご</div><div class="romaji">go</div></div>
+
+    <div class="small-card"><div class="kana">ざ</div><div class="romaji">za</div></div>
+    <div class="small-card"><div class="kana">じ</div><div class="romaji">ji</div></div>
+    <div class="small-card"><div class="kana">ず</div><div class="romaji">zu</div></div>
+    <div class="small-card"><div class="kana">ぜ</div><div class="romaji">ze</div></div>
+    <div class="small-card"><div class="kana">ぞ</div><div class="romaji">zo</div></div>
+
+    <div class="small-card"><div class="kana">だ</div><div class="romaji">da</div></div>
+    <div class="small-card"><div class="kana">ぢ</div><div class="romaji">ji</div></div>
+    <div class="small-card"><div class="kana">づ</div><div class="romaji">zu</div></div>
+    <div class="small-card"><div class="kana">で</div><div class="romaji">de</div></div>
+    <div class="small-card"><div class="kana">ど</div><div class="romaji">do</div></div>
+
+    <div class="small-card"><div class="kana">ば</div><div class="romaji">ba</div></div>
+    <div class="small-card"><div class="kana">び</div><div class="romaji">bi</div></div>
+    <div class="small-card"><div class="kana">ぶ</div><div class="romaji">bu</div></div>
+    <div class="small-card"><div class="kana">べ</div><div class="romaji">be</div></div>
+    <div class="small-card"><div class="kana">ぼ</div><div class="romaji">bo</div></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     03 — HANDAKUTEN
+========================= -->
+
+<section class="section">
+
+  <h2>03. Handakuten</h2>
+
+  <p class="section-description">
+    El handakuten ゜ convierte los sonidos de la fila は en sonidos P.
+  </p>
+
+
+  <div class="small-grid">
+
+    <div class="small-card">
+      <div class="kana">ぱ</div>
+      <div class="romaji">pa</div>
+    </div>
+
+    <div class="small-card">
+      <div class="kana">ぴ</div>
+      <div class="romaji">pi</div>
+    </div>
+
+    <div class="small-card">
+      <div class="kana">ぷ</div>
+      <div class="romaji">pu</div>
+    </div>
+
+    <div class="small-card">
+      <div class="kana">ぺ</div>
+      <div class="romaji">pe</div>
+    </div>
+
+    <div class="small-card">
+      <div class="kana">ぽ</div>
+      <div class="romaji">po</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     04 — YŌON
+========================= -->
+
+<section class="section">
+
+  <h2>04. Yōon</h2>
+
+  <p class="section-description">
+    Combinaciones de un kana con ゃ・ゅ・ょ pequeños.
+  </p>
+
+
+  <div class="yoon-grid">
+
+    <div class="yoon-card">
+      <div class="yoon-kana">きゃ</div>
+      <div class="yoon-romaji">kya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">きゅ</div>
+      <div class="yoon-romaji">kyu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">きょ</div>
+      <div class="yoon-romaji">kyo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">しゃ</div>
+      <div class="yoon-romaji">sha</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">しゅ</div>
+      <div class="yoon-romaji">shu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">しょ</div>
+      <div class="yoon-romaji">sho</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ちゃ</div>
+      <div class="yoon-romaji">cha</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ちゅ</div>
+      <div class="yoon-romaji">chu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ちょ</div>
+      <div class="yoon-romaji">cho</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">にゃ</div>
+      <div class="yoon-romaji">nya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">にゅ</div>
+      <div class="yoon-romaji">nyu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">にょ</div>
+      <div class="yoon-romaji">nyo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ひゃ</div>
+      <div class="yoon-romaji">hya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ひゅ</div>
+      <div class="yoon-romaji">hyu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ひょ</div>
+      <div class="yoon-romaji">hyo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">みゃ</div>
+      <div class="yoon-romaji">mya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">みゅ</div>
+      <div class="yoon-romaji">myu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">みょ</div>
+      <div class="yoon-romaji">myo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">りゃ</div>
+      <div class="yoon-romaji">rya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">りゅ</div>
+      <div class="yoon-romaji">ryu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">りょ</div>
+      <div class="yoon-romaji">ryo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ぎゃ</div>
+      <div class="yoon-romaji">gya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ぎゅ</div>
+      <div class="yoon-romaji">gyu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ぎょ</div>
+      <div class="yoon-romaji">gyo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">じゃ</div>
+      <div class="yoon-romaji">ja</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">じゅ</div>
+      <div class="yoon-romaji">ju</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">じょ</div>
+      <div class="yoon-romaji">jo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">びゃ</div>
+      <div class="yoon-romaji">bya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">びゅ</div>
+      <div class="yoon-romaji">byu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">びょ</div>
+      <div class="yoon-romaji">byo</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ぴゃ</div>
+      <div class="yoon-romaji">pya</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ぴゅ</div>
+      <div class="yoon-romaji">pyu</div>
+    </div>
+
+    <div class="yoon-card">
+      <div class="yoon-kana">ぴょ</div>
+      <div class="yoon-romaji">pyo</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     05 — REGLAS
+========================= -->
+
+<section class="section">
+
+  <h2>05. Reglas importantes</h2>
+
+  <p class="section-description">
+    Algunas reglas que necesitas reconocer desde N5.
+  </p>
+
+
+  <div class="rule">
+
+    <strong>っ — Sokuon</strong>
+
+    <p>
+      La っ pequeña duplica la consonante siguiente.
+      Ejemplo: がっこう → gakkou
+    </p>
+
+  </div>
+
+
+  <div class="rule">
+
+    <strong>ゃ・ゅ・ょ — Yōon</strong>
+
+    <p>
+      Las versiones pequeñas de ゃ, ゅ y ょ forman sonidos combinados.
+      Ejemplo: きょう → kyou
+    </p>
+
+  </div>
+
+
+  <div class="rule">
+
+    <strong>は como partícula</strong>
+
+    <p>
+      Cuando は funciona como partícula, normalmente se pronuncia
+      "wa". Ejemplo: わたしは → watashi wa
+    </p>
+
+  </div>
+
+
+  <div class="rule">
+
+    <strong>へ como partícula</strong>
+
+    <p>
+      Cuando へ indica dirección, normalmente se pronuncia "e".
+      Ejemplo: がっこうへ → gakkou e
+    </p>
+
+  </div>
+
+
+  <div class="rule">
+
+    <strong>を como partícula</strong>
+
+    <p>
+      En japonés moderno normalmente se pronuncia "o".
+      Ejemplo: みずを → mizu o
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONSEJO N5
+========================= -->
+
+<div class="tip">
+
+  <h3>🎯 Objetivo para N5</h3>
+
+  <p>
+    Primero aprende a reconocer los <strong>46 hiragana básicos</strong>.
+    Después practica dakuten, handakuten, っ y las combinaciones yōon.
+    Intenta leer palabras sin depender del romaji.
+  </p>
+
+</div>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <p>
+    <strong>Japanese Fácil 🇯🇵</strong>
+  </p>
+
+  <p>
+    Una guía creada para estudiantes.
+  </p>
+
+</footer>
+
+
+</body>
+
+</html>
