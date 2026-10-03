@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio - Japanese Fácil</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+header {
+    background: #d71920;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+nav {
+    background: #b51218;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    background: #d71920;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px 45px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.intro h2 {
+    color: #d71920;
+    margin-bottom: 8px;
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.mode-button {
+    border: none;
+    background: #eee;
+    color: #222;
+    padding: 11px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.mode-button.active,
+.mode-button:hover {
+    background: #d71920;
+    color: white;
+}
+
+.search {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #d71920;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    border: none;
+    background: #eee;
+    color: #222;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter.active,
+.filter:hover {
+    background: #d71920;
+    color: white;
+}
+
+.counter {
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   MODO PRÁCTICA
+========================= */
+
+.audio-card {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.level {
+    display: inline-block;
+    background: #ffe5e6;
+    color: #b51218;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.number {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.play-button {
+    border: none;
+    background: #d71920;
+    color: white;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    font-size: 32px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(215,25,32,0.25);
+}
+
+.play-button:hover {
+    background: #b51218;
+    transform: scale(1.04);
+}
+
+.repeat-text {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.jp-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d71920;
+    margin: 15px 0;
+}
+
+.reading {
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.translation {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.show-button,
+.next-button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px 4px;
+}
+
+.show-button {
+    background: #eee;
+    color: #222;
+}
+
+.show-button:hover {
+    background: #ddd;
+}
+
+.next-button {
+    background: #d71920;
+    color: white;
+}
+
+.next-button:hover {
+    background: #b51218;
+}
+
+/* =========================
+   MODO PRUEBA
+========================= */
+
+.quiz-card {
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid #ddd;
+    border-top: 5px solid #d71920;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.quiz-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.quiz-question {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    border: 2px solid #ddd;
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.option:hover {
+    border-color: #d71920;
+    background: #fff5f5;
+}
+
+.option.correct {
+    background: #e8f7e8;
+    border-color: #2e8b57;
+}
+
+.option.incorrect {
+    background: #ffe5e6;
+    border-color: #d71920;
+}
+
+.feedback {
+    margin: 18px 0 5px;
+    font-weight: bold;
+    min-height: 22px;
+}
+
+.score {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 20px 10px 35px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .jp-text {
+        font-size: 1.5rem;
+    }
+
+    .audio-card,
+    .quiz-card {
+        padding: 18px 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎧 Audio</h1>
+    <p>Practica tu comprensión auditiva en japonés</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="hiragana.html">Hiragana</a>
+    <a href="katakana.html">Katakana</a>
+    <a href="kanji.html">Kanji</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="particulas.html">Partículas</a>
+    <a href="frases.html">Frases</a>
+    <a href="verbos.html">Verbos</a>
+    <a href="audio.html" class="active">Audio</a>
+    <a href="ejercicios.html">Ejercicios</a>
+    <a href="jlpt.html">JLPT N5</a>
+</nav>
+
+<main>
+
+    <section class="intro">
+        <h2>🎧 Comprensión auditiva</h2>
+        <p>
+            Escucha japonés y comprueba cuánto entiendes.
+            Hay ejercicios de nivel N5 y N4, incluyendo palabras,
+            expresiones y oraciones completas.
+        </p>
+    </section>
+
+    <div class="mode-buttons">
+        <button class="mode-button active" id="practiceBtn">
+            📚 Practicar
+        </button>
+
+        <button class="mode-button" id="quizBtn">
+            🎯 Modo prueba
+        </button>
+    </div>
+
+    <!-- =========================
+         PRÁCTICA
+    ========================== -->
+
+    <section id="practiceMode">
+
+        <input
+            type="text"
+            id="search"
+            class="search"
+            placeholder="🔎 Buscar audio..."
+        >
+
+        <div class="filters">
+            <button class="filter active" data-filter="Todos">
+                Todos
+            </button>
+
+            <button class="filter" data-filter="N5">
+                N5
+            </button>
+
+            <button class="filter" data-filter="N4">
+                N4
+            </button>
+        </div>
+
+        <div class="counter" id="practiceCounter"></div>
+
+        <div id="practiceContainer"></div>
+
+    </section>
+
+    <!-- =========================
+         PRUEBA
+    ========================== -->
+
+    <section id="quizMode" class="hidden">
+
+        <div class="score" id="score">
+            Puntuación: 0 / 0
+        </div>
+
+        <div class="quiz-card">
+
+            <span class="level" id="quizLevel">
+                N5
+            </span>
+
+            <div class="number" id="quizNumber">
+                Audio 1
+            </div>
+
+            <div class="quiz-title">
+                Escucha el audio y selecciona la respuesta correcta.
+            </div>
+
+            <button class="play-button" id="quizPlay">
+                🔊
+            </button>
+
+            <div class="repeat-text">
+                Puedes escucharlo todas las veces que quieras.
+            </div>
+
+            <div class="options" id="options"></div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <button class="next-button hidden" id="nextQuiz">
+                ➡️ Siguiente
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Japanese Fácil 🇯🇵
+</footer>
+
+<script>
+
+/* ==========================================================
+   100 AUDIOS
+   50 N5 + 50 N4
+========================================================== */
+
+const audios = [
+
+/* =========================
+   N5
+========================= */
+
+{
+    level:"N5",
+    category:"Presentación",
+    jp:"わたしは学生です。",
+    reading:"Watashi wa gakusei desu.",
+    es:"Soy estudiante.",
+    options:[
+        "Soy estudiante.",
+        "Soy profesor.",
+        "Soy médico.",
+        "Soy empleado."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Presentación",
+    jp:"わたしは田中です。",
+    reading:"Watashi wa Tanaka desu.",
+    es:"Soy Tanaka.",
+    options:[
+        "Soy Tanaka.",
+        "Soy Yamada.",
+        "Soy Suzuki.",
+        "Soy Sato."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Saludos",
+    jp:"おはようございます。",
+    reading:"Ohayou gozaimasu.",
+    es:"Buenos días.",
+    options:[
+        "Buenos días.",
+        "Buenas noches.",
+        "Buenas tardes.",
+        "Hasta luego."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Saludos",
+    jp:"こんばんは。",
+    reading:"Konbanwa.",
+    es:"Buenas noches.",
+    options:[
+        "Buenas noches.",
+        "Buenos días.",
+        "Gracias.",
+        "Hasta mañana."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Saludos",
+    jp:"ありがとうございます。",
+    reading:"Arigatou gozaimasu.",
+    es:"Muchas gracias.",
+    options:[
+        "Muchas gracias.",
+        "De nada.",
+        "Perdón.",
+        "Buenos días."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Familia",
+    jp:"これはわたしの母です。",
+    reading:"Kore wa watashi no haha desu.",
+    es:"Esta es mi madre.",
+    options:[
+        "Esta es mi madre.",
+        "Este es mi padre.",
+        "Esta es mi hermana.",
+        "Este es mi hermano."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Familia",
+    jp:"兄は大学生です。",
+    reading:"Ani wa daigakusei desu.",
+    es:"Mi hermano mayor es universitario.",
+    options:[
+        "Mi hermano mayor es universitario.",
+        "Mi hermano menor es estudiante.",
+        "Mi padre es profesor.",
+        "Mi hermano mayor es profesor."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Casa",
+    jp:"これは私の部屋です。",
+    reading:"Kore wa watashi no heya desu.",
+    es:"Esta es mi habitación.",
+    options:[
+        "Esta es mi habitación.",
+        "Esta es mi escuela.",
+        "Esta es mi casa.",
+        "Esta es mi cocina."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Casa",
+    jp:"部屋にテレビがあります。",
+    reading:"Heya ni terebi ga arimasu.",
+    es:"Hay un televisor en la habitación.",
+    options:[
+        "Hay un televisor en la habitación.",
+        "Hay una mesa en la cocina.",
+        "Hay una cama en la habitación.",
+        "Hay una computadora en la escuela."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Objetos",
+    jp:"机の上に本があります。",
+    reading:"Tsukue no ue ni hon ga arimasu.",
+    es:"Hay un libro encima del escritorio.",
+    options:[
+        "Hay un libro encima del escritorio.",
+        "Hay una mochila debajo del escritorio.",
+        "Hay un libro dentro de la mochila.",
+        "Hay una computadora sobre la mesa."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Comida",
+    jp:"りんごを食べます。",
+    reading:"Ringo o tabemasu.",
+    es:"Como una manzana.",
+    options:[
+        "Como una manzana.",
+        "Bebo agua.",
+        "Compro una manzana.",
+        "Cocino arroz."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Comida",
+    jp:"水を飲みます。",
+    reading:"Mizu o nomimasu.",
+    es:"Bebo agua.",
+    options:[
+        "Bebo agua.",
+        "Como arroz.",
+        "Compro agua.",
+        "Bebo té."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Comida",
+    jp:"朝ご飯を食べました。",
+    reading:"Asagohan o tabemashita.",
+    es:"Desayuné.",
+    options:[
+        "Desayuné.",
+        "Almorcé.",
+        "Cené.",
+        "No comí."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Escuela",
+    jp:"毎日学校へ行きます。",
+    reading:"Mainichi gakkou e ikimasu.",
+    es:"Voy a la escuela todos los días.",
+    options:[
+        "Voy a la escuela todos los días.",
+        "Voy al trabajo todos los días.",
+        "Estudio en casa todos los días.",
+        "Voy a la universidad los domingos."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Escuela",
+    jp:"日本語を勉強しています。",
+    reading:"Nihongo o benkyou shiteimasu.",
+    es:"Estoy estudiando japonés.",
+    options:[
+        "Estoy estudiando japonés.",
+        "Estoy enseñando japonés.",
+        "Estoy estudiando inglés.",
+        "Estoy leyendo japonés."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Tiempo",
+    jp:"今、何時ですか。",
+    reading:"Ima, nanji desu ka.",
+    es:"¿Qué hora es ahora?",
+    options:[
+        "¿Qué hora es ahora?",
+        "¿Qué día es hoy?",
+        "¿Dónde estás ahora?",
+        "¿Qué haces ahora?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Tiempo",
+    jp:"七時に起きます。",
+    reading:"Shichi-ji ni okimasu.",
+    es:"Me levanto a las siete.",
+    options:[
+        "Me levanto a las siete.",
+        "Me acuesto a las siete.",
+        "Voy a la escuela a las siete.",
+        "Como a las siete."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Tiempo",
+    jp:"昨日は雨でした。",
+    reading:"Kinou wa ame deshita.",
+    es:"Ayer llovió.",
+    options:[
+        "Ayer llovió.",
+        "Hoy hace sol.",
+        "Mañana lloverá.",
+        "Ayer nevó."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Clima",
+    jp:"今日は暑いです。",
+    reading:"Kyou wa atsui desu.",
+    es:"Hoy hace calor.",
+    options:[
+        "Hoy hace calor.",
+        "Hoy hace frío.",
+        "Hoy está nublado.",
+        "Hoy está lloviendo."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Clima",
+    jp:"雨が降っています。",
+    reading:"Ame ga futteimasu.",
+    es:"Está lloviendo.",
+    options:[
+        "Está lloviendo.",
+        "Está nevando.",
+        "Hace viento.",
+        "Hace calor."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Compras",
+    jp:"これはいくらですか。",
+    reading:"Kore wa ikura desu ka.",
+    es:"¿Cuánto cuesta esto?",
+    options:[
+        "¿Cuánto cuesta esto?",
+        "¿Qué es esto?",
+        "¿Dónde está esto?",
+        "¿Quién compró esto?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Compras",
+    jp:"これをください。",
+    reading:"Kore o kudasai.",
+    es:"Quiero esto, por favor.",
+    options:[
+        "Quiero esto, por favor.",
+        "¿Cuánto cuesta esto?",
+        "No quiero esto.",
+        "¿Dónde está esto?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Lugares",
+    jp:"駅はどこですか。",
+    reading:"Eki wa doko desu ka.",
+    es:"¿Dónde está la estación?",
+    options:[
+        "¿Dónde está la estación?",
+        "¿Dónde está la escuela?",
+        "¿Dónde está el hospital?",
+        "¿Dónde está la tienda?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Lugares",
+    jp:"トイレはあそこです。",
+    reading:"Toire wa asoko desu.",
+    es:"El baño está allí.",
+    options:[
+        "El baño está allí.",
+        "La estación está aquí.",
+        "La tienda está allí.",
+        "El hospital está aquí."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Transporte",
+    jp:"電車で学校へ行きます。",
+    reading:"Densha de gakkou e ikimasu.",
+    es:"Voy a la escuela en tren.",
+    options:[
+        "Voy a la escuela en tren.",
+        "Voy a la escuela en autobús.",
+        "Voy al trabajo en tren.",
+        "Voy a casa en tren."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Transporte",
+    jp:"バスに乗ります。",
+    reading:"Basu ni norimasu.",
+    es:"Subo al autobús.",
+    options:[
+        "Subo al autobús.",
+        "Bajo del autobús.",
+        "Espero el tren.",
+        "Conduzco un coche."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Rutina",
+    jp:"毎朝コーヒーを飲みます。",
+    reading:"Maiasa koohii o nomimasu.",
+    es:"Bebo café cada mañana.",
+    options:[
+        "Bebo café cada mañana.",
+        "Bebo té cada noche.",
+        "Como café cada mañana.",
+        "Compro café cada mañana."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Rutina",
+    jp:"夜十時に寝ます。",
+    reading:"Yoru juu-ji ni nemasu.",
+    es:"Me acuesto a las diez de la noche.",
+    options:[
+        "Me acuesto a las diez de la noche.",
+        "Me levanto a las diez.",
+        "Ceno a las diez.",
+        "Estudio a las diez."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Familia",
+    jp:"父は会社員です。",
+    reading:"Chichi wa kaishain desu.",
+    es:"Mi padre es oficinista.",
+    options:[
+        "Mi padre es oficinista.",
+        "Mi padre es médico.",
+        "Mi hermano es oficinista.",
+        "Mi padre es profesor."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Animales",
+    jp:"猫が好きです。",
+    reading:"Neko ga suki desu.",
+    es:"Me gustan los gatos.",
+    options:[
+        "Me gustan los gatos.",
+        "Me gustan los perros.",
+        "Tengo un gato.",
+        "Tengo un perro."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Animales",
+    jp:"犬を飼っています。",
+    reading:"Inu o katteimasu.",
+    es:"Tengo un perro.",
+    options:[
+        "Tengo un perro.",
+        "Tengo un gato.",
+        "Veo un perro.",
+        "Me gustan los perros."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Hobbies",
+    jp:"音楽を聞くのが好きです。",
+    reading:"Ongaku o kiku no ga suki desu.",
+    es:"Me gusta escuchar música.",
+    options:[
+        "Me gusta escuchar música.",
+        "Me gusta cantar.",
+        "Me gusta bailar.",
+        "Me gusta ver películas."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Hobbies",
+    jp:"週末に映画を見ます。",
+    reading:"Shuumatsu ni eiga o mimasu.",
+    es:"Veo películas los fines de semana.",
+    options:[
+        "Veo películas los fines de semana.",
+        "Escucho música los fines de semana.",
+        "Estudio los fines de semana.",
+        "Juego fútbol los fines de semana."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Adjetivos",
+    jp:"この本はおもしろいです。",
+    reading:"Kono hon wa omoshiroi desu.",
+    es:"Este libro es interesante.",
+    options:[
+        "Este libro es interesante.",
+        "Este libro es difícil.",
+        "Este libro es caro.",
+        "Este libro es nuevo."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Adjetivos",
+    jp:"このかばんは重いです。",
+    reading:"Kono kaban wa omoi desu.",
+    es:"Esta mochila es pesada.",
+    options:[
+        "Esta mochila es pesada.",
+        "Esta mochila es ligera.",
+        "Esta mochila es nueva.",
+        "Esta mochila es grande."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Acciones",
+    jp:"本を読んでいます。",
+    reading:"Hon o yondeimasu.",
+    es:"Estoy leyendo un libro.",
+    options:[
+        "Estoy leyendo un libro.",
+        "Estoy escribiendo un libro.",
+        "Estoy comprando un libro.",
+        "Estoy buscando un libro."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Acciones",
+    jp:"テレビを見ています。",
+    reading:"Terebi o miteimasu.",
+    es:"Estoy viendo la televisión.",
+    options:[
+        "Estoy viendo la televisión.",
+        "Estoy apagando la televisión.",
+        "Estoy comprando una televisión.",
+        "Estoy reparando una televisión."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Acciones",
+    jp:"今、何をしていますか。",
+    reading:"Ima, nani o shiteimasu ka.",
+    es:"¿Qué estás haciendo ahora?",
+    options:[
+        "¿Qué estás haciendo ahora?",
+        "¿Qué quieres comer?",
+        "¿Dónde vas ahora?",
+        "¿Qué hora es?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Permisos",
+    jp:"ここに座ってもいいですか。",
+    reading:"Koko ni suwatte mo ii desu ka.",
+    es:"¿Puedo sentarme aquí?",
+    options:[
+        "¿Puedo sentarme aquí?",
+        "¿Puedo comer aquí?",
+        "¿Puedo dormir aquí?",
+        "¿Puedo fumar aquí?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Deseos",
+    jp:"水が飲みたいです。",
+    reading:"Mizu ga nomitai desu.",
+    es:"Quiero beber agua.",
+    options:[
+        "Quiero beber agua.",
+        "Quiero comprar agua.",
+        "Quiero comer.",
+        "Quiero dormir."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Invitaciones",
+    jp:"一緒に行きませんか。",
+    reading:"Issho ni ikimasen ka.",
+    es:"¿Quieres ir conmigo?",
+    options:[
+        "¿Quieres ir conmigo?",
+        "¿Quieres comer conmigo?",
+        "¿Quieres estudiar conmigo?",
+        "¿Quieres dormir conmigo?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Invitaciones",
+    jp:"明日、一緒に映画を見ませんか。",
+    reading:"Ashita, issho ni eiga o mimasen ka.",
+    es:"¿Quieres ver una película conmigo mañana?",
+    options:[
+        "¿Quieres ver una película conmigo mañana?",
+        "¿Quieres estudiar conmigo mañana?",
+        "¿Quieres ir a la escuela mañana?",
+        "¿Quieres comer conmigo hoy?"
+    ]
+},
+
+{
+    level:"N5",
+    category:"Direcciones",
+    jp:"右に曲がってください。",
+    reading:"Migi ni magatte kudasai.",
+    es:"Gira a la derecha, por favor.",
+    options:[
+        "Gira a la derecha, por favor.",
+        "Gira a la izquierda, por favor.",
+        "Ve recto, por favor.",
+        "Detente, por favor."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Direcciones",
+    jp:"まっすぐ行ってください。",
+    reading:"Massugu itte kudasai.",
+    es:"Ve todo recto, por favor.",
+    options:[
+        "Ve todo recto, por favor.",
+        "Gira a la derecha.",
+        "Gira a la izquierda.",
+        "Regresa, por favor."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Salud",
+    jp:"今日は元気です。",
+    reading:"Kyou wa genki desu.",
+    es:"Hoy estoy bien.",
+    options:[
+        "Hoy estoy bien.",
+        "Hoy estoy enfermo.",
+        "Hoy estoy cansado.",
+        "Hoy tengo hambre."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Necesidades",
+    jp:"お腹がすきました。",
+    reading:"Onaka ga sukimashita.",
+    es:"Tengo hambre.",
+    options:[
+        "Tengo hambre.",
+        "Tengo sed.",
+        "Estoy cansado.",
+        "Tengo sueño."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Necesidades",
+    jp:"眠いです。",
+    reading:"Nemui desu.",
+    es:"Tengo sueño.",
+    options:[
+        "Tengo sueño.",
+        "Tengo hambre.",
+        "Tengo frío.",
+        "Estoy ocupado."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Números",
+    jp:"りんごを三つ買いました。",
+    reading:"Ringo o mittsu kaimashita.",
+    es:"Compré tres manzanas.",
+    options:[
+        "Compré tres manzanas.",
+        "Comí tres manzanas.",
+        "Compré dos manzanas.",
+        "Compré tres naranjas."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Familia",
+    jp:"妹は高校生です。",
+    reading:"Imouto wa koukousei desu.",
+    es:"Mi hermana menor es estudiante de secundaria.",
+    options:[
+        "Mi hermana menor es estudiante de secundaria.",
+        "Mi hermana mayor es universitaria.",
+        "Mi hermano menor es estudiante.",
+        "Mi hermana menor es profesora."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Tiempo",
+    jp:"土曜日に働きません。",
+    reading:"Doyoubi ni hatarakimasen.",
+    es:"No trabajo los sábados.",
+    options:[
+        "No trabajo los sábados.",
+        "Trabajo todos los sábados.",
+        "No estudio los sábados.",
+        "Trabajo los domingos."
+    ]
+},
+
+{
+    level:"N5",
+    category:"Casa",
+    jp:"窓を開けてください。",
+    reading:"Mado o akete kudasai.",
+    es:"Abre la ventana, por favor.",
+    options:[
+        "Abre la ventana, por favor.",
+        "Cierra la ventana, por favor.",
+        "Abre la puerta, por favor.",
+        "Limpia la ventana, por favor."
+    ]
+},
+
+/* =========================
+   N4
+========================= */
+
+{
+    level:"N4",
+    category:"Experiencias",
+    jp:"日本へ行ったことがあります。",
+    reading:"Nihon e itta koto ga arimasu.",
+    es:"He ido a Japón alguna vez.",
+    options:[
+        "He ido a Japón alguna vez.",
+        "Quiero ir a Japón.",
+        "Voy a Japón mañana.",
+        "Nunca iré a Japón."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Planes",
+    jp:"来年、日本へ旅行するつもりです。",
+    reading:"Rainen, Nihon e ryokou suru tsumori desu.",
+    es:"Tengo la intención de viajar a Japón el próximo año.",
+    options:[
+        "Tengo la intención de viajar a Japón el próximo año.",
+        "Viajé a Japón el año pasado.",
+        "No quiero viajar a Japón.",
+        "Estoy viviendo en Japón."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Planes",
+    jp:"週末に友達と買い物に行く予定です。",
+    reading:"Shuumatsu ni tomodachi to kaimono ni iku yotei desu.",
+    es:"Tengo previsto ir de compras con un amigo el fin de semana.",
+    options:[
+        "Tengo previsto ir de compras con un amigo el fin de semana.",
+        "Voy a estudiar con un amigo.",
+        "Voy a viajar solo el fin de semana.",
+        "Voy al trabajo el fin de semana."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Razones",
+    jp:"雨が降っているので、出かけません。",
+    reading:"Ame ga futteiru node, dekakemasen.",
+    es:"Como está lloviendo, no saldré.",
+    options:[
+        "Como está lloviendo, no saldré.",
+        "Como hace sol, voy a salir.",
+        "Como hace frío, voy a trabajar.",
+        "Como está nevando, voy a estudiar."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Razones",
+    jp:"忙しいので、今日は会えません。",
+    reading:"Isogashii node, kyou wa aemasen.",
+    es:"Como estoy ocupado, no puedo verte hoy.",
+    options:[
+        "Como estoy ocupado, no puedo verte hoy.",
+        "Como estoy libre, voy a verte hoy.",
+        "Estoy enfermo y no voy a trabajar.",
+        "Estoy cansado y voy a dormir."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Comparaciones",
+    jp:"電車のほうがバスより速いです。",
+    reading:"Densha no hou ga basu yori hayai desu.",
+    es:"El tren es más rápido que el autobús.",
+    options:[
+        "El tren es más rápido que el autobús.",
+        "El autobús es más rápido que el tren.",
+        "El tren es más caro que el autobús.",
+        "El autobús es más cómodo."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Comparaciones",
+    jp:"東京は大阪より大きいです。",
+    reading:"Toukyou wa Oosaka yori ookii desu.",
+    es:"Tokio es más grande que Osaka.",
+    options:[
+        "Tokio es más grande que Osaka.",
+        "Osaka es más grande que Tokio.",
+        "Tokio es más antigua que Osaka.",
+        "Osaka está más lejos."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Obligaciones",
+    jp:"明日までに宿題をしなければなりません。",
+    reading:"Ashita made ni shukudai o shinakereba narimasen.",
+    es:"Tengo que hacer la tarea para mañana.",
+    options:[
+        "Tengo que hacer la tarea para mañana.",
+        "Puedo hacer la tarea mañana.",
+        "No tengo que hacer la tarea.",
+        "Ya hice la tarea."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Obligaciones",
+    jp:"薬を飲まなければなりません。",
+    reading:"Kusuri o nomanakereba narimasen.",
+    es:"Tengo que tomar el medicamento.",
+    options:[
+        "Tengo que tomar el medicamento.",
+        "No necesito tomar el medicamento.",
+        "Quiero comprar el medicamento.",
+        "Ya terminé el medicamento."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Permisos",
+    jp:"ここで写真を撮ってもいいですか。",
+    reading:"Koko de shashin o totte mo ii desu ka.",
+    es:"¿Puedo tomar fotos aquí?",
+    options:[
+        "¿Puedo tomar fotos aquí?",
+        "¿Puedo comer aquí?",
+        "¿Puedo sentarme aquí?",
+        "¿Puedo dormir aquí?"
+    ]
+},
+
+{
+    level:"N4",
+    category:"Prohibiciones",
+    jp:"ここで写真を撮ってはいけません。",
+    reading:"Koko de shashin o totte wa ikemasen.",
+    es:"No se pueden tomar fotos aquí.",
+    options:[
+        "No se pueden tomar fotos aquí.",
+        "Se pueden tomar fotos aquí.",
+        "No se puede comer aquí.",
+        "Hay que tomar fotos aquí."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Consejos",
+    jp:"もっと野菜を食べたほうがいいですよ。",
+    reading:"Motto yasai o tabeta hou ga ii desu yo.",
+    es:"Deberías comer más verduras.",
+    options:[
+        "Deberías comer más verduras.",
+        "Deberías beber más café.",
+        "No deberías comer verduras.",
+        "Deberías dormir menos."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Consejos",
+    jp:"早く寝たほうがいいですよ。",
+    reading:"Hayaku neta hou ga ii desu yo.",
+    es:"Deberías dormir temprano.",
+    options:[
+        "Deberías dormir temprano.",
+        "Deberías levantarte tarde.",
+        "Deberías estudiar más.",
+        "Deberías comer temprano."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Planes",
+    jp:"夏休みに北海道へ行こうと思っています。",
+    reading:"Natsuyasumi ni Hokkaidou e ikou to omotteimasu.",
+    es:"Estoy pensando en ir a Hokkaido durante las vacaciones de verano.",
+    options:[
+        "Estoy pensando en ir a Hokkaido durante las vacaciones de verano.",
+        "Ya fui a Hokkaido este verano.",
+        "No quiero ir a Hokkaido.",
+        "Voy a estudiar en Hokkaido."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Decisiones",
+    jp:"大学で日本語を勉強することにしました。",
+    reading:"Daigaku de Nihongo o benkyou suru koto ni shimashita.",
+    es:"He decidido estudiar japonés en la universidad.",
+    options:[
+        "He decidido estudiar japonés en la universidad.",
+        "Estudié japonés en la escuela.",
+        "No quiero estudiar japonés.",
+        "Voy a enseñar japonés."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Cambios",
+    jp:"日本語が少し話せるようになりました。",
+    reading:"Nihongo ga sukoshi hanaseru you ni narimashita.",
+    es:"He llegado a poder hablar un poco de japonés.",
+    options:[
+        "He llegado a poder hablar un poco de japonés.",
+        "He olvidado todo el japonés.",
+        "Nunca he estudiado japonés.",
+        "No puedo hablar japonés."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Experiencias",
+    jp:"富士山に登ったことがあります。",
+    reading:"Fujisan ni nobotta koto ga arimasu.",
+    es:"He subido al monte Fuji alguna vez.",
+    options:[
+        "He subido al monte Fuji alguna vez.",
+        "Quiero subir al monte Fuji.",
+        "Voy a subir mañana.",
+        "Nunca he visto el monte Fuji."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Experiencias",
+    jp:"日本料理を作ったことがあります。",
+    reading:"Nihon ryouri o tsukutta koto ga arimasu.",
+    es:"He cocinado comida japonesa alguna vez.",
+    options:[
+        "He cocinado comida japonesa alguna vez.",
+        "Nunca he comido comida japonesa.",
+        "Quiero aprender japonés.",
+        "He comprado comida japonesa."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Condicional",
+    jp:"時間があったら、映画を見ます。",
+    reading:"Jikan ga attara, eiga o mimasu.",
+    es:"Si tengo tiempo, veré una película.",
+    options:[
+        "Si tengo tiempo, veré una película.",
+        "Si tengo dinero, compraré comida.",
+        "Cuando termine la película, dormiré.",
+        "No tengo tiempo para ver películas."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Condicional",
+    jp:"雨が降ったら、家にいます。",
+    reading:"Ame ga futtara, ie ni imasu.",
+    es:"Si llueve, me quedaré en casa.",
+    options:[
+        "Si llueve, me quedaré en casa.",
+        "Si hace sol, iré a casa.",
+        "Si llueve, iré al parque.",
+        "Si nieva, iré a la escuela."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Deseos",
+    jp:"もっと日本語が上手になりたいです。",
+    reading:"Motto Nihongo ga jouzu ni naritai desu.",
+    es:"Quiero mejorar más mi japonés.",
+    options:[
+        "Quiero mejorar más mi japonés.",
+        "Quiero dejar de estudiar japonés.",
+        "Quiero enseñar japonés.",
+        "Quiero viajar a Japón."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Trabajo",
+    jp:"仕事が終わったら、友達に電話します。",
+    reading:"Shigoto ga owattara, tomodachi ni denwa shimasu.",
+    es:"Cuando termine el trabajo, llamaré a mi amigo.",
+    options:[
+        "Cuando termine el trabajo, llamaré a mi amigo.",
+        "Cuando empiece el trabajo, llamaré a mi amigo.",
+        "Llamé a mi amigo antes del trabajo.",
+        "Mi amigo trabaja conmigo."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Tiempo",
+    jp:"日本に来てから三年になります。",
+    reading:"Nihon ni kite kara san-nen ni narimasu.",
+    es:"Han pasado tres años desde que vine a Japón.",
+    options:[
+        "Han pasado tres años desde que vine a Japón.",
+        "Voy a Japón en tres años.",
+        "Estuve tres días en Japón.",
+        "Vine a Japón hace tres meses."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Rutina",
+    jp:"最近、毎朝ジョギングするようにしています。",
+    reading:"Saikin, maiasa jogingu suru you ni shiteimasu.",
+    es:"Últimamente intento salir a correr cada mañana.",
+    options:[
+        "Últimamente intento salir a correr cada mañana.",
+        "Ya no corro por las mañanas.",
+        "Corro solamente los domingos.",
+        "Estoy aprendiendo a nadar."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Trabajo",
+    jp:"会社では日本語を使っています。",
+    reading:"Kaisha de wa Nihongo o tsukatteimasu.",
+    es:"Uso japonés en la empresa.",
+    options:[
+        "Uso japonés en la empresa.",
+        "Estudio japonés en casa.",
+        "Enseño japonés en la escuela.",
+        "No uso japonés en el trabajo."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Estudios",
+    jp:"試験のために毎日勉強しています。",
+    reading:"Shiken no tame ni mainichi benkyou shiteimasu.",
+    es:"Estudio todos los días para el examen.",
+    options:[
+        "Estudio todos los días para el examen.",
+        "Trabajo todos los días para el examen.",
+        "No estudio para el examen.",
+        "Ya terminé el examen."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Explicaciones",
+    jp:"電車が遅れたので、学校に遅刻しました。",
+    reading:"Densha ga okureta node, gakkou ni chikoku shimashita.",
+    es:"Llegué tarde a la escuela porque el tren se retrasó.",
+    options:[
+        "Llegué tarde a la escuela porque el tren se retrasó.",
+        "Llegué temprano porque el tren llegó antes.",
+        "No fui a la escuela porque estaba enfermo.",
+        "El autobús se retrasó."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Explicaciones",
+    jp:"財布を忘れたので、お金がありません。",
+    reading:"Saifu o wasureta node, okane ga arimasen.",
+    es:"Como olvidé la cartera, no tengo dinero.",
+    options:[
+        "Como olvidé la cartera, no tengo dinero.",
+        "Como perdí el teléfono, no tengo dinero.",
+        "Tengo dinero en la cartera.",
+        "Compré una cartera nueva."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Opiniones",
+    jp:"この映画は思ったよりおもしろかったです。",
+    reading:"Kono eiga wa omotta yori omoshirokatta desu.",
+    es:"Esta película fue más interesante de lo que pensaba.",
+    options:[
+        "Esta película fue más interesante de lo que pensaba.",
+        "Esta película fue aburrida.",
+        "La película fue exactamente como esperaba.",
+        "No vi la película."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Opiniones",
+    jp:"日本の冬は思ったより寒いです。",
+    reading:"Nihon no fuyu wa omotta yori samui desu.",
+    es:"El invierno de Japón es más frío de lo que pensaba.",
+    options:[
+        "El invierno de Japón es más frío de lo que pensaba.",
+        "El invierno de Japón es cálido.",
+        "Pensaba que Japón era más frío.",
+        "Nunca he estado en Japón."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Decisiones",
+    jp:"新しいパソコンを買うことにしました。",
+    reading:"Atarashii pasokon o kau koto ni shimashita.",
+    es:"He decidido comprar una computadora nueva.",
+    options:[
+        "He decidido comprar una computadora nueva.",
+        "He vendido mi computadora.",
+        "Voy a reparar mi teléfono.",
+        "No necesito una computadora."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Planes",
+    jp:"明日は早く起きるつもりです。",
+    reading:"Ashita wa hayaku okiru tsumori desu.",
+    es:"Tengo la intención de levantarme temprano mañana.",
+    options:[
+        "Tengo la intención de levantarme temprano mañana.",
+        "Voy a dormir hasta tarde mañana.",
+        "Me levanté temprano hoy.",
+        "Voy a trabajar de noche."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Necesidades",
+    jp:"駅に着く前に切符を買ってください。",
+    reading:"Eki ni tsuku mae ni kippu o katte kudasai.",
+    es:"Compra el billete antes de llegar a la estación.",
+    options:[
+        "Compra el billete antes de llegar a la estación.",
+        "Compra comida después de llegar.",
+        "Compra el billete en el tren.",
+        "No necesitas comprar un billete."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Secuencia",
+    jp:"ご飯を食べてから、宿題をします。",
+    reading:"Gohan o tabete kara, shukudai o shimasu.",
+    es:"Después de comer, haré la tarea.",
+    options:[
+        "Después de comer, haré la tarea.",
+        "Haré la tarea antes de comer.",
+        "No voy a hacer la tarea.",
+        "Voy a comer después de estudiar."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Secuencia",
+    jp:"宿題をしてから、ゲームをしました。",
+    reading:"Shukudai o shite kara, geemu o shimashita.",
+    es:"Después de hacer la tarea, jugué videojuegos.",
+    options:[
+        "Después de hacer la tarea, jugué videojuegos.",
+        "Jugué videojuegos antes de hacer la tarea.",
+        "No hice la tarea.",
+        "Estudié japonés después de jugar."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Habilidad",
+    jp:"日本語で簡単な会話ができるようになりました。",
+    reading:"Nihongo de kantan na kaiwa ga dekiru you ni narimashita.",
+    es:"He llegado a poder mantener conversaciones sencillas en japonés.",
+    options:[
+        "He llegado a poder mantener conversaciones sencillas en japonés.",
+        "Ya no puedo hablar japonés.",
+        "Nunca hablo japonés.",
+        "Solo puedo escribir japonés."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Habilidad",
+    jp:"漢字が少し読めるようになりました。",
+    reading:"Kanji ga sukoshi yomeru you ni narimashita.",
+    es:"He llegado a poder leer un poco de kanji.",
+    options:[
+        "He llegado a poder leer un poco de kanji.",
+        "Ya no puedo leer kanji.",
+        "Puedo escribir todos los kanji.",
+        "Nunca he estudiado kanji."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Opiniones",
+    jp:"この店は駅から近いので便利です。",
+    reading:"Kono mise wa eki kara chikai node benri desu.",
+    es:"Esta tienda es conveniente porque está cerca de la estación.",
+    options:[
+        "Esta tienda es conveniente porque está cerca de la estación.",
+        "Esta tienda está lejos de la estación.",
+        "La estación está dentro de la tienda.",
+        "La tienda está cerrada."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Descripciones",
+    jp:"昨日買った服を着ています。",
+    reading:"Kinou katta fuku o kiteimasu.",
+    es:"Estoy usando la ropa que compré ayer.",
+    options:[
+        "Estoy usando la ropa que compré ayer.",
+        "Estoy comprando ropa hoy.",
+        "Estoy lavando la ropa de ayer.",
+        "Estoy buscando ropa nueva."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Descripciones",
+    jp:"日本で撮った写真を見せました。",
+    reading:"Nihon de totta shashin o misemashita.",
+    es:"Mostré las fotos que tomé en Japón.",
+    options:[
+        "Mostré las fotos que tomé en Japón.",
+        "Tomé fotos en la escuela.",
+        "Compré fotos de Japón.",
+        "Vi fotos de Tokio."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Vida diaria",
+    jp:"寝る前に歯を磨きます。",
+    reading:"Neru mae ni ha o migakimasu.",
+    es:"Me cepillo los dientes antes de dormir.",
+    options:[
+        "Me cepillo los dientes antes de dormir.",
+        "Me cepillo los dientes después de desayunar.",
+        "Me lavo las manos antes de dormir.",
+        "Me baño antes de comer."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Vida diaria",
+    jp:"出かける前に電気を消してください。",
+    reading:"Dekakeru mae ni denki o keshite kudasai.",
+    es:"Apaga las luces antes de salir.",
+    options:[
+        "Apaga las luces antes de salir.",
+        "Enciende las luces al salir.",
+        "Cierra la ventana antes de dormir.",
+        "Apaga la televisión después de comer."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Conversación",
+    jp:"どうして昨日学校を休んだんですか。",
+    reading:"Doushite kinou gakkou o yasunda n desu ka.",
+    es:"¿Por qué faltaste a la escuela ayer?",
+    options:[
+        "¿Por qué faltaste a la escuela ayer?",
+        "¿Cuándo vas a la escuela?",
+        "¿Dónde está tu escuela?",
+        "¿Quién estudia contigo?"
+    ]
+},
+
+{
+    level:"N4",
+    category:"Conversación",
+    jp:"頭が痛かったんです。",
+    reading:"Atama ga itakatta n desu.",
+    es:"Me dolía la cabeza.",
+    options:[
+        "Me dolía la cabeza.",
+        "Tenía hambre.",
+        "Estaba ocupado.",
+        "Tenía sueño."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Conversación",
+    jp:"何か食べたいものがありますか。",
+    reading:"Nanika tabetai mono ga arimasu ka.",
+    es:"¿Hay algo que quieras comer?",
+    options:[
+        "¿Hay algo que quieras comer?",
+        "¿Hay algo que quieras comprar?",
+        "¿Quieres beber algo?",
+        "¿Qué has estudiado?"
+    ]
+},
+
+{
+    level:"N4",
+    category:"Conversación",
+    jp:"はい、ラーメンが食べたいです。",
+    reading:"Hai, raamen ga tabetai desu.",
+    es:"Sí, quiero comer ramen.",
+    options:[
+        "Sí, quiero comer ramen.",
+        "No quiero comer ramen.",
+        "Quiero beber té.",
+        "Quiero cocinar arroz."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Trabajo",
+    jp:"仕事が忙しくて、最近あまり休めません。",
+    reading:"Shigoto ga isogashikute, saikin amari yasumemasen.",
+    es:"El trabajo está ocupado y últimamente no puedo descansar mucho.",
+    options:[
+        "El trabajo está ocupado y últimamente no puedo descansar mucho.",
+        "Tengo mucho tiempo libre últimamente.",
+        "Estoy de vacaciones.",
+        "No tengo trabajo."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Estudios",
+    jp:"試験に合格するために、一生懸命勉強しています。",
+    reading:"Shiken ni goukaku suru tame ni, isshoukenmei benkyou shiteimasu.",
+    es:"Estoy estudiando mucho para aprobar el examen.",
+    options:[
+        "Estoy estudiando mucho para aprobar el examen.",
+        "Ya aprobé el examen.",
+        "No quiero hacer el examen.",
+        "Estoy trabajando para el examen."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Planes",
+    jp:"卒業したら、日本で働きたいです。",
+    reading:"Sotsugyou shitara, Nihon de hatarakitai desu.",
+    es:"Cuando me gradúe, quiero trabajar en Japón.",
+    options:[
+        "Cuando me gradúe, quiero trabajar en Japón.",
+        "Quiero estudiar en Japón antes de graduarme.",
+        "Ya trabajo en Japón.",
+        "No quiero trabajar en Japón."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Condicional",
+    jp:"もしお金があったら、新しい車を買います。",
+    reading:"Moshi okane ga attara, atarashii kuruma o kaimasu.",
+    es:"Si tuviera dinero, compraría un coche nuevo.",
+    options:[
+        "Si tuviera dinero, compraría un coche nuevo.",
+        "Compré un coche nuevo ayer.",
+        "No necesito un coche.",
+        "Si tengo tiempo, compraré comida."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Opiniones",
+    jp:"この問題は思ったほど難しくありません。",
+    reading:"Kono mondai wa omotta hodo muzukashiku arimasen.",
+    es:"Este problema no es tan difícil como pensaba.",
+    options:[
+        "Este problema no es tan difícil como pensaba.",
+        "Este problema es extremadamente difícil.",
+        "No entiendo el problema.",
+        "El problema es más difícil de lo esperado."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Vida diaria",
+    jp:"最近、夜遅くまでスマートフォンを使っています。",
+    reading:"Saikin, yoru osoku made sumaatofon o tsukatteimasu.",
+    es:"Últimamente uso el teléfono inteligente hasta tarde por la noche.",
+    options:[
+        "Últimamente uso el teléfono inteligente hasta tarde por la noche.",
+        "Últimamente no uso el teléfono.",
+        "Uso el teléfono solamente por la mañana.",
+        "Compro un teléfono nuevo cada noche."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Conversación",
+    jp:"すみません、もう一度言ってください。",
+    reading:"Sumimasen, mou ichido itte kudasai.",
+    es:"Disculpe, dígalo una vez más.",
+    options:[
+        "Disculpe, dígalo una vez más.",
+        "Disculpe, espere afuera.",
+        "No entiendo japonés.",
+        "Por favor, escriba esto."
+    ]
+},
+
+{
+    level:"N4",
+    category:"Conversación",
+    jp:"ゆっくり話していただけませんか。",
+    reading:"Yukkuri hanashite itadakemasen ka.",
+    es:"¿Podría hablar más despacio?",
+    options:[
+        "¿Podría hablar más despacio?",
+        "¿Podría hablar más fuerte?",
+        "¿Podría escribirlo?",
+        "¿Podría repetir mañana?"
+    ]
+}
+
+];
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+let currentFilter = "Todos";
+let searchText = "";
+
+let quizIndex = 0;
+let score = 0;
+let answered = false;
+
+const practiceContainer =
+    document.getElementById("practiceContainer");
+
+const practiceCounter =
+    document.getElementById("practiceCounter");
+
+const search =
+    document.getElementById("search");
+
+const practiceMode =
+    document.getElementById("practiceMode");
+
+const quizMode =
+    document.getElementById("quizMode");
+
+const practiceBtn =
+    document.getElementById("practiceBtn");
+
+const quizBtn =
+    document.getElementById("quizBtn");
+
+const quizPlay =
+    document.getElementById("quizPlay");
+
+const optionsContainer =
+    document.getElementById("options");
+
+const feedback =
+    document.getElementById("feedback");
+
+const nextQuiz =
+    document.getElementById("nextQuiz");
+
+const scoreElement =
+    document.getElementById("score");
+
+const quizLevel =
+    document.getElementById("quizLevel");
+
+const quizNumber =
+    document.getElementById("quizNumber");
+
+/* ==========================================================
+   VOZ JAPONESA
+========================================================== */
+
+let japaneseVoice = null;
+
+function loadJapaneseVoice() {
+
+    const voices = speechSynthesis.getVoices();
+
+    japaneseVoice =
+        voices.find(voice =>
+            voice.lang &&
+            voice.lang.toLowerCase().startsWith("ja")
+        ) || null;
+}
+
+loadJapaneseVoice();
+
+speechSynthesis.onvoiceschanged =
+    loadJapaneseVoice;
+
+/* ==========================================================
+   REPRODUCIR AUDIO
+========================================================== */
+
+function speak(text) {
+
+    speechSynthesis.cancel();
+
+    const utterance =
+        new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "ja-JP";
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+
+    if (japaneseVoice) {
+        utterance.voice = japaneseVoice;
+    }
+
+    speechSynthesis.speak(utterance);
+}
+
+/* ==========================================================
+   FILTRAR
+========================================================== */
+
+function getFilteredAudios() {
+
+    return audios.filter(audio => {
+
+        const levelMatch =
+            currentFilter === "Todos" ||
+            audio.level === currentFilter;
+
+        const textMatch =
+            (
+                audio.jp +
+                " " +
+                audio.reading +
+                " " +
+                audio.es +
+                " " +
+                audio.category +
+                " " +
+                audio.level
+            )
+            .toLowerCase()
+            .includes(searchText.toLowerCase());
+
+        return levelMatch && textMatch;
+    });
+}
+
+/* ==========================================================
+   RENDER PRÁCTICA
+========================================================== */
+
+function renderPractice() {
+
+    const filtered = getFilteredAudios();
+
+    practiceCounter.textContent =
+        `${filtered.length} audios disponibles`;
+
+    practiceContainer.innerHTML = "";
+
+    if (filtered.length === 0) {
+
+        practiceContainer.innerHTML = `
+            <div class="audio-card">
+                No se encontraron audios.
+            </div>
+        `;
+
+        return;
+    }
+
+    filtered.forEach((audio, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "audio-card";
+
+        card.innerHTML = `
+
+            <span class="level">
+                ${audio.level}
+            </span>
+
+            <div class="number">
+                Audio ${index + 1}
+            </div>
+
+            <div class="jp-text">
+                ${audio.jp}
+            </div>
+
+            <div class="reading">
+                ${audio.reading}
+            </div>
+
+            <button
+                class="play-button"
+                aria-label="Reproducir audio"
+            >
+                🔊
+            </button>
+
+            <div class="repeat-text">
+                Escucha el audio
+            </div>
+
+            <div class="translation">
+                ${audio.es}
+            </div>
+
+            <span class="level">
+                ${audio.category}
+            </span>
+        `;
+
+        const button =
+            card.querySelector(".play-button");
+
+        button.addEventListener("click", () => {
+            speak(audio.jp);
+        });
+
+        practiceContainer.appendChild(card);
+    });
+}
+
+/* ==========================================================
+   MODO PRUEBA
+========================================================== */
+
+function shuffle(array) {
+
+    return [...array]
+        .sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+
+    quizIndex =
+        Math.floor(Math.random() * audios.length);
+
+    score = 0;
+
+    loadQuiz();
+
+}
+
+function loadQuiz() {
+
+    answered = false;
+
+    const audio =
+        audios[quizIndex];
+
+    quizLevel.textContent =
+        audio.level;
+
+    quizNumber.textContent =
+        `Audio ${quizIndex + 1} de ${audios.length}`;
+
+    feedback.textContent = "";
+
+    nextQuiz.classList.add("hidden");
+
+    optionsContainer.innerHTML = "";
+
+    scoreElement.textContent =
+        `Puntuación: ${score}`;
+
+    const shuffledOptions =
+        shuffle(audio.options);
+
+    shuffledOptions.forEach(optionText => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent =
+            optionText;
+
+        button.addEventListener(
+            "click",
+            () => checkAnswer(button, optionText)
+        );
+
+        optionsContainer.appendChild(button);
+
+    });
+
+    setTimeout(() => {
+        speak(audio.jp);
+    }, 400);
+}
+
+/* ==========================================================
+   COMPROBAR RESPUESTA
+========================================================== */
+
+function checkAnswer(button, selected) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const audio =
+        audios[quizIndex];
+
+    const buttons =
+        document.querySelectorAll(".option");
+
+    buttons.forEach(btn => {
+
+        if (btn.textContent === audio.es) {
+            btn.classList.add("correct");
+        }
+
+    });
+
+    if (selected === audio.es) {
+
+        button.classList.add("correct");
+
+        feedback.textContent =
+            "✅ ¡Correcto!";
+
+        score++;
+
+    } else {
+
+        button.classList.add("incorrect");
+
+        feedback.textContent =
+            `❌ Incorrecto. La respuesta era: ${audio.es}`;
+    }
+
+    scoreElement.textContent =
+        `Puntuación: ${score}`;
+
+    nextQuiz.classList.remove("hidden");
+}
+
+/* ==========================================================
+   SIGUIENTE
+========================================================== */
+
+nextQuiz.addEventListener("click", () => {
+
+    let nextIndex;
+
+    do {
+        nextIndex =
+            Math.floor(Math.random() * audios.length);
+    }
+    while (
+        audios.length > 1 &&
+        nextIndex === quizIndex
+    );
+
+    quizIndex = nextIndex;
+
+    loadQuiz();
+
+});
+
+/* ==========================================================
+   BOTÓN AUDIO
+========================================================== */
+
+quizPlay.addEventListener("click", () => {
+
+    speak(audios[quizIndex].jp);
+
+});
+
+/* ==========================================================
+   CAMBIAR MODO
+========================================================== */
+
+practiceBtn.addEventListener("click", () => {
+
+    practiceMode.classList.remove("hidden");
+    quizMode.classList.add("hidden");
+
+    practiceBtn.classList.add("active");
+    quizBtn.classList.remove("active");
+
+});
+
+quizBtn.addEventListener("click", () => {
+
+    practiceMode.classList.add("hidden");
+    quizMode.classList.remove("hidden");
+
+    quizBtn.classList.add("active");
+    practiceBtn.classList.remove("active");
+
+    startQuiz();
+
+});
+
+/* ==========================================================
+   FILTROS
+========================================================== */
+
+document
+    .querySelectorAll(".filter")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document
+                .querySelectorAll(".filter")
+                .forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+            currentFilter =
+                button.dataset.filter;
+
+            renderPractice();
+
+        });
+
+    });
+
+/* ==========================================================
+   BUSCADOR
+========================================================== */
+
+search.addEventListener("input", () => {
+
+    searchText =
+        search.value;
+
+    renderPractice();
+
+});
+
+/* ==========================================================
+   INICIO
+========================================================== */
+
+renderPractice();
+
+</script>
+
+</body>
+</html>
