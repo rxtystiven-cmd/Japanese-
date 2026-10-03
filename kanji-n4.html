@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanji</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222;line-height:1.55}
+header{background:#d71920;color:#fff;text-align:center;padding:30px 15px}
+header h1{margin:0;font-size:34px}
+header p{margin:8px 0 0}
+nav{background:#b51218;text-align:center;padding:10px}
+nav a{color:#fff;text-decoration:none;display:inline-block;margin:4px 7px;font-weight:bold}
+main{max-width:1150px;margin:auto;padding:20px 15px 45px}
+.intro,.study{background:#fff5f5;border-left:5px solid #d71920;border-radius:10px;padding:16px;margin:15px 0}
+h2{color:#d71920}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+#search{flex:1;min-width:230px;padding:13px;border:2px solid #ddd;border-radius:10px;font-size:16px;outline:none}
+#search:focus{border-color:#d71920}
+#filters{display:flex;flex-wrap:wrap;gap:8px;width:100%}
+.filter{border:0;border-radius:20px;padding:9px 13px;background:#eee;cursor:pointer;font-weight:bold}
+.filter.active,.filter:hover{background:#d71920;color:#fff}
+.count{font-weight:bold;color:#666;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{border:1px solid #ddd;border-top:5px solid #d71920;border-radius:12px;padding:18px;background:#fff;box-shadow:0 3px 10px #00000010}
+.kanji{font-size:64px;text-align:center;font-weight:bold;color:#d71920;line-height:1.1}
+.meaning{text-align:center;font-size:20px;font-weight:bold;margin:7px 0 15px}
+.readings{background:#f8f8f8;border-radius:9px;padding:10px;margin-bottom:12px}
+.readings div{margin:3px 0}
+.example{background:#fff5f5;border-radius:9px;padding:11px;margin-top:10px}
+.example-jp{font-size:22px;font-weight:bold}
+.example-reading{color:#666;margin-top:3px}
+.example-es{margin-top:4px}
+.category{display:inline-block;margin-top:12px;background:#ffe5e6;color:#b51218;border-radius:14px;padding:5px 9px;font-size:12px;font-weight:bold}
+.empty{text-align:center;padding:35px;color:#777}
+.tip{margin-top:10px}
+footer{background:#b51218;color:#fff;text-align:center;padding:22px}
+ruby rt{font-size:.48em;color:#666;font-weight:normal}
+@media(max-width:600px){
+ header h1{font-size:28px}
+ main{padding:14px 10px 35px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .card{padding:12px}
+ .kanji{font-size:48px}
+ .meaning{font-size:16px}
+ .example-jp{font-size:18px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>🈶 Kanji</h1>
+<p>Kanji N4 para avanzar en lectura y vocabulario</p>
+</header>
+<nav>
+<a href="index.html">Inicio</a>
+<a href="seccion2.html">Sección 2</a>
+<a href="vocabulario.html">Vocabulario</a>
+<a href="verbos.html">Verbos</a>
+<a href="gramatica-n4.html">Gramática</a>
+<a href="kanji-n4.html">Kanji</a>
+</nav>
+<main>
+<section class="intro">
+<h2>📚 Kanji N4</h2>
+<p>Estudia cada kanji de una forma práctica: <strong>significado → lecturas → palabra real → lectura de la palabra</strong>.</p>
+<p>La organización toma como referencia un enfoque de aprendizaje visual como el de YUYU NIHONGO: relacionar el carácter con lecturas y palabras, en lugar de memorizarlo completamente aislado.</p>
+<p class="tip"><strong>Nota:</strong> el JLPT no publica una lista oficial cerrada de kanji por nivel. Como referencia externa, esta página usa una lista tradicional de <strong>181 kanji adicionales de N4</strong>. citeturn2view0</p>
+</section>
+<div class="controls">
+<input id="search" type="text" placeholder="🔎 Buscar kanji, lectura, significado o palabra...">
+<div id="filters"></div>
+</div>
+<div id="count" class="count"></div>
+<div id="grid" class="grid"></div>
+<section class="study">
+<h2>🧠 Cómo estudiar estos kanji</h2>
+<ul>
+<li>Primero reconoce el significado general.</li>
+<li>Aprende las lecturas a través de palabras, no todas aisladas.</li>
+<li>Practica escritura y orden de trazos.</li>
+<li>Después intenta reconocerlos dentro de frases.</li>
+<li>Cuando haya varias lecturas, prioriza las que aparezcan en palabras frecuentes.</li>
+</ul>
+</section>
+</main>
+<footer>Japanese Fácil 🇯🇵<br>Kanji N4</footer>
+<script>
+const kanji = [{"c":"悪","m":"malo","on":"あく・お","kun":"わるい","e":"悪い","er":"わるい","es":"malo","cat":"Adjetivos"},{"c":"暗","m":"oscuro","on":"あん","kun":"くらい","e":"暗い","er":"くらい","es":"oscuro","cat":"Adjetivos"},{"c":"医","m":"medicina","on":"い","kun":"","e":"医者","er":"いしゃ","es":"médico","cat":"Vida diaria"},{"c":"意","m":"idea / significado","on":"い","kun":"","e":"意味","er":"いみ","es":"significado","cat":"Pensamiento"},{"c":"以","m":"desde / por medio de","on":"い","kun":"","e":"以上","er":"いじょう","es":"más de / arriba de","cat":"Gramática"},{"c":"引","m":"tirar","on":"いん","kun":"ひく・ひける","e":"引く","er":"ひく","es":"tirar","cat":"Acciones"},{"c":"院","m":"institución","on":"いん","kun":"","e":"病院","er":"びょういん","es":"hospital","cat":"Lugares"},{"c":"員","m":"miembro","on":"いん","kun":"","e":"会社員","er":"かいしゃいん","es":"empleado de empresa","cat":"Personas"},{"c":"運","m":"transportar / suerte","on":"うん","kun":"はこぶ","e":"運ぶ","er":"はこぶ","es":"transportar","cat":"Acciones"},{"c":"英","m":"inglés / brillante","on":"えい","kun":"","e":"英語","er":"えいご","es":"inglés","cat":"Estudio"},{"c":"映","m":"reflejar / proyectar","on":"えい","kun":"うつす・うつる","e":"映画","er":"えいが","es":"película","cat":"Ocio"},{"c":"遠","m":"lejos","on":"えん","kun":"とおい","e":"遠い","er":"とおい","es":"lejano","cat":"Adjetivos"},{"c":"屋","m":"tienda / techo","on":"おく","kun":"や","e":"部屋","er":"へや","es":"habitación","cat":"Lugares"},{"c":"音","m":"sonido","on":"おん・いん","kun":"おと・ね","e":"音楽","er":"おんがく","es":"música","cat":"Ocio"},{"c":"歌","m":"canción / cantar","on":"か","kun":"うた・うたう","e":"歌う","er":"うたう","es":"cantar","cat":"Ocio"},{"c":"夏","m":"verano","on":"か","kun":"なつ","e":"夏休み","er":"なつやすみ","es":"vacaciones de verano","cat":"Tiempo"},{"c":"家","m":"casa","on":"か・け","kun":"いえ・や","e":"家族","er":"かぞく","es":"familia","cat":"Familia"},{"c":"画","m":"imagen / dibujo","on":"が・かく","kun":"","e":"映画","er":"えいが","es":"película","cat":"Ocio"},{"c":"海","m":"mar","on":"かい","kun":"うみ","e":"海","er":"うみ","es":"mar","cat":"Naturaleza"},{"c":"回","m":"vez / girar","on":"かい","kun":"まわす・まわる","e":"一回","er":"いっかい","es":"una vez","cat":"Números"},{"c":"開","m":"abrir","on":"かい","kun":"あける・ひらく・あく","e":"開ける","er":"あける","es":"abrir","cat":"Acciones"},{"c":"界","m":"mundo","on":"かい","kun":"","e":"世界","er":"せかい","es":"mundo","cat":"Sociedad"},{"c":"楽","m":"diversión / música","on":"がく・らく","kun":"たのしい・たのしむ","e":"楽しい","er":"たのしい","es":"divertido","cat":"Ocio"},{"c":"館","m":"edificio / salón","on":"かん","kun":"","e":"図書館","er":"としょかん","es":"biblioteca","cat":"Lugares"},{"c":"漢","m":"China / chino","on":"かん","kun":"","e":"漢字","er":"かんじ","es":"kanji","cat":"Estudio"},{"c":"寒","m":"frío","on":"かん","kun":"さむい","e":"寒い","er":"さむい","es":"frío","cat":"Adjetivos"},{"c":"顔","m":"cara","on":"がん","kun":"かお","e":"顔","er":"かお","es":"cara","cat":"Personas"},{"c":"帰","m":"regresar","on":"き","kun":"かえる・かえす","e":"帰る","er":"かえる","es":"regresar","cat":"Acciones"},{"c":"起","m":"levantarse / comenzar","on":"き","kun":"おきる・おこす","e":"起きる","er":"おきる","es":"levantarse","cat":"Rutina"},{"c":"究","m":"investigar","on":"きゅう","kun":"きわめる","e":"研究","er":"けんきゅう","es":"investigación","cat":"Estudio"},{"c":"急","m":"rápido / urgente","on":"きゅう","kun":"いそぐ","e":"急ぐ","er":"いそぐ","es":"apresurarse","cat":"Adjetivos"},{"c":"牛","m":"vaca","on":"ぎゅう","kun":"うし","e":"牛肉","er":"ぎゅうにく","es":"carne de res","cat":"Animales"},{"c":"去","m":"pasar / pasado","on":"きょ・こ","kun":"さる","e":"去年","er":"きょねん","es":"año pasado","cat":"Tiempo"},{"c":"強","m":"fuerte","on":"きょう・ごう","kun":"つよい・つよめる・しいる","e":"強い","er":"つよい","es":"fuerte","cat":"Adjetivos"},{"c":"教","m":"enseñar / aprender","on":"きょう","kun":"おしえる・おそわる","e":"教える","er":"おしえる","es":"enseñar","cat":"Estudio"},{"c":"京","m":"capital","on":"きょう・けい","kun":"","e":"東京","er":"とうきょう","es":"Tokio","cat":"Lugares"},{"c":"業","m":"trabajo / negocio","on":"ぎょう・ごう","kun":"わざ","e":"授業","er":"じゅぎょう","es":"clase","cat":"Trabajo"},{"c":"近","m":"cerca","on":"きん","kun":"ちかい","e":"近い","er":"ちかい","es":"cercano","cat":"Adjetivos"},{"c":"銀","m":"plata","on":"ぎん","kun":"","e":"銀行","er":"ぎんこう","es":"banco","cat":"Cotidiano"},{"c":"区","m":"distrito","on":"く","kun":"","e":"地区","er":"ちく","es":"zona / distrito","cat":"Lugares"},{"c":"計","m":"medir / plan","on":"けい","kun":"はかる","e":"時計","er":"とけい","es":"reloj","cat":"Números"},{"c":"兄","m":"hermano mayor","on":"けい・きょう","kun":"あに","e":"兄","er":"あに","es":"hermano mayor","cat":"Familia"},{"c":"軽","m":"ligero","on":"けい","kun":"かるい","e":"軽い","er":"かるい","es":"ligero","cat":"Adjetivos"},{"c":"犬","m":"perro","on":"けん","kun":"いぬ","e":"犬","er":"いぬ","es":"perro","cat":"Animales"},{"c":"研","m":"pulir / investigar","on":"けん","kun":"とぐ","e":"研究","er":"けんきゅう","es":"investigación","cat":"Estudio"},{"c":"県","m":"prefectura","on":"けん","kun":"","e":"県","er":"けん","es":"prefectura","cat":"Lugares"},{"c":"建","m":"construir","on":"けん","kun":"たてる・たつ","e":"建てる","er":"たてる","es":"construir","cat":"Acciones"},{"c":"験","m":"examen / experiencia","on":"けん","kun":"","e":"試験","er":"しけん","es":"examen","cat":"Estudio"},{"c":"元","m":"origen / anterior","on":"げん・がん","kun":"もと","e":"元気","er":"げんき","es":"salud / energía","cat":"Cotidiano"},{"c":"工","m":"construcción","on":"こう・く","kun":"","e":"工場","er":"こうじょう","es":"fábrica","cat":"Trabajo"},{"c":"広","m":"amplio","on":"こう","kun":"ひろい・ひろげる","e":"広い","er":"ひろい","es":"amplio","cat":"Adjetivos"},{"c":"考","m":"pensar","on":"こう","kun":"かんがえる","e":"考える","er":"かんがえる","es":"pensar","cat":"Pensamiento"},{"c":"光","m":"luz","on":"こう","kun":"ひかり・ひかる","e":"光","er":"ひかり","es":"luz","cat":"Naturaleza"},{"c":"好","m":"gustar","on":"こう","kun":"このむ・すく","e":"好き","er":"すき","es":"gustar","cat":"Adjetivos"},{"c":"合","m":"encajar / combinar","on":"ごう・が","kun":"あわせる・あう","e":"合う","er":"あう","es":"encajar","cat":"Acciones"},{"c":"黒","m":"negro","on":"こく","kun":"くろい","e":"黒い","er":"くろい","es":"negro","cat":"Colores"},{"c":"菜","m":"verdura","on":"さい","kun":"な","e":"野菜","er":"やさい","es":"verduras","cat":"Comida"},{"c":"作","m":"hacer","on":"さく・さ","kun":"つくる","e":"作る","er":"つくる","es":"hacer","cat":"Acciones"},{"c":"産","m":"producir / nacer","on":"さん","kun":"うむ・うまれる","e":"生産","er":"せいさん","es":"producción","cat":"Vida diaria"},{"c":"紙","m":"papel","on":"し","kun":"かみ","e":"紙","er":"かみ","es":"papel","cat":"Cotidiano"},{"c":"思","m":"pensar","on":"し","kun":"おもう","e":"思う","er":"おもう","es":"pensar","cat":"Pensamiento"},{"c":"姉","m":"hermana mayor","on":"し","kun":"あね","e":"姉","er":"あね","es":"hermana mayor","cat":"Familia"},{"c":"止","m":"parar","on":"し","kun":"とまる・とめる","e":"止まる","er":"とまる","es":"pararse","cat":"Acciones"},{"c":"市","m":"ciudad / mercado","on":"し","kun":"いち","e":"市役所","er":"しやくしょ","es":"ayuntamiento","cat":"Lugares"},{"c":"仕","m":"servir / hacer","on":"し・じ","kun":"つかえる","e":"仕事","er":"しごと","es":"trabajo","cat":"Trabajo"},{"c":"死","m":"morir","on":"し","kun":"しぬ","e":"死ぬ","er":"しぬ","es":"morir","cat":"Vida diaria"},{"c":"使","m":"usar","on":"し","kun":"つかう","e":"使う","er":"つかう","es":"usar","cat":"Acciones"},{"c":"始","m":"comenzar","on":"し","kun":"はじめる・はじまる","e":"始める","er":"はじめる","es":"comenzar","cat":"Tiempo"},{"c":"試","m":"probar / examen","on":"し","kun":"こころみる・ためす","e":"試験","er":"しけん","es":"examen","cat":"Estudio"},{"c":"私","m":"yo / privado","on":"し","kun":"わたし","e":"私","er":"わたし","es":"yo","cat":"Personas"},{"c":"字","m":"carácter","on":"じ","kun":"あざ","e":"漢字","er":"かんじ","es":"kanji","cat":"Estudio"},{"c":"自","m":"uno mismo","on":"じ・し","kun":"みずから","e":"自分","er":"じぶん","es":"uno mismo","cat":"Pensamiento"},{"c":"事","m":"cosa / asunto","on":"じ","kun":"こと","e":"大事","er":"だいじ","es":"importante","cat":"Cotidiano"},{"c":"持","m":"tener / llevar","on":"じ","kun":"もつ","e":"持つ","er":"もつ","es":"tener / llevar","cat":"Acciones"},{"c":"室","m":"habitación","on":"しつ","kun":"むろ","e":"教室","er":"きょうしつ","es":"aula","cat":"Lugares"},{"c":"質","m":"calidad / naturaleza","on":"しつ・しち","kun":"","e":"質問","er":"しつもん","es":"pregunta","cat":"Estudio"},{"c":"写","m":"copiar / fotografiar","on":"しゃ","kun":"うつす・うつる","e":"写真","er":"しゃしん","es":"foto","cat":"Ocio"},{"c":"者","m":"persona","on":"しゃ","kun":"もの","e":"医者","er":"いしゃ","es":"médico","cat":"Personas"},{"c":"借","m":"pedir prestado","on":"しゃく","kun":"かりる","e":"借りる","er":"かりる","es":"pedir prestado","cat":"Cotidiano"},{"c":"弱","m":"débil","on":"じゃく","kun":"よわい・よわる・よわめる","e":"弱い","er":"よわい","es":"débil","cat":"Adjetivos"},{"c":"首","m":"cuello / cabeza","on":"しゅ","kun":"くび","e":"首","er":"くび","es":"cuello","cat":"Cuerpo"},{"c":"主","m":"principal / dueño","on":"しゅ","kun":"ぬし","e":"主人","er":"しゅじん","es":"esposo / dueño","cat":"Personas"},{"c":"秋","m":"otoño","on":"しゅう","kun":"あき","e":"秋","er":"あき","es":"otoño","cat":"Tiempo"},{"c":"集","m":"reunir","on":"しゅう","kun":"あつまる・あつめる","e":"集める","er":"あつめる","es":"reunir","cat":"Acciones"},{"c":"習","m":"aprender","on":"しゅう","kun":"ならう","e":"習う","er":"ならう","es":"aprender","cat":"Estudio"},{"c":"終","m":"terminar","on":"しゅう","kun":"おわる・おえる","e":"終わる","er":"おわる","es":"terminar","cat":"Tiempo"},{"c":"住","m":"vivir","on":"じゅう","kun":"すむ","e":"住む","er":"すむ","es":"vivir","cat":"Lugares"},{"c":"重","m":"pesado / importante","on":"じゅう・ちょう","kun":"おもい・かさなる","e":"重い","er":"おもい","es":"pesado","cat":"Adjetivos"},{"c":"春","m":"primavera","on":"しゅん","kun":"はる","e":"春","er":"はる","es":"primavera","cat":"Tiempo"},{"c":"所","m":"lugar","on":"しょ","kun":"ところ","e":"場所","er":"ばしょ","es":"lugar","cat":"Lugares"},{"c":"暑","m":"caluroso","on":"しょ","kun":"あつい","e":"暑い","er":"あつい","es":"caluroso","cat":"Adjetivos"},{"c":"場","m":"lugar","on":"じょう","kun":"ば","e":"場所","er":"ばしょ","es":"lugar","cat":"Lugares"},{"c":"乗","m":"montar / subir","on":"じょう","kun":"のる・のせる","e":"乗る","er":"のる","es":"montar","cat":"Transporte"},{"c":"色","m":"color","on":"しょく","kun":"いろ","e":"色","er":"いろ","es":"color","cat":"Colores"},{"c":"森","m":"bosque","on":"しん","kun":"もり","e":"森","er":"もり","es":"bosque","cat":"Naturaleza"},{"c":"心","m":"corazón / mente","on":"しん","kun":"こころ","e":"心","er":"こころ","es":"corazón","cat":"Cuerpo"},{"c":"親","m":"padre / cercano","on":"しん","kun":"おや・したしい","e":"親","er":"おや","es":"padre / madre","cat":"Familia"},{"c":"真","m":"verdadero","on":"しん","kun":"ま","e":"写真","er":"しゃしん","es":"foto","cat":"Adjetivos"},{"c":"進","m":"avanzar","on":"しん","kun":"すすむ・すすめる","e":"進む","er":"すすむ","es":"avanzar","cat":"Acciones"},{"c":"図","m":"dibujo / plan","on":"ず・と","kun":"はかる","e":"地図","er":"ちず","es":"mapa","cat":"Estudio"},{"c":"青","m":"azul","on":"せい","kun":"あおい","e":"青い","er":"あおい","es":"azul","cat":"Colores"},{"c":"正","m":"correcto","on":"せい・しょう","kun":"ただしい・ただす","e":"正しい","er":"ただしい","es":"correcto","cat":"Adjetivos"},{"c":"声","m":"voz","on":"せい","kun":"こえ","e":"声","er":"こえ","es":"voz","cat":"Comunicación"},{"c":"世","m":"mundo / generación","on":"せい・せ","kun":"よ","e":"世界","er":"せかい","es":"mundo","cat":"Sociedad"},{"c":"赤","m":"rojo","on":"せき・しゃく","kun":"あかい","e":"赤い","er":"あかい","es":"rojo","cat":"Colores"},{"c":"夕","m":"tarde / noche","on":"せき","kun":"ゆう","e":"夕方","er":"ゆうがた","es":"tarde","cat":"Tiempo"},{"c":"切","m":"cortar","on":"せつ・さい","kun":"きる・きれる","e":"切る","er":"きる","es":"cortar","cat":"Acciones"},{"c":"説","m":"explicar / teoría","on":"せつ","kun":"とく","e":"説明","er":"せつめい","es":"explicación","cat":"Comunicación"},{"c":"洗","m":"lavar","on":"せん","kun":"あらう","e":"洗う","er":"あらう","es":"lavar","cat":"Cotidiano"},{"c":"早","m":"temprano / rápido","on":"そう・さ","kun":"はやい・はやめる","e":"早い","er":"はやい","es":"temprano","cat":"Tiempo"},{"c":"走","m":"correr","on":"そう","kun":"はしる","e":"走る","er":"はしる","es":"correr","cat":"Movimiento"},{"c":"送","m":"enviar","on":"そう","kun":"おくる","e":"送る","er":"おくる","es":"enviar","cat":"Comunicación"},{"c":"族","m":"familia / grupo","on":"ぞく","kun":"","e":"家族","er":"かぞく","es":"familia","cat":"Familia"},{"c":"村","m":"pueblo","on":"そん","kun":"むら","e":"村","er":"むら","es":"pueblo","cat":"Lugares"},{"c":"体","m":"cuerpo","on":"たい・てい","kun":"からだ","e":"体","er":"からだ","es":"cuerpo","cat":"Cuerpo"},{"c":"太","m":"grueso","on":"たい・た","kun":"ふとい・ふとる","e":"太い","er":"ふとい","es":"grueso","cat":"Adjetivos"},{"c":"待","m":"esperar","on":"たい","kun":"まつ","e":"待つ","er":"まつ","es":"esperar","cat":"Acciones"},{"c":"貸","m":"prestar","on":"たい","kun":"かす","e":"貸す","er":"かす","es":"prestar","cat":"Cotidiano"},{"c":"台","m":"base / contador","on":"だい・たい","kun":"","e":"台所","er":"だいどころ","es":"cocina","cat":"Casa"},{"c":"代","m":"reemplazar / generación","on":"だい・たい","kun":"かわる・かえる","e":"時代","er":"じだい","es":"época","cat":"Tiempo"},{"c":"題","m":"tema / título","on":"だい","kun":"","e":"問題","er":"もんだい","es":"problema","cat":"Estudio"},{"c":"短","m":"corto","on":"たん","kun":"みじかい","e":"短い","er":"みじかい","es":"corto","cat":"Adjetivos"},{"c":"知","m":"saber / conocer","on":"ち","kun":"しる","e":"知る","er":"しる","es":"saber","cat":"Pensamiento"},{"c":"地","m":"tierra / lugar","on":"ち・じ","kun":"","e":"地図","er":"ちず","es":"mapa","cat":"Lugares"},{"c":"池","m":"estanque","on":"ち","kun":"いけ","e":"池","er":"いけ","es":"estanque","cat":"Naturaleza"},{"c":"茶","m":"té","on":"ちゃ・さ","kun":"","e":"お茶","er":"おちゃ","es":"té","cat":"Comida"},{"c":"着","m":"llegar / vestir","on":"ちゃく","kun":"きる・つく・つける","e":"着る","er":"きる","es":"ponerse ropa","cat":"Transporte"},{"c":"昼","m":"mediodía","on":"ちゅう","kun":"ひる","e":"昼","er":"ひる","es":"mediodía","cat":"Tiempo"},{"c":"注","m":"verter / atención","on":"ちゅう","kun":"そそぐ","e":"注意","er":"ちゅうい","es":"cuidado","cat":"Estudio"},{"c":"町","m":"pueblo / barrio","on":"ちょう","kun":"まち","e":"町","er":"まち","es":"pueblo","cat":"Lugares"},{"c":"鳥","m":"pájaro","on":"ちょう","kun":"とり","e":"鳥","er":"とり","es":"pájaro","cat":"Animales"},{"c":"朝","m":"mañana","on":"ちょう","kun":"あさ","e":"朝","er":"あさ","es":"mañana","cat":"Tiempo"},{"c":"通","m":"pasar / frecuentar","on":"つう","kun":"とおる・とおす・かよう","e":"通る","er":"とおる","es":"pasar","cat":"Transporte"},{"c":"弟","m":"hermano menor","on":"てい","kun":"おとうと","e":"弟","er":"おとうと","es":"hermano menor","cat":"Familia"},{"c":"低","m":"bajo","on":"てい","kun":"ひくい","e":"低い","er":"ひくい","es":"bajo","cat":"Adjetivos"},{"c":"転","m":"girar / caer","on":"てん","kun":"ころぶ・ころがる","e":"自転車","er":"じてんしゃ","es":"bicicleta","cat":"Movimiento"},{"c":"田","m":"arrozal","on":"でん","kun":"た","e":"田んぼ","er":"たんぼ","es":"arrozal","cat":"Naturaleza"},{"c":"都","m":"capital","on":"と・つ","kun":"みやこ","e":"東京都","er":"とうきょうと","es":"Tokio (metrópolis)","cat":"Lugares"},{"c":"度","m":"grado / vez","on":"ど","kun":"たび","e":"今度","er":"こんど","es":"esta vez","cat":"Números"},{"c":"答","m":"respuesta","on":"とう","kun":"こたえる・こたえ","e":"答える","er":"こたえる","es":"responder","cat":"Estudio"},{"c":"冬","m":"invierno","on":"とう","kun":"ふゆ","e":"冬","er":"ふゆ","es":"invierno","cat":"Tiempo"},{"c":"頭","m":"cabeza","on":"とう・ず","kun":"あたま","e":"頭","er":"あたま","es":"cabeza","cat":"Cuerpo"},{"c":"同","m":"igual","on":"どう","kun":"おなじ","e":"同じ","er":"おなじ","es":"igual","cat":"Adjetivos"},{"c":"動","m":"mover","on":"どう","kun":"うごく・うごかす","e":"動く","er":"うごく","es":"moverse","cat":"Movimiento"},{"c":"堂","m":"salón / templo","on":"どう","kun":"","e":"食堂","er":"しょくどう","es":"comedor","cat":"Lugares"},{"c":"働","m":"trabajar","on":"どう","kun":"はたらく","e":"働く","er":"はたらく","es":"trabajar","cat":"Trabajo"},{"c":"特","m":"especial","on":"とく","kun":"","e":"特別","er":"とくべつ","es":"especial","cat":"Adjetivos"},{"c":"肉","m":"carne","on":"にく","kun":"","e":"肉","er":"にく","es":"carne","cat":"Comida"},{"c":"売","m":"vender","on":"ばい","kun":"うる・うれる","e":"売る","er":"うる","es":"vender","cat":"Compras"},{"c":"発","m":"salir / comenzar","on":"はつ・ほつ","kun":"","e":"出発","er":"しゅっぱつ","es":"salida","cat":"Transporte"},{"c":"飯","m":"comida / arroz","on":"はん","kun":"めし","e":"ご飯","er":"ごはん","es":"comida","cat":"Comida"},{"c":"病","m":"enfermedad","on":"びょう","kun":"やむ・やまい","e":"病気","er":"びょうき","es":"enfermedad","cat":"Salud"},{"c":"品","m":"producto","on":"ひん","kun":"しな","e":"品物","er":"しなもの","es":"producto","cat":"Compras"},{"c":"不","m":"no / in-","on":"ふ・ぶ","kun":"","e":"不便","er":"ふべん","es":"incómodo","cat":"Gramática"},{"c":"風","m":"viento","on":"ふう","kun":"かぜ","e":"風","er":"かぜ","es":"viento","cat":"Naturaleza"},{"c":"服","m":"ropa","on":"ふく","kun":"","e":"服","er":"ふく","es":"ropa","cat":"Cotidiano"},{"c":"物","m":"cosa","on":"ぶつ・もつ","kun":"もの","e":"物","er":"もの","es":"cosa","cat":"Cotidiano"},{"c":"文","m":"texto / frase","on":"ぶん・もん","kun":"ふみ","e":"文章","er":"ぶんしょう","es":"texto","cat":"Estudio"},{"c":"別","m":"separar / diferencia","on":"べつ","kun":"わかれる","e":"別れる","er":"わかれる","es":"separarse","cat":"Acciones"},{"c":"勉","m":"esfuerzo","on":"べん","kun":"","e":"勉強","er":"べんきょう","es":"estudio","cat":"Estudio"},{"c":"便","m":"conveniencia / correo","on":"べん・びん","kun":"たより","e":"便利","er":"べんり","es":"conveniente","cat":"Cotidiano"},{"c":"歩","m":"caminar","on":"ほ・ぶ","kun":"あるく・あゆむ","e":"歩く","er":"あるく","es":"caminar","cat":"Movimiento"},{"c":"方","m":"dirección / manera","on":"ほう","kun":"かた","e":"方法","er":"ほうほう","es":"método","cat":"Estudio"},{"c":"妹","m":"hermana menor","on":"まい","kun":"いもうと","e":"妹","er":"いもうと","es":"hermana menor","cat":"Familia"},{"c":"味","m":"sabor","on":"み","kun":"あじ・あじわう","e":"味","er":"あじ","es":"sabor","cat":"Comida"},{"c":"民","m":"pueblo / gente","on":"みん","kun":"たみ","e":"国民","er":"こくみん","es":"ciudadanos","cat":"Sociedad"},{"c":"明","m":"claro / luz","on":"めい","kun":"あかるい・あける","e":"明るい","er":"あかるい","es":"luminoso","cat":"Adjetivos"},{"c":"門","m":"puerta / portón","on":"もん","kun":"かど","e":"門","er":"もん","es":"puerta","cat":"Lugares"},{"c":"問","m":"pregunta","on":"もん","kun":"とう・とい","e":"質問","er":"しつもん","es":"pregunta","cat":"Comunicación"},{"c":"夜","m":"noche","on":"や","kun":"よる","e":"夜","er":"よる","es":"noche","cat":"Tiempo"},{"c":"野","m":"campo","on":"や","kun":"の","e":"野菜","er":"やさい","es":"verduras","cat":"Naturaleza"},{"c":"薬","m":"medicina","on":"やく","kun":"くすり","e":"薬","er":"くすり","es":"medicina","cat":"Salud"},{"c":"有","m":"tener / existir","on":"ゆう・う","kun":"ある","e":"有名","er":"ゆうめい","es":"famoso","cat":"Gramática"},{"c":"曜","m":"día de la semana","on":"よう","kun":"","e":"曜日","er":"ようび","es":"día de la semana","cat":"Tiempo"},{"c":"用","m":"uso / utilizar","on":"よう","kun":"もちいる","e":"用事","er":"ようじ","es":"asunto","cat":"Cotidiano"},{"c":"洋","m":"occidental / océano","on":"よう","kun":"","e":"洋服","er":"ようふく","es":"ropa occidental","cat":"Cotidiano"},{"c":"理","m":"razón / lógica","on":"り","kun":"","e":"理由","er":"りゆう","es":"razón","cat":"Pensamiento"},{"c":"旅","m":"viaje","on":"りょ","kun":"たび","e":"旅行","er":"りょこう","es":"viaje","cat":"Viajes"},{"c":"料","m":"material / tarifa","on":"りょう","kun":"","e":"料理","er":"りょうり","es":"cocina / comida","cat":"Comida"},{"c":"力","m":"fuerza","on":"りょく・りき","kun":"ちから","e":"力","er":"ちから","es":"fuerza","cat":"Cuerpo"},{"c":"林","m":"bosquecillo","on":"りん","kun":"はやし","e":"林","er":"はやし","es":"bosquecillo","cat":"Naturaleza"}];
+const search=document.getElementById("search");
+const filters=document.getElementById("filters");
+const count=document.getElementById("count");
+const grid=document.getElementById("grid");
+let currentCategory="Todos";
+const categories=["Todos",...new Set(kanji.map(k=>k.cat))];
+categories.forEach(cat=>{
+ const btn=document.createElement("button");
+ btn.className="filter"+(cat==="Todos"?" active":"");
+ btn.textContent=cat;
+ btn.onclick=()=>{
+  currentCategory=cat;
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+ };
+ filters.appendChild(btn);
+});
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const filtered=kanji.filter(k=>{
+  const text=[k.c,k.m,k.on,k.kun,k.e,k.er,k.es,k.cat].join(" ").toLowerCase();
+  return (currentCategory==="Todos"||k.cat===currentCategory)&&text.includes(q);
+ });
+ count.textContent=`Mostrando ${filtered.length} de ${kanji.length} kanji`;
+ if(!filtered.length){grid.innerHTML='<div class="empty">No se encontraron kanji.</div>';return;}
+ grid.innerHTML=filtered.map(k=>`
+ <article class="card">
+  <div class="kanji">${k.c}</div>
+  <div class="meaning">${k.m}</div>
+  <div class="readings">
+   <div><strong>ON:</strong> ${k.on||"—"}</div>
+   <div><strong>KUN:</strong> ${k.kun||"—"}</div>
+  </div>
+  <div class="example">
+   <div class="example-jp"><ruby>${k.e}<rt>${k.er}</rt></ruby></div>
+   <div class="example-reading">${k.er}</div>
+   <div class="example-es">🇪🇸 ${k.es}</div>
+  </div>
+  <div class="category">${k.cat}</div>
+ </article>`).join("");
+}
+search.addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
