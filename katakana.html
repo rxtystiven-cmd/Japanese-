@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Katakana - Japanese Fácil</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #b91c1c;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            margin-bottom: 0;
+            font-size: 17px;
+        }
+
+        nav {
+            background: white;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px;
+            color: #b91c1c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 950px;
+            margin: auto;
+            padding: 25px 15px;
+        }
+
+        .intro,
+        .seccion {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #b91c1c;
+        }
+
+        .tabla {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .tabla th {
+            background: #b91c1c;
+            color: white;
+            padding: 12px 5px;
+        }
+
+        .tabla td {
+            padding: 14px 5px;
+            border: 1px solid #ddd;
+            font-size: 24px;
+        }
+
+        .romaji {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .ejemplos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .palabra {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .japones {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .romaji-grande {
+            color: #666;
+            margin: 5px;
+        }
+
+        .consejo {
+            background: #fff7d6;
+            padding: 18px;
+            border-radius: 12px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇯🇵 Katakana</h1>
+    <p>Aprende el segundo silabario básico del japonés</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="hiragana.html">Hiragana</a>
+    <a href="katakana.html">Katakana</a>
+    <a href="kanji.html">Kanji</a>
+    <a href="vocabulario.html">Vocabulario</a>
+    <a href="particulas.html">Partículas</a>
+    <a href="frases.html">Frases</a>
+    <a href="ejercicios.html">Ejercicios</a>
+    <a href="jlpt-n5.html">JLPT N5</a>
+</nav>
+
+<main>
+
+    <section class="intro">
+        <h2>¿Qué es el katakana?</h2>
+
+        <p>
+            El katakana es uno de los sistemas de escritura utilizados
+            en japonés.
+        </p>
+
+        <p>
+            Se utiliza especialmente para escribir palabras de origen
+            extranjero, nombres extranjeros, sonidos y algunos términos
+            técnicos.
+        </p>
+
+        <p>
+            Por ejemplo, la palabra inglesa "computer" puede escribirse
+            como コンピューター.
+        </p>
+    </section>
+
+    <section class="seccion">
+
+        <h2>Tabla básica de Katakana</h2>
+
+        <table class="tabla">
+
+            <tr>
+                <th>Vocal</th>
+                <th>K</th>
+                <th>S</th>
+                <th>T</th>
+                <th>N</th>
+            </tr>
+
+            <tr>
+                <td>ア<span class="romaji">a</span></td>
+                <td>カ<span class="romaji">ka</span></td>
+                <td>サ<span class="romaji">sa</span></td>
+                <td>タ<span class="romaji">ta</span></td>
+                <td>ナ<span class="romaji">na</span></td>
+            </tr>
+
+            <tr>
+                <td>イ<span class="romaji">i</span></td>
+                <td>キ<span class="romaji">ki</span></td>
+                <td>シ<span class="romaji">shi</span></td>
+                <td>チ<span class="romaji">chi</span></td>
+                <td>ニ<span class="romaji">ni</span></td>
+            </tr>
+
+            <tr>
+                <td>ウ<span class="romaji">u</span></td>
+                <td>ク<span class="romaji">ku</span></td>
+                <td>ス<span class="romaji">su</span></td>
+                <td>ツ<span class="romaji">tsu</span></td>
+                <td>ヌ<span class="romaji">nu</span></td>
+            </tr>
+
+            <tr>
+                <td>エ<span class="romaji">e</span></td>
+                <td>ケ<span class="romaji">ke</span></td>
+                <td>セ<span class="romaji">se</span></td>
+                <td>テ<span class="romaji">te</span></td>
+                <td>ネ<span class="romaji">ne</span></td>
+            </tr>
+
+            <tr>
+                <td>オ<span class="romaji">o</span></td>
+                <td>コ<span class="romaji">ko</span></td>
+                <td>ソ<span class="romaji">so</span></td>
+                <td>ト<span class="romaji">to</span></td>
+                <td>ノ<span class="romaji">no</span></td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <table class="tabla">
+
+            <tr>
+                <th>H</th>
+                <th>M</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>W</th>
+            </tr>
+
+            <tr>
+                <td>ハ<span class="romaji">ha</span></td>
+                <td>マ<span class="romaji">ma</span></td>
+                <td>ヤ<span class="romaji">ya</span></td>
+                <td>ラ<span class="romaji">ra</span></td>
+                <td>ワ<span class="romaji">wa</span></td>
+            </tr>
+
+            <tr>
+                <td>ヒ<span class="romaji">hi</span></td>
+                <td>ミ<span class="romaji">mi</span></td>
+                <td></td>
+                <td>リ<span class="romaji">ri</span></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>フ<span class="romaji">fu</span></td>
+                <td>ム<span class="romaji">mu</span></td>
+                <td>ユ<span class="romaji">yu</span></td>
+                <td>ル<span class="romaji">ru</span></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>ヘ<span class="romaji">he</span></td>
+                <td>メ<span class="romaji">me</span></td>
+                <td></td>
+                <td>レ<span class="romaji">re</span></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>ホ<span class="romaji">ho</span></td>
+                <td>モ<span class="romaji">mo</span></td>
+                <td>ヨ<span class="romaji">yo</span></td>
+                <td>ロ<span class="romaji">ro</span></td>
+                <td>ヲ<span class="romaji">wo</span></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>ン<span class="romaji">n</span></td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <section class="seccion">
+
+        <h2>🌎 Palabras de origen extranjero</h2>
+
+        <p>
+            Una de las funciones más importantes del katakana es
+            representar palabras extranjeras adaptadas a la pronunciación
+            japonesa.
+        </p>
+
+        <div class="ejemplos">
+
+            <div class="palabra">
+                <div class="japones">テレビ</div>
+                <div class="romaji-grande">terebi</div>
+                <div>televisión</div>
+            </div>
+
+            <div class="palabra">
+                <div class="japones">ホテル</div>
+                <div class="romaji-grande">hoteru</div>
+                <div>hotel</div>
+            </div>
+
+            <div class="palabra">
+                <div class="japones">コーヒー</div>
+                <div class="romaji-grande">koohii</div>
+                <div>café</div>
+            </div>
+
+            <div class="palabra">
+                <div class="japones">バス</div>
+                <div class="romaji-grande">basu</div>
+                <div>autobús</div>
+            </div>
+
+            <div class="palabra">
+                <div class="japones">コンピューター</div>
+                <div class="romaji-grande">konpyuutaa</div>
+                <div>computadora</div>
+            </div>
+
+            <div class="palabra">
+                <div class="japones">ゲーム</div>
+                <div class="romaji-grande">geemu</div>
+                <div>juego</div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="consejo">
+
+        <h2>💡 Consejo para aprender</h2>
+
+        <p>
+            Aprende primero los 46 caracteres básicos. Después puedes
+            continuar con dakuten, handakuten y las combinaciones como
+            キャ, シュ y チョ.
+        </p>
+
+        <p>
+            No intentes memorizar todo en un solo día. Practicar un poco
+            cada día suele ser más fácil de mantener.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Japanese Fácil 🇯🇵</p>
+    <p>Guía de japonés para estudiantes.</p>
+</footer>
+
+</body>
+              </html>
