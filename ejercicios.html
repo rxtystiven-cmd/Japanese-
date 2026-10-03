@@ -33,7 +33,7 @@ header h1 {
 }
 
 header p {
-    margin-top: 8px;
+    margin: 8px 0 0;
 }
 
 nav {
@@ -56,14 +56,14 @@ nav a:hover {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 950px;
     margin: auto;
     padding: 20px;
 }
 
 .intro {
     background: white;
-    padding: 20px;
+    padding: 22px;
     border-radius: 12px;
     margin-bottom: 20px;
 }
@@ -73,23 +73,38 @@ nav a:hover {
     margin-top: 0;
 }
 
+.category {
+    background: #c9152b;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin: 30px 0 15px;
+}
+
+.category h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
 .exercise {
     background: white;
     padding: 20px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     border-radius: 12px;
     border-left: 5px solid #c9152b;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-.exercise h3 {
-    margin-top: 0;
+.question-number {
     color: #c9152b;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .question {
     font-size: 19px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    line-height: 1.5;
 }
 
 .options {
@@ -106,10 +121,11 @@ nav a:hover {
     cursor: pointer;
     text-align: left;
     font-size: 16px;
+    transition: 0.15s;
 }
 
 .option:hover {
-    background: #f3f3f3;
+    background: #f7f7f7;
 }
 
 .option.selected {
@@ -118,18 +134,38 @@ nav a:hover {
 }
 
 .option.correct {
-    border-color: #1b8a3a;
+    border-color: #16833a;
     background: #e9f8ee;
 }
 
 .option.incorrect {
     border-color: #c9152b;
-    background: #ffe8eb;
+    background: #ffe7ea;
 }
 
 .feedback {
     margin-top: 12px;
     font-weight: bold;
+}
+
+.check-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#check {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 9px;
+    background: #c9152b;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#check:hover {
+    background: #a90f23;
 }
 
 .result {
@@ -138,42 +174,44 @@ nav a:hover {
     border-radius: 12px;
     text-align: center;
     margin-top: 25px;
+    display: none;
 }
 
 .result h2 {
     color: #c9152b;
 }
 
-button#check {
-    display: block;
-    margin: 25px auto;
-    padding: 14px 25px;
-    border: none;
-    border-radius: 8px;
-    background: #c9152b;
-    color: white;
-    font-size: 17px;
+.score {
+    font-size: 30px;
     font-weight: bold;
-    cursor: pointer;
+    margin: 15px 0;
 }
 
-button#check:hover {
-    background: #a90f23;
+.stats {
+    text-align: left;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.stat {
+    background: #f5f5f5;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
 }
 
 .reset {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 18px;
+    padding: 12px 22px;
     border: none;
     border-radius: 8px;
     background: #333;
     color: white;
+    font-size: 15px;
     cursor: pointer;
 }
 
 footer {
-    margin-top: 30px;
+    margin-top: 35px;
     background: #222;
     color: white;
     text-align: center;
@@ -194,9 +232,14 @@ footer {
         padding: 15px;
     }
 
+    .question {
+        font-size: 17px;
+    }
+
 }
 
 </style>
+
 </head>
 
 
@@ -207,7 +250,7 @@ footer {
 
 <h1>📝 Ejercicios de japonés</h1>
 
-<p>Pon a prueba lo que has aprendido</p>
+<p>50 preguntas para poner a prueba tus conocimientos 🇯🇵</p>
 
 </header>
 
@@ -232,561 +275,47 @@ footer {
 
 <div class="intro">
 
-<h2>🎯 ¿Cómo funcionan?</h2>
+<h2>🎯 ¿Cómo funciona?</h2>
 
 <p>
-Selecciona una respuesta en cada pregunta y después pulsa
+Responde las <strong>50 preguntas</strong> y después pulsa
 <strong>Comprobar respuestas</strong>.
 </p>
 
 <p>
-Las preguntas mezclan hiragana, vocabulario, kanji y partículas.
+Hay ejercicios de hiragana, katakana, vocabulario, kanji,
+partículas y frases básicas.
+</p>
+
+<p>
+Al terminar podrás ver tu puntuación y tu rendimiento
+en cada categoría.
 </p>
 
 </div>
 
 
-<!-- PREGUNTA 1 -->
+<div id="quiz"></div>
 
-<div class="exercise" data-answer="B">
 
-<h3>Pregunta 1</h3>
-
-<div class="question">
-¿Qué significa <strong>こんにちは</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Gracias
-</button>
-
-<button class="option" data-value="B">
-B) Hola
-</button>
-
-<button class="option" data-value="C">
-C) Adiós
-</button>
-
-<button class="option" data-value="D">
-D) Perdón
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 2 -->
-
-<div class="exercise" data-answer="C">
-
-<h3>Pregunta 2</h3>
-
-<div class="question">
-¿Cuál es el significado de <strong>猫</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Perro
-</button>
-
-<button class="option" data-value="B">
-B) Pájaro
-</button>
-
-<button class="option" data-value="C">
-C) Gato
-</button>
-
-<button class="option" data-value="D">
-D) Pez
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 3 -->
-
-<div class="exercise" data-answer="A">
-
-<h3>Pregunta 3</h3>
-
-<div class="question">
-¿Qué significa <strong>水</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Agua
-</button>
-
-<button class="option" data-value="B">
-B) Fuego
-</button>
-
-<button class="option" data-value="C">
-C) Árbol
-</button>
-
-<button class="option" data-value="D">
-D) Montaña
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 4 -->
-
-<div class="exercise" data-answer="D">
-
-<h3>Pregunta 4</h3>
-
-<div class="question">
-¿Cuál es la lectura de <strong>日本</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Nihon
-</button>
-
-<button class="option" data-value="B">
-B) Nihongo
-</button>
-
-<button class="option" data-value="C">
-C) Nippon-go
-</button>
-
-<button class="option" data-value="D">
-D) Nihon / Nippon
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 5 -->
-
-<div class="exercise" data-answer="B">
-
-<h3>Pregunta 5</h3>
-
-<div class="question">
-¿Qué significa <strong>学生</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Profesor
-</button>
-
-<button class="option" data-value="B">
-B) Estudiante
-</button>
-
-<button class="option" data-value="C">
-C) Escuela
-</button>
-
-<button class="option" data-value="D">
-D) Amigo
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 6 -->
-
-<div class="exercise" data-answer="C">
-
-<h3>Pregunta 6</h3>
-
-<div class="question">
-¿Cuál de estas palabras significa "comer"?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) 飲む
-</button>
-
-<button class="option" data-value="B">
-B) 見る
-</button>
-
-<button class="option" data-value="C">
-C) 食べる
-</button>
-
-<button class="option" data-value="D">
-D) 行く
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 7 -->
-
-<div class="exercise" data-answer="A">
-
-<h3>Pregunta 7</h3>
-
-<div class="question">
-Completa la oración:
-<br><br>
-私は ___ 学生です。
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) は
-</button>
-
-<button class="option" data-value="B">
-B) を
-</button>
-
-<button class="option" data-value="C">
-C) に
-</button>
-
-<button class="option" data-value="D">
-D) で
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 8 -->
-
-<div class="exercise" data-answer="D">
-
-<h3>Pregunta 8</h3>
-
-<div class="question">
-¿Qué partícula marca normalmente el objeto directo?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) は
-</button>
-
-<button class="option" data-value="B">
-B) に
-</button>
-
-<button class="option" data-value="C">
-C) で
-</button>
-
-<button class="option" data-value="D">
-D) を
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 9 -->
-
-<div class="exercise" data-answer="B">
-
-<h3>Pregunta 9</h3>
-
-<div class="question">
-¿Qué significa <strong>大きい</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Pequeño
-</button>
-
-<button class="option" data-value="B">
-B) Grande
-</button>
-
-<button class="option" data-value="C">
-C) Nuevo
-</button>
-
-<button class="option" data-value="D">
-D) Viejo
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 10 -->
-
-<div class="exercise" data-answer="C">
-
-<h3>Pregunta 10</h3>
-
-<div class="question">
-¿Cómo se dice "agua" en japonés?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) 火
-</button>
-
-<button class="option" data-value="B">
-B) 木
-</button>
-
-<button class="option" data-value="C">
-C) 水
-</button>
-
-<button class="option" data-value="D">
-D) 土
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 11 -->
-
-<div class="exercise" data-answer="A">
-
-<h3>Pregunta 11</h3>
-
-<div class="question">
-¿Qué significa <strong>学校</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Escuela
-</button>
-
-<button class="option" data-value="B">
-B) Hospital
-</button>
-
-<button class="option" data-value="C">
-C) Biblioteca
-</button>
-
-<button class="option" data-value="D">
-D) Casa
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 12 -->
-
-<div class="exercise" data-answer="B">
-
-<h3>Pregunta 12</h3>
-
-<div class="question">
-¿Cuál es la lectura de <strong>山</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Kawa
-</button>
-
-<button class="option" data-value="B">
-B) Yama
-</button>
-
-<button class="option" data-value="C">
-C) Umi
-</button>
-
-<button class="option" data-value="D">
-D) Sora
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 13 -->
-
-<div class="exercise" data-answer="C">
-
-<h3>Pregunta 13</h3>
-
-<div class="question">
-¿Qué significa <strong>ありがとう</strong>?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) Hola
-</button>
-
-<button class="option" data-value="B">
-B) Perdón
-</button>
-
-<button class="option" data-value="C">
-C) Gracias
-</button>
-
-<button class="option" data-value="D">
-D) Adiós
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 14 -->
-
-<div class="exercise" data-answer="D">
-
-<h3>Pregunta 14</h3>
-
-<div class="question">
-¿Cuál significa "ir"?
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) 来る
-</button>
-
-<button class="option" data-value="B">
-B) 食べる
-</button>
-
-<button class="option" data-value="C">
-C) 寝る
-</button>
-
-<button class="option" data-value="D">
-D) 行く
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
-
-<!-- PREGUNTA 15 -->
-
-<div class="exercise" data-answer="A">
-
-<h3>Pregunta 15</h3>
-
-<div class="question">
-Completa:
-<br><br>
-水 ___ 飲みます。
-</div>
-
-<div class="options">
-
-<button class="option" data-value="A">
-A) を
-</button>
-
-<button class="option" data-value="B">
-B) は
-</button>
-
-<button class="option" data-value="C">
-C) の
-</button>
-
-<button class="option" data-value="D">
-D) と
-</button>
-
-</div>
-
-<div class="feedback"></div>
-
-</div>
-
+<div class="check-container">
 
 <button id="check">
 ✅ Comprobar respuestas
 </button>
 
+</div>
 
-<div id="result" class="result" style="display:none;">
 
-<h2>🎯 Resultado</h2>
+<div id="result" class="result">
 
-<p id="score"></p>
+<h2>🏆 Resultado</h2>
+
+<div id="score" class="score"></div>
 
 <p id="message"></p>
+
+<div id="stats" class="stats"></div>
 
 <button class="reset" onclick="location.reload()">
 🔄 Intentar nuevamente
@@ -809,24 +338,505 @@ D) と
 
 <script>
 
+
+const questions = [
+
+/* =========================
+   HIRAGANA
+========================= */
+
+{
+category: "Hiragana",
+question: "¿Qué sonido representa あ?",
+options: ["a", "i", "u", "e"],
+answer: 0
+},
+
+{
+category: "Hiragana",
+question: "¿Qué sonido representa き?",
+options: ["ka", "ki", "ku", "ke"],
+answer: 1
+},
+
+{
+category: "Hiragana",
+question: "¿Qué sonido representa す?",
+options: ["sa", "shi", "su", "se"],
+answer: 2
+},
+
+{
+category: "Hiragana",
+question: "¿Qué sonido representa て?",
+options: ["ta", "chi", "tsu", "te"],
+answer: 3
+},
+
+{
+category: "Hiragana",
+question: "¿Qué sonido representa の?",
+options: ["na", "ni", "ne", "no"],
+answer: 3
+},
+
+{
+category: "Hiragana",
+question: "¿Cuál representa el sonido 'ha'?",
+options: ["ひ", "は", "ふ", "へ"],
+answer: 1
+},
+
+{
+category: "Hiragana",
+question: "¿Cuál representa el sonido 'mu'?",
+options: ["ま", "み", "む", "め"],
+answer: 2
+},
+
+{
+category: "Hiragana",
+question: "¿Cuál representa el sonido 'yo'?",
+options: ["や", "ゆ", "よ", "ら"],
+answer: 2
+},
+
+{
+category: "Hiragana",
+question: "¿Cuál representa el sonido 'ri'?",
+options: ["ら", "り", "る", "れ"],
+answer: 1
+},
+
+{
+category: "Hiragana",
+question: "¿Cuál es el hiragana de 'n'?",
+options: ["ね", "な", "ん", "の"],
+answer: 2
+},
+
+
+/* =========================
+   KATAKANA
+========================= */
+
+{
+category: "Katakana",
+question: "¿Qué sonido representa ア?",
+options: ["a", "i", "u", "e"],
+answer: 0
+},
+
+{
+category: "Katakana",
+question: "¿Qué sonido representa キ?",
+options: ["ka", "ki", "ku", "ke"],
+answer: 1
+},
+
+{
+category: "Katakana",
+question: "¿Qué sonido representa ス?",
+options: ["sa", "shi", "su", "se"],
+answer: 2
+},
+
+{
+category: "Katakana",
+question: "¿Qué sonido representa テ?",
+options: ["ta", "chi", "tsu", "te"],
+answer: 3
+},
+
+{
+category: "Katakana",
+question: "¿Cuál es la palabra タクシー?",
+options: ["Hotel", "Taxi", "Bus", "Tren"],
+answer: 1
+},
+
+{
+category: "Katakana",
+question: "¿Qué significa テレビ?",
+options: ["Teléfono", "Televisión", "Computadora", "Radio"],
+answer: 1
+},
+
+{
+category: "Katakana",
+question: "¿Qué significa ホテル?",
+options: ["Hotel", "Hospital", "Escuela", "Casa"],
+answer: 0
+},
+
+{
+category: "Katakana",
+question: "¿Qué significa コーヒー?",
+options: ["Té", "Agua", "Café", "Leche"],
+answer: 2
+},
+
+{
+category: "Katakana",
+question: "¿Qué significa ゲーム?",
+options: ["Juego", "Película", "Música", "Libro"],
+answer: 0
+},
+
+{
+category: "Katakana",
+question: "¿Cuál significa 'bus'?",
+options: ["バス", "ベス", "ボス", "ビス"],
+answer: 0
+},
+
+
+/* =========================
+   VOCABULARIO
+========================= */
+
+{
+category: "Vocabulario",
+question: "¿Qué significa こんにちは?",
+options: ["Hola", "Gracias", "Adiós", "Perdón"],
+answer: 0
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa ありがとう?",
+options: ["Hola", "Gracias", "Buenos días", "Hasta luego"],
+answer: 1
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa すみません?",
+options: ["Gracias", "Perdón / Disculpe", "Adiós", "Sí"],
+answer: 1
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa おはよう?",
+options: ["Buenas noches", "Buenos días", "Buenas tardes", "Gracias"],
+answer: 1
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa みず?",
+options: ["Fuego", "Agua", "Comida", "Aire"],
+answer: 1
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa ねこ?",
+options: ["Perro", "Gato", "Pájaro", "Pez"],
+answer: 1
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa いぬ?",
+options: ["Gato", "Caballo", "Perro", "Conejo"],
+answer: 2
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa がっこう?",
+options: ["Casa", "Escuela", "Tienda", "Hospital"],
+answer: 1
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa ともだち?",
+options: ["Profesor", "Hermano", "Amigo", "Padre"],
+answer: 2
+},
+
+{
+category: "Vocabulario",
+question: "¿Qué significa たべる?",
+options: ["Beber", "Comer", "Dormir", "Caminar"],
+answer: 1
+},
+
+
+/* =========================
+   KANJI
+========================= */
+
+{
+category: "Kanji",
+question: "¿Qué significa 日?",
+options: ["Luna", "Sol / día", "Fuego", "Agua"],
+answer: 1
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 月?",
+options: ["Luna / mes", "Sol", "Año", "Día"],
+answer: 0
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 火?",
+options: ["Fuego", "Agua", "Tierra", "Árbol"],
+answer: 0
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 水?",
+options: ["Agua", "Fuego", "Montaña", "Río"],
+answer: 0
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 木?",
+options: ["Árbol / madera", "Piedra", "Tierra", "Flor"],
+answer: 0
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 山?",
+options: ["Río", "Mar", "Montaña", "Bosque"],
+answer: 2
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 川?",
+options: ["Montaña", "Río", "Lago", "Mar"],
+answer: 1
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 人?",
+options: ["Persona", "Niño", "Mujer", "Hombre"],
+answer: 0
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 学校?",
+options: ["Casa", "Escuela", "Universidad", "Biblioteca"],
+answer: 1
+},
+
+{
+category: "Kanji",
+question: "¿Qué significa 大きい?",
+options: ["Pequeño", "Grande", "Nuevo", "Viejo"],
+answer: 1
+},
+
+
+/* =========================
+   PARTÍCULAS Y FRASES
+========================= */
+
+{
+category: "Partículas",
+question: "Completa: 私 ___ 学生です。",
+options: ["を", "は", "に", "で"],
+answer: 1
+},
+
+{
+category: "Partículas",
+question: "¿Qué partícula marca normalmente el objeto directo?",
+options: ["は", "が", "を", "に"],
+answer: 2
+},
+
+{
+category: "Partículas",
+question: "Completa: 水 ___ 飲みます。",
+options: ["を", "の", "へ", "と"],
+answer: 0
+},
+
+{
+category: "Partículas",
+question: "Completa: 学校 ___ 行きます。",
+options: ["で", "を", "に", "の"],
+answer: 2
+},
+
+{
+category: "Partículas",
+question: "Completa: 学校 ___ 勉強します。",
+options: ["で", "に", "を", "の"],
+answer: 0
+},
+
+{
+category: "Partículas",
+question: "¿Qué expresa normalmente の?",
+options: ["Objeto directo", "Posesión o relación", "Destino", "Lugar de acción"],
+answer: 1
+},
+
+{
+category: "Partículas",
+question: "Completa: 私 ___ 学生です。友達も学生です。",
+options: ["も", "を", "へ", "から"],
+answer: 0
+},
+
+{
+category: "Partículas",
+question: "¿Qué partícula puede significar 'con' al indicar compañía?",
+options: ["と", "を", "は", "で"],
+answer: 0
+},
+
+{
+category: "Partículas",
+question: "¿Qué significa normalmente から?",
+options: ["Hasta", "Desde", "También", "Con"],
+answer: 1
+},
+
+{
+category: "Partículas",
+question: "¿Qué significa normalmente まで?",
+options: ["Desde", "Con", "Hasta", "También"],
+answer: 2
+}
+
+];
+
+
+/* =================================
+   MEZCLAR PREGUNTAS
+================================= */
+
+function shuffle(array) {
+
+    return array
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+
+}
+
+
+/* =================================
+   CREAR QUIZ
+================================= */
+
+const quiz = document.getElementById("quiz");
+
+let shuffledQuestions = shuffle([...questions]);
+
+
+let currentCategory = "";
+
+
+shuffledQuestions.forEach((q, index) => {
+
+    if (q.category !== currentCategory) {
+
+        currentCategory = q.category;
+
+        const categoryTitle =
+        document.createElement("div");
+
+        categoryTitle.className = "category";
+
+        categoryTitle.innerHTML =
+        "<h2>📚 " + q.category + "</h2>";
+
+        quiz.appendChild(categoryTitle);
+
+    }
+
+
+    const exercise =
+    document.createElement("div");
+
+    exercise.className = "exercise";
+
+    exercise.dataset.answer = q.answer;
+
+    exercise.dataset.category = q.category;
+
+
+    let optionsHTML = "";
+
+
+    q.options.forEach((option, optionIndex) => {
+
+        optionsHTML += `
+        <button
+            class="option"
+            data-value="${optionIndex}">
+            ${String.fromCharCode(65 + optionIndex)}) ${option}
+        </button>
+        `;
+
+    });
+
+
+    exercise.innerHTML = `
+
+        <div class="question-number">
+            Pregunta ${index + 1} de ${shuffledQuestions.length}
+        </div>
+
+        <div class="question">
+            ${q.question}
+        </div>
+
+        <div class="options">
+            ${optionsHTML}
+        </div>
+
+        <div class="feedback"></div>
+
+    `;
+
+
+    quiz.appendChild(exercise);
+
+});
+
+
+/* =================================
+   SELECCIÓN DE RESPUESTAS
+================================= */
+
 const exercises =
 document.querySelectorAll(".exercise");
 
-
-/* Seleccionar respuestas */
 
 exercises.forEach(exercise => {
 
     const options =
     exercise.querySelectorAll(".option");
 
+
     options.forEach(option => {
 
         option.addEventListener("click", () => {
 
             options.forEach(o => {
+
                 o.classList.remove("selected");
+
             });
+
 
             option.classList.add("selected");
 
@@ -837,26 +847,54 @@ exercises.forEach(exercise => {
 });
 
 
-/* Comprobar */
+/* =================================
+   COMPROBAR
+================================= */
 
 document.getElementById("check")
 .addEventListener("click", () => {
 
-    let correct = 0;
+
+    let correctTotal = 0;
+
+
+    const categoryStats = {};
+
 
     exercises.forEach(exercise => {
 
-        const answer =
-        exercise.dataset.answer;
+
+        const correctAnswer =
+        Number(exercise.dataset.answer);
+
+
+        const category =
+        exercise.dataset.category;
+
+
+        if (!categoryStats[category]) {
+
+            categoryStats[category] = {
+                correct: 0,
+                total: 0
+            };
+
+        }
+
+
+        categoryStats[category].total++;
+
 
         const selected =
         exercise.querySelector(".selected");
 
-        const feedback =
-        exercise.querySelector(".feedback");
 
         const options =
         exercise.querySelectorAll(".option");
+
+
+        const feedback =
+        exercise.querySelector(".feedback");
 
 
         options.forEach(option => {
@@ -870,42 +908,51 @@ document.getElementById("check")
         if (!selected) {
 
             feedback.textContent =
-            "⚠️ No seleccionaste una respuesta.";
+            "⚠️ No respondiste esta pregunta.";
 
-            feedback.style.color =
-            "#777";
+            feedback.style.color = "#777";
 
             return;
 
         }
 
 
-        if (selected.dataset.value === answer) {
+        const selectedAnswer =
+        Number(selected.dataset.value);
 
-            correct++;
+
+        if (selectedAnswer === correctAnswer) {
+
+
+            correctTotal++;
+
+
+            categoryStats[category].correct++;
+
 
             selected.classList.add("correct");
+
 
             feedback.textContent =
             "✅ ¡Correcto!";
 
+
             feedback.style.color =
-            "#1b8a3a";
+            "#16833a";
+
 
         } else {
 
+
             selected.classList.add("incorrect");
-
-            feedback.textContent =
-            "❌ Incorrecto.";
-
-            feedback.style.color =
-            "#c9152b";
 
 
             options.forEach(option => {
 
-                if (option.dataset.value === answer) {
+                if (
+                    Number(option.dataset.value)
+                    === correctAnswer
+                ) {
 
                     option.classList.add("correct");
 
@@ -913,72 +960,162 @@ document.getElementById("check")
 
             });
 
+
+            feedback.textContent =
+            "❌ Incorrecto. La respuesta correcta está marcada en verde.";
+
+
+            feedback.style.color =
+            "#c9152b";
+
         }
 
     });
 
 
+    /* =================================
+       RESULTADO
+    ================================= */
+
+
+    const total =
+    exercises.length;
+
+
+    const percentage =
+    Math.round((correctTotal / total) * 100);
+
+
     const result =
     document.getElementById("result");
+
 
     const score =
     document.getElementById("score");
 
+
     const message =
     document.getElementById("message");
+
+
+    const stats =
+    document.getElementById("stats");
 
 
     result.style.display = "block";
 
 
     score.textContent =
-    "Obtuviste " +
-    correct +
-    " de " +
-    exercises.length +
-    " respuestas correctas.";
-
-
-    const percentage =
-    (correct / exercises.length) * 100;
+    correctTotal + " / " + total;
 
 
     if (percentage === 100) {
 
         message.textContent =
-        "🔥 ¡Perfecto! Te sabes muy bien lo básico.";
+        "🔥 ¡Perfecto! Dominaste todos los ejercicios.";
+
+    }
+
+    else if (percentage >= 90) {
+
+        message.textContent =
+        "🏆 ¡Excelente! Tienes una base muy sólida.";
 
     }
 
     else if (percentage >= 80) {
 
         message.textContent =
-        "😎 ¡Muy bien! Ya tienes una buena base.";
+        "😎 ¡Muy bien! Ya tienes buenos conocimientos.";
+
+    }
+
+    else if (percentage >= 70) {
+
+        message.textContent =
+        "👍 Vas bien. Un poco más de práctica y mejorarás.";
 
     }
 
     else if (percentage >= 60) {
 
         message.textContent =
-        "📚 Vas bien, pero conviene repasar un poco.";
+        "📚 Tienes una base, pero conviene repasar.";
 
     }
 
     else {
 
         message.textContent =
-        "💪 Sigue practicando. Los errores también sirven para aprender.";
+        "💪 No pasa nada. Repasa las lecciones y vuelve a intentarlo.";
 
     }
+
+
+    /* =================================
+       ESTADÍSTICAS
+    ================================= */
+
+
+    stats.innerHTML =
+    "<h3>📊 Rendimiento por categoría</h3>";
+
+
+    Object.keys(categoryStats).forEach(category => {
+
+
+        const data =
+        categoryStats[category];
+
+
+        const percent =
+        Math.round(
+            (data.correct / data.total) * 100
+        );
+
+
+        const stat =
+        document.createElement("div");
+
+
+        stat.className = "stat";
+
+
+        stat.innerHTML = `
+            <strong>${category}</strong><br>
+            ${data.correct} / ${data.total}
+            correctas (${percent}%)
+        `;
+
+
+        stats.appendChild(stat);
+
+    });
+
+
+    const percentageText =
+    document.createElement("p");
+
+
+    percentageText.innerHTML =
+    "<strong>Porcentaje total: " +
+    percentage +
+    "%</strong>";
+
+
+    stats.appendChild(percentageText);
 
 
     result.scrollIntoView({
         behavior: "smooth"
     });
 
+
 });
+
 
 </script>
 
 </body>
-  </html>
+
+</html>
