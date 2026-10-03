@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kanji - Japanese Fácil</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #222;
+    line-height: 1.5;
+}
+
+header {
+    background: #d71920;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 7px 0 0;
+}
+
+nav {
+    background: #b51218;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 8px;
+    display: inline-block;
+}
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 15px;
+}
+
+.intro {
+    background: #fff5f5;
+    border-left: 5px solid #d71920;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    color: #d71920;
+    margin-top: 0;
+}
+
+.warning {
+    background: #fff8df;
+    border-left: 5px solid #e0a400;
+    padding: 12px;
+    border-radius: 7px;
+    margin-top: 12px;
+}
+
+.controls {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    padding: 10px 0;
+}
+
+#search {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.filters button {
+    border: none;
+    background: #d71920;
+    color: white;
+    padding: 9px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.filters button.active {
+    background: #222;
+}
+
+#counter {
+    color: #666;
+    margin: 12px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    background: white;
+    box-shadow: 0 3px 9px #00000012;
+}
+
+.card.hidden {
+    display: none;
+}
+
+.kanji {
+    font-size: 55px;
+    font-weight: bold;
+    color: #d71920;
+    text-align: center;
+}
+
+.meaning {
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.readings {
+    background: #f4f4f4;
+    border-radius: 7px;
+    padding: 9px;
+    font-size: 14px;
+}
+
+.readings strong {
+    color: #d71920;
+}
+
+.example {
+    margin-top: 10px;
+    background: #fff5f5;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.example-jp {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.example-reading {
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.example-es {
+    margin-top: 3px;
+}
+
+.category {
+    display: inline-block;
+    background: #d71920;
+    color: white;
+    border-radius: 15px;
+    padding: 3px 8px;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #b51218;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+@media(max-width:600px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .kanji {
+        font-size: 43px;
+    }
+
+    .meaning {
+        font-size: 16px;
+    }
+
+    .readings {
+        font-size: 12px;
+    }
+
+    .example-jp {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🈶 Kanji N4</h1>
+    <p>Kanji recomendados para continuar después del nivel básico</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion2.html">Sección 2</a>
+    <a href="kanji.html">Kanji básico</a>
+    <a href="kanji-n4.html">Kanji N4</a>
+</nav>
+
+<main>
+
+<div class="intro">
+
+<h2>📚 Kanji de nivel intermedio</h2>
+
+<p>
+Aquí encontrarás una colección amplia de kanji útiles para estudiar
+alrededor del nivel N4. Cada kanji incluye significado, lecturas y
+una palabra de ejemplo.
+</p>
+
+<div class="warning">
+<strong>💡 Importante:</strong> el JLPT no publica una lista oficial
+cerrada de kanji por nivel. Esta página utiliza una selección de
+kanji recomendados y frecuentes para el estudio de N4.
+</div>
+
+</div>
+
+<div class="controls">
+
+<input
+type="text"
+id="search"
+placeholder="🔎 Buscar kanji, significado, lectura o palabra..."
+>
+
+<div class="filters">
+
+<button class="active" data-category="Todas">Todos</button>
+<button data-category="Personas">Personas</button>
+<button data-category="Tiempo">Tiempo</button>
+<button data-category="Escuela">Escuela</button>
+<button data-category="Lugar">Lugar</button>
+<button data-category="Naturaleza">Naturaleza</button>
+<button data-category="Acciones">Acciones</button>
+<button data-category="Adjetivos">Adjetivos</button>
+<button data-category="Vida diaria">Vida diaria</button>
+<button data-category="Sociedad">Sociedad</button>
+
+</div>
+
+</div>
+
+<div id="counter"></div>
+
+<div class="grid" id="kanjiGrid"></div>
+
+</main>
+
+<footer>
+Japanese Fácil 🇯🇵<br>
+Kanji N4
+</footer>
+
+<script>
+
+const kanjiData = [
+
+/* PERSONAS */
+
+["Personas","会","encuentro / reunión","カイ","あ.う","会社","かいしゃ","empresa"],
+["Personas","社","empresa / sociedad","シャ","やしろ","会社","かいしゃ","empresa"],
+["Personas","員","miembro / empleado","イン","—","会社員","かいしゃいん","empleado de empresa"],
+["Personas","主","principal / dueño","シュ","おも","主人","しゅじん","esposo / dueño"],
+["Personas","親","padre / familiar","シン","おや","親切","しんせつ","amable"],
+["Personas","兄","hermano mayor","ケイ","あに","兄弟","きょうだい","hermanos"],
+["Personas","姉","hermana mayor","シ","あね","姉妹","しまい","hermanas"],
+["Personas","弟","hermano menor","ダイ","おとうと","兄弟","きょうだい","hermanos"],
+["Personas","妹","hermana menor","マイ","いもうと","姉妹","しまい","hermanas"],
+["Personas","夫","esposo / marido","フ","おっと","夫婦","ふうふ","pareja casada"],
+["Personas","妻","esposa","サイ","つま","妻","つま","esposa"],
+["Personas","彼","él / novio","ヒ","かれ","彼氏","かれし","novio"],
+["Personas","彼女","ella / novia","ジョ","かのじょ","彼女","かのじょ","ella / novia"],
+["Personas","自","uno mismo","ジ","みずか","自分","じぶん","uno mismo"],
+["Personas","他","otro","タ","ほか","他の人","ほかのひと","otra persona"],
+["Personas","方","dirección / persona","ホウ","かた","この方","このかた","esta persona"],
+
+/* TIEMPO */
+
+["Tiempo","春","primavera","シュン","はる","春休み","はるやすみ","vacaciones de primavera"],
+["Tiempo","夏","verano","カ","なつ","夏休み","なつやすみ","vacaciones de verano"],
+["Tiempo","秋","otoño","シュウ","あき","秋","あき","otoño"],
+["Tiempo","冬","invierno","トウ","ふゆ","冬休み","ふゆやすみ","vacaciones de invierno"],
+["Tiempo","朝","mañana","チョウ","あさ","朝ご飯","あさごはん","desayuno"],
+["Tiempo","昼","mediodía","チュウ","ひる","昼ご飯","ひるごはん","almuerzo"],
+["Tiempo","夜","noche","ヤ","よる","今夜","こんや","esta noche"],
+["Tiempo","夕","tarde / anochecer","セキ","ゆう","夕方","ゆうがた","tarde"],
+["Tiempo","曜","día de la semana","ヨウ","—","曜日","ようび","día de la semana"],
+["Tiempo","午","mediodía","ゴ","—","午後","ごご","tarde"],
+["Tiempo","前","antes / delante","ゼン","まえ","名前","なまえ","nombre"],
+["Tiempo","後","después / detrás","ゴ","あと","午後","ごご","tarde"],
+["Tiempo","間","intervalo / entre","カン","あいだ","時間","じかん","tiempo"],
+["Tiempo","始","comenzar","シ","はじ","始まる","はじまる","comenzar"],
+["Tiempo","終","terminar","シュウ","お","終わる","おわる","terminar"],
+["Tiempo","続","continuar","ゾク","つづ","続く","つづく","continuar"],
+["Tiempo","最","más / extremo","サイ","もっと.も","最近","さいきん","recientemente"],
+["Tiempo","初","primero / inicio","ショ","はじ.め","初めて","はじめて","por primera vez"],
+
+/* ESCUELA */
+
+["Escuela","教","enseñar","キョウ","おし","教える","おしえる","enseñar"],
+["Escuela","室","habitación / sala","シツ","むろ","教室","きょうしつ","aula"],
+["Escuela","英","inglés","エイ","—","英語","えいご","inglés"],
+["Escuela","漢","chino / kanji","カン","—","漢字","かんじ","kanji"],
+["Escuela","文","escritura / frase","ブン","ふみ","作文","さくぶん","composición"],
+["Escuela","字","letra / carácter","ジ","あざ","漢字","かんじ","kanji"],
+["Escuela","理","razón / lógica","リ","—","料理","りょうり","cocina"],
+["Escuela","科","materia / asignatura","カ","—","科目","かもく","asignatura"],
+["Escuela","題","tema / problema","ダイ","—","問題","もんだい","problema"],
+["Escuela","習","aprender / practicar","シュウ","なら","習う","ならう","aprender"],
+["Escuela","試","probar / examen","シ","こころ.みる","試験","しけん","examen"],
+["Escuela","験","experiencia / prueba","ケン","—","試験","しけん","examen"],
+["Escuela","答","respuesta","トウ","こた","答える","こたえる","responder"],
+["Escuela","問","pregunta","モン","と","質問","しつもん","pregunta"],
+["Escuela","考","pensar","コウ","かんが","考える","かんがえる","pensar"],
+["Escuela","研","investigar","ケン","と","研究","けんきゅう","investigación"],
+
+/* LUGAR */
+
+["Lugar","地","tierra / lugar","チ","—","地下","ちか","subterráneo"],
+["Lugar","場","lugar","ジョウ","ば","場所","ばしょ","lugar"],
+["Lugar","所","lugar","ショ","ところ","場所","ばしょ","lugar"],
+["Lugar","通","pasar / atravesar","ツウ","とお","通る","とおる","pasar"],
+["Lugar","近","cerca","キン","ちか","近い","ちかい","cerca"],
+["Lugar","遠","lejos","エン","とお","遠い","とおい","lejos"],
+["Lugar","市","ciudad / mercado","シ","いち","市役所","しやくしょ","ayuntamiento"],
+["Lugar","町","pueblo / ciudad","チョウ","まち","町","まち","pueblo"],
+["Lugar","村","aldea","ソン","むら","村","むら","aldea"],
+["Lugar","都","capital / metrópolis","ト","みやこ","東京都","とうきょうと","Tokio"],
+["Lugar","区","distrito","ク","—","地区","ちく","distrito"],
+["Lugar","県","prefectura","ケン","—","県","けん","prefectura"],
+["Lugar","館","edificio / salón","カン","やかた","図書館","としょかん","biblioteca"],
+["Lugar","室","habitación","シツ","むろ","教室","きょうしつ","aula"],
+["Lugar","屋","tienda / techo","オク","や","本屋","ほんや","librería"],
+["Lugar","橋","puente","キョウ","はし","橋","はし","puente"],
+
+/* NATURALEZA */
+
+["Naturaleza","地","tierra","チ","—","地図","ちず","mapa"],
+["Naturaleza","図","mapa / dibujo","ズ","はか","地図","ちず","mapa"],
+["Naturaleza","池","estanque","チ","いけ","池","いけ","estanque"],
+["Naturaleza","湖","lago","コ","みずうみ","湖","みずうみ","lago"],
+["Naturaleza","森","bosque","シン","もり","森","もり","bosque"],
+["Naturaleza","林","bosque pequeño","リン","はやし","林","はやし","bosque"],
+["Naturaleza","島","isla","トウ","しま","島","しま","isla"],
+["Naturaleza","海","mar","カイ","うみ","海外","かいがい","extranjero"],
+["Naturaleza","星","estrella","セイ","ほし","星","ほし","estrella"],
+["Naturaleza","光","luz","コウ","ひかり","日光","にっこう","luz solar"],
+["Naturaleza","風","viento","フウ","かぜ","台風","たいふう","tifón"],
+["Naturaleza","雲","nube","ウン","くも","雲","くも","nube"],
+["Naturaleza","鳥","pájaro","チョウ","とり","小鳥","ことり","pajarito"],
+["Naturaleza","犬","perro","ケン","いぬ","子犬","こいぬ","cachorro"],
+["Naturaleza","魚","pez / pescado","ギョ","さかな","金魚","きんぎょ","pez dorado"],
+["Naturaleza","野","campo / campo abierto","ヤ","の","野菜","やさい","verduras"],
+
+/* ACCIONES */
+
+["Acciones","動","moverse","ドウ","うご","動く","うごく","moverse"],
+["Acciones","働","trabajar","ドウ","はたら","働く","はたらく","trabajar"],
+["Acciones","使","usar","シ","つか","使う","つかう","usar"],
+["Acciones","作","hacer / crear","サク","つく","作る","つくる","hacer"],
+["Acciones","持","tener / llevar","ジ","も","持つ","もつ","tener / llevar"],
+["Acciones","取","tomar","シュ","と","取る","とる","tomar"],
+["Acciones","置","poner","チ","お","置く","おく","poner"],
+["Acciones","送","enviar","ソウ","おく","送る","おくる","enviar"],
+["Acciones","返","devolver","ヘン","かえ","返す","かえす","devolver"],
+["Acciones","借","pedir prestado","シャク","か","借りる","かりる","pedir prestado"],
+["Acciones","貸","prestar","タイ","か","貸す","かす","prestar"],
+["Acciones","着","vestir / llegar","チャク","き","着る","きる","ponerse ropa"],
+["Acciones","脱","quitarse ropa","ダツ","ぬ","脱ぐ","ぬぐ","quitarse"],
+["Acciones","開","abrir","カイ","あ.ける","開ける","あける","abrir"],
+["Acciones","閉","cerrar","ヘイ","し","閉める","しめる","cerrar"],
+["Acciones","始","empezar","シ","はじ","始める","はじめる","empezar"],
+["Acciones","終","terminar","シュウ","お","終える","おえる","terminar"],
+["Acciones","決","decidir","ケツ","き","決める","きめる","decidir"],
+["Acciones","選","elegir","セン","えら","選ぶ","えらぶ","elegir"],
+["Acciones","変","cambiar","ヘン","か","変える","かえる","cambiar"],
+["Acciones","洗","lavar","セン","あら","洗う","あらう","lavar"],
+["Acciones","消","apagar / borrar","ショウ","け","消す","けす","apagar"],
+["Acciones","押","empujar","オウ","お","押す","おす","empujar"],
+["Acciones","引","tirar","イン","ひ","引く","ひく","tirar"],
+["Acciones","歩","caminar","ホ","ある","歩く","あるく","caminar"],
+["Acciones","走","correr","ソウ","はし","走る","はしる","correr"],
+["Acciones","止","parar","シ","と","止まる","とまる","pararse"],
+["Acciones","乗","subir / montar","ジョウ","の","乗る","のる","subir a un vehículo"],
+["Acciones","降","bajar / caer","コウ","お","降りる","おりる","bajar"],
+["Acciones","急","apurarse","キュウ","いそ","急ぐ","いそぐ","apurarse"],
+
+/* ADJETIVOS */
+
+["Adjetivos","明","claro","メイ","あか","明るい","あかるい","brillante"],
+["Adjetivos","暗","oscuro","アン","くら","暗い","くらい","oscuro"],
+["Adjetivos","強","fuerte","キョウ","つよ","強い","つよい","fuerte"],
+["Adjetivos","弱","débil","ジャク","よわ","弱い","よわい","débil"],
+["Adjetivos","重","pesado","ジュウ","おも","重い","おもい","pesado"],
+["Adjetivos","軽","ligero","ケイ","かる","軽い","かるい","ligero"],
+["Adjetivos","広","amplio","コウ","ひろ","広い","ひろい","amplio"],
+["Adjetivos","狭","estrecho","キョウ","せま","狭い","せまい","estrecho"],
+["Adjetivos","深","profundo","シン","ふか","深い","ふかい","profundo"],
+["Adjetivos","浅","poco profundo","セン","あさ","浅い","あさい","poco profundo"],
+["Adjetivos","若","joven","ジャク","わか","若い","わかい","joven"],
+["Adjetivos","多","mucho","タ","おお","多い","おおい","mucho"],
+["Adjetivos","少","poco","ショウ","すく","少ない","すくない","poco"],
+["Adjetivos","早","temprano / rápido","ソウ","はや","早い","はやい","temprano"],
+["Adjetivos","遅","tarde / lento","チ","おそ","遅い","おそい","tarde / lento"],
+["Adjetivos","悪","malo","アク","わる","悪い","わるい","malo"],
+["Adjetivos","正","correcto","セイ","ただ","正しい","ただしい","correcto"],
+["Adjetivos","楽","divertido / cómodo","ラク","たの","楽しい","たのしい","divertido"],
+["Adjetivos","便利","conveniente","ベン","—","便利","べんり","conveniente"],
+["Adjetivos","必要","necesario","ヒツ","—","必要","ひつよう","necesario"],
+
+/* VIDA DIARIA */
+
+["Vida diaria","家","casa","カ","いえ","家族","かぞく","familia"],
+["Vida diaria","族","familia","ゾク","—","家族","かぞく","familia"],
+["Vida diaria","食","comer","ショク","た","食事","しょくじ","comida"],
+["Vida diaria","飲","beber","イン","の","飲み物","のみもの","bebida"],
+["Vida diaria","飯","arroz / comida","ハン","めし","ご飯","ごはん","comida"],
+["Vida diaria","肉","carne","ニク","—","牛肉","ぎゅうにく","carne de res"],
+["Vida diaria","茶","té","チャ","—","お茶","おちゃ","té"],
+["Vida diaria","薬","medicina","ヤク","くすり","薬局","やっきょく","farmacia"],
+["Vida diaria","病","enfermedad","ビョウ","やまい","病院","びょういん","hospital"],
+["Vida diaria","院","institución","イン","—","病院","びょういん","hospital"],
+["Vida diaria","服","ropa","フク","—","洋服","ようふく","ropa occidental"],
+["Vida diaria","物","cosa","ブツ","もの","買い物","かいもの","compras"],
+["Vida diaria","色","color","ショク","いろ","色々","いろいろ","varios"],
+["Vida diaria","音","sonido","オン","おと","音楽","おんがく","música"],
+["Vida diaria","楽","diversión / música","ガク","たの","音楽","おんがく","música"],
+["Vida diaria","映","reflejar / proyectar","エイ","うつ","映画","えいが","película"],
+["Vida diaria","画","imagen / película","ガ","—","映画","えいが","película"],
+["Vida diaria","料","material / tarifa","リョウ","—","料理","りょうり","cocina"],
+["Vida diaria","店","tienda","テン","みせ","店員","てんいん","dependiente"],
+["Vida diaria","買","comprar","バイ","か","買い物","かいもの","compras"],
+
+/* SOCIEDAD */
+
+["Sociedad","国","país","コク","くに","外国","がいこく","país extranjero"],
+["Sociedad","外","afuera / exterior","ガイ","そと","外国","がいこく","país extranjero"],
+["Sociedad","京","capital","キョウ","みやこ","東京","とうきょう","Tokio"],
+["Sociedad","都","capital / metrópolis","ト","みやこ","都会","とかい","ciudad"],
+["Sociedad","道","camino / vía","ドウ","みち","道路","どうろ","carretera"],
+["Sociedad","路","camino / ruta","ロ","じ","道路","どうろ","carretera"],
+["Sociedad","鉄","hierro","テツ","—","地下鉄","ちかてつ","metro"],
+["Sociedad","駅","estación","エキ","—","駅前","えきまえ","frente a la estación"],
+["Sociedad","電","electricidad","デン","—","電車","でんしゃ","tren"],
+["Sociedad","車","vehículo","シャ","くるま","電車","でんしゃ","tren"],
+["Sociedad","自","uno mismo","ジ","みずか","自転車","じてんしゃ","bicicleta"],
+["Sociedad","転","girar / cambiar","テン","ころ","自転車","じてんしゃ","bicicleta"],
+["Sociedad","銀","plata","ギン","—","銀行","ぎんこう","banco"],
+["Sociedad","行","ir / banco","コウ","い","銀行","ぎんこう","banco"],
+["Sociedad","金","dinero / oro","キン","かね","お金","おかね","dinero"],
+["Sociedad","費","gasto","ヒ","つい","費用","ひよう","gasto"],
+["Sociedad","用","uso / asunto","ヨウ","もち","用事","ようじ","asunto"],
+["Sociedad","仕","servir / hacer","シ","つか","仕事","しごと","trabajo"],
+["Sociedad","事","cosa / asunto","ジ","こと","仕事","しごと","trabajo"],
+["Sociedad","業","trabajo / industria","ギョウ","わざ","授業","じゅぎょう","clase"],
+
+/* EXTRA */
+
+["Vida diaria","朝","mañana","チョウ","あさ","朝食","ちょうしょく","desayuno"],
+["Vida diaria","昼","mediodía","チュウ","ひる","昼食","ちゅうしょく","almuerzo"],
+["Vida diaria","夜","noche","ヤ","よる","夜中","よなか","medianoche"],
+["Vida diaria","紙","papel","シ","かみ","紙","かみ","papel"],
+["Vida diaria","本","libro / origen","ホン","もと","日本","にほん","Japón"],
+["Vida diaria","服","ropa","フク","—","服","ふく","ropa"],
+["Vida diaria","頭","cabeza","トウ","あたま","頭","あたま","cabeza"],
+["Vida diaria","顔","cara","ガン","かお","顔","かお","cara"],
+["Vida diaria","声","voz","セイ","こえ","声","こえ","voz"],
+["Vida diaria","心","corazón / mente","シン","こころ","心配","しんぱい","preocupación"],
+["Vida diaria","体","cuerpo","タイ","からだ","体","からだ","cuerpo"],
+["Vida diaria","力","fuerza","リョク","ちから","力","ちから","fuerza"],
+["Vida diaria","目","ojo","モク","め","目的","もくてき","objetivo"],
+["Vida diaria","耳","oreja","ジ","みみ","耳","みみ","oreja"],
+["Vida diaria","口","boca","コウ","くち","入口","いりぐち","entrada"],
+["Vida diaria","手","mano","シュ","て","手紙","てがみ","carta"],
+["Vida diaria","足","pie / pierna","ソク","あし","足","あし","pie"],
+["Vida diaria","頭","cabeza","トウ","あたま","頭","あたま","cabeza"],
+["Vida diaria","声","voz","セイ","こえ","声","こえ","voz"],
+["Vida diaria","顔","cara","ガン","かお","顔","かお","cara"]
+
+];
+
+/* CREAR TARJETAS */
+
+const grid = document.getElementById("kanjiGrid");
+
+kanjiData.forEach(item => {
+
+    const [
+        category,
+        kanji,
+        meaning,
+        on,
+        kun,
+        word,
+        wordReading,
+        wordMeaning
+    ] = item;
+
+    const card = document.createElement("article");
+
+    card.className = "card";
+    card.dataset.category = category;
+
+    card.innerHTML = `
+        <div class="kanji">${kanji}</div>
+
+        <div class="meaning">
+            ${meaning}
+        </div>
+
+        <div class="readings">
+            <strong>ON:</strong> ${on}<br>
+            <strong>KUN:</strong> ${kun}
+        </div>
+
+        <div class="example">
+            <div class="example-jp">
+                ${word}
+            </div>
+
+            <div class="example-reading">
+                ${wordReading}
+            </div>
+
+            <div class="example-es">
+                ${wordMeaning}
+            </div>
+        </div>
+
+        <span class="category">
+            ${category}
+        </span>
+    `;
+
+    grid.appendChild(card);
+
+});
+
+
+const cards = document.querySelectorAll(".card");
+const search = document.getElementById("search");
+const counter = document.getElementById("counter");
+
+let currentCategory = "Todas";
+
+
+function filterCards() {
+
+    const query =
+        search.value.toLowerCase().trim();
+
+    let visible = 0;
+
+    cards.forEach(card => {
+
+        const text =
+            card.innerText.toLowerCase();
+
+        const categoryOK =
+            currentCategory === "Todas" ||
+            card.dataset.category === currentCategory;
+
+        const searchOK =
+            text.includes(query);
+
+        if (categoryOK && searchOK) {
+
+            card.classList.remove("hidden");
+            visible++;
+
+        } else {
+
+            card.classList.add("hidden");
+
+        }
+
+    });
+
+    counter.textContent =
+        "Mostrando " + visible +
+        " kanji de " + kanjiData.length;
+
+}
+
+
+/* FILTROS */
+
+document
+.querySelectorAll(".filters button")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document
+        .querySelectorAll(".filters button")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        currentCategory =
+            button.dataset.category;
+
+        filterCards();
+
+    });
+
+});
+
+
+search.addEventListener(
+    "input",
+    filterCards
+);
+
+
+filterCards();
+
+</script>
+
+</body>
+  </html>
