@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Frases | Japanese Fácil</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+header {
+    background: #c9152b;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+nav {
+    background: white;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    color: #c9152b;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 7px;
+    display: inline-block;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.intro {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    color: #c9152b;
+    margin-top: 0;
+}
+
+.search-box {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+#search {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+#search:focus {
+    border-color: #c9152b;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.filter {
+    border: none;
+    padding: 9px 13px;
+    border-radius: 20px;
+    background: #eee;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter:hover,
+.filter.active {
+    background: #c9152b;
+    color: white;
+}
+
+.phrase {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-left: 5px solid #c9152b;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.category {
+    display: inline-block;
+    background: #ffe7eb;
+    color: #c9152b;
+    padding: 5px 9px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.japanese {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.reading {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.translation {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.explanation {
+    background: #f7f7f7;
+    padding: 12px;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.no-results {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    display: none;
+}
+
+footer {
+    margin-top: 35px;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .phrase {
+        padding: 15px;
+    }
+
+    .japanese {
+        font-size: 22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>💬 Frases en japonés</h1>
+
+<p>Aprende frases útiles para situaciones reales 🇯🇵</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Inicio</a>
+<a href="hiragana.html">Hiragana</a>
+<a href="katakana.html">Katakana</a>
+<a href="kanji.html">Kanji</a>
+<a href="vocabulario.html">Vocabulario</a>
+<a href="particulas.html">Partículas</a>
+<a href="frases.html">Frases</a>
+<a href="ejercicios.html">Ejercicios</a>
+<a href="jlpt-n5.html">JLPT N5</a>
+
+</nav>
+
+
+<div class="container">
+
+
+<div class="intro">
+
+<h2>🗣️ Frases útiles</h2>
+
+<p>
+Aquí encontrarás frases japonesas organizadas por situaciones.
+Aprende primero el significado y después intenta reconocer
+las palabras y partículas que ya has estudiado.
+</p>
+
+<p>
+💡 Consejo: no memorices solamente la traducción.
+Intenta entender cómo está construida cada frase.
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="🔎 Buscar una frase, palabra o traducción..."
+>
+
+
+<div class="filters">
+
+<button class="filter active" data-category="Todas">
+Todas
+</button>
+
+<button class="filter" data-category="Saludos">
+👋 Saludos
+</button>
+
+<button class="filter" data-category="Cortesía">
+🙏 Cortesía
+</button>
+
+<button class="filter" data-category="Escuela">
+🏫 Escuela
+</button>
+
+<button class="filter" data-category="Casa">
+🏠 Casa
+</button>
+
+<button class="filter" data-category="Comida">
+🍜 Comida
+</button>
+
+<button class="filter" data-category="Compras">
+🛒 Compras
+</button>
+
+<button class="filter" data-category="Transporte">
+🚆 Transporte
+</button>
+
+<button class="filter" data-category="Conversación">
+💬 Conversación
+</button>
+
+<button class="filter" data-category="Preguntas">
+❓ Preguntas
+</button>
+
+</div>
+
+</div>
+
+
+<div id="phrases"></div>
+
+
+<div id="noResults" class="no-results">
+
+<h3>😅 No encontramos esa frase</h3>
+
+<p>Prueba con otra palabra o categoría.</p>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+<p>Japanese Fácil 🇯🇵</p>
+
+<p>Una guía creada para estudiantes.</p>
+
+</footer>
+
+
+<script>
+
+
+const phrases = [
+
+/* =========================
+   SALUDOS
+========================= */
+
+{
+category: "Saludos",
+jp: "こんにちは",
+reading: "Konnichiwa",
+es: "Hola / Buenas tardes",
+explanation: "Saludo común utilizado principalmente durante el día."
+},
+
+{
+category: "Saludos",
+jp: "おはようございます",
+reading: "Ohayou gozaimasu",
+es: "Buenos días",
+explanation: "Forma educada de decir buenos días."
+},
+
+{
+category: "Saludos",
+jp: "おはよう",
+reading: "Ohayou",
+es: "Buenos días",
+explanation: "Forma informal de decir buenos días."
+},
+
+{
+category: "Saludos",
+jp: "こんばんは",
+reading: "Konbanwa",
+es: "Buenas noches",
+explanation: "Saludo utilizado durante la tarde-noche."
+},
+
+{
+category: "Saludos",
+jp: "おやすみなさい",
+reading: "Oyasumi nasai",
+es: "Buenas noches",
+explanation: "Se utiliza al despedirse antes de dormir."
+},
+
+
+/* =========================
+   CORTESÍA
+========================= */
+
+{
+category: "Cortesía",
+jp: "ありがとうございます",
+reading: "Arigatou gozaimasu",
+es: "Muchas gracias",
+explanation: "Forma educada de agradecer."
+},
+
+{
+category: "Cortesía",
+jp: "ありがとう",
+reading: "Arigatou",
+es: "Gracias",
+explanation: "Forma más informal de agradecer."
+},
+
+{
+category: "Cortesía",
+jp: "すみません",
+reading: "Sumimasen",
+es: "Perdón / Disculpe",
+explanation: "Puede utilizarse para disculparse o llamar educadamente la atención de alguien."
+},
+
+{
+category: "Cortesía",
+jp: "ごめんなさい",
+reading: "Gomen nasai",
+es: "Lo siento",
+explanation: "Forma común de disculparse."
+},
+
+{
+category: "Cortesía",
+jp: "お願いします",
+reading: "Onegaishimasu",
+es: "Por favor",
+explanation: "Se usa al pedir algo de manera educada."
+},
+
+
+/* =========================
+   ESCUELA
+========================= */
+
+{
+category: "Escuela",
+jp: "私は学生です。",
+reading: "Watashi wa gakusei desu.",
+es: "Soy estudiante.",
+explanation: "は marca el tema de la oración."
+},
+
+{
+category: "Escuela",
+jp: "学校へ行きます。",
+reading: "Gakkou e ikimasu.",
+es: "Voy a la escuela.",
+explanation: "へ indica dirección o destino."
+},
+
+{
+category: "Escuela",
+jp: "学校に行きます。",
+reading: "Gakkou ni ikimasu.",
+es: "Voy a la escuela.",
+explanation: "に también puede indicar el destino de un movimiento."
+},
+
+{
+category: "Escuela",
+jp: "日本語を勉強します。",
+reading: "Nihongo o benkyou shimasu.",
+es: "Estudio japonés.",
+explanation: "を marca el objeto directo de la acción."
+},
+
+{
+category: "Escuela",
+jp: "先生に質問します。",
+reading: "Sensei ni shitsumon shimasu.",
+es: "Le hago una pregunta al profesor.",
+explanation: "に puede indicar la persona a quien se dirige una acción."
+},
+
+
+/* =========================
+   CASA
+========================= */
+
+{
+category: "Casa",
+jp: "家に帰ります。",
+reading: "Ie ni kaerimasu.",
+es: "Regreso a casa.",
+explanation: "に indica el destino del movimiento."
+},
+
+{
+category: "Casa",
+jp: "部屋で勉強します。",
+reading: "Heya de benkyou shimasu.",
+es: "Estudio en la habitación.",
+explanation: "で indica el lugar donde ocurre una acción."
+},
+
+{
+category: "Casa",
+jp: "本を読みます。",
+reading: "Hon o yomimasu.",
+es: "Leo un libro.",
+explanation: "を marca el objeto que recibe la acción."
+},
+
+{
+category: "Casa",
+jp: "テレビを見ます。",
+reading: "Terebi o mimasu.",
+es: "Veo la televisión.",
+explanation: "テレビ significa televisión y を marca el objeto."
+},
+
+{
+category: "Casa",
+jp: "音楽を聞きます。",
+reading: "Ongaku o kikimasu.",
+es: "Escucho música.",
+explanation: "音楽 significa música y 聞きます significa escuchar."
+},
+
+
+/* =========================
+   COMIDA
+========================= */
+
+{
+category: "Comida",
+jp: "ご飯を食べます。",
+reading: "Gohan o tabemasu.",
+es: "Como.",
+explanation: "ご飯 puede significar comida o arroz según el contexto."
+},
+
+{
+category: "Comida",
+jp: "水を飲みます。",
+reading: "Mizu o nomimasu.",
+es: "Bebo agua.",
+explanation: "水 significa agua y 飲みます significa beber."
+},
+
+{
+category: "Comida",
+jp: "おいしいです。",
+reading: "Oishii desu.",
+es: "Está delicioso.",
+explanation: "おいしい es un adjetivo que significa delicioso."
+},
+
+{
+category: "Comida",
+jp: "いただきます。",
+reading: "Itadakimasu.",
+es: "Expresión dicha antes de comer.",
+explanation: "Es una expresión tradicional utilizada antes de comenzar una comida."
+},
+
+{
+category: "Comida",
+jp: "ごちそうさまでした。",
+reading: "Gochisousama deshita.",
+es: "Gracias por la comida.",
+explanation: "Expresión utilizada después de terminar una comida."
+},
+
+
+/* =========================
+   COMPRAS
+========================= */
+
+{
+category: "Compras",
+jp: "これは何ですか？",
+reading: "Kore wa nan desu ka?",
+es: "¿Qué es esto?",
+explanation: "何 significa qué."
+},
+
+{
+category: "Compras",
+jp: "これはいくらですか？",
+reading: "Kore wa ikura desu ka?",
+es: "¿Cuánto cuesta esto?",
+explanation: "いくら se utiliza para preguntar un precio."
+},
+
+{
+category: "Compras",
+jp: "これをください。",
+reading: "Kore o kudasai.",
+es: "Quiero esto, por favor.",
+explanation: "ください se utiliza para pedir algo."
+},
+
+{
+category: "Compras",
+jp: "高いです。",
+reading: "Takai desu.",
+es: "Es caro.",
+explanation: "高い puede significar caro o alto dependiendo del contexto."
+},
+
+{
+category: "Compras",
+jp: "安いです。",
+reading: "Yasui desu.",
+es: "Es barato.",
+explanation: "安い significa barato."
+},
+
+
+/* =========================
+   TRANSPORTE
+========================= */
+
+{
+category: "Transporte",
+jp: "駅はどこですか？",
+reading: "Eki wa doko desu ka?",
+es: "¿Dónde está la estación?",
+explanation: "どこ significa dónde."
+},
+
+{
+category: "Transporte",
+jp: "電車に乗ります。",
+reading: "Densha ni norimasu.",
+es: "Subo al tren / Tomo el tren.",
+explanation: "電車 significa tren y 乗ります significa subir o montar."
+},
+
+{
+category: "Transporte",
+jp: "バスに乗ります。",
+reading: "Basu ni norimasu.",
+es: "Tomo el autobús.",
+explanation: "バス es un préstamo lingüístico escrito en katakana."
+},
+
+{
+category: "Transporte",
+jp: "駅まで行きます。",
+reading: "Eki made ikimasu.",
+es: "Voy hasta la estación.",
+explanation: "まで indica el límite o destino final."
+},
+
+{
+category: "Transporte",
+jp: "ここで降ります。",
+reading: "Koko de orimasu.",
+es: "Bajo aquí.",
+explanation: "ここ significa aquí y 降ります significa bajar."
+},
+
+
+/* =========================
+   CONVERSACIÓN
+========================= */
+
+{
+category: "Conversación",
+jp: "元気ですか？",
+reading: "Genki desu ka?",
+es: "¿Cómo estás?",
+explanation: "元気 significa saludable, bien o con energía."
+},
+
+{
+category: "Conversación",
+jp: "元気です。",
+reading: "Genki desu.",
+es: "Estoy bien.",
+explanation: "Respuesta común a 元気ですか？"
+},
+
+{
+category: "Conversación",
+jp: "はい。",
+reading: "Hai.",
+es: "Sí.",
+explanation: "Respuesta afirmativa."
+},
+
+{
+category: "Conversación",
+jp: "いいえ。",
+reading: "Iie.",
+es: "No.",
+explanation: "Respuesta negativa."
+},
+
+{
+category: "Conversación",
+jp: "わかりません。",
+reading: "Wakarimasen.",
+es: "No entiendo / No lo sé.",
+explanation: "Forma negativa educada de わかります."
+},
+
+
+/* =========================
+   PREGUNTAS
+========================= */
+
+{
+category: "Preguntas",
+jp: "これは何ですか？",
+reading: "Kore wa nan desu ka?",
+es: "¿Qué es esto?",
+explanation: "何 significa qué."
+},
+
+{
+category: "Preguntas",
+jp: "誰ですか？",
+reading: "Dare desu ka?",
+es: "¿Quién es?",
+explanation: "誰 significa quién."
+},
+
+{
+category: "Preguntas",
+jp: "どこですか？",
+reading: "Doko desu ka?",
+es: "¿Dónde está?",
+explanation: "どこ significa dónde."
+},
+
+{
+category: "Preguntas",
+jp: "いつですか？",
+reading: "Itsu desu ka?",
+es: "¿Cuándo es?",
+explanation: "いつ significa cuándo."
+},
+
+{
+category: "Preguntas",
+jp: "どうしてですか？",
+reading: "Doushite desu ka?",
+es: "¿Por qué?",
+explanation: "どうして se utiliza para preguntar la razón."
+},
+
+{
+category: "Preguntas",
+jp: "何をしますか？",
+reading: "Nani o shimasu ka?",
+es: "¿Qué haces?",
+explanation: "何 significa qué y を marca el objeto de la acción."
+},
+
+{
+category: "Preguntas",
+jp: "日本語がわかりますか？",
+reading: "Nihongo ga wakarimasu ka?",
+es: "¿Entiendes japonés?",
+explanation: "日本語 significa idioma japonés."
+},
+
+{
+category: "Preguntas",
+jp: "何時ですか？",
+reading: "Nanji desu ka?",
+es: "¿Qué hora es?",
+explanation: "何時 significa qué hora."
+},
+
+{
+category: "Preguntas",
+jp: "どこから来ましたか？",
+reading: "Doko kara kimashita ka?",
+es: "¿De dónde vienes?",
+explanation: "から puede indicar el punto de origen."
+},
+
+{
+category: "Preguntas",
+jp: "何を食べますか？",
+reading: "Nani o tabemasu ka?",
+es: "¿Qué comes?",
+explanation: "食べます significa comer."
+}
+
+];
+
+
+const phrasesContainer =
+document.getElementById("phrases");
+
+const search =
+document.getElementById("search");
+
+const filters =
+document.querySelectorAll(".filter");
+
+const noResults =
+document.getElementById("noResults");
+
+
+let currentCategory = "Todas";
+
+
+function renderPhrases() {
+
+    const searchText =
+    search.value.toLowerCase().trim();
+
+
+    phrasesContainer.innerHTML = "";
+
+
+    let visible = 0;
+
+
+    phrases.forEach(phrase => {
+
+
+        const text =
+        (
+            phrase.jp +
+            " " +
+            phrase.reading +
+            " " +
+            phrase.es +
+            " " +
+            phrase.explanation
+        ).toLowerCase();
+
+
+        const matchesSearch =
+        text.includes(searchText);
+
+
+        const matchesCategory =
+        currentCategory === "Todas" ||
+        phrase.category === currentCategory;
+
+
+        if (
+            matchesSearch &&
+            matchesCategory
+        ) {
+
+
+            visible++;
+
+
+            const card =
+            document.createElement("div");
+
+
+            card.className = "phrase";
+
+
+            card.innerHTML = `
+
+                <div class="category">
+                    ${phrase.category}
+                </div>
+
+                <div class="japanese">
+                    ${phrase.jp}
+                </div>
+
+                <div class="reading">
+                    🔊 ${phrase.reading}
+                </div>
+
+                <div class="translation">
+                    🇪🇸 ${phrase.es}
+                </div>
+
+                <div class="explanation">
+                    💡 ${phrase.explanation}
+                </div>
+
+            `;
+
+
+            phrasesContainer.appendChild(card);
+
+        }
+
+    });
+
+
+    if (visible === 0) {
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+}
+
+
+filters.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+
+        filters.forEach(b => {
+
+            b.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+
+        currentCategory =
+        button.dataset.category;
+
+
+        renderPhrases();
+
+    });
+
+});
+
+
+search.addEventListener(
+"input",
+renderPhrases
+);
+
+
+renderPhrases();
+
+
+</script>
+
+</body>
+
+  </html>
