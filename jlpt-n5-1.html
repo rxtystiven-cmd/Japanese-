@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JLPT N5 - Japanese Fácil</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f7f7;color:#222;line-height:1.55}
+header{background:#d60000;color:#fff;text-align:center;padding:32px 16px}
+header h1{font-size:34px;margin:0 0 8px}
+header p{margin:0;font-size:17px}
+nav{background:#fff;border-bottom:1px solid #ddd;display:flex;flex-wrap:wrap;justify-content:center;gap:7px;padding:12px}
+nav a{color:#b00000;text-decoration:none;font-weight:bold;padding:7px 9px}
+.container{max-width:1150px;margin:auto;padding:20px}
+.hero,.section,.notice{background:#fff;border-radius:14px;padding:22px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.hero{border-left:6px solid #d60000}
+h2{color:#b00000;border-bottom:2px solid #eee;padding-bottom:8px}
+h3{color:#a00000}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:16px}
+.card strong{color:#b00000}
+table{width:100%;border-collapse:collapse;margin-top:12px;background:#fff}
+th,td{border:1px solid #ddd;padding:10px;text-align:left;vertical-align:top}
+th{background:#ffe7e7}
+.tag{display:inline-block;background:#ffe2e2;color:#a00000;border-radius:20px;padding:5px 10px;margin:3px;font-weight:bold;font-size:13px}
+.progress-wrap{background:#ddd;border-radius:20px;height:22px;overflow:hidden}
+.progress{height:100%;width:0;background:#d60000;transition:.2s}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #eee}
+.check input{width:18px;height:18px;margin-top:4px}
+.hiragana-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(65px,1fr));gap:8px}
+.char{background:#fff0f0;border:1px solid #f0bcbc;border-radius:10px;padding:10px;text-align:center}
+.char .jp{font-size:28px;font-weight:bold}
+.char .romaji{color:#666}
+.tip{background:#fff8e6;border-left:5px solid #e0a000;padding:14px;border-radius:8px}
+.success{background:#eaf8ea;border-left:5px solid #2b8a3e;padding:14px;border-radius:8px}
+.quiz-question{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:15px;margin:12px 0}
+.quiz-question label{display:block;padding:7px;border-radius:7px;cursor:pointer}
+.quiz-question label:hover{background:#ffecec}
+#quizResult{font-weight:bold;font-size:18px;margin-top:15px}
+button{background:#d60000;color:#fff;border:0;border-radius:9px;padding:11px 16px;font-weight:bold;cursor:pointer}
+button:hover{background:#a80000}
+.small{font-size:14px;color:#666}
+footer{text-align:center;background:#222;color:#fff;padding:25px;margin-top:30px}
+@media(max-width:650px){
+header h1{font-size:27px}
+.container{padding:12px}
+.hero,.section,.notice{padding:16px}
+table{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🇯🇵 JLPT N5</h1>
+<p>Guía completa de estudio para comenzar a dominar el nivel básico de japonés</p>
+</header>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="hiragana.html">Hiragana</a>
+<a href="katakana.html">Katakana</a>
+<a href="kanji.html">Kanji</a>
+<a href="vocabulario.html">Vocabulario</a>
+<a href="particulas.html">Partículas</a>
+<a href="frases.html">Frases</a>
+<a href="ejercicios.html">Ejercicios</a>
+<a href="jlpt-n5.html">JLPT N5</a>
+</nav>
+
+<main class="container">
+
+<section class="hero">
+<h2>🎯 ¿Qué es el JLPT N5?</h2>
+<p>El <strong>JLPT (Japanese-Language Proficiency Test)</strong> es un examen que evalúa el dominio del japonés de personas que no tienen el japonés como lengua materna. El N5 es el nivel inicial.</p>
+<p>Esta página está pensada como una <strong>ruta de estudio</strong>: primero domina los alfabetos, después vocabulario y kanji, luego gramática, lectura y finalmente práctica de examen.</p>
+<div class="tip"><strong>Importante:</strong> no existe una lista oficial única que diga exactamente “estos son todos los kanji/vocablos N5”. Por eso esta guía usa contenidos básicos y frecuentes adecuados para el nivel, en lugar de presentar una lista inventada como oficial.</div>
+</section>
+
+<section class="section">
+<h2>📋 ¿Cómo se evalúa el N5?</h2>
+<p>Actualmente el N5 se puntúa en dos grandes secciones: <strong>Conocimiento lingüístico (Vocabulario/Gramática) + Lectura</strong> y <strong>Comprensión auditiva</strong>. Cada resultado se expresa en una escala de 0 a 180 puntos en total: 0–120 para la primera sección y 0–60 para listening.</p>
+<table>
+<tr><th>Sección de puntuación</th><th>Rango</th><th>Mínimo para aprobar</th></tr>
+<tr><td>Conocimiento lingüístico + Lectura</td><td>0–120</td><td>38</td></tr>
+<tr><td>Comprensión auditiva</td><td>0–60</td><td>19</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>0–180</strong></td><td><strong>80</strong></td></tr>
+</table>
+<p class="small">Para aprobar necesitas alcanzar tanto el mínimo total como el mínimo de cada sección. Si no realizas una sección requerida, no se obtiene una calificación válida para aprobar.</p>
+</section>
+
+<section class="section">
+<h2>🗺️ Ruta recomendada</h2>
+<div class="cards">
+<div class="card"><strong>1. Hiragana</strong><p>Aprende los 46 caracteres básicos y después dakuten, handakuten y combinaciones.</p></div>
+<div class="card"><strong>2. Katakana</strong><p>Aprende los 46 básicos y practica palabras extranjeras.</p></div>
+<div class="card"><strong>3. Vocabulario</strong><p>Construye una base de palabras sobre personas, lugares, tiempo, comida y actividades.</p></div>
+<div class="card"><strong>4. Gramática</strong><p>Domina partículas, formas verbales, adjetivos y estructuras básicas.</p></div>
+<div class="card"><strong>5. Kanji</strong><p>Aprende caracteres junto con palabras, no aislados.</p></div>
+<div class="card"><strong>6. Lectura</strong><p>Practica frases y textos cortos sin depender del romaji.</p></div>
+<div class="card"><strong>7. Listening</strong><p>Entrena reconocer palabras y frases a velocidad natural básica.</p></div>
+<div class="card"><strong>8. Simulacros</strong><p>Haz ejercicios con tiempo y revisa tus errores.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🔤 Hiragana básico</h2>
+<p>El hiragana es imprescindible para leer gramática y muchas palabras japonesas.</p>
+<div class="hiragana-grid">
+<div class="char"><div class="jp">あ</div><div class="romaji">a</div></div><div class="char"><div class="jp">い</div><div class="romaji">i</div></div><div class="char"><div class="jp">う</div><div class="romaji">u</div></div><div class="char"><div class="jp">え</div><div class="romaji">e</div></div><div class="char"><div class="jp">お</div><div class="romaji">o</div></div><div class="char"><div class="jp">か</div><div class="romaji">ka</div></div><div class="char"><div class="jp">き</div><div class="romaji">ki</div></div><div class="char"><div class="jp">く</div><div class="romaji">ku</div></div><div class="char"><div class="jp">け</div><div class="romaji">ke</div></div><div class="char"><div class="jp">こ</div><div class="romaji">ko</div></div><div class="char"><div class="jp">さ</div><div class="romaji">sa</div></div><div class="char"><div class="jp">し</div><div class="romaji">shi</div></div><div class="char"><div class="jp">す</div><div class="romaji">su</div></div><div class="char"><div class="jp">せ</div><div class="romaji">se</div></div><div class="char"><div class="jp">そ</div><div class="romaji">so</div></div><div class="char"><div class="jp">た</div><div class="romaji">ta</div></div><div class="char"><div class="jp">ち</div><div class="romaji">chi</div></div><div class="char"><div class="jp">つ</div><div class="romaji">tsu</div></div><div class="char"><div class="jp">て</div><div class="romaji">te</div></div><div class="char"><div class="jp">と</div><div class="romaji">to</div></div><div class="char"><div class="jp">な</div><div class="romaji">na</div></div><div class="char"><div class="jp">に</div><div class="romaji">ni</div></div><div class="char"><div class="jp">ぬ</div><div class="romaji">nu</div></div><div class="char"><div class="jp">ね</div><div class="romaji">ne</div></div><div class="char"><div class="jp">の</div><div class="romaji">no</div></div><div class="char"><div class="jp">は</div><div class="romaji">ha</div></div><div class="char"><div class="jp">ひ</div><div class="romaji">hi</div></div><div class="char"><div class="jp">ふ</div><div class="romaji">fu</div></div><div class="char"><div class="jp">へ</div><div class="romaji">he</div></div><div class="char"><div class="jp">ほ</div><div class="romaji">ho</div></div><div class="char"><div class="jp">ま</div><div class="romaji">ma</div></div><div class="char"><div class="jp">み</div><div class="romaji">mi</div></div><div class="char"><div class="jp">む</div><div class="romaji">mu</div></div><div class="char"><div class="jp">め</div><div class="romaji">me</div></div><div class="char"><div class="jp">も</div><div class="romaji">mo</div></div><div class="char"><div class="jp">や</div><div class="romaji">ya</div></div><div class="char"><div class="jp">ゆ</div><div class="romaji">yu</div></div><div class="char"><div class="jp">よ</div><div class="romaji">yo</div></div><div class="char"><div class="jp">ら</div><div class="romaji">ra</div></div><div class="char"><div class="jp">り</div><div class="romaji">ri</div></div><div class="char"><div class="jp">る</div><div class="romaji">ru</div></div><div class="char"><div class="jp">れ</div><div class="romaji">re</div></div><div class="char"><div class="jp">ろ</div><div class="romaji">ro</div></div><div class="char"><div class="jp">わ</div><div class="romaji">wa</div></div><div class="char"><div class="jp">を</div><div class="romaji">wo</div></div><div class="char"><div class="jp">ん</div><div class="romaji">n</div></div>
+</div>
+<h3>Después de los básicos</h3>
+<div class="cards">
+<div class="card"><strong>゛Dakuten</strong><p>か→が, さ→ざ, た→だ, は→ば.</p></div>
+<div class="card"><strong>゜Handakuten</strong><p>は→ぱ, ひ→ぴ, ふ→ぷ, へ→ぺ, ほ→ぽ.</p></div>
+<div class="card"><strong>Combinaciones</strong><p>きゃ, きゅ, きょ; しゃ, しゅ, しょ; ちゃ, ちゅ, ちょ, etc.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🔤 Katakana básico</h2>
+<p>Katakana aparece especialmente en préstamos, nombres extranjeros, onomatopeyas y ciertos usos enfáticos.</p>
+<div class="hiragana-grid">
+<div class="char"><div class="jp">ア</div><div class="romaji">a</div></div><div class="char"><div class="jp">イ</div><div class="romaji">i</div></div><div class="char"><div class="jp">ウ</div><div class="romaji">u</div></div><div class="char"><div class="jp">エ</div><div class="romaji">e</div></div><div class="char"><div class="jp">オ</div><div class="romaji">o</div></div><div class="char"><div class="jp">カ</div><div class="romaji">ka</div></div><div class="char"><div class="jp">キ</div><div class="romaji">ki</div></div><div class="char"><div class="jp">ク</div><div class="romaji">ku</div></div><div class="char"><div class="jp">ケ</div><div class="romaji">ke</div></div><div class="char"><div class="jp">コ</div><div class="romaji">ko</div></div><div class="char"><div class="jp">サ</div><div class="romaji">sa</div></div><div class="char"><div class="jp">シ</div><div class="romaji">shi</div></div><div class="char"><div class="jp">ス</div><div class="romaji">su</div></div><div class="char"><div class="jp">セ</div><div class="romaji">se</div></div><div class="char"><div class="jp">ソ</div><div class="romaji">so</div></div><div class="char"><div class="jp">タ</div><div class="romaji">ta</div></div><div class="char"><div class="jp">チ</div><div class="romaji">chi</div></div><div class="char"><div class="jp">ツ</div><div class="romaji">tsu</div></div><div class="char"><div class="jp">テ</div><div class="romaji">te</div></div><div class="char"><div class="jp">ト</div><div class="romaji">to</div></div><div class="char"><div class="jp">ナ</div><div class="romaji">na</div></div><div class="char"><div class="jp">ニ</div><div class="romaji">ni</div></div><div class="char"><div class="jp">ヌ</div><div class="romaji">nu</div></div><div class="char"><div class="jp">ネ</div><div class="romaji">ne</div></div><div class="char"><div class="jp">ノ</div><div class="romaji">no</div></div><div class="char"><div class="jp">ハ</div><div class="romaji">ha</div></div><div class="char"><div class="jp">ヒ</div><div class="romaji">hi</div></div><div class="char"><div class="jp">フ</div><div class="romaji">fu</div></div><div class="char"><div class="jp">ヘ</div><div class="romaji">he</div></div><div class="char"><div class="jp">ホ</div><div class="romaji">ho</div></div><div class="char"><div class="jp">マ</div><div class="romaji">ma</div></div><div class="char"><div class="jp">ミ</div><div class="romaji">mi</div></div><div class="char"><div class="jp">ム</div><div class="romaji">mu</div></div><div class="char"><div class="jp">メ</div><div class="romaji">me</div></div><div class="char"><div class="jp">モ</div><div class="romaji">mo</div></div><div class="char"><div class="jp">ヤ</div><div class="romaji">ya</div></div><div class="char"><div class="jp">ユ</div><div class="romaji">yu</div></div><div class="char"><div class="jp">ヨ</div><div class="romaji">yo</div></div><div class="char"><div class="jp">ラ</div><div class="romaji">ra</div></div><div class="char"><div class="jp">リ</div><div class="romaji">ri</div></div><div class="char"><div class="jp">ル</div><div class="romaji">ru</div></div><div class="char"><div class="jp">レ</div><div class="romaji">re</div></div><div class="char"><div class="jp">ロ</div><div class="romaji">ro</div></div><div class="char"><div class="jp">ワ</div><div class="romaji">wa</div></div><div class="char"><div class="jp">ヲ</div><div class="romaji">wo</div></div><div class="char"><div class="jp">ン</div><div class="romaji">n</div></div>
+</div>
+<div class="tip"><strong>Consejo:</strong> practica pares que pueden confundirse, como シ/ツ y ソ/ン.</div>
+</section>
+
+<section class="section">
+<h2>🧩 Partículas esenciales</h2>
+<table>
+<tr><th>Partícula</th><th>Uso principal</th><th>Ejemplo</th><th>Traducción</th></tr>
+<tr><td><strong>は</strong></td><td>Tema</td><td>私は学生です。</td><td>Yo soy estudiante.</td></tr><tr><td><strong>が</strong></td><td>Sujeto/foco</td><td>猫がいます。</td><td>Hay un gato.</td></tr><tr><td><strong>を</strong></td><td>Objeto</td><td>パンを食べます。</td><td>Como pan.</td></tr><tr><td><strong>に</strong></td><td>Destino/tiempo</td><td>七時に起きます。</td><td>Me levanto a las siete.</td></tr><tr><td><strong>で</strong></td><td>Lugar de acción</td><td>学校で勉強します。</td><td>Estudio en la escuela.</td></tr><tr><td><strong>の</strong></td><td>Posesión</td><td>私の本です。</td><td>Es mi libro.</td></tr><tr><td><strong>も</strong></td><td>También</td><td>私も行きます。</td><td>Yo también voy.</td></tr><tr><td><strong>と</strong></td><td>Con / y</td><td>友達と行きます。</td><td>Voy con un amigo.</td></tr><tr><td><strong>へ</strong></td><td>Dirección</td><td>日本へ行きます。</td><td>Voy a Japón.</td></tr><tr><td><strong>から</strong></td><td>Desde / porque</td><td>九時からです。</td><td>Es desde las nueve.</td></tr><tr><td><strong>まで</strong></td><td>Hasta</td><td>五時までです。</td><td>Es hasta las cinco.</td></tr><tr><td><strong>や</strong></td><td>Y cosas como...</td><td>本やノートがあります。</td><td>Hay libros, cuadernos, etc.</td></tr><tr><td><strong>か</strong></td><td>Pregunta / o</td><td>学生ですか。</td><td>¿Eres estudiante?</td></tr><tr><td><strong>ね</strong></td><td>¿Verdad?</td><td>暑いですね。</td><td>Hace calor, ¿verdad?</td></tr><tr><td><strong>よ</strong></td><td>Énfasis</td><td>おいしいですよ。</td><td>Está rico, te digo.</td></tr>
+</table>
+</section>
+
+<section class="section">
+<h2>📚 Gramática esencial N5</h2>
+<p>Estas estructuras forman una base sólida para el nivel inicial. Estúdialas con ejemplos y crea tus propias frases.</p>
+<table>
+<tr><th>Estructura</th><th>Uso</th><th>Ejemplo</th><th>Significado</th><th>Nota</th></tr>
+<tr><td><strong>です / だ</strong></td><td>Ser / estar</td><td>学生です。</td><td>Soy estudiante.</td><td>La forma です es educada; だ es más casual.</td></tr><tr><td><strong>じゃありません</strong></td><td>No ser / no estar</td><td>学生じゃありません。</td><td>No soy estudiante.</td><td>Negación educada de un sustantivo.</td></tr><tr><td><strong>これ・それ・あれ</strong></td><td>Esto / eso / aquello</td><td>これは本です。</td><td>Esto es un libro.</td><td>これ cerca de quien habla; それ cerca del oyente; あれ lejos de ambos.</td></tr><tr><td><strong>この・その・あの</strong></td><td>Este / ese / aquel + sustantivo</td><td>この本は新しいです。</td><td>Este libro es nuevo.</td><td>Siempre acompañan a un sustantivo.</td></tr><tr><td><strong>ここ・そこ・あそこ</strong></td><td>Aquí / ahí / allí</td><td>学校はここです。</td><td>La escuela está aquí.</td><td>Se usan para lugares.</td></tr><tr><td><strong>は</strong></td><td>Tema</td><td>私は学生です。</td><td>Soy estudiante.</td><td>Marca el tema de la oración; como partícula se pronuncia wa.</td></tr><tr><td><strong>が</strong></td><td>Sujeto / foco</td><td>猫がいます。</td><td>Hay un gato.</td><td>También aparece con ciertas expresiones como 好きです.</td></tr><tr><td><strong>を</strong></td><td>Objeto directo</td><td>水を飲みます。</td><td>Bebo agua.</td><td>Como partícula se pronuncia o.</td></tr><tr><td><strong>に</strong></td><td>Destino / tiempo / existencia</td><td>学校に行きます。</td><td>Voy a la escuela.</td><td>También marca horas y ubicación de personas/animales.</td></tr><tr><td><strong>で</strong></td><td>Lugar de acción / medio</td><td>学校で勉強します。</td><td>Estudio en la escuela.</td><td>Marca dónde ocurre una acción.</td></tr><tr><td><strong>の</strong></td><td>Posesión / relación</td><td>私の本です。</td><td>Es mi libro.</td><td>Une sustantivos.</td></tr><tr><td><strong>も</strong></td><td>También</td><td>私も学生です。</td><td>Yo también soy estudiante.</td><td>Sustituye muchas veces a は o が.</td></tr><tr><td><strong>と</strong></td><td>Con / y</td><td>友達と行きます。</td><td>Voy con un amigo.</td><td>También une sustantivos en listas completas.</td></tr><tr><td><strong>へ</strong></td><td>Dirección</td><td>日本へ行きます。</td><td>Voy a Japón.</td><td>Como partícula se pronuncia e.</td></tr><tr><td><strong>から</strong></td><td>Desde</td><td>九時からです。</td><td>Es desde las nueve.</td><td>Marca punto de inicio.</td></tr><tr><td><strong>まで</strong></td><td>Hasta</td><td>五時までです。</td><td>Es hasta las cinco.</td><td>Marca punto final.</td></tr><tr><td><strong>か</strong></td><td>Pregunta</td><td>学生ですか。</td><td>¿Eres estudiante?</td><td>Se coloca al final de preguntas educadas.</td></tr><tr><td><strong>ね</strong></td><td>Confirmación</td><td>いい天気ですね。</td><td>Hace buen tiempo, ¿verdad?</td><td>Busca acuerdo o confirmación.</td></tr><tr><td><strong>よ</strong></td><td>Énfasis / información</td><td>これはおいしいですよ。</td><td>Esto está rico.</td><td>Da información o énfasis.</td></tr><tr><td><strong>あります</strong></td><td>Haber / existir (objetos)</td><td>本があります。</td><td>Hay un libro.</td><td>Para objetos y plantas.</td></tr><tr><td><strong>います</strong></td><td>Haber / existir (seres vivos)</td><td>猫がいます。</td><td>Hay un gato.</td><td>Para personas y animales.</td></tr><tr><td><strong>好きです</strong></td><td>Gustar</td><td>音楽が好きです。</td><td>Me gusta la música.</td><td>En N5 suele usarse con が.</td></tr><tr><td><strong>嫌いです</strong></td><td>No gustar</td><td>魚が嫌いです。</td><td>No me gusta el pescado.</td><td>Expresa desagrado.</td></tr><tr><td><strong>上手です</strong></td><td>Ser bueno en</td><td>日本語が上手です。</td><td>Soy bueno en japonés.</td><td>Describe habilidad.</td></tr><tr><td><strong>下手です</strong></td><td>Ser malo en</td><td>歌が下手です。</td><td>Soy malo cantando.</td><td>Describe poca habilidad.</td></tr><tr><td><strong>ありますか / いますか</strong></td><td>¿Hay? / ¿Está?</td><td>駅がありますか。</td><td>¿Hay una estación?</td><td>Pregunta por existencia.</td></tr><tr><td><strong>ます</strong></td><td>Presente/futuro educado</td><td>食べます。</td><td>Como / comeré.</td><td>Forma educada no pasada.</td></tr><tr><td><strong>ません</strong></td><td>Negativo educado</td><td>食べません。</td><td>No como / no comeré.</td><td>Negación de ます.</td></tr><tr><td><strong>ました</strong></td><td>Pasado educado</td><td>食べました。</td><td>Comí.</td><td>Pasado afirmativo.</td></tr><tr><td><strong>ませんでした</strong></td><td>Pasado negativo</td><td>食べませんでした。</td><td>No comí.</td><td>Pasado negativo.</td></tr><tr><td><strong>て-forma</strong></td><td>Conectar acciones / peticiones</td><td>食べてください。</td><td>Coma, por favor.</td><td>La forma て tiene varios usos básicos.</td></tr><tr><td><strong>～てください</strong></td><td>Petición</td><td>見てください。</td><td>Mire, por favor.</td><td>Verbo en forma て + ください.</td></tr><tr><td><strong>～てもいいです</strong></td><td>Permiso</td><td>入ってもいいです。</td><td>¿Está bien entrar?</td><td>Indica permiso.</td></tr><tr><td><strong>～てはいけません</strong></td><td>Prohibición</td><td>ここで写真を撮ってはいけません。</td><td>No se pueden tomar fotos aquí.</td><td>Indica que algo no está permitido.</td></tr><tr><td><strong>～ましょう</strong></td><td>Hagamos...</td><td>行きましょう。</td><td>Vamos.</td><td>Propuesta educada.</td></tr><tr><td><strong>～ませんか</strong></td><td>¿Quieres...?</td><td>一緒に行きませんか。</td><td>¿Quieres ir conmigo?</td><td>Invitación suave.</td></tr><tr><td><strong>～たいです</strong></td><td>Querer hacer</td><td>日本へ行きたいです。</td><td>Quiero ir a Japón.</td><td>Raíz de ます + たい.</td></tr><tr><td><strong>～たり～たりします</strong></td><td>Hacer cosas como...</td><td>本を読んだり、音楽を聞いたりします。</td><td>Hago cosas como leer y escuchar música.</td><td>Enumera ejemplos de acciones.</td></tr><tr><td><strong>～ないでください</strong></td><td>Por favor no...</td><td>忘れないでください。</td><td>Por favor, no lo olvides.</td><td>Petición negativa.</td></tr><tr><td><strong>～ています</strong></td><td>Estar haciendo</td><td>勉強しています。</td><td>Estoy estudiando.</td><td>Acción en progreso; también tiene otros usos.</td></tr><tr><td><strong>～ことができます</strong></td><td>Poder hacer</td><td>日本語を話すことができます。</td><td>Puedo hablar japonés.</td><td>Expresa capacidad.</td></tr><tr><td><strong>～のが好きです</strong></td><td>Gustar hacer</td><td>本を読むのが好きです。</td><td>Me gusta leer libros.</td><td>Convierte una acción en tema de gusto.</td></tr><tr><td><strong>～から</strong></td><td>Porque / desde</td><td>暑いから、窓を開けます。</td><td>Como hace calor, abro la ventana.</td><td>Aquí から expresa razón.</td></tr><tr><td><strong>～と思います</strong></td><td>Creo que...</td><td>いいと思います。</td><td>Creo que está bien.</td><td>Expresa una opinión sencilla.</td></tr><tr><td><strong>より</strong></td><td>Más que</td><td>電車はバスより速いです。</td><td>El tren es más rápido que el autobús.</td><td>Comparación.</td></tr><tr><td><strong>一番</strong></td><td>El más / el que más</td><td>これが一番好きです。</td><td>Esto es lo que más me gusta.</td><td>Superlativo dentro de un grupo.</td></tr><tr><td><strong>ほうがいいです</strong></td><td>Es mejor...</td><td>早く寝たほうがいいです。</td><td>Es mejor dormir temprano.</td><td>Consejo.</td></tr><tr><td><strong>もう</strong></td><td>Ya</td><td>もう食べました。</td><td>Ya comí.</td><td>Indica que algo ocurrió.</td></tr><tr><td><strong>まだ</strong></td><td>Todavía / aún</td><td>まだです。</td><td>Todavía no.</td><td>Indica que algo no ha ocurrido o no ha terminado.</td></tr>
+</table>
+</section>
+
+<section class="section">
+<h2>🈶 Kanji para estudiar</h2>
+<p>Aprende el significado, las lecturas y sobre todo las palabras donde aparece cada kanji.</p>
+<table>
+<tr><th>Kanji</th><th>Lecturas comunes</th><th>Idea básica</th><th>Ejemplo</th><th>Significado</th></tr>
+<tr><td><strong>日</strong></td><td>ひ / にち / じつ</td><td>día, sol</td><td>日本（にほん）</td><td>Japón</td></tr><tr><td><strong>月</strong></td><td>つき / げつ / がつ</td><td>mes, luna</td><td>月曜日（げつようび）</td><td>lunes</td></tr><tr><td><strong>火</strong></td><td>ひ / か</td><td>fuego</td><td>火曜日（かようび）</td><td>martes</td></tr><tr><td><strong>水</strong></td><td>みず / すい</td><td>agua</td><td>水曜日（すいようび）</td><td>miércoles</td></tr><tr><td><strong>木</strong></td><td>き / もく</td><td>árbol, madera</td><td>木曜日（もくようび）</td><td>jueves</td></tr><tr><td><strong>金</strong></td><td>かね / きん</td><td>dinero, oro</td><td>金曜日（きんようび）</td><td>viernes</td></tr><tr><td><strong>土</strong></td><td>つち / ど</td><td>tierra</td><td>土曜日（どようび）</td><td>sábado</td></tr><tr><td><strong>山</strong></td><td>やま / さん</td><td>montaña</td><td>山（やま）</td><td>montaña</td></tr><tr><td><strong>川</strong></td><td>かわ / せん</td><td>río</td><td>川（かわ）</td><td>río</td></tr><tr><td><strong>田</strong></td><td>た / でん</td><td>campo de arroz</td><td>田中（たなか）</td><td>Tanaka</td></tr><tr><td><strong>人</strong></td><td>ひと / じん / にん</td><td>persona</td><td>日本人（にほんじん）</td><td>japonés</td></tr><tr><td><strong>男</strong></td><td>おとこ / だん</td><td>hombre</td><td>男の人（おとこのひと）</td><td>hombre</td></tr><tr><td><strong>女</strong></td><td>おんな / じょ</td><td>mujer</td><td>女の人（おんなのひと）</td><td>mujer</td></tr><tr><td><strong>子</strong></td><td>こ / し</td><td>niño</td><td>子ども（こども）</td><td>niño</td></tr><tr><td><strong>目</strong></td><td>め / もく</td><td>ojo</td><td>目（め）</td><td>ojo</td></tr><tr><td><strong>耳</strong></td><td>みみ / じ</td><td>oreja</td><td>耳（みみ）</td><td>oreja</td></tr><tr><td><strong>口</strong></td><td>くち / こう</td><td>boca</td><td>入口（いりぐち）</td><td>entrada</td></tr><tr><td><strong>手</strong></td><td>て / しゅ</td><td>mano</td><td>手（て）</td><td>mano</td></tr><tr><td><strong>足</strong></td><td>あし / そく</td><td>pie, pierna</td><td>足（あし）</td><td>pie/pierna</td></tr><tr><td><strong>力</strong></td><td>ちから / りょく</td><td>fuerza</td><td>力（ちから）</td><td>fuerza</td></tr><tr><td><strong>学</strong></td><td>まな / がく</td><td>estudio</td><td>学生（がくせい）</td><td>estudiante</td></tr><tr><td><strong>校</strong></td><td>こう</td><td>escuela</td><td>学校（がっこう）</td><td>escuela</td></tr><tr><td><strong>先</strong></td><td>さき / せん</td><td>antes</td><td>先生（せんせい）</td><td>profesor</td></tr><tr><td><strong>生</strong></td><td>い / せい</td><td>vida, nacer</td><td>学生（がくせい）</td><td>estudiante</td></tr><tr><td><strong>本</strong></td><td>ほん / もと</td><td>libro, origen</td><td>本（ほん）</td><td>libro</td></tr><tr><td><strong>名</strong></td><td>な / めい</td><td>nombre</td><td>名前（なまえ）</td><td>nombre</td></tr><tr><td><strong>年</strong></td><td>とし / ねん</td><td>año</td><td>今年（ことし）</td><td>este año</td></tr><tr><td><strong>時</strong></td><td>とき / じ</td><td>hora, tiempo</td><td>時間（じかん）</td><td>tiempo</td></tr><tr><td><strong>分</strong></td><td>わ / ふん</td><td>minuto, parte</td><td>五分（ごふん）</td><td>cinco minutos</td></tr><tr><td><strong>半</strong></td><td>はん</td><td>mitad</td><td>半分（はんぶん）</td><td>mitad</td></tr><tr><td><strong>上</strong></td><td>うえ / じょう</td><td>arriba</td><td>上（うえ）</td><td>arriba</td></tr><tr><td><strong>下</strong></td><td>した / か</td><td>abajo</td><td>下（した）</td><td>abajo</td></tr><tr><td><strong>中</strong></td><td>なか / ちゅう</td><td>dentro, medio</td><td>中（なか）</td><td>dentro</td></tr><tr><td><strong>外</strong></td><td>そと / がい</td><td>fuera</td><td>外（そと）</td><td>fuera</td></tr><tr><td><strong>前</strong></td><td>まえ / ぜん</td><td>delante, antes</td><td>前（まえ）</td><td>delante</td></tr><tr><td><strong>後</strong></td><td>あと / うしろ / ご</td><td>después, detrás</td><td>後ろ（うしろ）</td><td>detrás</td></tr><tr><td><strong>左</strong></td><td>ひだり / さ</td><td>izquierda</td><td>左（ひだり）</td><td>izquierda</td></tr><tr><td><strong>右</strong></td><td>みぎ / う</td><td>derecha</td><td>右（みぎ）</td><td>derecha</td></tr><tr><td><strong>東</strong></td><td>ひがし / とう</td><td>este</td><td>東京（とうきょう）</td><td>Tokio</td></tr><tr><td><strong>西</strong></td><td>にし / せい</td><td>oeste</td><td>西（にし）</td><td>oeste</td></tr><tr><td><strong>南</strong></td><td>みなみ / なん</td><td>sur</td><td>南（みなみ）</td><td>sur</td></tr><tr><td><strong>北</strong></td><td>きた / ほく</td><td>norte</td><td>北（きた）</td><td>norte</td></tr><tr><td><strong>大</strong></td><td>おお / だい</td><td>grande</td><td>大学（だいがく）</td><td>universidad</td></tr><tr><td><strong>小</strong></td><td>ちい / しょう</td><td>pequeño</td><td>小さい（ちいさい）</td><td>pequeño</td></tr><tr><td><strong>高</strong></td><td>たか / こう</td><td>alto, caro</td><td>高い（たかい）</td><td>caro/alto</td></tr><tr><td><strong>安</strong></td><td>やす / あん</td><td>barato, tranquilo</td><td>安い（やすい）</td><td>barato</td></tr><tr><td><strong>新</strong></td><td>あたら / しん</td><td>nuevo</td><td>新しい（あたらしい）</td><td>nuevo</td></tr><tr><td><strong>古</strong></td><td>ふる / こ</td><td>viejo</td><td>古い（ふるい）</td><td>viejo</td></tr><tr><td><strong>長</strong></td><td>なが / ちょう</td><td>largo</td><td>長い（ながい）</td><td>largo</td></tr><tr><td><strong>短</strong></td><td>みじか / たん</td><td>corto</td><td>短い（みじかい）</td><td>corto</td></tr><tr><td><strong>多</strong></td><td>おお / た</td><td>mucho</td><td>多い（おおい）</td><td>mucho</td></tr><tr><td><strong>少</strong></td><td>すく / しょう</td><td>poco</td><td>少ない（すくない）</td><td>poco</td></tr><tr><td><strong>白</strong></td><td>しろ / はく</td><td>blanco</td><td>白い（しろい）</td><td>blanco</td></tr><tr><td><strong>黒</strong></td><td>くろ / こく</td><td>negro</td><td>黒い（くろい）</td><td>negro</td></tr><tr><td><strong>赤</strong></td><td>あか / せき</td><td>rojo</td><td>赤い（あかい）</td><td>rojo</td></tr><tr><td><strong>青</strong></td><td>あお / せい</td><td>azul</td><td>青い（あおい）</td><td>azul</td></tr><tr><td><strong>円</strong></td><td>えん</td><td>yen, círculo</td><td>百円（ひゃくえん）</td><td>100 yenes</td></tr><tr><td><strong>百</strong></td><td>ひゃく</td><td>cien</td><td>百円（ひゃくえん）</td><td>100 yenes</td></tr><tr><td><strong>千</strong></td><td>せん</td><td>mil</td><td>千円（せんえん）</td><td>1000 yenes</td></tr><tr><td><strong>万</strong></td><td>まん</td><td>diez mil</td><td>一万円（いちまんえん）</td><td>10000 yenes</td></tr><tr><td><strong>一</strong></td><td>いち / ひと</td><td>uno</td><td>一人（ひとり）</td><td>una persona</td></tr><tr><td><strong>二</strong></td><td>に / ふた</td><td>dos</td><td>二人（ふたり）</td><td>dos personas</td></tr><tr><td><strong>三</strong></td><td>さん / みっ</td><td>tres</td><td>三人（さんにん）</td><td>tres personas</td></tr><tr><td><strong>四</strong></td><td>よん / し / よっ</td><td>cuatro</td><td>四人（よにん）</td><td>cuatro personas</td></tr><tr><td><strong>五</strong></td><td>ご / いつ</td><td>cinco</td><td>五人（ごにん）</td><td>cinco personas</td></tr><tr><td><strong>六</strong></td><td>ろく / むっ</td><td>seis</td><td>六人（ろくにん）</td><td>seis personas</td></tr><tr><td><strong>七</strong></td><td>なな / しち</td><td>siete</td><td>七人（しちにん）</td><td>siete personas</td></tr><tr><td><strong>八</strong></td><td>はち / やっ</td><td>ocho</td><td>八人（はちにん）</td><td>ocho personas</td></tr><tr><td><strong>九</strong></td><td>きゅう / く</td><td>nueve</td><td>九人（きゅうにん）</td><td>nueve personas</td></tr><tr><td><strong>十</strong></td><td>じゅう / とお</td><td>diez</td><td>十人（じゅうにん）</td><td>diez personas</td></tr>
+</table>
+</section>
+
+<section class="section">
+<h2>🗂️ Vocabulario base</h2>
+<p>Esta selección reúne palabras frecuentes para construir una base N5. Tu página de vocabulario contiene una lista más amplia.</p>
+<table>
+<tr><th>Japonés</th><th>Lectura</th><th>Romaji</th><th>Español</th></tr>
+<tr><td><strong>私</strong></td><td>わたし</td><td>watashi</td><td>yo</td></tr><tr><td><strong>あなた</strong></td><td>あなた</td><td>anata</td><td>tú</td></tr><tr><td><strong>人</strong></td><td>ひと</td><td>hito</td><td>persona</td></tr><tr><td><strong>友達</strong></td><td>ともだち</td><td>tomodachi</td><td>amigo</td></tr><tr><td><strong>先生</strong></td><td>せんせい</td><td>sensei</td><td>profesor</td></tr><tr><td><strong>学生</strong></td><td>がくせい</td><td>gakusei</td><td>estudiante</td></tr><tr><td><strong>学校</strong></td><td>がっこう</td><td>gakkou</td><td>escuela</td></tr><tr><td><strong>大学</strong></td><td>だいがく</td><td>daigaku</td><td>universidad</td></tr><tr><td><strong>会社</strong></td><td>かいしゃ</td><td>kaisha</td><td>empresa</td></tr><tr><td><strong>会社員</strong></td><td>かいしゃいん</td><td>kaishain</td><td>empleado de empresa</td></tr><tr><td><strong>家</strong></td><td>いえ</td><td>ie</td><td>casa</td></tr><tr><td><strong>部屋</strong></td><td>へや</td><td>heya</td><td>habitación</td></tr><tr><td><strong>駅</strong></td><td>えき</td><td>eki</td><td>estación</td></tr><tr><td><strong>電車</strong></td><td>でんしゃ</td><td>densha</td><td>tren</td></tr><tr><td><strong>バス</strong></td><td>バス</td><td>basu</td><td>autobús</td></tr><tr><td><strong>車</strong></td><td>くるま</td><td>kuruma</td><td>auto</td></tr><tr><td><strong>自転車</strong></td><td>じてんしゃ</td><td>jitensha</td><td>bicicleta</td></tr><tr><td><strong>空港</strong></td><td>くうこう</td><td>kuukou</td><td>aeropuerto</td></tr><tr><td><strong>日本</strong></td><td>にほん</td><td>nihon</td><td>Japón</td></tr><tr><td><strong>国</strong></td><td>くに</td><td>kuni</td><td>país</td></tr><tr><td><strong>名前</strong></td><td>なまえ</td><td>namae</td><td>nombre</td></tr><tr><td><strong>電話</strong></td><td>でんわ</td><td>denwa</td><td>teléfono</td></tr><tr><td><strong>本</strong></td><td>ほん</td><td>hon</td><td>libro</td></tr><tr><td><strong>新聞</strong></td><td>しんぶん</td><td>shinbun</td><td>periódico</td></tr><tr><td><strong>辞書</strong></td><td>じしょ</td><td>jisho</td><td>diccionario</td></tr><tr><td><strong>ノート</strong></td><td>ノート</td><td>nooto</td><td>cuaderno</td></tr><tr><td><strong>ペン</strong></td><td>ペン</td><td>pen</td><td>bolígrafo</td></tr><tr><td><strong>机</strong></td><td>つくえ</td><td>tsukue</td><td>escritorio</td></tr><tr><td><strong>椅子</strong></td><td>いす</td><td>isu</td><td>silla</td></tr><tr><td><strong>時計</strong></td><td>とけい</td><td>tokei</td><td>reloj</td></tr><tr><td><strong>今日</strong></td><td>きょう</td><td>kyou</td><td>hoy</td></tr><tr><td><strong>明日</strong></td><td>あした</td><td>ashita</td><td>mañana</td></tr><tr><td><strong>昨日</strong></td><td>きのう</td><td>kinou</td><td>ayer</td></tr><tr><td><strong>朝</strong></td><td>あさ</td><td>asa</td><td>mañana</td></tr><tr><td><strong>昼</strong></td><td>ひる</td><td>hiru</td><td>mediodía</td></tr><tr><td><strong>夜</strong></td><td>よる</td><td>yoru</td><td>noche</td></tr><tr><td><strong>今</strong></td><td>いま</td><td>ima</td><td>ahora</td></tr><tr><td><strong>時間</strong></td><td>じかん</td><td>jikan</td><td>tiempo/hora</td></tr><tr><td><strong>毎日</strong></td><td>まいにち</td><td>mainichi</td><td>cada día</td></tr><tr><td><strong>週末</strong></td><td>しゅうまつ</td><td>shuumatsu</td><td>fin de semana</td></tr><tr><td><strong>食べ物</strong></td><td>たべもの</td><td>tabemono</td><td>comida</td></tr><tr><td><strong>ご飯</strong></td><td>ごはん</td><td>gohan</td><td>comida/arroz</td></tr><tr><td><strong>水</strong></td><td>みず</td><td>mizu</td><td>agua</td></tr><tr><td><strong>お茶</strong></td><td>おちゃ</td><td>ocha</td><td>té</td></tr><tr><td><strong>牛乳</strong></td><td>ぎゅうにゅう</td><td>gyuunyuu</td><td>leche</td></tr><tr><td><strong>パン</strong></td><td>パン</td><td>pan</td><td>pan</td></tr><tr><td><strong>肉</strong></td><td>にく</td><td>niku</td><td>carne</td></tr><tr><td><strong>魚</strong></td><td>さかな</td><td>sakana</td><td>pescado</td></tr><tr><td><strong>野菜</strong></td><td>やさい</td><td>yasai</td><td>verduras</td></tr><tr><td><strong>果物</strong></td><td>くだもの</td><td>kudamono</td><td>fruta</td></tr><tr><td><strong>りんご</strong></td><td>りんご</td><td>ringo</td><td>manzana</td></tr><tr><td><strong>猫</strong></td><td>ねこ</td><td>neko</td><td>gato</td></tr><tr><td><strong>犬</strong></td><td>いぬ</td><td>inu</td><td>perro</td></tr><tr><td><strong>鳥</strong></td><td>とり</td><td>tori</td><td>pájaro</td></tr><tr><td><strong>天気</strong></td><td>てんき</td><td>tenki</td><td>clima</td></tr><tr><td><strong>雨</strong></td><td>あめ</td><td>ame</td><td>lluvia</td></tr><tr><td><strong>雪</strong></td><td>ゆき</td><td>yuki</td><td>nieve</td></tr><tr><td><strong>風</strong></td><td>かぜ</td><td>kaze</td><td>viento</td></tr><tr><td><strong>山</strong></td><td>やま</td><td>yama</td><td>montaña</td></tr><tr><td><strong>川</strong></td><td>かわ</td><td>kawa</td><td>río</td></tr><tr><td><strong>海</strong></td><td>うみ</td><td>umi</td><td>mar</td></tr><tr><td><strong>公園</strong></td><td>こうえん</td><td>kouen</td><td>parque</td></tr><tr><td><strong>店</strong></td><td>みせ</td><td>mise</td><td>tienda</td></tr><tr><td><strong>お金</strong></td><td>おかね</td><td>okane</td><td>dinero</td></tr><tr><td><strong>色</strong></td><td>いろ</td><td>iro</td><td>color</td></tr><tr><td><strong>赤</strong></td><td>あか</td><td>aka</td><td>rojo</td></tr><tr><td><strong>青</strong></td><td>あお</td><td>ao</td><td>azul</td></tr><tr><td><strong>白</strong></td><td>しろ</td><td>shiro</td><td>blanco</td></tr><tr><td><strong>黒</strong></td><td>くろ</td><td>kuro</td><td>negro</td></tr><tr><td><strong>行きます</strong></td><td>いきます</td><td>ikimasu</td><td>ir</td></tr><tr><td><strong>来ます</strong></td><td>きます</td><td>kimasu</td><td>venir</td></tr><tr><td><strong>帰ります</strong></td><td>かえります</td><td>kaerimasu</td><td>volver</td></tr><tr><td><strong>食べます</strong></td><td>たべます</td><td>tabemasu</td><td>comer</td></tr><tr><td><strong>飲みます</strong></td><td>のみます</td><td>nomimasu</td><td>beber</td></tr><tr><td><strong>見ます</strong></td><td>みます</td><td>mimasu</td><td>ver</td></tr><tr><td><strong>聞きます</strong></td><td>ききます</td><td>kikimasu</td><td>escuchar/preguntar</td></tr><tr><td><strong>読みます</strong></td><td>よみます</td><td>yomimasu</td><td>leer</td></tr><tr><td><strong>書きます</strong></td><td>かきます</td><td>kakimasu</td><td>escribir</td></tr><tr><td><strong>話します</strong></td><td>はなします</td><td>hanashimasu</td><td>hablar</td></tr><tr><td><strong>買います</strong></td><td>かいます</td><td>kaimasu</td><td>comprar</td></tr><tr><td><strong>使います</strong></td><td>つかいます</td><td>tsukaimasu</td><td>usar</td></tr><tr><td><strong>します</strong></td><td>します</td><td>shimasu</td><td>hacer</td></tr><tr><td><strong>勉強します</strong></td><td>べんきょうします</td><td>benkyou shimasu</td><td>estudiar</td></tr><tr><td><strong>働きます</strong></td><td>はたらきます</td><td>hatarakimasu</td><td>trabajar</td></tr><tr><td><strong>休みます</strong></td><td>やすみます</td><td>yasumimasu</td><td>descansar</td></tr><tr><td><strong>寝ます</strong></td><td>ねます</td><td>nemasu</td><td>dormir</td></tr><tr><td><strong>起きます</strong></td><td>おきます</td><td>okimasu</td><td>levantarse</td></tr><tr><td><strong>あります</strong></td><td>あります</td><td>arimasu</td><td>haber/existir</td></tr><tr><td><strong>います</strong></td><td>います</td><td>imasu</td><td>haber/existir (seres vivos)</td></tr><tr><td><strong>大きい</strong></td><td>おおきい</td><td>ookii</td><td>grande</td></tr><tr><td><strong>小さい</strong></td><td>ちいさい</td><td>chiisai</td><td>pequeño</td></tr><tr><td><strong>新しい</strong></td><td>あたらしい</td><td>atarashii</td><td>nuevo</td></tr><tr><td><strong>古い</strong></td><td>ふるい</td><td>furui</td><td>viejo</td></tr><tr><td><strong>高い</strong></td><td>たかい</td><td>takai</td><td>alto/caro</td></tr><tr><td><strong>安い</strong></td><td>やすい</td><td>yasui</td><td>barato</td></tr><tr><td><strong>暑い</strong></td><td>あつい</td><td>atsui</td><td>caluroso</td></tr><tr><td><strong>寒い</strong></td><td>さむい</td><td>samui</td><td>frío</td></tr><tr><td><strong>暑い</strong></td><td>あつい</td><td>atsui</td><td>caliente (clima)</td></tr><tr><td><strong>おいしい</strong></td><td>おいしい</td><td>oishii</td><td>delicioso</td></tr><tr><td><strong>難しい</strong></td><td>むずかしい</td><td>muzukashii</td><td>difícil</td></tr><tr><td><strong>易しい</strong></td><td>やさしい</td><td>yasashii</td><td>fácil</td></tr><tr><td><strong>早い</strong></td><td>はやい</td><td>hayai</td><td>temprano/rápido</td></tr><tr><td><strong>遅い</strong></td><td>おそい</td><td>osoi</td><td>tarde/lento</td></tr><tr><td><strong>好き</strong></td><td>すき</td><td>suki</td><td>gustar</td></tr><tr><td><strong>嫌い</strong></td><td>きらい</td><td>kirai</td><td>no gustar</td></tr><tr><td><strong>元気</strong></td><td>げんき</td><td>genki</td><td>bien/saludable</td></tr><tr><td><strong>忙しい</strong></td><td>いそがしい</td><td>isogashii</td><td>ocupado</td></tr><tr><td><strong>静か</strong></td><td>しずか</td><td>shizuka</td><td>tranquilo</td></tr><tr><td><strong>きれい</strong></td><td>きれい</td><td>kirei</td><td>bonito/limpio</td></tr><tr><td><strong>有名</strong></td><td>ゆうめい</td><td>yuumei</td><td>famoso</td></tr><tr><td><strong>便利</strong></td><td>べんり</td><td>benri</td><td>conveniente</td></tr><tr><td><strong>一</strong></td><td>いち</td><td>ichi</td><td>uno</td></tr><tr><td><strong>二</strong></td><td>に</td><td>ni</td><td>dos</td></tr><tr><td><strong>三</strong></td><td>さん</td><td>san</td><td>tres</td></tr><tr><td><strong>四</strong></td><td>よん</td><td>yon</td><td>cuatro</td></tr><tr><td><strong>五</strong></td><td>ご</td><td>go</td><td>cinco</td></tr><tr><td><strong>六</strong></td><td>ろく</td><td>roku</td><td>seis</td></tr><tr><td><strong>七</strong></td><td>なな</td><td>nana</td><td>siete</td></tr><tr><td><strong>八</strong></td><td>はち</td><td>hachi</td><td>ocho</td></tr><tr><td><strong>九</strong></td><td>きゅう</td><td>kyuu</td><td>nueve</td></tr><tr><td><strong>十</strong></td><td>じゅう</td><td>juu</td><td>diez</td></tr><tr><td><strong>百</strong></td><td>ひゃく</td><td>hyaku</td><td>cien</td></tr><tr><td><strong>千</strong></td><td>せん</td><td>sen</td><td>mil</td></tr><tr><td><strong>万</strong></td><td>まん</td><td>man</td><td>diez mil</td></tr>
+</table>
+</section>
+
+<section class="section">
+<h2>🗣️ Frases que debes poder entender</h2>
+<div class="cards">
+<div class="card"><strong>これは何ですか。</strong><br>Kore wa nan desu ka.<br>¿Qué es esto?</div>
+<div class="card"><strong>どこへ行きますか。</strong><br>Doko e ikimasu ka.<br>¿A dónde vas?</div>
+<div class="card"><strong>何時に起きますか。</strong><br>Nanji ni okimasu ka.<br>¿A qué hora te levantas?</div>
+<div class="card"><strong>日本語がわかりますか。</strong><br>Nihongo ga wakarimasu ka.<br>¿Entiendes japonés?</div>
+<div class="card"><strong>何を食べましたか。</strong><br>Nani o tabemashita ka.<br>¿Qué comiste?</div>
+<div class="card"><strong>一緒に行きませんか。</strong><br>Issho ni ikimasen ka.<br>¿Quieres ir conmigo?</div>
+<div class="card"><strong>ここで写真を撮ってもいいですか。</strong><br>Koko de shashin o totte mo ii desu ka.<br>¿Puedo tomar fotos aquí?</div>
+<div class="card"><strong>もう一度お願いします。</strong><br>Mou ichido onegaishimasu.<br>Otra vez, por favor.</div>
+</div>
+</section>
+
+<section class="section">
+<h2>📖 Lectura: qué practicar</h2>
+<div class="cards">
+<div class="card"><strong>Oraciones cortas</strong><p>Identifica sujeto, objeto, verbo y partículas.</p></div>
+<div class="card"><strong>Horarios</strong><p>Practica horas, días, fechas y rutinas.</p></div>
+<div class="card"><strong>Carteles y avisos</strong><p>Aprende a reconocer palabras frecuentes en lugares públicos.</p></div>
+<div class="card"><strong>Diálogos</strong><p>Busca quién habla, qué quiere y dónde ocurre la situación.</p></div>
+<div class="card"><strong>Información concreta</strong><p>Entrena localizar nombres, números, lugares y horarios rápidamente.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🎧 Listening: cómo entrenarlo</h2>
+<ol>
+<li>Primero reconoce palabras aisladas: números, horas, lugares y acciones.</li>
+<li>Después escucha frases cortas y busca la información importante.</li>
+<li>Practica identificar quién, dónde, cuándo, qué y por qué.</li>
+<li>No intentes traducir absolutamente cada palabra mientras escuchas.</li>
+<li>Repite audios cortos varias veces y comprueba qué palabras no reconociste.</li>
+<li>Cuando mejores, practica sin mirar la transcripción.</li>
+</ol>
+<div class="tip"><strong>Truco:</strong> en listening, reconocer la información clave suele ser más útil que intentar traducir mentalmente toda la oración palabra por palabra.</div>
+</section>
+
+<section class="section">
+<h2>⏱️ Plan de estudio de 8 semanas</h2>
+<table>
+<tr><th>Semana</th><th>Enfoque</th><th>Objetivo</th></tr>
+<tr><td>1</td><td>Hiragana</td><td>Reconocer y escribir los 46 básicos.</td></tr>
+<tr><td>2</td><td>Katakana</td><td>Reconocer los 46 básicos y practicar palabras.</td></tr>
+<tr><td>3</td><td>Vocabulario + partículas</td><td>Construir frases sencillas.</td></tr>
+<tr><td>4</td><td>Verbos y adjetivos</td><td>Presente, negativo y pasado básicos.</td></tr>
+<tr><td>5</td><td>Kanji</td><td>Estudiar caracteres junto con palabras.</td></tr>
+<tr><td>6</td><td>Lectura</td><td>Leer textos y diálogos cortos.</td></tr>
+<tr><td>7</td><td>Listening</td><td>Practicar información clave y conversaciones.</td></tr>
+<tr><td>8</td><td>Repaso + simulacros</td><td>Detectar puntos débiles y corregir errores.</td></tr>
+</table>
+</section>
+
+<section class="section">
+<h2>✅ Mi progreso N5</h2>
+<p>Marca lo que ya dominas. El progreso se guarda en este navegador.</p>
+<div class="progress-wrap"><div class="progress" id="progress"></div></div>
+<p id="progressText">0 / 20 completados</p>
+<div id="checklist"></div>
+<button onclick="resetChecklist()">Reiniciar progreso</button>
+</section>
+
+<section class="section">
+<h2>📝 Mini test N5</h2>
+<p>15 preguntas de práctica. No es un examen oficial.</p>
+<form id="quizForm"></form>
+<button onclick="gradeQuiz()">Ver resultado</button>
+<div id="quizResult"></div>
+</section>
+
+<section class="section">
+<h2>🏁 ¿Cuándo estás preparado para practicar en serio?</h2>
+<div class="success">
+<p>Una buena señal es que puedes leer hiragana y katakana sin depender constantemente del romaji, entiendes las partículas básicas, reconoces vocabulario cotidiano y puedes seguir frases sencillas de lectura y escucha.</p>
+<p><strong>No necesitas memorizar una lista mágica.</strong> Lo importante es poder usar y reconocer el japonés en contexto.</p>
+</div>
+</section>
+
+<section class="section">
+<h2>📌 Reglas de oro para estudiar N5</h2>
+<div class="cards">
+<div class="card"><strong>1. No dependas del romaji.</strong><p>Úsalo como apoyo al principio y ve retirándolo.</p></div>
+<div class="card"><strong>2. Aprende palabras completas.</strong><p>Por ejemplo, aprende 学校 como palabra además de estudiar 学 y 校.</p></div>
+<div class="card"><strong>3. Crea frases.</strong><p>Una palabra que puedes usar vale más que una palabra que solo reconoces.</p></div>
+<div class="card"><strong>4. Repasa.</strong><p>La repetición espaciada ayuda a conservar lo aprendido.</p></div>
+<div class="card"><strong>5. Practica listening.</strong><p>No lo dejes para el final.</p></div>
+<div class="card"><strong>6. Revisa errores.</strong><p>Un error corregido puede enseñarte más que una respuesta acertada.</p></div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p><strong>Japanese Fácil 🇯🇵</strong></p>
+<p>Guía de japonés para estudiantes.</p>
+</footer>
+
+<script>
+const checklistItems = ["Reconozco las 46 hiragana básicas.", "Reconozco las 46 katakana básicas.", "Leo palabras sencillas sin depender siempre del romaji.", "Conozco は, が, を, に, で, の, も, と, へ, から y まで.", "Puedo presentarme en japonés.", "Puedo hablar de mi familia.", "Puedo decir la hora y días básicos.", "Puedo hablar de actividades diarias.", "Puedo pedir algo en una tienda o restaurante.", "Puedo preguntar dónde está un lugar.", "Conozco las formas ます, ません, ました y ませんでした.", "Conozco てください, てもいいです y てはいけません.", "Conozco たいです y ましょう.", "Conozco あります e います.", "Conozco comparaciones básicas con より y 一番.", "He estudiado al menos 100 palabras frecuentes.", "He estudiado al menos 50 kanji básicos.", "Puedo leer textos cortos sobre temas cotidianos.", "Puedo entender instrucciones sencillas.", "Practico escuchar japonés regularmente."];
+
+const quiz = [["「学校」 significa...?", ["escuela", "estación", "empresa", "hospital"], 0], ["¿Qué partícula marca normalmente el objeto directo?", ["は", "を", "に", "で"], 1], ["「水を飲みます」 significa...", ["Como agua", "Bebo agua", "Compro agua", "Veo agua"], 1], ["¿Cómo se dice 'mañana'?", ["昨日", "今日", "明日", "今"], 2], ["「猫がいます」 significa...", ["Hay un gato", "Tengo un libro", "Voy al gato", "El gato come"], 0], ["¿Qué significa 先生?", ["estudiante", "profesor", "amigo", "padre"], 1], ["「日本へ行きます」 significa...", ["Vengo de Japón", "Voy a Japón", "Vivo en Japón", "Estudio Japón"], 1], ["¿Cuál es la negación educada de 食べます?", ["食べました", "食べません", "食べたいです", "食べてください"], 1], ["¿Qué kanji significa 'agua'?", ["火", "木", "水", "金"], 2], ["「ありがとうございます」 significa...", ["Buenos días", "Perdón", "Muchas gracias", "Hasta mañana"], 2], ["¿Qué partícula se usa para el lugar donde ocurre una acción?", ["で", "の", "を", "へ"], 0], ["「学生です」 significa...", ["Soy estudiante", "No soy estudiante", "Fui estudiante", "Quiero estudiar"], 0], ["¿Cómo se dice 'hoy'?", ["昨日", "今日", "明日", "毎日"], 1], ["¿Qué significa 高い?", ["barato/bajo", "nuevo", "caro/alto", "pequeño"], 2], ["「もう一度お願いします」 significa...", ["Una vez más, por favor", "Hasta mañana", "No entiendo", "Qué caro"], 0]];
+
+function loadChecklist(){
+  const box = document.getElementById("checklist");
+  const saved = JSON.parse(localStorage.getItem("n5Progress") || "[]");
+  box.innerHTML = checklistItems.map((item,i)=>`
+    <label class="check">
+      <input type="checkbox" data-i="${i}" ${saved.includes(i) ? "checked" : ""}>
+      <span>${item}</span>
+    </label>
+  `).join("");
+  box.querySelectorAll("input").forEach(input=>{
+    input.addEventListener("change",saveChecklist);
+  });
+  updateProgress();
+}
+function saveChecklist(){
+  const checked=[...document.querySelectorAll("#checklist input:checked")].map(x=>Number(x.dataset.i));
+  localStorage.setItem("n5Progress",JSON.stringify(checked));
+  updateProgress();
+}
+function updateProgress(){
+  const total=checklistItems.length;
+  const done=document.querySelectorAll("#checklist input:checked").length;
+  document.getElementById("progress").style.width=(done/total*100)+"%";
+  document.getElementById("progressText").textContent=`${done} / ${total} completados`;
+}
+function resetChecklist(){
+  localStorage.removeItem("n5Progress");
+  loadChecklist();
+}
+
+function loadQuiz(){
+  const form=document.getElementById("quizForm");
+  form.innerHTML=quiz.map((q,i)=>`
+    <div class="quiz-question">
+      <strong>${i+1}. ${q[0]}</strong>
+      ${q[1].map((option,j)=>`
+        <label><input type="radio" name="q${i}" value="${j}"> ${option}</label>
+      `).join("")}
+    </div>
+  `).join("");
+}
+function gradeQuiz(){
+  let score=0, answered=0;
+  quiz.forEach((q,i)=>{
+    const chosen=document.querySelector(`input[name="q${i}"]:checked`);
+    if(chosen){
+      answered++;
+      if(Number(chosen.value)===q[2]) score++;
+    }
+  });
+  const pct=Math.round(score/quiz.length*100);
+  document.getElementById("quizResult").textContent=
+    `Resultado: ${score}/${quiz.length} (${pct}%). Respondidas: ${answered}/${quiz.length}.`;
+}
+loadChecklist();
+loadQuiz();
+</script>
+</body>
+</html>
