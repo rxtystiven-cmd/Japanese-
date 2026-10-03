@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanji N5 - Japanese Fácil</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222;line-height:1.6}
+header{background:#d71920;color:#fff;text-align:center;padding:28px 15px}
+header h1{margin:0 0 5px;font-size:32px}
+header p{margin:0}
+nav{background:#b51218;text-align:center;padding:10px}
+nav a{color:#fff;text-decoration:none;margin:4px 7px;display:inline-block}
+main{max-width:1100px;margin:auto;padding:20px}
+h2{color:#d71920;border-bottom:2px solid #d71920;padding-bottom:6px;margin-top:30px}
+h3{color:#b51218;margin-top:25px}
+.intro,.info{background:#fff5f5;border-left:5px solid #d71920;border-radius:8px;padding:15px;margin:15px 0}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+input{flex:1;min-width:220px;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:16px}
+button{padding:10px 14px;border:0;border-radius:8px;background:#d71920;color:white;cursor:pointer}
+button.active{background:#222}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{border:1px solid #ddd;border-radius:10px;padding:16px;background:white;box-shadow:0 2px 7px #00000010}
+.kanji{font-size:52px;font-weight:bold;color:#d71920;text-align:center}
+.meaning{text-align:center;font-size:18px;font-weight:bold;margin-bottom:8px}
+.card p{margin:5px 0}
+.example{background:#fff5f5;border-radius:6px;padding:8px;margin-top:10px}
+.jp{font-size:20px;font-weight:bold}
+.small{font-size:13px;color:#666}
+footer{margin-top:35px;background:#b51218;color:#fff;text-align:center;padding:20px}
+.hidden{display:none}
+@media(max-width:600px){
+ header h1{font-size:27px}
+ main{padding:12px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .card{padding:12px}
+ .kanji{font-size:43px}
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1>🈶 Kanji N5</h1>
+<p>Kanji esenciales para comenzar a leer japonés</p>
+</header>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="hiragana.html">Hiragana</a>
+<a href="katakana.html">Katakana</a>
+<a href="kanji.html">Kanji</a>
+<a href="vocabulario.html">Vocabulario</a>
+<a href="particulas.html">Partículas</a>
+<a href="frases.html">Frases</a>
+<a href="ejercicios.html">Ejercicios</a>
+<a href="jlpt-n5.html">JLPT N5</a>
+</nav>
+
+<main>
+<div class="intro">
+<h2 style="margin-top:0">📚 Kanji para N5</h2>
+<p>Esta página reúne un conjunto amplio de kanji básicos y frecuentes que conviene conocer al preparar el nivel N5.</p>
+<p><strong>Consejo:</strong> aprende cada kanji junto con palabras reales. Las lecturas pueden cambiar dependiendo de la palabra.</p>
+</div>
+
+<div class="controls">
+<input id="search" type="text" placeholder="🔎 Buscar kanji, significado, lectura o palabra...">
+<button class="active" data-cat="Todos">Todos</button>
+<button data-cat="Números">Números</button>
+<button data-cat="Tiempo">Tiempo</button>
+<button data-cat="Personas">Personas</button>
+<button data-cat="Escuela">Escuela</button>
+<button data-cat="Lugar">Lugar</button>
+<button data-cat="Naturaleza">Naturaleza</button>
+<button data-cat="Adjetivos">Adjetivos</button>
+<button data-cat="Verbos">Verbos</button>
+<button data-cat="Cotidiano">Cotidiano</button>
+</div>
+
+<div id="count" class="small"></div>
+<div id="kanjiGrid" class="grid"></div>
+
+<div class="info">
+<h3>💡 Cómo estudiar kanji</h3>
+<ul>
+<li>Empieza por los números y kanji de uso diario.</li>
+<li>Aprende una palabra de ejemplo con cada kanji.</li>
+<li>Practica escritura y orden de trazos.</li>
+<li>No memorices todas las lecturas aisladas de golpe.</li>
+<li>Después intenta reconocerlos dentro de frases.</li>
+</ul>
+</div>
+
+<h2>⭐ Repaso rápido</h2>
+<div class="info">
+<p><strong>Muy básicos:</strong> 一 二 三 四 五 六 七 八 九 十 日 月 火 水 木 金 土 人 大 小 上 下 中</p>
+<p><strong>Muy frecuentes:</strong> 学 校 生 先 本 名 年 時 今 前 後 東 西 南 北 山 川 天 気 雨</p>
+<p><strong>Acciones:</strong> 行 来 帰 見 聞 読 書 話 言 食 飲 買 使 作 休 入 出 立</p>
+</div>
+</main>
+
+<footer>Japanese Fácil 🇯🇵<br>Kanji N5</footer>
+
+<script>
+const kanji=[
+/* NÚMEROS */
+{c:"一",m:"uno",on:"いち・いつ",kun:"ひと",e:"一つ（ひとつ）",t:"uno",cat:"Números"},
+{c:"二",m:"dos",on:"に",kun:"ふた",e:"二つ（ふたつ）",t:"dos",cat:"Números"},
+{c:"三",m:"tres",on:"さん",kun:"みっ・み",e:"三つ（みっつ）",t:"tres",cat:"Números"},
+{c:"四",m:"cuatro",on:"し",kun:"よん・よっ・よ",e:"四つ（よっつ）",t:"cuatro",cat:"Números"},
+{c:"五",m:"cinco",on:"ご",kun:"いつ・いつつ",e:"五つ（いつつ）",t:"cinco",cat:"Números"},
+{c:"六",m:"seis",on:"ろく",kun:"むっ・む",e:"六つ（むっつ）",t:"seis",cat:"Números"},
+{c:"七",m:"siete",on:"しち",kun:"なな・なの",e:"七つ（ななつ）",t:"siete",cat:"Números"},
+{c:"八",m:"ocho",on:"はち",kun:"やっ・や",e:"八つ（やっつ）",t:"ocho",cat:"Números"},
+{c:"九",m:"nueve",on:"きゅう・く",kun:"ここの",e:"九つ（ここのつ）",t:"nueve",cat:"Números"},
+{c:"十",m:"diez",on:"じゅう・じっ",kun:"とお",e:"十日（とおか）",t:"diez días",cat:"Números"},
+{c:"百",m:"cien",on:"ひゃく",kun:"",e:"百円（ひゃくえん）",t:"100 yenes",cat:"Números"},
+{c:"千",m:"mil",on:"せん",kun:"ち",e:"千円（せんえん）",t:"1000 yenes",cat:"Números"},
+{c:"万",m:"diez mil",on:"まん・ばん",kun:"",e:"一万円（いちまんえん）",t:"10 000 yenes",cat:"Números"},
+{c:"円",m:"yen",on:"えん",kun:"まる",e:"五百円（ごひゃくえん）",t:"500 yenes",cat:"Números"},
+
+/* TIEMPO */
+{c:"日",m:"día / sol",on:"にち・じつ",kun:"ひ・か",e:"日本（にほん）",t:"Japón",cat:"Tiempo"},
+{c:"月",m:"mes / luna",on:"げつ・がつ",kun:"つき",e:"月曜日（げつようび）",t:"lunes",cat:"Tiempo"},
+{c:"火",m:"fuego",on:"か",kun:"ひ",e:"火曜日（かようび）",t:"martes",cat:"Tiempo"},
+{c:"水",m:"agua",on:"すい",kun:"みず",e:"水曜日（すいようび）",t:"miércoles",cat:"Tiempo"},
+{c:"木",m:"árbol",on:"もく・ぼく",kun:"き",e:"木曜日（もくようび）",t:"jueves",cat:"Tiempo"},
+{c:"金",m:"oro / dinero",on:"きん・こん",kun:"かね",e:"お金（おかね）",t:"dinero",cat:"Tiempo"},
+{c:"土",m:"tierra",on:"ど・と",kun:"つち",e:"土曜日（どようび）",t:"sábado",cat:"Tiempo"},
+{c:"年",m:"año",on:"ねん",kun:"とし",e:"今年（ことし）",t:"este año",cat:"Tiempo"},
+{c:"時",m:"hora / tiempo",on:"じ",kun:"とき",e:"時間（じかん）",t:"tiempo",cat:"Tiempo"},
+{c:"間",m:"intervalo",on:"かん・けん",kun:"あいだ・ま",e:"時間（じかん）",t:"tiempo",cat:"Tiempo"},
+{c:"週",m:"semana",on:"しゅう",kun:"",e:"毎週（まいしゅう）",t:"cada semana",cat:"Tiempo"},
+{c:"今",m:"ahora",on:"こん・きん",kun:"いま",e:"今日（きょう）",t:"hoy",cat:"Tiempo"},
+{c:"毎",m:"cada",on:"まい",kun:"",e:"毎日（まいにち）",t:"cada día",cat:"Tiempo"},
+{c:"半",m:"mitad",on:"はん",kun:"なか",e:"半分（はんぶん）",t:"mitad",cat:"Tiempo"},
+{c:"分",m:"minuto / parte",on:"ぶん・ふん",kun:"わ",e:"五分（ごふん）",t:"cinco minutos",cat:"Tiempo"},
+
+/* PERSONAS */
+{c:"人",m:"persona",on:"じん・にん",kun:"ひと",e:"日本人（にほんじん）",t:"japonés",cat:"Personas"},
+{c:"男",m:"hombre",on:"だん・なん",kun:"おとこ",e:"男の子（おとこのこ）",t:"niño",cat:"Personas"},
+{c:"女",m:"mujer",on:"じょ・にょ",kun:"おんな",e:"女の子（おんなのこ）",t:"niña",cat:"Personas"},
+{c:"子",m:"niño",on:"し・す",kun:"こ",e:"子ども（こども）",t:"niño",cat:"Personas"},
+{c:"父",m:"padre",on:"ふ",kun:"ちち",e:"お父さん（おとうさん）",t:"padre",cat:"Personas"},
+{c:"母",m:"madre",on:"ぼ",kun:"はは",e:"お母さん（おかあさん）",t:"madre",cat:"Personas"},
+{c:"友",m:"amigo",on:"ゆう",kun:"とも",e:"友達（ともだち）",t:"amigo",cat:"Personas"},
+{c:"先",m:"anterior / primero",on:"せん",kun:"さき",e:"先生（せんせい）",t:"profesor",cat:"Personas"},
+
+/* ESCUELA */
+{c:"学",m:"estudiar",on:"がく",kun:"まな",e:"学生（がくせい）",t:"estudiante",cat:"Escuela"},
+{c:"校",m:"escuela",on:"こう",kun:"",e:"学校（がっこう）",t:"escuela",cat:"Escuela"},
+{c:"生",m:"vida / nacer",on:"せい・しょう",kun:"い・う・なま",e:"学生（がくせい）",t:"estudiante",cat:"Escuela"},
+{c:"本",m:"libro / origen",on:"ほん・ぽん・ぼん",kun:"もと",e:"本（ほん）",t:"libro",cat:"Escuela"},
+{c:"名",m:"nombre",on:"めい・みょう",kun:"な",e:"名前（なまえ）",t:"nombre",cat:"Escuela"},
+{c:"文",m:"texto / escritura",on:"ぶん・もん",kun:"ふみ",e:"作文（さくぶん）",t:"redacción",cat:"Escuela"},
+{c:"字",m:"carácter / letra",on:"じ",kun:"あざ",e:"漢字（かんじ）",t:"kanji",cat:"Escuela"},
+{c:"語",m:"idioma / palabra",on:"ご",kun:"かた",e:"日本語（にほんご）",t:"japonés",cat:"Escuela"},
+
+/* LUGAR */
+{c:"上",m:"arriba",on:"じょう・しょう",kun:"うえ・あ・のぼ",e:"上手（じょうず）",t:"bueno / hábil",cat:"Lugar"},
+{c:"下",m:"abajo",on:"か・げ",kun:"した・しも・さ・くだ・お",e:"下手（へた）",t:"poco hábil",cat:"Lugar"},
+{c:"中",m:"dentro / medio",on:"ちゅう・じゅう",kun:"なか・うち・あた",e:"中学校（ちゅうがっこう）",t:"secundaria",cat:"Lugar"},
+{c:"外",m:"fuera",on:"がい・げ",kun:"そと・ほか・はず",e:"外国（がいこく）",t:"país extranjero",cat:"Lugar"},
+{c:"前",m:"delante / antes",on:"ぜん",kun:"まえ",e:"午前（ごぜん）",t:"a.m.",cat:"Lugar"},
+{c:"後",m:"después / detrás",on:"ご・こう",kun:"あと・うし・のち",e:"午後（ごご）",t:"p.m.",cat:"Lugar"},
+{c:"左",m:"izquierda",on:"さ",kun:"ひだり",e:"左手（ひだりて）",t:"mano izquierda",cat:"Lugar"},
+{c:"右",m:"derecha",on:"う",kun:"みぎ",e:"右手（みぎて）",t:"mano derecha",cat:"Lugar"},
+{c:"東",m:"este",on:"とう",kun:"ひがし",e:"東京（とうきょう）",t:"Tokio",cat:"Lugar"},
+{c:"西",m:"oeste",on:"せい・さい",kun:"にし",e:"西口（にしぐち）",t:"salida oeste",cat:"Lugar"},
+{c:"南",m:"sur",on:"なん・な",kun:"みなみ",e:"南口（みなみぐち）",t:"salida sur",cat:"Lugar"},
+{c:"北",m:"norte",on:"ほく・ほう",kun:"きた",e:"北口（きたぐち）",t:"salida norte",cat:"Lugar"},
+{c:"道",m:"camino",on:"どう・とう",kun:"みち",e:"道（みち）",t:"camino",cat:"Lugar"},
+{c:"駅",m:"estación",on:"えき",kun:"",e:"駅（えき）",t:"estación",cat:"Lugar"},
+{c:"店",m:"tienda",on:"てん",kun:"みせ・たな",e:"店（みせ）",t:"tienda",cat:"Lugar"},
+
+/* NATURALEZA */
+{c:"山",m:"montaña",on:"さん・せん",kun:"やま",e:"富士山（ふじさん）",t:"monte Fuji",cat:"Naturaleza"},
+{c:"川",m:"río",on:"せん",kun:"かわ",e:"川（かわ）",t:"río",cat:"Naturaleza"},
+{c:"田",m:"arrozal",on:"でん",kun:"た",e:"田んぼ（たんぼ）",t:"arrozal",cat:"Naturaleza"},
+{c:"天",m:"cielo",on:"てん",kun:"あめ・あま",e:"天気（てんき）",t:"clima",cat:"Naturaleza"},
+{c:"気",m:"ánimo / aire",on:"き・け",kun:"",e:"元気（げんき）",t:"salud / energía",cat:"Naturaleza"},
+{c:"雨",m:"lluvia",on:"う",kun:"あめ・あま",e:"雨（あめ）",t:"lluvia",cat:"Naturaleza"},
+{c:"空",m:"cielo",on:"くう",kun:"そら・あ",e:"空（そら）",t:"cielo",cat:"Naturaleza"},
+{c:"花",m:"flor",on:"か",kun:"はな",e:"花（はな）",t:"flor",cat:"Naturaleza"},
+
+/* ADJETIVOS */
+{c:"大",m:"grande",on:"だい・たい",kun:"おお",e:"大学（だいがく）",t:"universidad",cat:"Adjetivos"},
+{c:"小",m:"pequeño",on:"しょう",kun:"ちい・こ・お",e:"小さい（ちいさい）",t:"pequeño",cat:"Adjetivos"},
+{c:"長",m:"largo",on:"ちょう",kun:"なが",e:"長い（ながい）",t:"largo",cat:"Adjetivos"},
+{c:"高",m:"alto / caro",on:"こう",kun:"たか",e:"高い（たかい）",t:"caro / alto",cat:"Adjetivos"},
+{c:"安",m:"barato / tranquilo",on:"あん",kun:"やす",e:"安い（やすい）",t:"barato",cat:"Adjetivos"},
+{c:"新",m:"nuevo",on:"しん",kun:"あたら・あら・にい",e:"新しい（あたらしい）",t:"nuevo",cat:"Adjetivos"},
+{c:"古",m:"viejo / antiguo",on:"こ",kun:"ふる",e:"古い（ふるい）",t:"viejo",cat:"Adjetivos"},
+{c:"多",m:"mucho",on:"た",kun:"おお",e:"多い（おおい）",t:"mucho",cat:"Adjetivos"},
+{c:"少",m:"poco",on:"しょう",kun:"すく・すこ",e:"少ない（すくない）",t:"poco",cat:"Adjetivos"},
+{c:"白",m:"blanco",on:"はく・びゃく",kun:"しろ・しら",e:"白い（しろい）",t:"blanco",cat:"Adjetivos"},
+{c:"赤",m:"rojo",on:"せき・しゃく",kun:"あか",e:"赤い（あかい）",t:"rojo",cat:"Adjetivos"},
+{c:"青",m:"azul",on:"せい・しょう",kun:"あお",e:"青い（あおい）",t:"azul",cat:"Adjetivos"},
+
+/* VERBOS */
+{c:"行",m:"ir",on:"こう・ぎょう",kun:"い・ゆ・おこな",e:"行く（いく）",t:"ir",cat:"Verbos"},
+{c:"来",m:"venir",on:"らい",kun:"く・き・こ",e:"来る（くる）",t:"venir",cat:"Verbos"},
+{c:"帰",m:"regresar",on:"き",kun:"かえ",e:"帰る（かえる）",t:"regresar",cat:"Verbos"},
+{c:"見",m:"ver",on:"けん",kun:"み・みせ",e:"見る（みる）",t:"ver",cat:"Verbos"},
+{c:"聞",m:"oír / preguntar",on:"ぶん・もん",kun:"き・きく",e:"聞く（きく）",t:"escuchar / preguntar",cat:"Verbos"},
+{c:"読",m:"leer",on:"どく・とく",kun:"よ",e:"読む（よむ）",t:"leer",cat:"Verbos"},
+{c:"書",m:"escribir",on:"しょ",kun:"か",e:"書く（かく）",t:"escribir",cat:"Verbos"},
+{c:"話",m:"hablar",on:"わ",kun:"はな・はなし",e:"話す（はなす）",t:"hablar",cat:"Verbos"},
+{c:"言",m:"decir",on:"げん・ごん",kun:"い・こと",e:"言う（いう）",t:"decir",cat:"Verbos"},
+{c:"食",m:"comer / comida",on:"しょく・じき",kun:"た・く",e:"食べる（たべる）",t:"comer",cat:"Verbos"},
+{c:"飲",m:"beber",on:"いん",kun:"の",e:"飲む（のむ）",t:"beber",cat:"Verbos"},
+{c:"買",m:"comprar",on:"ばい",kun:"か",e:"買う（かう）",t:"comprar",cat:"Verbos"},
+{c:"使",m:"usar",on:"し",kun:"つか",e:"使う（つかう）",t:"usar",cat:"Verbos"},
+{c:"作",m:"hacer / crear",on:"さく・さ",kun:"つく",e:"作る（つくる）",t:"hacer",cat:"Verbos"},
+{c:"休",m:"descansar",on:"きゅう",kun:"やす",e:"休む（やすむ）",t:"descansar",cat:"Verbos"},
+{c:"入",m:"entrar",on:"にゅう",kun:"はい・い・いり",e:"入る（はいる）",t:"entrar",cat:"Verbos"},
+{c:"出",m:"salir",on:"しゅつ・すい",kun:"で・だ",e:"出る（でる）",t:"salir",cat:"Verbos"},
+{c:"立",m:"estar de pie",on:"りつ・りゅう",kun:"た・たて",e:"立つ（たつ）",t:"estar de pie",cat:"Verbos"},
+{c:"住",m:"vivir / residir",on:"じゅう",kun:"す",e:"住む（すむ）",t:"vivir",cat:"Verbos"},
+
+/* COTIDIANO */
+{c:"目",m:"ojo",on:"もく・ぼく",kun:"め・ま",e:"目（め）",t:"ojo",cat:"Cotidiano"},
+{c:"耳",m:"oreja / oído",on:"じ",kun:"みみ",e:"耳（みみ）",t:"oreja",cat:"Cotidiano"},
+{c:"口",m:"boca",on:"こう・く",kun:"くち",e:"入口（いりぐち）",t:"entrada",cat:"Cotidiano"},
+{c:"手",m:"mano",on:"しゅ・ず",kun:"て・た",e:"手（て）",t:"mano",cat:"Cotidiano"},
+{c:"足",m:"pie / pierna",on:"そく",kun:"あし・た",e:"足（あし）",t:"pie / pierna",cat:"Cotidiano"},
+{c:"力",m:"fuerza",on:"りょく・りき",kun:"ちから",e:"力（ちから）",t:"fuerza",cat:"Cotidiano"},
+{c:"車",m:"auto / vehículo",on:"しゃ",kun:"くるま",e:"電車（でんしゃ）",t:"tren",cat:"Cotidiano"},
+{c:"電",m:"electricidad",on:"でん",kun:"",e:"電話（でんわ）",t:"teléfono",cat:"Cotidiano"},
+{c:"国",m:"país",on:"こく",kun:"くに",e:"外国（がいこく）",t:"país extranjero",cat:"Cotidiano"},
+{c:"物",m:"cosa",on:"ぶつ・もつ",kun:"もの",e:"食べ物（たべもの）",t:"comida",cat:"Cotidiano"},
+{c:"門",m:"puerta / entrada",on:"もん",kun:"かど",e:"門（もん）",t:"puerta",cat:"Cotidiano"},
+{c:"魚",m:"pez / pescado",on:"ぎょ",kun:"さかな・うお",e:"魚（さかな）",t:"pescado",cat:"Cotidiano"},
+{c:"肉",m:"carne",on:"にく",kun:"",e:"肉（にく）",t:"carne",cat:"Cotidiano"},
+{c:"米",m:"arroz",on:"べい・まい",kun:"こめ",e:"米（こめ）",t:"arroz",cat:"Cotidiano"},
+{c:"茶",m:"té",on:"ちゃ・さ",kun:"",e:"お茶（おちゃ）",t:"té",cat:"Cotidiano"}
+];
+
+const grid=document.getElementById("kanjiGrid");
+const search=document.getElementById("search");
+const count=document.getElementById("count");
+let category="Todos";
+
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const filtered=kanji.filter(k=>{
+   const text=(k.c+" "+k.m+" "+k.on+" "+k.kun+" "+k.e+" "+k.t).toLowerCase();
+   return (category==="Todos"||k.cat===category)&&text.includes(q);
+ });
+ count.textContent=`Mostrando ${filtered.length} de ${kanji.length} kanji`;
+ grid.innerHTML=filtered.map(k=>`
+ <article class="card">
+   <div class="kanji">${k.c}</div>
+   <div class="meaning">${k.m}</div>
+   <p><strong>ON:</strong> ${k.on||"—"}</p>
+   <p><strong>KUN:</strong> ${k.kun||"—"}</p>
+   <div class="example">
+     <div class="jp">${k.e}</div>
+     <div>${k.t}</div>
+   </div>
+   <p class="small">Categoría: ${k.cat}</p>
+ </article>`).join("");
+}
+document.querySelectorAll("button[data-cat]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+   document.querySelectorAll("button[data-cat]").forEach(b=>b.classList.remove("active"));
+   btn.classList.add("active");
+   category=btn.dataset.cat;
+   render();
+ });
+});
+search.addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
